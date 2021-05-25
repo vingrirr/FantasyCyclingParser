@@ -1,0 +1,44 @@
+﻿
+@using FantasyCyclingWeb.Models
+@using FantasyCyclingParser
+
+@model FantasyResult
+
+
+
+                <div class="panel panel-white">
+                    <div class="panel-heading">
+                        <h6 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion-control" href="#accordion-control-group-@Model.TempID" aria-expanded="false" class="collapsed">
+                            @Model.Race.Month @Model.Race.DayNum <br />
+                                @Model.Race.EventName <br />
+                            @Model.Race.Country
+                            </a>
+                        </h6>
+                    </div>
+                    <div id="accordion-control-group-@Model.TempID" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                        <div class="panel-body">
+                            
+                            <table class="table table-striped">
+                                <tr>
+                                    <th>Team</th>
+                                    <th>Points Scored</th>
+                                    <th>Running Total</th>
+                                </tr>
+                                @foreach (TeamPoints t in Model.Points)
+                                {
+                                <tr>
+                                    <td>@t.Name</td>
+                                    <td>@t.Points</td>
+                                    <td>@t.RunningTotalPoints</td>
+                                </tr>
+                                }
+                            </table>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+

@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fantasy Cycling</title>
+
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/icons/fontawesome/styles.min.css" rel="stylesheet" />
+    <link href="~/assets/css/minified/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/core.css" rel="stylesheet" />
+    <link href="~/assets/css/components.css" rel="stylesheet" />
+    <link href="~/assets/css/colors.css" rel="stylesheet" />
+    <link href="~/assets/css/divider.min.css" rel="stylesheet" />
+    <link href="~/assets/css/editor.css" rel="stylesheet" />
+    @*<link href="~/assets/css/flip.css" rel="stylesheet" />*@
+    <link href="~/assets/css/hover-min.css" rel="stylesheet" />
+    <!-- /global stylesheets -->
+    <!-- Core JS files -->
+    @*<script type="text/javascript" src="~/assets/js/plugins/loaders/pace.min.js"></script>*@
+    <script type="text/javascript" src="~/assets/js/core/libraries/jquery.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/core/libraries/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins/loaders/blockui.min.js"></script>
+    <script src="~/assets/js/plugins/jquery.peekABar-1.0.1/dist/js/jquery.peekabar.min.js"></script>
+    <link href="~/assets/js/plugins/jquery.peekABar-1.0.1/dist/css/jquery.peekabar.min.css" rel="stylesheet" />
+    <link href="~/assets/js/plugins/notifications/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <link href="~/assets/css/extras/animate.min.css" rel="stylesheet" />
+    <!-- /core JS files -->
+    <!-- Theme JS files -->
+    <link href="../../ladda-bootstrap-master/ladda-bootstrap-master/dist/ladda-themeless.min.css"
+          rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="~/assets/js/plugins/forms/styling/uniform.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins/ui/moment/moment.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins/pickers/daterangepicker.js"></script>
+    <script type="text/javascript" src="~/assets/js/core/app.js"></script>
+   
+
+    <script src="../../ladda-bootstrap-master/ladda-bootstrap-master/dist/ladda.jquery.min.js"
+            type="text/javascript"></script>
+    <script src="../../ladda-bootstrap-master/ladda-bootstrap-master/dist/spin.min.js"
+            type="text/javascript"></script>
+    <script src="../../ladda-bootstrap-master/ladda-bootstrap-master/dist/ladda.min.js"
+            type="text/javascript"></script>
+
+    <script src="~/assets/js/plugins/notifications/sweetalert2/sweetalert2.min.js"></script>
+    <script src="~/assets/js/plugins/ui/ripple.min.js"></script>
+    <script src="~/js/Pages/GlobalModule.js"></script>
+    <script src="~/js/Pages/UIMessageModule.js"></script>
+    <script src="~/js/Pages/ValidationsModule.js"></script>
+    <!-- /theme JS files -->
+</head>
+<body>
+    <!-- Main navbar -->
+    <div class="navbar navbar-inverse bg-indigo">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">Fantasy Cycling 1.1</a>
+            <ul class="nav navbar-nav visible-xs-block">
+                <!--<li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li> -->
+
+            </ul>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-mobile">
+            <ul class="nav navbar-nav">
+                <!--<li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li> -->
+                <li class="dropdown">
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right"></ul>
+        </div>
+    </div>
+    <!-- /main navbar -->
+    <!-- Second navbar -->
+    <div class="navbar navbar-default" id="navbar-second">
+        <ul class="nav navbar-nav no-border visible-xs-block">
+            <li><a class="text-center collapsed" data-toggle="collapse" data-target="#navbar-second-toggle"><i class="icon-menu7"></i></a></li>
+        </ul>
+        <div class="navbar-collapse collapse" id="navbar-second-toggle">
+            <ul class="nav navbar-nav">
+                <li><a href="~/home/index"><i class="icon-display4 position-left"></i> Home</a></li>
+                <li><a href="~/home/RaceSeason"><i class="icon-display4" position-left"></i> Race Season</a></li>
+                <li><a href="~/home/AddConfig"><i class="icon-display4" position-left"></i> Create Dashboard</a></li>                
+              
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/login"><i class="fa fa-sign-out">Log Out</i></a>
+                </li>
+                @*<li>
+                    <a href="changelog.html">
+                        <i class="icon-history position-left"></i>
+                        Changelog
+                        <span class="label label-inline position-right bg-success-400">1.1</span>
+                    </a>
+                </li>*@
+                @*<li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-cog3"></i>
+                        <span class="visible-xs-inline-block position-right">Share</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#"><i class="icon-user-lock"></i> Account security</a></li>
+                        <li><a href="#"><i class="icon-statistics"></i> Analytics</a></li>
+                        <li><a href="#"><i class="icon-accessibility"></i> Accessibility</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#"><i class="icon-gear"></i> All settings</a></li>
+                    </ul>
+                </li>*@
+            </ul>
+        </div>
+    </div>
+    <!-- /second navbar -->
+    <!-- Page container -->
+    <div class="page-container">
+        <!-- Page content -->
+        <div class="page-content">
+            <!-- Main content -->
+            <div class="content-wrapper">
+                <!-- Page header --><div class="page-header page-header-default">
+                    <div class="page-header-content">
+                        @RenderSection("PageHeader", required: false)
+
+                    </div>
+
+                </div>
+                <!-- /page header -->
+                <!-- Content area -->
+                <div class="content">
+                    <div class="row">
+                        @RenderBody()
+                    </div>
+                    <!-- Footer -->
+                    <div class="footer text-muted">
+                        &copy; 2016. <a href="#">Training Dashboard</a> <a href="#" target="_blank"></a>
+                    </div>
+                    <!-- /footer -->
+                </div>
+                <!-- /content area -->
+            </div>
+            <!-- /main content -->
+        </div>
+        <!-- /page content -->
+    </div>
+    <!-- /page container -->
+    @RenderSection("AdditionalJavaScript", required: false)
+    @RenderSection("AdditionalCss", required: false)
+    <script type=" text/javascript">
+            jQuery(document).ready(function() {
+                  $.fn.extend({
+                        animateCss: function (animationName) {
+                            var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                            $(this).addClass('animated ' + animationName).one(animationEnd, function() {
+                                $(this).removeClass('animated ' + animationName);
+                            });
+                        }
+                    });
+    @RenderSection("JqueryReady", required: false)
+
+        });
+
+
+    </script>
+</body>
+</html>

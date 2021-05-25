@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FantasyCyclingParser", "FantasyCyclingParser\FantasyCyclingParser.csproj", "{EA4A5BAC-D253-43CA-B4B6-E652D5495EDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FantasyCyclingWeb", "FantasyCyclingWeb\FantasyCyclingWeb.csproj", "{E93E9725-E3AB-4447-8996-4DAB15BF0F80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsService1", "WindowsService1\WindowsService1.csproj", "{E9CBA4AE-9040-4924-8FAB-457A25BE37D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA4A5BAC-D253-43CA-B4B6-E652D5495EDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA4A5BAC-D253-43CA-B4B6-E652D5495EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA4A5BAC-D253-43CA-B4B6-E652D5495EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA4A5BAC-D253-43CA-B4B6-E652D5495EDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E93E9725-E3AB-4447-8996-4DAB15BF0F80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E93E9725-E3AB-4447-8996-4DAB15BF0F80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E93E9725-E3AB-4447-8996-4DAB15BF0F80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E93E9725-E3AB-4447-8996-4DAB15BF0F80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9CBA4AE-9040-4924-8FAB-457A25BE37D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9CBA4AE-9040-4924-8FAB-457A25BE37D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9CBA4AE-9040-4924-8FAB-457A25BE37D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9CBA4AE-9040-4924-8FAB-457A25BE37D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

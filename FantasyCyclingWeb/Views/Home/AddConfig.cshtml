@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "AddConfig";
+    Layout = "~/Views/Shared/_LayoutNew.cshtml";
+}
+
+<script src="~/js/ConfigModule.js"></script>
+
+<div id="pnlTargets" class="panel panel-default">
+    <div class="panel-heading">
+        <div class="panel-title">
+            <h4>
+                Add Your Own Dashboard
+            </h4>
+        </div>
+        <div class="heading-elements">
+            <ul class="icons-list">
+                @*<li><a data-action="collapse"></a></li>*@
+                <!--<li><a data-action="close"></a></li>-->
+            </ul>
+        </div>
+        <a class="heading-elements-toggle"><i class="icon-menu"></i></a>
+    </div>
+
+    <div id="pnlInputs" class="panel-body">
+        <div class="inner">
+            <div class="row">
+
+                <div class="col-md-10">
+                    <div class="form-group form-group-xlg">
+                        <label class="control-label text-size-large text-bold">Dashboard Name</label>
+                        <input id="txtConfigName" type="text" class="form-control input-xlg">
+                        <span id="htxtConfigName" class="help-block">eg: Last Years Top 5 vs me</span>
+                    </div>
+                </div>
+
+           
+                <div class="col-md-10">
+                    <div class="input-group input-group-xlg">
+                        <label class="control-label text-size-large text-bold">Team URL</label>
+                        <input id="txtTeamURL" type="text" class="form-control input-xlg">
+                        <span id="htxTeamUID" class="help-block"> ex: https://pdcvds.com/teams.php?mw=1&y=2019&uid=2483 </span>
+                        <div class="input-group-btn">
+                            <button onclick="CONFIG.AddTeamUID();" class="btn btn-primary btn-xlg legitRipple">Add Team</button>
+                        </div>
+                    </div>
+                </div>
+                </div> <!-- end row-->
+
+            <div class="row">
+               <br />
+                <div class="table-responsive col-md-10">
+                    <table id="mytable" class="table table-bordered table-framed">
+                        <thead>
+                            <tr>
+                                <th>TeamUID</th>
+                                <th>Year </th>
+                                <th> Team Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           
+                        </tbody>
+                        </table>
+                </div>
+
+            </div>
+
+
+    </div>
+    <div class="panel-footer">
+        <div class="row search-option-buttons">
+            <div class="col-sm-3">
+                <br />
+                <button id="btnDashboard" onclick="CONFIG.AddConfig();" data-style="expand-left" class="btn btn-lg btn-primary ladda-button"><span class="ladda-label">Save Dashboard</span></button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+
+            var vm = @Html.Raw(Json.Encode(@Model));
+
+            CONFIG.init(vm);
+
+        });
+
+
+</script>

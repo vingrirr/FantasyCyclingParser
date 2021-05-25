@@ -1,0 +1,13 @@
+﻿@using FantasyCyclingParser
+@using FantasyCyclingWeb.Models
+@model List<TeamYear>
+
+@foreach (TeamYear ty in Model)
+{
+    <tr id="tr_@ty.GUID">
+        <td>@ty.TeamUID</td>
+        <td>@ty.Year</td>
+        <td>@ty.Name</td>
+        <td><button id="btnDashboard" onclick="CONFIG.RemoveTeamUID('@ty.GUID');" class="btn btn-lg btn-danger right"><span class="ladda-label">Remove</span></button></td>
+    </tr>
+}

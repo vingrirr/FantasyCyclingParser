@@ -1,0 +1,1733 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//dronkert.net//NONSGML PodiumCafe Virtual DS//EN
+BEGIN:VEVENT
+UID:mw1y2018id442@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180221
+DTEND;VALUE=DATE:20180226
+CATEGORIES:Men,Top Stage Races
+SUMMARY:Abu Dhabi Tour
+DESCRIPTION:Men's stage race\,
+  category: Top Stage Races\,
+  5 stages\, 5 days.
+LOCATION:United Arab Emirates
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=442
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id17@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180224
+DTEND;VALUE=DATE:20180225
+CATEGORIES:Men,Top Classics
+SUMMARY:Omloop Het Nieuwsblad
+DESCRIPTION:Men's single day race\,
+  category: Top Classics.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=17
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id327@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180224
+DTEND;VALUE=DATE:20180225
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Classic Sud Ardèche
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=327
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id27@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180225
+DTEND;VALUE=DATE:20180226
+CATEGORIES:Men,Top Classics
+SUMMARY:Kuurne - Brussel - Kuurne
+DESCRIPTION:Men's single day race\,
+  category: Top Classics.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=27
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id330@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180225
+DTEND;VALUE=DATE:20180226
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Royal Bernard Drôme Classic
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=330
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id53@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180227
+DTEND;VALUE=DATE:20180228
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Le Samyn
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=53
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id29@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180303
+DTEND;VALUE=DATE:20180304
+CATEGORIES:Men,Top Classics
+SUMMARY:Strade Bianche
+DESCRIPTION:Men's single day race\,
+  category: Top Classics.
+LOCATION:Italy
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=29
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id11@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180304
+DTEND;VALUE=DATE:20180312
+CATEGORIES:Men,Top Stage Races
+SUMMARY:Paris-Nice
+DESCRIPTION:Men's stage race\,
+  category: Top Stage Races\,
+  8 stages\, 8 days.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=11
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id379@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180304
+DTEND;VALUE=DATE:20180305
+CATEGORIES:Men,Best of the Rest
+SUMMARY:GP Industria & Artigianato
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Italy
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=379
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id454@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180304
+DTEND;VALUE=DATE:20180305
+CATEGORIES:Men,Minor Races
+SUMMARY:Dwars door West-Vlaanderen Johan Museeuw Classic
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=454
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id12@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180307
+DTEND;VALUE=DATE:20180314
+CATEGORIES:Men,Top Stage Races
+SUMMARY:Tirreno-Adriatico
+DESCRIPTION:Men's stage race\,
+  category: Top Stage Races\,
+  7 stages\, 7 days.
+LOCATION:Italy
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=12
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id224@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180311
+DTEND;VALUE=DATE:20180312
+CATEGORIES:Men,Minor Races
+SUMMARY:Ronde van Drenthe
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:Netherlands
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=224
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id55@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180314
+DTEND;VALUE=DATE:20180315
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Nokere Koerse
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=55
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id297@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180316
+DTEND;VALUE=DATE:20180317
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Handzame Classic
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=297
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id6@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180317
+DTEND;VALUE=DATE:20180318
+CATEGORIES:Men,Monuments and Worlds
+SUMMARY:Milano-Sanremo
+DESCRIPTION:Men's single day race\,
+  category: Monuments and Worlds.
+LOCATION:Italy
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=6
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id348@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180318
+DTEND;VALUE=DATE:20180319
+CATEGORIES:Men,Best of the Rest
+SUMMARY:GP de Denain Porte du Hainaut
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=348
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id51@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180318
+DTEND;VALUE=DATE:20180326
+CATEGORIES:Men,Minor Races
+SUMMARY:Tour de Langkawi
+DESCRIPTION:Men's stage race\,
+  category: Minor Races\,
+  8 stages\, 8 days.
+LOCATION:Malaysia
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=51
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id30@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180319
+DTEND;VALUE=DATE:20180326
+CATEGORIES:Men,Top Stage Races
+SUMMARY:Volta Ciclista a Catalunya
+DESCRIPTION:Men's stage race\,
+  category: Top Stage Races\,
+  7 stages\, 7 days.
+LOCATION:Spain
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=30
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id483@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180321
+DTEND;VALUE=DATE:20180322
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Driedaagse De Panne-Koksijde
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=483
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id57@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180322
+DTEND;VALUE=DATE:20180326
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Settimana Internazionale di Coppi e Bartali
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  4 stages\, 4 days.
+LOCATION:Italy
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=57
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id421@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180323
+DTEND;VALUE=DATE:20180324
+CATEGORIES:Men,Top Classics
+SUMMARY:E3 Harelbeke
+DESCRIPTION:Men's single day race\,
+  category: Top Classics.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=421
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id376@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180324
+DTEND;VALUE=DATE:20180325
+CATEGORIES:Men,Minor Races
+SUMMARY:Classic Loire Atlantique
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=376
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id422@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180325
+DTEND;VALUE=DATE:20180326
+CATEGORIES:Men,Top Classics
+SUMMARY:Gent-Wevelgem in Flanders Fields
+DESCRIPTION:Men's single day race\,
+  category: Top Classics.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=422
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id31@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180328
+DTEND;VALUE=DATE:20180329
+CATEGORIES:Men,Top Classics
+SUMMARY:Dwars door Vlaanderen
+DESCRIPTION:Men's single day race\,
+  category: Top Classics.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=31
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id386@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180330
+DTEND;VALUE=DATE:20180331
+CATEGORIES:Men,Minor Races
+SUMMARY:Route Adéie de Vitré
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=386
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id34@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180331
+DTEND;VALUE=DATE:20180401
+CATEGORIES:Men,Best of the Rest
+SUMMARY:GP Miguel Indurain
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Spain
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=34
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id310@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180331
+DTEND;VALUE=DATE:20180401
+CATEGORIES:Men,Minor Races
+SUMMARY:Volta Limburg Classic
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:Netherlands
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=310
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id4@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180401
+DTEND;VALUE=DATE:20180402
+CATEGORIES:Men,Monuments and Worlds
+SUMMARY:Ronde van Vlaanderen
+DESCRIPTION:Men's single day race\,
+  category: Monuments and Worlds.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=4
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id387@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180401
+DTEND;VALUE=DATE:20180402
+CATEGORIES:Men,Minor Races
+SUMMARY:La Roue Tourangelle Région Centre - Trophée Harmonie Mutuelle
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=387
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id194@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180401
+DTEND;VALUE=DATE:20180402
+CATEGORIES:Men,Minor Races
+SUMMARY:Vuelta Ciclista a La Rioja
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:Spain
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=194
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id13@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180402
+DTEND;VALUE=DATE:20180408
+CATEGORIES:Men,Top Stage Races
+SUMMARY:Vuelta ciclista al Pais Vasco
+DESCRIPTION:Men's stage race\,
+  category: Top Stage Races\,
+  6 stages\, 6 days.
+LOCATION:Spain
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=13
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id191@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180403
+DTEND;VALUE=DATE:20180407
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Circuit Cycliste de la Sarthe - Pays de la Loire
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  4 stages\, 4 days.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=191
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id36@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180404
+DTEND;VALUE=DATE:20180405
+CATEGORIES:Men,Top Classics
+SUMMARY:Scheldeprijs
+DESCRIPTION:Men's single day race\,
+  category: Top Classics.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=36
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id5@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180408
+DTEND;VALUE=DATE:20180409
+CATEGORIES:Men,Monuments and Worlds
+SUMMARY:Paris-Roubaix
+DESCRIPTION:Men's single day race\,
+  category: Monuments and Worlds.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=5
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id37@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180408
+DTEND;VALUE=DATE:20180409
+CATEGORIES:Men,Minor Races
+SUMMARY:Klasika Primavera
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:Spain
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=37
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id58@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180410
+DTEND;VALUE=DATE:20180411
+CATEGORIES:Men,Minor Races
+SUMMARY:Paris - Camembert
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=58
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id490@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180410
+DTEND;VALUE=DATE:20180411
+CATEGORIES:Men,Minor Races
+SUMMARY:Commonwealth Games - Time Trial
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:Australia
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=490
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id38@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180411
+DTEND;VALUE=DATE:20180412
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Brabantse Pijl
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=38
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id489@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180414
+DTEND;VALUE=DATE:20180415
+CATEGORIES:Men,Minor Races
+SUMMARY:Commonwealth Games Road Race
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:Australia
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=489
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id59@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180414
+DTEND;VALUE=DATE:20180415
+CATEGORIES:Men,Minor Races
+SUMMARY:Tour du Finistère
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=59
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id20@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180415
+DTEND;VALUE=DATE:20180416
+CATEGORIES:Men,Top Classics
+SUMMARY:Amstel Gold Race
+DESCRIPTION:Men's single day race\,
+  category: Top Classics.
+LOCATION:Netherlands
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=20
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id192@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180415
+DTEND;VALUE=DATE:20180416
+CATEGORIES:Men,Minor Races
+SUMMARY:Tro Bro Leon
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=192
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id455@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180416
+DTEND;VALUE=DATE:20180421
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Tour of the Alps
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  5 stages\, 5 days.
+LOCATION:Italy
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=455
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id389@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180417
+DTEND;VALUE=DATE:20180423
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Tour of Croatia
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  6 stages\, 6 days.
+LOCATION:Croatia
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=389
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id21@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180418
+DTEND;VALUE=DATE:20180419
+CATEGORIES:Men,Top Classics
+SUMMARY:La Flèche Wallonne
+DESCRIPTION:Men's single day race\,
+  category: Top Classics.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=21
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id39@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180420
+DTEND;VALUE=DATE:20180423
+CATEGORIES:Men,Minor Races
+SUMMARY:Vuelta a Castilla y Leon
+DESCRIPTION:Men's stage race\,
+  category: Minor Races\,
+  3 stages\, 3 days.
+LOCATION:Spain
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=39
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id8@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180422
+DTEND;VALUE=DATE:20180423
+CATEGORIES:Men,Monuments and Worlds
+SUMMARY:Liège - Bastogne - Liège
+DESCRIPTION:Men's single day race\,
+  category: Monuments and Worlds.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=8
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id14@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180424
+DTEND;VALUE=DATE:20180430
+CATEGORIES:Men,Top Stage Races
+SUMMARY:Tour de Romandie
+DESCRIPTION:Men's stage race\,
+  category: Top Stage Races\,
+  6 stages\, 6 days.
+LOCATION:Switzerland
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=14
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id392@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180429
+DTEND;VALUE=DATE:20180430
+CATEGORIES:Men,Minor Races
+SUMMARY:Giro dell'Appennino
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:Italy
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=392
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id429@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180501
+DTEND;VALUE=DATE:20180502
+CATEGORIES:Men,Top Classics
+SUMMARY:Eschborn-Frankfurt 'Rund um den Finanzplatz'
+DESCRIPTION:Men's single day race\,
+  category: Top Classics.
+LOCATION:Germany
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=429
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id349@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180503
+DTEND;VALUE=DATE:20180507
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Tour de Yorkshire
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  4 stages\, 4 days.
+LOCATION:United Kingdom
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=349
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id2@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180504
+DTEND;VALUE=DATE:20180528
+CATEGORIES:Men,Grand Tours
+SUMMARY:Giro d'Italia
+DESCRIPTION:Men's stage race\,
+  category: Grand Tours\,
+  21 stages\, 24 days.
+LOCATION:Italy
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=2
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id457@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180506
+DTEND;VALUE=DATE:20180507
+CATEGORIES:Men,Minor Races
+SUMMARY:Grand Prix de la Somme
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=457
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id41@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180508
+DTEND;VALUE=DATE:20180514
+CATEGORIES:Men,Best of the Rest
+SUMMARY:4 Jours de Dunkerque
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  6 stages\, 6 days.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=41
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id485@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180511
+DTEND;VALUE=DATE:20180514
+CATEGORIES:Men,Minor Races
+SUMMARY:Vuelta Aragon
+DESCRIPTION:Men's stage race\,
+  category: Minor Races\,
+  3 stages\, 3 days.
+LOCATION:Spain
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=485
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id42@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180513
+DTEND;VALUE=DATE:20180520
+CATEGORIES:Men,Top Stage Races
+SUMMARY:Tour of California 
+DESCRIPTION:Men's stage race\,
+  category: Top Stage Races\,
+  7 stages\, 7 days.
+LOCATION:United States
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=42
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id303@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180516
+DTEND;VALUE=DATE:20180521
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Tour of Norway
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  5 stages\, 5 days.
+LOCATION:Norway
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=303
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id197@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180518
+DTEND;VALUE=DATE:20180521
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Tour de l'Ain - la route du Progrès
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  3 stages\, 3 days.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=197
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id486@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180519
+DTEND;VALUE=DATE:20180520
+CATEGORIES:Men,Minor Races
+SUMMARY:New Energy Tour
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:Netherlands
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=486
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id335@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180522
+DTEND;VALUE=DATE:20180525
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Tour des Fjords
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  3 stages\, 3 days.
+LOCATION:Norway
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=335
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id67@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180523
+DTEND;VALUE=DATE:20180528
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Baloise Belgium Tour
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  5 stages\, 5 days.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=67
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id488@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180525
+DTEND;VALUE=DATE:20180528
+CATEGORIES:Men,Top Stage Races
+SUMMARY:Hammer Series - Stavanger
+DESCRIPTION:Men's stage race\,
+  category: Top Stage Races\,
+  3 stages\, 3 days.
+LOCATION:Norway
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=488
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id458@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180526
+DTEND;VALUE=DATE:20180527
+CATEGORIES:Men,Minor Races
+SUMMARY:Boucles de l'Aulne - Chateaulin
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=458
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id256@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180527
+DTEND;VALUE=DATE:20180528
+CATEGORIES:Men,Minor Races
+SUMMARY:GP de Plumelec -Morhiban
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=256
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id69@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180530
+DTEND;VALUE=DATE:20180604
+CATEGORIES:Men,Minor Races
+SUMMARY:Tour de Luxembourg
+DESCRIPTION:Men's stage race\,
+  category: Minor Races\,
+  5 stages\, 5 days.
+LOCATION:Luxembourg
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=69
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id467@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180531
+DTEND;VALUE=DATE:20180604
+CATEGORIES:Men,Minor Races
+SUMMARY:Boucles de la Mayenne
+DESCRIPTION:Men's stage race\,
+  category: Minor Races\,
+  4 stages\, 4 days.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=467
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id473@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180601
+DTEND;VALUE=DATE:20180604
+CATEGORIES:Men,Top Stage Races
+SUMMARY:Hammer Series - Limburg
+DESCRIPTION:Men's stage race\,
+  category: Top Stage Races\,
+  3 stages\, 3 days.
+LOCATION:Netherlands
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=473
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id385@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180602
+DTEND;VALUE=DATE:20180603
+CATEGORIES:Men,Minor Races
+SUMMARY:Heistse Pijl - Heist op den Berg
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=385
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id15@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180603
+DTEND;VALUE=DATE:20180611
+CATEGORIES:Men,Top Stage Races
+SUMMARY:Critérium du Dauphiné
+DESCRIPTION:Men's stage race\,
+  category: Top Stage Races\,
+  8 stages\, 8 days.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=15
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id49@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180603
+DTEND;VALUE=DATE:20180604
+CATEGORIES:Men,Minor Races
+SUMMARY:GP Citta di Lugano
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:Switzerland
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=49
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id70@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180607
+DTEND;VALUE=DATE:20180608
+CATEGORIES:Men,Best of the Rest
+SUMMARY:GP Kanton Aargau-Gippingen
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Switzerland
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=70
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id16@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180609
+DTEND;VALUE=DATE:20180618
+CATEGORIES:Men,Top Stage Races
+SUMMARY:Tour de Suisse
+DESCRIPTION:Men's stage race\,
+  category: Top Stage Races\,
+  9 stages\, 9 days.
+LOCATION:Switzerland
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=16
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id35@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180610
+DTEND;VALUE=DATE:20180611
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Rund um Köln
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Germany
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=35
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id43@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180613
+DTEND;VALUE=DATE:20180618
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Ster ZLM Toer - GP Jan van Heeswijk
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  5 stages\, 5 days.
+LOCATION:Netherlands
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=43
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id217@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180613
+DTEND;VALUE=DATE:20180618
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Tour of Slovenia
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  5 stages\, 5 days.
+LOCATION:Slovenia
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=217
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id307@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180614
+DTEND;VALUE=DATE:20180618
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Route du Sud
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  4 stages\, 4 days.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=307
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id196@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180619
+DTEND;VALUE=DATE:20180620
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Halle-Ingooigem
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=196
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id1@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180707
+DTEND;VALUE=DATE:20180730
+CATEGORIES:Men,Grand Tours
+SUMMARY:Tour de France
+DESCRIPTION:Men's stage race\,
+  category: Grand Tours\,
+  21 stages\, 23 days.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=1
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id311@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180707
+DTEND;VALUE=DATE:20180715
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Tour of Austria
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  8 stages\, 8 days.
+LOCATION:Austria
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=311
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id352@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180726
+DTEND;VALUE=DATE:20180727
+CATEGORIES:Men,Best of the Rest
+SUMMARY:GP Cerami
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=352
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id308@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180728
+DTEND;VALUE=DATE:20180802
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Tour de Wallonie
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  5 stages\, 5 days.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=308
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id306@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180729
+DTEND;VALUE=DATE:20180730
+CATEGORIES:Men,Top Classics
+SUMMARY:Prudential RideLondon Classic
+DESCRIPTION:Men's single day race\,
+  category: Top Classics.
+LOCATION:United Kingdom
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=306
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id406@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180731
+DTEND;VALUE=DATE:20180801
+CATEGORIES:Men,Minor Races
+SUMMARY:Circuito de Getxo 'Memorial Ricardo Otxoa
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:Spain
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=406
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id74@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180801
+DTEND;VALUE=DATE:20180806
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Postnord Danmark Rundt
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  5 stages\, 5 days.
+LOCATION:Denmark
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=74
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id45@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180804
+DTEND;VALUE=DATE:20180811
+CATEGORIES:Men,Top Stage Races
+SUMMARY:Tour de Pologne
+DESCRIPTION:Men's stage race\,
+  category: Top Stage Races\,
+  7 stages\, 7 days.
+LOCATION:Poland
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=45
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id22@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180804
+DTEND;VALUE=DATE:20180805
+CATEGORIES:Men,Top Classics
+SUMMARY:Clasica San Sebastian
+DESCRIPTION:Men's single day race\,
+  category: Top Classics.
+LOCATION:Spain
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=22
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id198@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180806
+DTEND;VALUE=DATE:20180813
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Larry H. Miller Tour of Utah
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  7 stages\, 7 days.
+LOCATION:United States
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=198
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id75@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180807
+DTEND;VALUE=DATE:20180812
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Vuelta a Burgos
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  5 stages\, 5 days.
+LOCATION:Spain
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=75
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id390@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180809
+DTEND;VALUE=DATE:20180810
+CATEGORIES:Men,Top Classics
+SUMMARY:UEC Road European Championships- ITT
+DESCRIPTION:Men's single day race\,
+  category: Top Classics.
+LOCATION:United Kingdom
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=390
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id397@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180809
+DTEND;VALUE=DATE:20180813
+CATEGORIES:Men,Minor Races
+SUMMARY:Czech Cycling Tour
+DESCRIPTION:Men's stage race\,
+  category: Minor Races\,
+  4 stages\, 4 days.
+LOCATION:Czech Republic
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=397
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id391@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180812
+DTEND;VALUE=DATE:20180813
+CATEGORIES:Men,Top Classics
+SUMMARY:UEC Road European Championships- RR
+DESCRIPTION:Men's single day race\,
+  category: Top Classics.
+LOCATION:United Kingdom
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=391
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id46@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180813
+DTEND;VALUE=DATE:20180820
+CATEGORIES:Men,Top Stage Races
+SUMMARY:BinkBank Tour
+DESCRIPTION:Men's stage race\,
+  category: Top Stage Races\,
+  7 stages\, 7 days.
+LOCATION:Netherlands
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=46
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id79@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180815
+DTEND;VALUE=DATE:20180819
+CATEGORIES:Men,Minor Races
+SUMMARY:Tour du Limousin
+DESCRIPTION:Men's stage race\,
+  category: Minor Races\,
+  4 stages\, 4 days.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=79
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id302@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180816
+DTEND;VALUE=DATE:20180820
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Arctic Race of Norway
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  4 stages\, 4 days.
+LOCATION:Norway
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=302
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id447@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180816
+DTEND;VALUE=DATE:20180820
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Colorado Classic
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  4 stages\, 4 days.
+LOCATION:United States
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=447
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id438@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180819
+DTEND;VALUE=DATE:20180820
+CATEGORIES:Men,Top Classics
+SUMMARY:Cyclassics Hamburg
+DESCRIPTION:Men's single day race\,
+  category: Top Classics.
+LOCATION:Germany
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=438
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id81@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180821
+DTEND;VALUE=DATE:20180825
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Tour du Poitou-Charentes
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  4 stages\, 4 days.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=81
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id479@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180821
+DTEND;VALUE=DATE:20180822
+CATEGORIES:Men,Minor Races
+SUMMARY:GP Stad Zottegem
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=479
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id487@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180823
+DTEND;VALUE=DATE:20180827
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Deutschland Tour
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  4 stages\, 4 days.
+LOCATION:Germany
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=487
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id3@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180825
+DTEND;VALUE=DATE:20180917
+CATEGORIES:Men,Grand Tours
+SUMMARY:Vuelta a España
+DESCRIPTION:Men's stage race\,
+  category: Grand Tours\,
+  21 stages\, 23 days.
+LOCATION:Spain
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=3
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id24@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180826
+DTEND;VALUE=DATE:20180827
+CATEGORIES:Men,Top Classics
+SUMMARY:Bretagne Classic - Ouest France
+DESCRIPTION:Men's single day race\,
+  category: Top Classics.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=24
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id478@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180829
+DTEND;VALUE=DATE:20180830
+CATEGORIES:Men,Minor Races
+SUMMARY:Druivenkoers - Overijse
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=478
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id85@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180901
+DTEND;VALUE=DATE:20180902
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Brussels Cycling Classic/ Paris - Bruxelles
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=85
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id87@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180902
+DTEND;VALUE=DATE:20180910
+CATEGORIES:Men,Top Stage Races
+SUMMARY:Tour of Britain
+DESCRIPTION:Men's stage race\,
+  category: Top Stage Races\,
+  8 stages\, 8 days.
+LOCATION:United Kingdom
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=87
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id304@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180902
+DTEND;VALUE=DATE:20180903
+CATEGORIES:Men,Best of the Rest
+SUMMARY:GP de Fourmies
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=304
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id440@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180907
+DTEND;VALUE=DATE:20180908
+CATEGORIES:Men,Top Classics
+SUMMARY:Grand Prix Cycliste de Québec
+DESCRIPTION:Men's single day race\,
+  category: Top Classics.
+LOCATION:Canada
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=440
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id441@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180909
+DTEND;VALUE=DATE:20180910
+CATEGORIES:Men,Top Classics
+SUMMARY:Grand Prix Cycliste de Montréal
+DESCRIPTION:Men's single day race\,
+  category: Top Classics.
+LOCATION:Canada
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=441
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id89@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180912
+DTEND;VALUE=DATE:20180913
+CATEGORIES:Men,Best of the Rest
+SUMMARY:GP de Wallonie
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=89
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id203@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180914
+DTEND;VALUE=DATE:20180915
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Kampioenschap van Vlaanderen
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=203
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id408@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180915
+DTEND;VALUE=DATE:20180916
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Coppa Agostoni - Giro delle Brianze
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Italy
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=408
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id345@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180915
+DTEND;VALUE=DATE:20180916
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Primus Classic Impanis - Van Petegem
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=345
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id80@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180916
+DTEND;VALUE=DATE:20180917
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Coppa Bernocchi- GP BPM
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Italy
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=80
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id201@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180916
+DTEND;VALUE=DATE:20180917
+CATEGORIES:Men,Minor Races
+SUMMARY:Grote Prijs Jef Scherens
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=201
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id413@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180918
+DTEND;VALUE=DATE:20180920
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Giro della Toscana - Memorial Alfredo Martini
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  2 stages\, 2 days.
+LOCATION:Italy
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=413
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id367@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180919
+DTEND;VALUE=DATE:20180920
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Omloop van het Houtland Lichtervelde
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=367
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id47@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180920
+DTEND;VALUE=DATE:20180921
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Coppa Sabatini
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Italy
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=47
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id383@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180922
+DTEND;VALUE=DATE:20180923
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Tour de l'Eurométropole
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=383
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id409@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180922
+DTEND;VALUE=DATE:20180923
+CATEGORIES:Men,Minor Races
+SUMMARY:Memorial Marco Pantani-Trofeo Mercatone Uno
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:Italy
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=409
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id288@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180923
+DTEND;VALUE=DATE:20180924
+CATEGORIES:Men,Monuments and Worlds
+SUMMARY:World Championship TTT
+DESCRIPTION:Men's single day race\,
+  category: Monuments and Worlds.
+LOCATION:Austria
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=288
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id91@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180923
+DTEND;VALUE=DATE:20180924
+CATEGORIES:Men,Minor Races
+SUMMARY:GP d'Isbergues - Pas de Calais
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=91
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id10@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180926
+DTEND;VALUE=DATE:20180927
+CATEGORIES:Men,Monuments and Worlds
+SUMMARY:World Championship Time Trial
+DESCRIPTION:Men's single day race\,
+  category: Monuments and Worlds.
+LOCATION:Austria
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=10
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id9@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180930
+DTEND;VALUE=DATE:20181001
+CATEGORIES:Men,Monuments and Worlds
+SUMMARY:World Championship Road Race
+DESCRIPTION:Men's single day race\,
+  category: Monuments and Worlds.
+LOCATION:Austria
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=9
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id92@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20180930
+DTEND;VALUE=DATE:20181001
+CATEGORIES:Men,Minor Races
+SUMMARY:Tour de Vendée
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=92
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id332@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20181002
+DTEND;VALUE=DATE:20181003
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Binche-Chimay-Binche-Memorial Frank Vandenbroucke
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=332
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id94@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20181003
+DTEND;VALUE=DATE:20181004
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Sparkassen Münsterland Giro
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Germany
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=94
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id95@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20181004
+DTEND;VALUE=DATE:20181005
+CATEGORIES:Men,Minor Races
+SUMMARY:Paris-Bourges
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=95
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id25@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20181006
+DTEND;VALUE=DATE:20181007
+CATEGORIES:Men,Top Classics
+SUMMARY:Giro dell'Emilia
+DESCRIPTION:Men's single day race\,
+  category: Top Classics.
+LOCATION:Italy
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=25
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id26@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20181007
+DTEND;VALUE=DATE:20181008
+CATEGORIES:Men,Top Classics
+SUMMARY:Paris-Tours
+DESCRIPTION:Men's single day race\,
+  category: Top Classics.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=26
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id305@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20181007
+DTEND;VALUE=DATE:20181008
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Gran Premio Bruno Beghelli
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Italy
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=305
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id78@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20181009
+DTEND;VALUE=DATE:20181010
+CATEGORIES:Men,Top Classics
+SUMMARY:Tre Valli Varesine
+DESCRIPTION:Men's single day race\,
+  category: Top Classics.
+LOCATION:Italy
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=78
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id193@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20181009
+DTEND;VALUE=DATE:20181015
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Presidential Cycling Tour of Turkey
+DESCRIPTION:Men's stage race\,
+  category: Best of the Rest\,
+  6 stages\, 6 days.
+LOCATION:Turkey
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=193
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id289@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20181010
+DTEND;VALUE=DATE:20181011
+CATEGORIES:Men,Top Classics
+SUMMARY:Milano - Torino
+DESCRIPTION:Men's single day race\,
+  category: Top Classics.
+LOCATION:Italy
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=289
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id363@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20181011
+DTEND;VALUE=DATE:20181012
+CATEGORIES:Men,Top Classics
+SUMMARY:Gran Piemonte
+DESCRIPTION:Men's single day race\,
+  category: Top Classics.
+LOCATION:Italy
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=363
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id7@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20181013
+DTEND;VALUE=DATE:20181014
+CATEGORIES:Men,Monuments and Worlds
+SUMMARY:Il Lombardia
+DESCRIPTION:Men's single day race\,
+  category: Monuments and Worlds.
+LOCATION:Italy
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=7
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id463@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20181013
+DTEND;VALUE=DATE:20181014
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Tacx Pro Classic/Ronde van Zeeland
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Netherlands
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=463
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id412@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20181014
+DTEND;VALUE=DATE:20181015
+CATEGORIES:Men,Minor Races
+SUMMARY:Chrono des Nations
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:France
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=412
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id202@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20181014
+DTEND;VALUE=DATE:20181015
+CATEGORIES:Men,Minor Races
+SUMMARY:Memorial Rik Van Steenbergen
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=202
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id443@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20181016
+DTEND;VALUE=DATE:20181022
+CATEGORIES:Men,Top Stage Races
+SUMMARY:Gree - Tour of Guangxi
+DESCRIPTION:Men's stage race\,
+  category: Top Stage Races\,
+  6 stages\, 6 days.
+LOCATION:China
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=443
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id380@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20181016
+DTEND;VALUE=DATE:20181017
+CATEGORIES:Men,Minor Races
+SUMMARY:Nationale Sluitingprijs - Putte - Kapellen
+DESCRIPTION:Men's single day race\,
+  category: Minor Races.
+LOCATION:Belgium
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=380
+END:VEVENT
+BEGIN:VEVENT
+UID:mw1y2018id410@pdcvds.com
+DTSTAMP:20120101T124500Z
+DTSTART;VALUE=DATE:20181021
+DTEND;VALUE=DATE:20181022
+CATEGORIES:Men,Best of the Rest
+SUMMARY:Japan Cup Cycle Road Race
+DESCRIPTION:Men's single day race\,
+  category: Best of the Rest.
+LOCATION:Japan
+URL:https://www.pdcvds.com/results.php?mw=1&y=2018&event=410
+END:VEVENT
+END:VCALENDAR

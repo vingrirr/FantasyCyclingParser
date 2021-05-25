@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Flaticon WebFont</title>
+    <link rel="stylesheet" type="text/css" href="flaticon.css">
+    <meta charset="UTF-8">
+    <style>
+    body {
+        font-family: sans-serif;
+        line-height: 1.5;
+        font-size: 16px;
+        padding: 20px;
+        color:#333;
+    }
+    * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    [class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+        font-family: Flaticon;
+        font-size: 30px;
+        font-style: normal;
+        margin-left: 20px;
+        color: #333;
+    }
+    .image p {
+		font-size: 12px;
+		margin: 0px;
+		clear: none;
+		width: 300px;
+		line-height: 40px;
+	}
+    .text {
+        float: left;
+        font-size:14px;
+        margin-top: 15px;
+    }
+    .text ul {
+        margin-left:0px;
+        color:#111;
+        margin-bottom:20px;
+    }
+    .text .ex {
+        font-size:12px;
+        color:#666;
+        margin-left:35px;
+        display:block;
+    }
+    .text ul li {
+        margin-top:10px;
+        list-style:none;
+    }
+    .num {
+        background:#66A523;
+        color:#fff;
+        border-radius:20px;
+        padding:1px;
+        display:inline-block;
+        width:22px;
+        height:22px;
+        text-align:center;
+        margin-right: 5px;
+    }
+    .text ul strong {
+        font-weight:normal;
+        color:#000;
+    }
+    .image {
+        width: 280px;
+        float: left;
+        margin-bottom: 15px;
+        margin-right: 30px;
+    }
+    #glyphs {
+        clear: both;
+    }
+    .image p:nth-child(even) i {
+        clear: none;
+    }
+    .glyph {
+        display: inline-block;
+        width: 120px;
+        margin: 10px;
+        text-align: center;
+        vertical-align: top;
+        background: #FFF;
+    }
+    .glyph .glyph-icon {
+        padding: 10px;
+        display: block;
+        font-family:"Flaticon";
+        font-size: 64px;
+        line-height: 1;
+    }
+    .glyph .glyph-icon:before {
+        font-size: 64px;
+        color: #666;
+        margin-left: 0;
+    }
+    .class-name {
+        font-size: 12px;
+    }
+    .author-name {
+		font-size: 10px;
+	}
+	a{
+		color: #66A523;
+	}
+    .instructions {
+        font-style:italic;
+        font-size:22px;
+        margin-bottom:10px;
+    }
+    .iconsuse {
+        font-size:22px;
+        font-style:italic;
+        padding-top:20px;
+        margin-top:20px;
+        border-top:1px solid #bbb;
+    }
+    .usetitle {
+        margin-bottom: 10px;
+        font-size: 20px;
+        font-style: italic;
+    }
+    .class-name:last-child {
+        font-size: 10px;
+        color:#888;
+    }
+    .class-name:last-child a {
+        font-size: 10px;
+        color:#555;
+    }
+    .class-name:last-child a:hover {
+        color:#66A523;
+    }
+    .glyph > input {
+        display: block;
+        width: 100px;
+        margin: 5px auto;
+        text-align: center;
+        font-size: 12px;
+        cursor: text;
+    }
+    .glyph > input.icon-input {
+        font-family:"Flaticon";
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    h1.logo {
+        font-size: 40px;
+        letter-spacing: -1px;
+        margin-top: -16px;
+        text-transform: lowercase;
+        border-bottom:1px solid #bbb;
+    }
+    h1.logo strong {
+        font-size: 16px;
+        font-family:sans-serif;
+        font-weight:normal;
+        color:#333;
+    }
+    h1.logo a {
+        color:#34302d;
+        text-decoration: none;
+    }
+    h1.logo a span {
+        color:#66A523;
+    }
+    #footer {
+        padding-top:40px;
+        clear:both;
+        text-align:center;
+    }
+    #footer a {
+        color:#66A523;
+    }
+    textarea {
+		margin: 0px;
+		width: 800px;
+		height: 150px;
+		border: 1px solid #CCC;
+		resize: none;
+		background: #EEE;
+    }
+    .author-link, .attrDiv a{
+    	font-size: 12px;
+    	color: #333;
+    	text-decoration: none;
+    }
+    .external {
+    	display: block;
+    }
+    .attrDiv {
+		font-size: 12px;
+	}
+    .attribution {
+        border-top: 1px solid #AAA;
+        margin: 10px 0;
+        padding-top: 15px;
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="logo">
+            <a href="http://www.flaticon.com">
+                <span>FLAT</span>ICON</a>
+            <strong>Font Demo</strong>
+        </h1>
+    </header>
+
+    <section class="demo">
+        <div class="text">
+
+            <div class="instructions">Instructions:</div>
+
+            <ul>
+                <li>
+                    <p>
+                        <span class="num">1</span>Copy the "Fonts" files and CSS files to your website CSS folder.
+                </li>
+                <li>
+                    <p>
+                        <span class="num">2</span>Add the CSS link to your website source code on header.
+                        <br />
+                        <span class="ex">&lt;head&gt;
+                            <br/>...
+                            <br/>&lt;link rel="stylesheet" type="text/css" href="your_website_domain/css_root/flaticon.css"&gt;
+                            <br/>...
+                            <br/>&lt;/head&gt;</span>
+                </li>
+
+                <li>
+                    <p>
+                        <span class="num">3</span>Use the icon class on "display:inline" elements:
+                        <br />
+                        <span class="ex">Use example: &lt;i class=&quot;flaticon-airplane49&quot;&gt;&lt;/i&gt; or &lt;span class=&quot;flaticon-airplane49&quot;&gt;&lt;/span&gt;</span>
+                </li>
+            </ul>
+        </div>
+
+    </section>
+
+    <section id="glyphs"><div class="glyph">
+		<div class="glyph-icon flaticon-014"></div>
+		<div class="class-name">.flaticon-014</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/2014-earth-day-on-april-4-calendar-page_42495">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-20142"></div>
+		<div class="class-name">.flaticon-20142</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/2014-february-calendar-page_42311">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-20143"></div>
+		<div class="class-name">.flaticon-20143</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/2014-calendar-symbol-with-a-lightbulb_42358">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-advance4"></div>
+		<div class="class-name">.flaticon-advance4</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/advance-calendar-page-button-with-right-arrow_42366">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-airplane59"></div>
+		<div class="class-name">.flaticon-airplane59</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/airplane-travel-day-on-page-with-number-4-of-a-calendar_42339">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-annual1"></div>
+		<div class="class-name">.flaticon-annual1</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/annual-calendar_42277">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-annual2"></div>
+		<div class="class-name">.flaticon-annual2</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/annual-calendar-symbol_42288">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-annual3"></div>
+		<div class="class-name">.flaticon-annual3</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/annual-calendar-page_42314">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-annual4"></div>
+		<div class="class-name">.flaticon-annual4</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/annual-calendar-variant_42316">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-annual"></div>
+		<div class="class-name">.flaticon-annual</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/annual-calendar_42255">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-approved5"></div>
+		<div class="class-name">.flaticon-approved5</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/approved-sign-on-calendar-page_42265">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-april1"></div>
+		<div class="class-name">.flaticon-april1</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/april-14-calendar-page-day_42956">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-april2"></div>
+		<div class="class-name">.flaticon-april2</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/april-4-of-2014-event-calendar-page_42957">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-april"></div>
+		<div class="class-name">.flaticon-april</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/april-4-of-2014-calendar-page-with-travel-bag-reminder-symbol_42518">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-august"></div>
+		<div class="class-name">.flaticon-august</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/august-18-daily-calendar-page-interface-symbol_42466">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-ballet"></div>
+		<div class="class-name">.flaticon-ballet</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/ballet-dancer-on-calendar-page-to-remind-class-day_42377">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-bell29"></div>
+		<div class="class-name">.flaticon-bell29</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/bell-on-calendar-page-of-day-4_42385">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-birthday11"></div>
+		<div class="class-name">.flaticon-birthday11</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/birthday-reminder_42332">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-birthday12"></div>
+		<div class="class-name">.flaticon-birthday12</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/birthday-balloons-on-calendar-page_42376">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-birthday13"></div>
+		<div class="class-name">.flaticon-birthday13</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/birthday-giftbox-on-reminder-calendar-page_42397">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-black262"></div>
+		<div class="class-name">.flaticon-black262</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/black-calendar-page_42371">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-blank24"></div>
+		<div class="class-name">.flaticon-blank24</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/blank-calendar-page-with-stripes_42257">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-boat16"></div>
+		<div class="class-name">.flaticon-boat16</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/boat-travel-date-daily-calendar-page-interface-symbol_42300">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-business76"></div>
+		<div class="class-name">.flaticon-business76</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/business-calendar_42245">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-business77"></div>
+		<div class="class-name">.flaticon-business77</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/business-meeting-date-day-page-on-daily-calendar_42291">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-business79"></div>
+		<div class="class-name">.flaticon-business79</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/business-calendar-page_42521">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-businessman68"></div>
+		<div class="class-name">.flaticon-businessman68</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/businessman-symbol-on-january-calendar-page_42429">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calculator39"></div>
+		<div class="class-name">.flaticon-calculator39</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calculator-on-calendar-page_42309">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar100"></div>
+		<div class="class-name">.flaticon-calendar100</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-page-with-christmas-bells-on-day-25_42379">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar101"></div>
+		<div class="class-name">.flaticon-calendar101</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-page-with-many-squares_42380">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar102"></div>
+		<div class="class-name">.flaticon-calendar102</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-of-squares_42386">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar103"></div>
+		<div class="class-name">.flaticon-calendar103</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-daily-page-on-day-3_42398">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar104"></div>
+		<div class="class-name">.flaticon-calendar104</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-page-of-day-27-interface-symbol_42404">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar105"></div>
+		<div class="class-name">.flaticon-calendar105</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-on-day-17_42413">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar106"></div>
+		<div class="class-name">.flaticon-calendar106</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-interface-symbol_42415">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar107"></div>
+		<div class="class-name">.flaticon-calendar107</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-tool-interface-symbol-for-time-administration-and-organization_42416">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar108"></div>
+		<div class="class-name">.flaticon-calendar108</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-on-day-6-interface-symbol-of-rounded-square-black-spring-tool_42421">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar109"></div>
+		<div class="class-name">.flaticon-calendar109</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-page-on-day-2_42441">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar110"></div>
+		<div class="class-name">.flaticon-calendar110</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar_42444">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar111"></div>
+		<div class="class-name">.flaticon-calendar111</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-interface-symbol-on-day-21_42445">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar112"></div>
+		<div class="class-name">.flaticon-calendar112</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-interface-symbol-tool_42446">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar113"></div>
+		<div class="class-name">.flaticon-calendar113</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-interface-symbol-with-squares-in-rounded-rectangular-shape-with-spring-on-top-border_42449">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar114"></div>
+		<div class="class-name">.flaticon-calendar114</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-spring-and-squares-interface-symbol_42455">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar115"></div>
+		<div class="class-name">.flaticon-calendar115</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-daily-page-on-day-4-of-month_42458">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar116"></div>
+		<div class="class-name">.flaticon-calendar116</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-interface-symbol-with-printed-text-lines_42462">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar117"></div>
+		<div class="class-name">.flaticon-calendar117</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-interface-symbol-with-printed-image-and-text-lines_42484">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar118"></div>
+		<div class="class-name">.flaticon-calendar118</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-page-with-upper-spring_42489">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar119"></div>
+		<div class="class-name">.flaticon-calendar119</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-page-on-day-7_42491">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar120"></div>
+		<div class="class-name">.flaticon-calendar120</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-square-page-outline-with-spring-on-top-border_42492">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar121"></div>
+		<div class="class-name">.flaticon-calendar121</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-page-with-text-lines_42498">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar122"></div>
+		<div class="class-name">.flaticon-calendar122</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-page-with-traffic-cone-symbol_42502">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar123"></div>
+		<div class="class-name">.flaticon-calendar123</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-page-with-circular-clock-symbol_42509">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar124"></div>
+		<div class="class-name">.flaticon-calendar124</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-page-with-list_42510">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar125"></div>
+		<div class="class-name">.flaticon-calendar125</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-page-of-day-29_42511">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar126"></div>
+		<div class="class-name">.flaticon-calendar126</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-page-of-day-25_42519">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar127"></div>
+		<div class="class-name">.flaticon-calendar127</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-interface-symbol-with-left-arrow-to-view-previous-days_42523">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar128"></div>
+		<div class="class-name">.flaticon-calendar128</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-page-of-day-8_42525">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar129"></div>
+		<div class="class-name">.flaticon-calendar129</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-add-event-button-with-plus-sign_42953">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar78"></div>
+		<div class="class-name">.flaticon-calendar78</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-tool_42228">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar79"></div>
+		<div class="class-name">.flaticon-calendar79</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-page-on-day-25_42230">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar80"></div>
+		<div class="class-name">.flaticon-calendar80</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-page-on-day-six_42232">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar81"></div>
+		<div class="class-name">.flaticon-calendar81</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-hanging-of-a-wall-with-a-cross-sign_42236">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar82"></div>
+		<div class="class-name">.flaticon-calendar82</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-with-squares_42239">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar83"></div>
+		<div class="class-name">.flaticon-calendar83</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-tool-for-time-organization_42253">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar84"></div>
+		<div class="class-name">.flaticon-calendar84</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-with-stats-infographic_42272">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar85"></div>
+		<div class="class-name">.flaticon-calendar85</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-page-on-day-5_42285">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar86"></div>
+		<div class="class-name">.flaticon-calendar86</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-page-on-day-24_42287">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar87"></div>
+		<div class="class-name">.flaticon-calendar87</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-page-with-a-cross-sign_42293">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar88"></div>
+		<div class="class-name">.flaticon-calendar88</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-daily-page-on-day-10_42294">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar89"></div>
+		<div class="class-name">.flaticon-calendar89</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-page-on-day-7_42296">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar90"></div>
+		<div class="class-name">.flaticon-calendar90</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-in-a-circle-interface-symbol_42321">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar91"></div>
+		<div class="class-name">.flaticon-calendar91</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-page-on-day-26_42334">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar92"></div>
+		<div class="class-name">.flaticon-calendar92</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-page-of-day-25_42341">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar93"></div>
+		<div class="class-name">.flaticon-calendar93</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-symbol-variant_42342">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar94"></div>
+		<div class="class-name">.flaticon-calendar94</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-page-of-day-6-of-a-month_42351">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar95"></div>
+		<div class="class-name">.flaticon-calendar95</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-with-three-rotatory-areas-on-february-1-of-2014_42355">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar96"></div>
+		<div class="class-name">.flaticon-calendar96</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-page-on-day-2_42360">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar97"></div>
+		<div class="class-name">.flaticon-calendar97</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-interface-symbol-with-minus-sign_42361">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-calendar98"></div>
+		<div class="class-name">.flaticon-calendar98</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/calendar-tool-variant-for-time-administration_42364">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-chef13"></div>
+		<div class="class-name">.flaticon-chef13</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/chef-day-on-calendar_42312">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-chess15"></div>
+		<div class="class-name">.flaticon-chess15</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/chess-date-day-calendar-page_42266">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-cinema28"></div>
+		<div class="class-name">.flaticon-cinema28</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/cinema-date-day-calendar-page_42374">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-circular108"></div>
+		<div class="class-name">.flaticon-circular108</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/circular-daily-calendar-page-on-day-6_42297">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-circular109"></div>
+		<div class="class-name">.flaticon-circular109</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/circular-calendar-symbol-variant_42370">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-city15"></div>
+		<div class="class-name">.flaticon-city15</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/city-day-reminder-on-calendar-page_42493">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-closed50"></div>
+		<div class="class-name">.flaticon-closed50</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/closed-day-reminder-interface-symbol-of-hanging-calendar-page_42439">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-cloudy13"></div>
+		<div class="class-name">.flaticon-cloudy13</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/cloudy-day-calendar-interface-symbol_42472">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-coffee43"></div>
+		<div class="class-name">.flaticon-coffee43</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/coffee-date-day-reminder-calendar-page_42473">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-credit61"></div>
+		<div class="class-name">.flaticon-credit61</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/credit-card-day-reminder-calendar-interface-symbol_42481">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-daily10"></div>
+		<div class="class-name">.flaticon-daily10</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/daily-calendar-page-on-day-23_42278">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-daily11"></div>
+		<div class="class-name">.flaticon-daily11</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/daily-calendar-page-on-january-11_42310">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-daily12"></div>
+		<div class="class-name">.flaticon-daily12</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/daily-calendar-of-day-9-in-rounded-black-square-page_42375">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-daily13"></div>
+		<div class="class-name">.flaticon-daily13</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/daily-calendar-page-of-day-7-interface-symbol_42420">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-daily7"></div>
+		<div class="class-name">.flaticon-daily7</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/daily-calendar-page-of-june-6_42237">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-daily8"></div>
+		<div class="class-name">.flaticon-daily8</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/daily-calendar-on-page-of-day-6_42242">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-daily9"></div>
+		<div class="class-name">.flaticon-daily9</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/daily-calendar-page-on-day-22_42259">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-date5"></div>
+		<div class="class-name">.flaticon-date5</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/date-day-with-architect-calendar-reminder-to-house-construction-project-development_42418">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-day11"></div>
+		<div class="class-name">.flaticon-day11</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/day-25-on-daily-calendar_42246">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-day12"></div>
+		<div class="class-name">.flaticon-day12</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/day-28-on-hanging-calendar-page_42276">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-day13"></div>
+		<div class="class-name">.flaticon-day13</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/day-6-on-calendar-page_42282">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-day14"></div>
+		<div class="class-name">.flaticon-day14</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/day-to-plant-a-tree-reminder-daily-calendar-page-interface-symbol_42427">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-day15"></div>
+		<div class="class-name">.flaticon-day15</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/day-30-on-hanging-square-black-calendar-page_42440">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-day16"></div>
+		<div class="class-name">.flaticon-day16</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/day-2-calendar-page-interface-symbol-variant_42457">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-delete45"></div>
+		<div class="class-name">.flaticon-delete45</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/delete-calendar-button-interface-symbol-with-a-cross_42952">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-dentist10"></div>
+		<div class="class-name">.flaticon-dentist10</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/dentist-date-day-reminder-calendar-page-interface-symbol_42451">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-discounts"></div>
+		<div class="class-name">.flaticon-discounts</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/discounts-percentage-label-on-calendar-daily-page_42315">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-edit32"></div>
+		<div class="class-name">.flaticon-edit32</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/edit-calendar-interface-symbol_42283">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-email38"></div>
+		<div class="class-name">.flaticon-email38</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/email-envelope-on-a-calendar_42229">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-engagement1"></div>
+		<div class="class-name">.flaticon-engagement1</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/engagement-ring-reminder-january-day-on-calendar-interface-symbol_42431">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-exclamation16"></div>
+		<div class="class-name">.flaticon-exclamation16</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/exclamation-alert-sign-on-reminder-daily-calendar-page_42477">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-fabric1"></div>
+		<div class="class-name">.flaticon-fabric1</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/fabric-visit-date-day-reminder-interface-symbol_42468">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-february2"></div>
+		<div class="class-name">.flaticon-february2</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/february-12-calendar-page_42240">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-fireworks"></div>
+		<div class="class-name">.flaticon-fireworks</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/fireworks-on-event-day-reminder-calendar-page-of-interface_42506">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-first27"></div>
+		<div class="class-name">.flaticon-first27</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/first-daily-calendar-page-interface-symbol-with-number-1_42327">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-first28"></div>
+		<div class="class-name">.flaticon-first28</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/first-annual-day-calendar-page-interface-symbol_42410">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-flamenco67"></div>
+		<div class="class-name">.flaticon-flamenco67</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/flamenco-spectacle-day-calendar-reminder-page_42365">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-friday"></div>
+		<div class="class-name">.flaticon-friday</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/friday-daily-calendar-page_42352">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-gear16"></div>
+		<div class="class-name">.flaticon-gear16</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/gear-on-mechanic-hanging-calendar-page_42318">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-giftbox48"></div>
+		<div class="class-name">.flaticon-giftbox48</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/giftbox-on-calendar-birthday-page_42269">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-graduation17"></div>
+		<div class="class-name">.flaticon-graduation17</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/graduation-day-reminder-calendar-page_42517">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-guitar33"></div>
+		<div class="class-name">.flaticon-guitar33</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/guitar-spectacle-day-on-daily-calendar-reminder-page_42326">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-guitar34"></div>
+		<div class="class-name">.flaticon-guitar34</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/guitar-class-date-day-on-daily-calendar-page_42411">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-hanging8"></div>
+		<div class="class-name">.flaticon-hanging8</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/hanging-calendar-interface-tool-symbol_42470">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-happy23"></div>
+		<div class="class-name">.flaticon-happy23</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/happy-day-calendar-page_42281">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-headphone12"></div>
+		<div class="class-name">.flaticon-headphone12</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/headphone-on-hanging-calendar-page_42522">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-heart245"></div>
+		<div class="class-name">.flaticon-heart245</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/heart-on-daily-calendar-page_42337">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-home104"></div>
+		<div class="class-name">.flaticon-home104</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/home-rest-day-calendar-page_42298">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-important1"></div>
+		<div class="class-name">.flaticon-important1</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/important-calling-day-page-on-calendar_42320">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-january1"></div>
+		<div class="class-name">.flaticon-january1</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/january-calendar-page-on-payment-day-with-dollar-sign_42306">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-january2"></div>
+		<div class="class-name">.flaticon-january2</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/january-2014-calendar-symbol-for-interface_42362">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-january3"></div>
+		<div class="class-name">.flaticon-january3</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/january-2015-calendar-page_42378">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-january4"></div>
+		<div class="class-name">.flaticon-january4</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/january-payment-day-calendar-page_42395">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-january5"></div>
+		<div class="class-name">.flaticon-january5</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/january-shopping-day-reminder-daily-calendar-page-of-interface-with-a-basket_42426">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-january"></div>
+		<div class="class-name">.flaticon-january</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/january-2014-on-calendar_42235">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-july"></div>
+		<div class="class-name">.flaticon-july</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/july-17-calendar-page_42350">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-june1"></div>
+		<div class="class-name">.flaticon-june1</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/june-calendar-page_42353">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-june2"></div>
+		<div class="class-name">.flaticon-june2</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/june-calendar-monthly-page_42381">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-june3"></div>
+		<div class="class-name">.flaticon-june3</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/june-calendar-page_42393">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-june4"></div>
+		<div class="class-name">.flaticon-june4</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/june-calendar-interface-symbol_42434">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-june5"></div>
+		<div class="class-name">.flaticon-june5</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/june-1-daily-calendar-page-interface-symbol-with-thin-spring-and-straight-corners-angles_42448">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-june"></div>
+		<div class="class-name">.flaticon-june</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/june-16-daily-calendar-page_42328">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-karaoke"></div>
+		<div class="class-name">.flaticon-karaoke</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/karaoke-singing-party-or-radial-interview-date-day-on-calendar-page_42402">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-legal9"></div>
+		<div class="class-name">.flaticon-legal9</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/legal-meeting-date-day-on-calendar_42344">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-magnifier23"></div>
+		<div class="class-name">.flaticon-magnifier23</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/magnifier-on-calendar-page_42391">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-march"></div>
+		<div class="class-name">.flaticon-march</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/march-13-calendar-page_42254">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-maternity"></div>
+		<div class="class-name">.flaticon-maternity</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/maternity-symbol-on-daily-calendar-interface-symbol_42450">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-may1"></div>
+		<div class="class-name">.flaticon-may1</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/may-15-calendar-page-interface-symbol_42419">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-may2"></div>
+		<div class="class-name">.flaticon-may2</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/may-calendar-page-rounded-square-symbol-for-interface_42453">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-may3"></div>
+		<div class="class-name">.flaticon-may3</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/may-circular-black-calendar-page-interface-symbol_42471">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-may"></div>
+		<div class="class-name">.flaticon-may</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/may-calendar-page-symbol_42264">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-mechanical4"></div>
+		<div class="class-name">.flaticon-mechanical4</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/mechanical-2014-calendar-hanging-of-a-nail_42290">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-medical43"></div>
+		<div class="class-name">.flaticon-medical43</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/medical-date-reminder-calendar-daily-page-interface-symbol-with-first-aid-cross_42954">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-monday"></div>
+		<div class="class-name">.flaticon-monday</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/monday-calendar-page_42524">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-monthly3"></div>
+		<div class="class-name">.flaticon-monthly3</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/monthly-calendar_42233">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-month"></div>
+		<div class="class-name">.flaticon-month</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/month-with-increasing-incomes-calendar-page_42267">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-mountains5"></div>
+		<div class="class-name">.flaticon-mountains5</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/mountains-day-reminder-calendar-page-interface-symbol_42513">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-moving3"></div>
+		<div class="class-name">.flaticon-moving3</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/moving-truck-on-reminder-calendar-page_42319">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music191"></div>
+		<div class="class-name">.flaticon-music191</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-spectacle-day-on-calendar-page_42284">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-news24"></div>
+		<div class="class-name">.flaticon-news24</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/news-actualization-day-on-reminder-calendar-page_42406">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-october"></div>
+		<div class="class-name">.flaticon-october</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/october-20-calendar-daily-page-interface-symbol-of-square-outline_42432">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-open155"></div>
+		<div class="class-name">.flaticon-open155</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/open-day-calendar-page_42303">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-payment1"></div>
+		<div class="class-name">.flaticon-payment1</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/payment-january-calendar-page-reminder_42503">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-photographic"></div>
+		<div class="class-name">.flaticon-photographic</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/photographic-session-date-day-on-calendar-page_42280">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-photos8"></div>
+		<div class="class-name">.flaticon-photos8</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/photos-on-calendar-page_42501">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-planet18"></div>
+		<div class="class-name">.flaticon-planet18</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/planet-grid-on-calendar-page_42500">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-plug22"></div>
+		<div class="class-name">.flaticon-plug22</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/plug-reminder-symbol-on-calendar-page_42349">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-portfolio9"></div>
+		<div class="class-name">.flaticon-portfolio9</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/portfolio-on-reminder-daily-calendar-page-interface-symbol_42424">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-presentation12"></div>
+		<div class="class-name">.flaticon-presentation12</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/presentation-day-reminder-calendar-page_42467">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-rainy6"></div>
+		<div class="class-name">.flaticon-rainy6</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/rainy-season-on-calendar-page-symbol_42244">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-recycling7"></div>
+		<div class="class-name">.flaticon-recycling7</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/recycling-day-calendar-page_42313">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-recycling8"></div>
+		<div class="class-name">.flaticon-recycling8</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/recycling-day-calendar-reminder-page_42335">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-restaurant24"></div>
+		<div class="class-name">.flaticon-restaurant24</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/restaurant-date-calendar-page_42307">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-sad20"></div>
+		<div class="class-name">.flaticon-sad20</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/sad-face-on-calendar-page_42322">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-saturday"></div>
+		<div class="class-name">.flaticon-saturday</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/saturday-calendar-daily-page-interface-symbol_42359">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-september"></div>
+		<div class="class-name">.flaticon-september</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/september-29-calendar-page_42512">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-shopping142"></div>
+		<div class="class-name">.flaticon-shopping142</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/shopping-day-on-calendar-page_42241">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-spa15"></div>
+		<div class="class-name">.flaticon-spa15</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/spa-date-day-on-calendar-page_42387">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-special2"></div>
+		<div class="class-name">.flaticon-special2</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/special-tv-program-day-reminder-calendar-page-interface-symbol_42478">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-spectacle"></div>
+		<div class="class-name">.flaticon-spectacle</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/spectacle-ticket-symbol-on-reminder-calendar-page_42369">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-sportive30"></div>
+		<div class="class-name">.flaticon-sportive30</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/sportive-practice-day-reminder-calendar-page-interface-symbol-with-a-dumbbell_42422">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-spring17"></div>
+		<div class="class-name">.flaticon-spring17</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/spring-calendar-rounded-symbol_42261">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-star126"></div>
+		<div class="class-name">.flaticon-star126</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/star-on-daily-calendar-page_42295">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-sunday1"></div>
+		<div class="class-name">.flaticon-sunday1</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/sunday-or-sun-day-calendar-page_42520">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-sunday"></div>
+		<div class="class-name">.flaticon-sunday</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/sunday-daily-calendar-page_42347">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-tablet67"></div>
+		<div class="class-name">.flaticon-tablet67</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/tablet-reminder-symbol-on-calendar-page_42401">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-thumb28"></div>
+		<div class="class-name">.flaticon-thumb28</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/thumb-down-on-january-calendar-page_42428">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-thumb29"></div>
+		<div class="class-name">.flaticon-thumb29</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/thumb-up-sign-on-daily-january-calendar-interface-symbol_42456">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-thursday"></div>
+		<div class="class-name">.flaticon-thursday</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/thursday-calendar-daily-page-interface-symbol_42464">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-trophy15"></div>
+		<div class="class-name">.flaticon-trophy15</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/trophy-on-daily-calendar-page-interface-symbol-of-the-contest-day_42405">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-tuesday"></div>
+		<div class="class-name">.flaticon-tuesday</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/tuesday-daily-calendar-page_42305">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-valentines6"></div>
+		<div class="class-name">.flaticon-valentines6</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/valentines-day-on-daily-calendar_42274">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-verification4"></div>
+		<div class="class-name">.flaticon-verification4</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/verification-sign-on-calendar-page-interface-symbol-with-spring-top-border-on-rounded-rectangle-outline_42465">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-video129"></div>
+		<div class="class-name">.flaticon-video129</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/video-reminder-daily-calendar-interface-symbol_42436">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-wedding7"></div>
+		<div class="class-name">.flaticon-wedding7</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/wedding-anniversary-january-calendar-page_42336">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-wednesday"></div>
+		<div class="class-name">.flaticon-wednesday</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/wednesday-calendar-daily-page_42514">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-weekly6"></div>
+		<div class="class-name">.flaticon-weekly6</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/weekly-calendar-page-symbol_42243">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-wifi67"></div>
+		<div class="class-name">.flaticon-wifi67</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/wifi-installation-day-on-calendar-page_42399">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-winter22"></div>
+		<div class="class-name">.flaticon-winter22</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/winter-snow-day-of-christmas-interface-symbol_42437">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-woman82"></div>
+		<div class="class-name">.flaticon-woman82</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/woman-day-daily-calendar-page-of-march-8_42400">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-wristwatch6"></div>
+		<div class="class-name">.flaticon-wristwatch6</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/wristwatch-on-calendar-page_42382">Freepik</a></div></div></section>
+
+<section class="attribution">
+
+	<div class="usetitle">License and attribution:</div><div class="attrDiv">Font generated by <a href="http://www.flaticon.com">flaticon.com</a>
+ under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY</a>. The authors are: <a href="http://www.freepik.com">Freepik</a>.</div><div class="usetitle">Copy the Attribution License:</div>
+
+<textarea onclick="this.focus();this.select();">Font generated by &lt;a href=&quot;http://www.flaticon.com&quot;&gt;flaticon.com&lt;/a&gt;
+ under &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0/&quot;&gt;CC BY&lt;/a&gt;. The authors are: &lt;a href=&quot;http://www.freepik.com&quot;&gt;Freepik&lt;/a&gt;.</textarea>
+
+</section>
+
+<section class="iconsuse">
+    	<div class="usetitle">Examples:</div>
+		<div class="image"><p>&lt;i class=&quot;flaticon-014&quot;&gt;&lt;/i&gt; <i class="flaticon-014"></i></p><p>&lt;i class=&quot;flaticon-20142&quot;&gt;&lt;/i&gt; <i class="flaticon-20142"></i></p><p>&lt;i class=&quot;flaticon-20143&quot;&gt;&lt;/i&gt; <i class="flaticon-20143"></i></p><p>&lt;i class=&quot;flaticon-advance4&quot;&gt;&lt;/i&gt; <i class="flaticon-advance4"></i></p><p>&lt;i class=&quot;flaticon-airplane59&quot;&gt;&lt;/i&gt; <i class="flaticon-airplane59"></i></p></div><div class="image"><p>&lt;span class=&quot;flaticon-annual1&quot;&gt;&lt;/span&gt; <span class="flaticon-annual1"></span></p><p>&lt;span class=&quot;flaticon-annual2&quot;&gt;&lt;/span&gt; <span class="flaticon-annual2"></span></p><p>&lt;span class=&quot;flaticon-annual3&quot;&gt;&lt;/span&gt; <span class="flaticon-annual3"></span></p><p>&lt;span class=&quot;flaticon-annual4&quot;&gt;&lt;/span&gt; <span class="flaticon-annual4"></span></p><p>&lt;span class=&quot;flaticon-annual&quot;&gt;&lt;/span&gt; <span class="flaticon-annual"></span></p></div><div class="image"><p>&lt;span class=&quot;flaticon-approved5&quot;&gt;&lt;/span&gt; <span class="flaticon-approved5"></span></p><p>&lt;i class=&quot;flaticon-april1&quot;&gt;&lt;/i&gt; <i class="flaticon-april1"></i></p><p>&lt;i class=&quot;flaticon-april2&quot;&gt;&lt;/i&gt; <i class="flaticon-april2"></i></p><p>&lt;i class=&quot;flaticon-april&quot;&gt;&lt;/i&gt; <i class="flaticon-april"></i></p><p>&lt;i class=&quot;flaticon-august&quot;&gt;&lt;/i&gt; <i class="flaticon-august"></i></p></div><div class="image"><p>&lt;span class=&quot;flaticon-ballet&quot;&gt;&lt;/span&gt; <span class="flaticon-ballet"></span></p><p>&lt;span class=&quot;flaticon-bell29&quot;&gt;&lt;/span&gt; <span class="flaticon-bell29"></span></p><p>&lt;span class=&quot;flaticon-birthday11&quot;&gt;&lt;/span&gt; <span class="flaticon-birthday11"></span></p><p>&lt;span class=&quot;flaticon-birthday12&quot;&gt;&lt;/span&gt; <span class="flaticon-birthday12"></span></p><p>&lt;span class=&quot;flaticon-birthday13&quot;&gt;&lt;/span&gt; <span class="flaticon-birthday13"></span></p></div><div class="image"></div>
+</section>
+<div id="footer">
+    <div>Generated by <a href="http://www.flaticon.com">flaticon.com</a>
+    </div>
+</div>
+	</body>
+</html>
