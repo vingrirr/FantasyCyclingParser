@@ -27,252 +27,52 @@ namespace FantasyCyclingParser
 
     public class Program
     {
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
 
         static void Main(string[] args)
         {
 
-
-            //Rider r = new Rider();
-
-            //FantasyYearConfig config = new FantasyYearConfig();
-
-
-            //config.ConfigName = "Wout van der Poel you talkin' about?";
-            //config.Year = 2019;
-            //config.IsDefault = true;
-            //config.TeamUIDS.Add(new TeamYear("2483"));
-            //config.TeamUIDS.Add(new TeamYear("2534"));
-            //config.TeamUIDS.Add(new TeamYear("1881"));
-            //config.TeamUIDS.Add(new TeamYear("1191"));
-            //config.TeamUIDS.Add(new TeamYear("37"));
-            //config.TeamUIDS.Add(new TeamYear("2176"));
-            //config.TeamUIDS.Add(new TeamYear("2211"));
-            //config.TeamUIDS.Add(new TeamYear("2216"));
-            //config.TeamUIDS.Add(new TeamYear("2843"));
-            //config.TeamUIDS.Add(new TeamYear("2059"));
-
-
-
-            //Repository.FantasyYearConfigInsert(config);
-            //needs to a team name or URL as parameter...needs to at least return their current score. 
-
-            //Parser.ParseTeam("2534");
-            //Parser.GetTeamPoints(1882);
-
-
-            //List<int> TeamUIDs = new List<int>();
-
-
-
-            //Team Krtecek_35 = Parser.ParseTeam("2211");
-
-            //double fuglsangPts = Krtecek_35.Riders.Find(x => x.Name == "Jakob Fuglsang").CurrentYearPoints;
-
-            //int year = DateTime.Now.Year;
-            //try {
-
-            //    MongoRepository<PDC_Result> db = new MongoRepository<PDC_Result>();
-
+       
             int year = 2021;
-            List<PDC_Result> results = Parser.ParsePDCResults(year);
+            //List<PDC_Result> results = Parser.ParsePDCResults(year);
 
 
             FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
-            List<Team> Teams = new List<Team>();
-            foreach (TeamYear ty in config.TeamUIDS)
-            {
-                Team t = Parser.ParseTeam(ty.TeamUID, ty.Year);
-                Teams.Add(t);
-            }
+            int x = 0; 
+            //List<Team> Teams = new List<Team>();
+            //foreach (TeamYear ty in config.TeamUIDS)
+            //{
+            //    Team t = Parser.ParseTeam(ty.TeamUID, ty.Year);
+            //    Teams.Add(t);
+            //}
 
 
-            //    List<PDC_Result> results = db.ToList();
-            //Team KamnaChameleon = Parser.ParseTeam("2483", year);
-            //Team TheBauhausMovement = Parser.ParseTeam("2534", year);
-            //Team Plaidstockings = Parser.ParseTeam("1881", year);
-            //Team Rubicon = Parser.ParseTeam("1191", year);
-            //Team Zauzage = Parser.ParseTeam("37", year);
-            //Team Cowboys = Parser.ParseTeam("1882", year);
-            //int sumPoints = 0;
-            //using (StreamWriter writer =
-            //          new StreamWriter("2018_FantasyCyclingResults.csv"))
+
+            //List<FantasyResult> fr = new List<FantasyResult>();
+            //int sumPoints = 0; 
+
+            //foreach (PDC_Result r in results)
             //{
 
-            List<FantasyResult> fr = new List<FantasyResult>();
-            int sumPoints = 0; 
+            //    FantasyResult f = new FantasyResult();
 
-            foreach (PDC_Result r in results)
-            {
+            //    f.Race = r;
 
-                FantasyResult f = new FantasyResult();
+            //    foreach (Team tm in Teams)
+            //    {
+            //        TeamPoints t = r.CompareTeamToRace(tm);
+            //        t.Name = tm.TeamName;
+            //        f.Points.Add(t);
 
-                f.Race = r;
+            //        fr.Add(f);
+            //        sumPoints += t.Points;
 
-                foreach (Team tm in Teams)
-                {
-                    TeamPoints t = r.CompareTeamToRace(tm);
-                    t.Name = tm.PDCTeamName;
-                    f.Points.Add(t);
-
-                    fr.Add(f);
-                    sumPoints += t.Points;
-
-                }
-            }
-
-            int x = 0;
-            //t = r.CompareTeamToRace(TheBauhausMovement);
-            //t.Name = "BauhauseMovement";
-            //f.Points.Add(t);
-
-            //t = r.CompareTeamToRace(Plaidstockings);
-            //t.Name = "Plaidstockings";
-            //f.Points.Add(t);
-
-            //t = r.CompareTeamToRace(Rubicon);
-            //t.Name = "Rubicon";
-            //f.Points.Add(t);
-
-            //t = r.CompareTeamToRace(Zauzage);
-            //t.Name = "Zauzage";
-            //f.Points.Add(t);
-
-            //t = r.CompareTeamToRace(Cowboys);
-            //t.Name = "Cowboys";
-            //f.Points.Add(t);
-
-
-            //db.Add(r);
-
-            //Console.WriteLine(r.ToCSV());
-            //Console.WriteLine("\r\n");
-
-            //writer.WriteLine(r.ToCSV());
-
+            //    }
             //}
-
-
-
-            //MongoRepository<Rider> db = new MongoRepository<Rider>();
-
-            //List<Rider> list = Parser.ParseAllRiders(true);
-            //Team t = new Team();
-
-            //foreach (Rider r in list)
-            //{
-            //    db.Add(r);
-            //    t.AddRider(r);
-            //}
-
-            //t.ToCSVFile("PDCRiderList2016_2");
-
-
-            ////"5810e76ec0f64e44a842431d"
-
-            //Rider rd = db.GetById("5810e76ec0f64e44a842431d");
-            //rd.Name = "Peter Sagan";
-
-            //db.Update(rd);
-
-
-            //List<Rider> list = db.ToList();
-
-
-
-
-
-            //t.ToCSVFile("PDCRiders2016_2");
-
-
-
-            //var r = db.Where(x => x.CurrentYearPoints > 100 && x.Age == 26).ToList();
-            int z = 0;
-
-                //foreach (Rider r in list)
-                //{
-                //    db.Add(r);
-                //}
-            //}
-            //catch(Exception ex)
-            //{
-              //  int z = 0; 
-            //}
-            //Stopwatch stopwatch = new Stopwatch();
-            //stopwatch.Start();
-
-            //FindOptimalTeam(list);
-            //stopwatch.Stop();
-
-
-            //Console.WriteLine("Main Stopwatch Time Elapsed: " + stopwatch.Elapsed);
-            //Console.ReadLine();
-            //ParseTeamList();
-
+    
         }
 
-        //public static void MongoTest()
-        //{
-
-        //    try {
-
-        //        MongoRepository<Customer> customerrepo = new MongoRepository<Customer>();
-
-        //        customerrepo.DeleteAll();
-
-        //        var john = new Customer() { FirstName = "John", LastName = "Doe" };
-        //        var jane = new Customer() { FirstName = "Jane", LastName = "Doe" };
-        //        var jerry = new Customer() { FirstName = "Jerry", LastName = "Maguire" };
-        //        customerrepo.Add(new[] { john, jane, jerry });
-
-
-        //        john.FirstName = "Johnny";  //John prefers Johnny
-        //        customerrepo.Update(john);
-
-        //        jane.LastName = "Maguire";  //Jane divorces John and marries Jerry
-        //        customerrepo.Update(jane);
-
-        //        //Delete customers
-        //        customerrepo.Delete(jerry.Id);  //Jerry passes away
-
-        //        //Add some products to John and Jane
-        //        john.Products.AddRange(new[] {
-        //        new Product() { Name = "Fony DVD Player XY1299", Price = 35.99M },
-        //        new Product() { Name = "Big Smile Toothpaste", Price = 1.99M }
-        //});
-        //        jane.Products.Add(new Product() { Name = "Life Insurance", Price = 2500 });
-        //        customerrepo.Update(john);
-        //        customerrepo.Update(jane);
-        //        //Or, alternatively: customerrepo.Update(new [] { john, jane });
-
-               
-
-        //        //Finally; demonstrate GetById and First
-        //        var mysterycustomer1 = customerrepo.GetById(john.Id);
-        //        Customer mysterycustomer2 = customerrepo.First(c => c.FirstName == "Jane");
-
-        //        Console.WriteLine("Mystery customer 1: {0} (having {1} products)",
-        //                mysterycustomer1.FirstName, mysterycustomer1.Products.Count);
-        //        Console.WriteLine("Mystery customer 2: {0} (having {1} products)",
-        //                mysterycustomer2.FirstName, mysterycustomer2.Products.Count);
-
-        //        //Delete all customers
-        //        //customerrepo.DeleteAll();
-
-        //        //Halt for user
-        //        Console.WriteLine("Press any key...");
-        //        Console.ReadKey();
-                
-                
-        //         int x = 0;
-        //    }
-        //    catch(Exception ex) {
-        //        int z = 0;
-        //    }
-        //    //var server = MongoServer.Create(ConnectionString);
-        //    //var blog = server.GetDatabase("blog");
-
-
-        //}
+    
 
         
         static void FindOptimalTeam(List<Rider> riderList)
@@ -369,9 +169,8 @@ namespace FantasyCyclingParser
             {
                 ga.Start();
             }
-            catch (Exception ex)
-            {
-                int z = 0;
+            catch (Exception)
+            {                
             }
 
             Console.ReadLine();

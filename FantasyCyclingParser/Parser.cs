@@ -44,6 +44,7 @@ namespace FantasyCyclingParser
     }
     public static class TryParse
     {
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
         public static bool TryToParse(AngleSharp.Dom.Html.IHtmlDocument document, string path)
         {
             //IHtmlCollection<IElement> val = null;
@@ -53,6 +54,7 @@ namespace FantasyCyclingParser
             }
             catch (Exception ex)
             {
+                Logger.Error(ex);
                 return false;
             }
 
@@ -61,6 +63,7 @@ namespace FantasyCyclingParser
     }
     public static class Parser
     {
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
         public static List<string> ParsePCSRiders()
         {
 
@@ -94,11 +97,12 @@ namespace FantasyCyclingParser
 
                             riderURLs.Add(riderURL);
 
-                            int z = 0;
+                            
                         }
                     }
                     catch (Exception ex)
                     {
+                        Logger.Error(ex);
                         continue;
 
                     }
@@ -138,13 +142,13 @@ namespace FantasyCyclingParser
 
                             riderURLs.Add(riderURL);
 
-                            int z = 0;
+              
                         }
                     }
                     catch (Exception ex)
                     {
-                        //continue;
-
+                    //continue;
+                    Logger.Error(ex);
                     }
                 
                 return riderURLs;
@@ -209,7 +213,7 @@ namespace FantasyCyclingParser
                 }
                 catch (Exception ex)
                 {
-
+                    Logger.Error(ex);
                 }
             }
 
@@ -293,14 +297,15 @@ namespace FantasyCyclingParser
 
                             count++;
                         }
-                        int zz = 0;
+                        
                     }
                     catch (Exception ex)
                     {
+                        Logger.Error(ex);
                         failList.Add(r);
                         continue;
 
-                        int d = 0;
+                        
                     }
 
                 }//end foreach
@@ -394,25 +399,15 @@ namespace FantasyCyclingParser
 
                             results.Add(result);
                         }
-                      
-                        //AngleSharp.Dom.Html.IHtmlAnchorElement anc = (AngleSharp.Dom.Html.IHtmlAnchorElement)el.ChildNodes[3].ChildNodes[0];
-
-                        //AngleSharp.Dom.Html.IHtmlAnchorElement anc2 = (AngleSharp.Dom.Html.IHtmlAnchorElement)el.ChildNodes[9].ChildNodes[0];
-
-
-
+                                              
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         Console.WriteLine("failed");
                         
                         continue;
                     }
-                    //finally
-                    //{
-                    //    Console.WriteLine("Adding: " + result);
-
-                    //}
+                    
 
                 }
 
@@ -479,10 +474,10 @@ namespace FantasyCyclingParser
 
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         Console.WriteLine("failed");
-
+                        
                         continue;
                     }
              
@@ -545,13 +540,12 @@ namespace FantasyCyclingParser
                         }
 
                     }
-                    int zz = 0;
+                    
                 }
                 catch (Exception ex)
                 {
-                    continue;
-
-                    int d = 0;
+                    Logger.Error(ex);
+                    continue;                    
                 }
 
             }//end foreach
@@ -567,8 +561,7 @@ namespace FantasyCyclingParser
 
             var document = parser.Parse(fs);
 
-            var tbl = document.QuerySelectorAll("#content > table");
-            int z = 0;
+            var tbl = document.QuerySelectorAll("#content > table");            
 
         }
 
@@ -627,7 +620,7 @@ namespace FantasyCyclingParser
 
                 ///var document = parser.Parse(fs);
 
-                t.PDCTeamName = document.QuerySelectorAll("#content > h2").First().TextContent.Trim().Replace("Teams :: ", "").Trim();
+                t.TeamName = document.QuerySelectorAll("#content > h2").First().TextContent.Trim().Replace("Teams :: ", "").Trim();
                 var rows = document.QuerySelectorAll("table.cell").First().QuerySelectorAll("tr");
 
                 var els = rows.ToArray();
@@ -670,17 +663,13 @@ namespace FantasyCyclingParser
                         }
 
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         Console.WriteLine("failed to get stats for: " + name);
                         t.MissingStatsForRiders.Add(name);
                         continue;
                     }
-                    //finally
-                    //{
-                    //    Console.WriteLine("Adding: " + name);
-                       
-                    //}
+                    
 
                 }
                 Console.WriteLine(t.ToString());
@@ -715,8 +704,7 @@ namespace FantasyCyclingParser
             var GC = specialtyPts.First().NextSibling.ChildNodes[1].ChildNodes[1].TextContent;
             var TT = specialtyPts.First().NextSibling.ChildNodes[2].ChildNodes[1].TextContent;
             var Sprint = specialtyPts.First().NextSibling.ChildNodes[3].ChildNodes[1].TextContent;
-
-            int x = 0;
+            
         }
 
     }

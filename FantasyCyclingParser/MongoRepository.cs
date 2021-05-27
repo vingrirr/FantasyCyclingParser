@@ -32,11 +32,7 @@ namespace FantasyCyclingParser
             return item;
         }
 
-        //public static void FantasyYearConfigDelete(string theID)
-        //{
-        //    (new MongoRepository<FantasyYearConfig>()).Delete(theID);
-        //}
-
+   
 
         
         public static List<PDC_Result> RaceResultsAll()
@@ -46,25 +42,7 @@ namespace FantasyCyclingParser
             return db.ToList();
         } 
 
-        public static void SnapshotInsert(SeasonSnapshot snap)
-        {
-            MongoRepository<SeasonSnapshot> mrp = new MongoRepository<SeasonSnapshot>();
-
-            mrp.Add(snap);
-
-            //(new MongoRepository<WorkoutLog>()).Add(log);
-        }
-
-        public static List<SeasonSnapshot> SnapshotGetAll()
-        {
-            MongoRepository<SeasonSnapshot> mrp = new MongoRepository<SeasonSnapshot>();
-
-            List<SeasonSnapshot> items = mrp.ToList();
-
-            return items; 
-
-            //(new MongoRepository<WorkoutLog>()).Add(log);
-        }
+           
 
         public static void ParseSeasonToDB(int year)
         {

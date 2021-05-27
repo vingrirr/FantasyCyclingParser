@@ -149,9 +149,7 @@ namespace FantasyCyclingParser
             var document = parser.Parse(url);
             Parse(document);
         }
-        public void LoadPCDInfoForYear(int pdcID, int year)
-        {
-        }
+      
 
         public void GetPCDInfoForYear(int year)
         {
@@ -199,9 +197,9 @@ namespace FantasyCyclingParser
                     PCS_PreviousSeasonStats.Wins = Convert.ToInt32(prevSeason.ChildNodes[4].TextContent);
                     PCS_PreviousSeasonStats.Top10s = Convert.ToInt32(prevSeason.ChildNodes[5].TextContent);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    int z = 0;
+                    
                 }
             }
         }
@@ -269,9 +267,8 @@ namespace FantasyCyclingParser
                     SprintPoints = Convert.ToInt32(Sprint);
                 }
             }
-            catch (Exception ex)
-            {
-                int z = 0;
+            catch (Exception)
+            {                
             }
 
         }
@@ -283,6 +280,10 @@ namespace FantasyCyclingParser
         public string Nationality { get; set; }
 
         public string PDC_RiderURL { get; set; }
+
+        public string PDC_RiderID { get; set; }
+
+        public string ID { get; set; }
 
         /// <summary>
         /// pro world tour, pro conti, conti etc
@@ -310,6 +311,7 @@ namespace FantasyCyclingParser
         public double PointsDiffPercent { get; set; }
 
         //from pro cycling stats
+        #region
         public double OneDayPoints { get; set; }
         public double GCPoints { get; set; }
         public double TTPoints { get; set; }
@@ -320,11 +322,49 @@ namespace FantasyCyclingParser
 
         public List<PDC_AnnualData> HistoricPDCData { get; set; }
         //public List<PCS_SeasonStat> PCS_SeasonStats { get; set; }
+        #endregion
 
     }
 
     public class Team : Entity
     {
+        //[BsonElement("Id")]
+        //public ObjectId Id { get; set; }
+        public List<Rider> Riders { get; set; }
+        public double TotalPointsScored { get; set; }
+        public int CurrentPoints { get; set; }
+
+        public string PDC_ID { get; set; }
+
+        public string ID { get; set; }
+
+        public bool IsDraftTeam { get; set; }
+
+        public string TeamName { get; set; }
+
+        #region stats
+        public double AveragePointsScored { get; set; }
+        public double AverageCostOfRiders { get; set; }
+
+        public double AveragePreviousPointsScored { get; set; }
+        public double AveragePreviousCostOfRiders { get; set; }
+
+        public double AverageRiderAge { get; set; }
+        public double AverageRiderHeight { get; set; }
+        public double AverageRiderWeight { get; set; }
+        public double AverageOneDayPoints { get; set; }
+        public double AverageGCPoints { get; set; }
+        public double AverageTTPoints { get; set; }
+        public double AverageSprintPoints { get; set; }
+        
+
+        public double CostVariance { get; set; }
+
+        public double CostKurtosis { get; set; }  
+        public double CostSkew { get; set; }
+
+        #endregion
+        public List<string> MissingStatsForRiders { get; set; }
         public Team()
         {
             Riders = new List<Rider>();
@@ -425,7 +465,7 @@ namespace FantasyCyclingParser
         public override string ToString()
         {
             string d = String.Empty;
-            d = this.PDCTeamName;
+            d = this.TeamName;
             d += "\r\n__________________________\r\n\r\n";
             foreach (Rider r in Riders.OrderByDescending(x => x.CurrentYearPoints).ToList())
             {
@@ -435,32 +475,7 @@ namespace FantasyCyclingParser
             return d;
         }
 
-        //[BsonElement("Id")]
-        //public ObjectId Id { get; set; }
-        public List<Rider> Riders { get; set; }
-        public double TotalPointsScored { get; set; }
-
-        public double AveragePointsScored { get; set; }
-        public double AverageCostOfRiders { get; set; }
-
-        public double AveragePreviousPointsScored { get; set; }
-        public double AveragePreviousCostOfRiders { get; set; }
-
-        public double AverageRiderAge { get; set; }
-        public double AverageRiderHeight { get; set; }
-        public double AverageRiderWeight { get; set; }
-        public double AverageOneDayPoints { get; set; }
-        public double AverageGCPoints { get; set; }
-        public double AverageTTPoints { get; set; }
-        public double AverageSprintPoints { get; set; }
-        public string PDCTeamName { get; set; }
-
-        public double CostVariance { get; set; }
-
-        public double CostKurtosis { get; set; }
-        public double CostSkew { get; set; }
-
-        public List<string> MissingStatsForRiders { get; set; }
+       
 
     }
 
@@ -597,9 +612,8 @@ namespace FantasyCyclingParser
                     r += rr.ToCSV();
                 }
             }
-            catch(Exception ex)
-            {
-                int z = 0; 
+            catch(Exception)
+            {                
             }
 
             return r;
@@ -672,34 +686,4 @@ namespace FantasyCyclingParser
         public Team Team { get; set; }
     }
 
-
-
-    #region old stuff
-    public class SeasonSnapshot :Entity
-    {
-        public SeasonSnapshot()
-        {
-            Snapshot = DateTime.Now; //mongo stores this as UTC
-            Teams = new List<Team>();
-        }
-
-        public DateTime Snapshot { get; set; }
-        public List<Team> Teams { get; set; }
-    }
-  
-    public class SnapshotDataPoint
-    {
-        public SnapshotDataPoint(int d, double points)
-        {
-            x = d; 
-            //Date = d;
-            y = points; 
-        }
-
-        public int x { get; set; }
-        //public DateTime Date { get; set; }
-        public double y { get; set; }
-    }
-
-    #endregion
 }

@@ -14,8 +14,8 @@ namespace WindowsService1
 
         private Thread _mythread;
         private readonly object padlock = new object();
-        private volatile bool stopping = false; 
-
+        private volatile bool stopping = false;
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
 
         public Worker()
         {
@@ -44,19 +44,21 @@ namespace WindowsService1
             {
                 FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
                 DashboardViewModel vm = new DashboardViewModel(config); //get the data
-
-                //store the data. 
-            }
+         
+        //store the data. 
+    }
 
             catch(ThreadInterruptedException TIE)
             {
+                Logger.Error(TIE);
                 return; 
             }
             catch(ThreadAbortException TAE)
             {
+                Logger.Error(TAE);
                 return; 
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 for (int i = 1; i <= 120; i++)
                     System.Threading.Thread.Sleep(1000);

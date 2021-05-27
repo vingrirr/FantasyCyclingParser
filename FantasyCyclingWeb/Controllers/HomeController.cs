@@ -84,7 +84,7 @@ namespace FantasyCyclingWeb.Controllers
 
             Team t = Parser.ParseTeam(teamUID, Convert.ToInt32(year));
 
-            TeamYear ty = new TeamYear(teamUID, Convert.ToInt32(year), t.PDCTeamName);
+            TeamYear ty = new TeamYear(teamUID, Convert.ToInt32(year), t.TeamName);
 
 
             vm.TeamUIDS.Add(ty);
@@ -100,13 +100,6 @@ namespace FantasyCyclingWeb.Controllers
    
         }
 
-        public ActionResult Line()
-        {
-
-            SnapshotViewModel vm = new SnapshotViewModel(); 
-            return View(vm);
-
-        }
 
         public JsonResult GetData()
         {
