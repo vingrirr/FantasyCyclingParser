@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MongoDB.Driver;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
 using MongoRepository;
 
 namespace FantasyCyclingParser
@@ -35,10 +32,10 @@ namespace FantasyCyclingParser
             return item;
         }
 
-        public static void FantasyYearConfigDelete(string theID)
-        {
-            (new MongoRepository<FantasyYearConfig>()).Delete(theID);
-        }
+        //public static void FantasyYearConfigDelete(string theID)
+        //{
+        //    (new MongoRepository<FantasyYearConfig>()).Delete(theID);
+        //}
 
 
         

@@ -18,8 +18,6 @@ using System.Threading;
 using GeneticSharp.Infrastructure.Threading;
 using System.Diagnostics;
 using System.Net;
-using MongoDB.Driver;
-using MongoDB.Bson;
 using MongoRepository;
 
 namespace FantasyCyclingParser

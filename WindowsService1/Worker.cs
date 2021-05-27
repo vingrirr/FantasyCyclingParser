@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using FantasyCyclingWeb.Models;
+using FantasyCyclingParser;
 
 namespace WindowsService1
 {
@@ -41,27 +42,8 @@ namespace WindowsService1
         {
             try
             {
-                int year = DateTime.Now.Year; //todo: read from config file or some shit
-                DashboardViewModel vm = new DashboardViewModel(year); //get the data
-
-                FantasyCyclingParser.SeasonSnapshot snap = new FantasyCyclingParser.SeasonSnapshot();
-
-                snap.Teams.Add(vm.CloserEncounter);
-                snap.Teams.Add(vm.Cowboys);
-
-                snap.Teams.Add(vm.Goldbar35);
-                snap.Teams.Add(vm.KamnaChameleon);
-                snap.Teams.Add(vm.Krtecek_35);
-                snap.Teams.Add(vm.KruijswijksSnowplows);
-                snap.Teams.Add(vm.Plaidstockings);
-                snap.Teams.Add(vm.Rubicon);
-
-                snap.Teams.Add(vm.TeamTacoVan);
-                snap.Teams.Add(vm.TheBauhausMovement);
-                snap.Teams.Add(vm.Zauzage);
-
-
-                FantasyCyclingParser.Repository.SnapshotInsert(snap);
+                FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
+                DashboardViewModel vm = new DashboardViewModel(config); //get the data
 
                 //store the data. 
             }

@@ -8,8 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using AngleSharp.Dom;
 using System.Reflection;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
 using MongoRepository;
 
 namespace FantasyCyclingParser
