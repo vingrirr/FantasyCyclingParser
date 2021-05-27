@@ -67,18 +67,69 @@ namespace FantasyCyclingParser
     }
     public class Rider : Entity
     {
+
+        //[BsonElement("Id")]
+        //public ObjectId Id { get; set; }
+        public string Name { get; set; }
+        public string Nationality { get; set; }
+
+        public string PDC_RiderURL { get; set; }
+
+        public string PDC_RiderID { get; set; }
+
+        public string ID { get; set; }
+        public double CurrentYearPoints { get; set; }
+        public double CurrentYearCost { get; set; }
+        public int PdcRankCurrentYear { get; set; }
+
+        public int Year { get; set; }
+
+        /// <summary>
+        /// pro world tour, pro conti, conti etc
+        /// </summary>
+        public string TeamStatus { get; set; }
+        public string Team { get; set; }
+
+        public double Age { get; set; }
+        public double YearBorn { get; set; }
+
+
+        public double PreviousPoints { get; set; }
+        public double PreviousCost { get; set; }
+
+
+        public List<PDC_AnnualData> HistoricPDCData { get; set; }
+
+
+        #region old stuff
+        //public string RiderType { get; set; }
+        //public double Height { get; set; }
+        //public double Weight { get; set; }
+        //public double CostDiff { get; set; }
+        //public double PointsDiff { get; set; }
+        //public int RaceCountCurrentYear { get; set; }
+        //public double CostDiffPercent { get; set; }
+
+        //public double PointsDiffPercent { get; set; }
+
+        //from pro cycling stats
+
+        //public double OneDayPoints { get; set; }
+        //public double GCPoints { get; set; }
+        //public double TTPoints { get; set; }
+        //public double SprintPoints { get; set; }
+
+        //public PCS_SeasonStat PCS_CurrentSeasonStats { get; set; }
+        //public PCS_SeasonStat PCS_PreviousSeasonStats { get; set; }
+
+        //public List<PCS_SeasonStat> PCS_SeasonStats { get; set; }
+        #endregion
         public Rider()
         {
-            //PCS_SeasonStats = new List<PCS_SeasonStat>();
-            PCS_CurrentSeasonStats = new PCS_SeasonStat();
-            PCS_PreviousSeasonStats = new PCS_SeasonStat();
+    
             HistoricPDCData = new List<PDC_AnnualData>();
         }
-
-        //public Rider(string procyclingStatsURL)
-        //{
-        //    LoadFromProCyclingStats(procyclingStatsURL);
-        //}
+        
         public string ToCSV()
         {
             string r = String.Empty;
@@ -99,229 +150,183 @@ namespace FantasyCyclingParser
             return r;
         }
 
-        public double[] ToVector()
-        {
-            double[] vector = new double[10];
 
-            vector = new double[] { this.Age, this.CurrentYearCost, this.CurrentYearPoints, this.PreviousCost, this.PreviousPoints,
-                                       this.PointsDiff, this.SprintPoints, this.TTPoints, this.GCPoints, this.OneDayPoints };
+        #region old stuff
+        //public double[] ToVector()
+        //{
+        //    double[] vector = new double[10];
 
-            return vector;
+        //    vector = new double[] { this.Age, this.CurrentYearCost, this.CurrentYearPoints, this.PreviousCost, this.PreviousPoints,
+        //                               this.PointsDiff, this.SprintPoints, this.TTPoints, this.GCPoints, this.OneDayPoints };
 
-        }
-        public void LoadProCyclingStats()
-        {
-            var parser = new HtmlParser();
+        //    return vector;
 
-            //string fname = this.Name.Split(null)[0];
-            //string lname = this.Name.Split(null)[1];
+        //}
+        //public void LoadProCyclingStats()
+        //{
+        //    var parser = new HtmlParser();
 
-
-            List<string> _pcsriderurls = File.ReadAllLines("PCSRiderURLs.txt").ToList();
-            Dictionary<string, double> scores = new Dictionary<string, double>();
-
-            foreach (string s in _pcsriderurls)
-            {
-                //string d = s.Replace("rider/", "").Trim();
-
-                scores.Add(s, LevenshteinDistance.Compute(s, this.Name));
-            }
-            string r = scores.OrderBy(x => x.Value).Select(x => x.Key).First().ToString();
+        //    //string fname = this.Name.Split(null)[0];
+        //    //string lname = this.Name.Split(null)[1];
 
 
-            using (WebClient client = new WebClient())
-            {
+        //    List<string> _pcsriderurls = File.ReadAllLines("PCSRiderURLs.txt").ToList();
+        //    Dictionary<string, double> scores = new Dictionary<string, double>();
 
-                string url = String.Format("http://www.procyclingstats.com/{0}", r);
+        //    foreach (string s in _pcsriderurls)
+        //    {
+        //        //string d = s.Replace("rider/", "").Trim();
 
-                string htmlCode = client.DownloadString(url);
-
-                var document = parser.Parse(htmlCode);
-
-                Parse(document);
-            }
-
-
-        }
-        public void LoadProCyclingStats(string url)
-        {
-            var parser = new HtmlParser();
-            var document = parser.Parse(url);
-            Parse(document);
-        }
-      
-
-        public void GetPCDInfoForYear(int year)
-        {
-            string url = String.Format(PDC_RiderURL, year);
-            PDC_AnnualData data = Parser.ParseHistoricPDCStats(url);
-            data.Year = year;
-
-            HistoricPDCData.Add(data);
-
-        }
-        public void GetPCSSeasonStats(string href)
-        {
-            using (WebClient client = new WebClient())
-            {
-                try
-                {
-                    var parser = new HtmlParser();
-
-                    string url = String.Format("http://www.procyclingstats.com/rider.php{0}", href);
-
-                    string htmlCode = client.DownloadString(url);
-
-                    var document = parser.Parse(htmlCode);
-
-                    //var table = document.QuerySelectorAll("body > div.wrapper > div.content > div:nth - child(4) > table > tbody");
-                    var currSeason = document.QuerySelectorAll("body > div.wrapper > div.content > div:nth-child(4) > table > tbody > tr:nth-child(1)").First();
-                    var prevSeason = document.QuerySelectorAll("body > div.wrapper > div.content > div:nth-child(4) > table > tbody > tr:nth-child(2)").First();
-
-                    PCS_SeasonStat current = new PCS_SeasonStat();
-
-                    PCS_CurrentSeasonStats.Year = Convert.ToInt32(currSeason.ChildNodes[0].TextContent);
-                    PCS_CurrentSeasonStats.PCSPoints = Convert.ToInt32(currSeason.ChildNodes[1].TextContent);
-                    PCS_CurrentSeasonStats.RaceDays = Convert.ToInt32(currSeason.ChildNodes[2].TextContent);
-                    PCS_CurrentSeasonStats.KMs = Convert.ToInt32(currSeason.ChildNodes[3].TextContent);
-                    PCS_CurrentSeasonStats.Wins = Convert.ToInt32(currSeason.ChildNodes[4].TextContent);
-                    PCS_CurrentSeasonStats.Top10s = Convert.ToInt32(currSeason.ChildNodes[5].TextContent);
+        //        scores.Add(s, LevenshteinDistance.Compute(s, this.Name));
+        //    }
+        //    string r = scores.OrderBy(x => x.Value).Select(x => x.Key).First().ToString();
 
 
-                    PCS_SeasonStat prev = new PCS_SeasonStat();
+        //    using (WebClient client = new WebClient())
+        //    {
 
-                    PCS_PreviousSeasonStats.Year = Convert.ToInt32(prevSeason.ChildNodes[0].TextContent);
-                    PCS_PreviousSeasonStats.PCSPoints = Convert.ToInt32(prevSeason.ChildNodes[1].TextContent);
-                    PCS_PreviousSeasonStats.RaceDays = Convert.ToInt32(prevSeason.ChildNodes[2].TextContent);
-                    PCS_PreviousSeasonStats.KMs = Convert.ToInt32(prevSeason.ChildNodes[3].TextContent);
-                    PCS_PreviousSeasonStats.Wins = Convert.ToInt32(prevSeason.ChildNodes[4].TextContent);
-                    PCS_PreviousSeasonStats.Top10s = Convert.ToInt32(prevSeason.ChildNodes[5].TextContent);
-                }
-                catch (Exception)
-                {
-                    
-                }
-            }
-        }
-        private void Parse(AngleSharp.Dom.Html.IHtmlDocument document)
-        {
+        //        string url = String.Format("http://www.procyclingstats.com/{0}", r);
 
-            try {
+        //        string htmlCode = client.DownloadString(url);
 
-                string seasonStatsLink = String.Empty;
+        //        var document = parser.Parse(htmlCode);
 
-                if (TryParse.TryToParse(document, QS.SeasonStatsLink))
-                    seasonStatsLink = document.QuerySelectorAll(QS.SeasonStatsLink).First().Attributes[0].Value;
-
-                GetPCSSeasonStats(seasonStatsLink);
-
-                if (TryParse.TryToParse(document, QS.Age))
-                {
-                    var age = document.QuerySelectorAll(QS.Age).First().NextSibling.TextContent.Trim();
-                    Age = Convert.ToInt32(age);
-                }
-
-                string specialToUse = "";
+        //        Parse(document);
+        //    }
 
 
-                if (TryParse.TryToParse(document, QS.Weight))
-                {
+        //}
 
-                    var weight = document.QuerySelectorAll(QS.Weight).First().NextSibling.TextContent.Trim();
-                    if (weight.Contains("kg"))
-                        Weight = Convert.ToInt32(weight.Replace("kg", "").Trim());
-                    else if (weight.Contains("m"))
-                        Height = Convert.ToDouble(weight.Replace("m", "").Trim()); //they fucked up
-
-                    specialToUse = QS.Specialty;
-                }
-                else
-                {
-                    specialToUse = QS.Specialty2;
-                }
-
-                if (TryParse.TryToParse(document, QS.Height))
-                {
-                    string height = document.QuerySelectorAll(QS.Height).First().NextSibling.TextContent;
-                    if (height.Contains("m"))
-                        Height = Convert.ToDouble(height.Replace("m", "").Trim());
-                    else if (height.Contains("kg"))
-                        Weight = Convert.ToInt32(height.Replace("kg", "").Trim()); //they fucked up
-                }
+        //public void LoadProCyclingStats(string url)
+        //{
+        //    var parser = new HtmlParser();
+        //    var document = parser.Parse(url);
+        //    Parse(document);
+        //}
 
 
-                if (TryParse.TryToParse(document, specialToUse))
-                {
-                    var specialtyPts = document.QuerySelectorAll(specialToUse);
-                    var oneDay = specialtyPts.First().NextSibling.ChildNodes[0].ChildNodes[1].TextContent;
-                    OneDayPoints = Convert.ToInt32(oneDay);
+        //public void GetPCDInfoForYear(int year)
+        //{
+        //    string url = String.Format(PDC_RiderURL, year);
+        //    PDC_AnnualData data = Parser.ParseHistoricPDCStats(url);
+        //    data.Year = year;
+
+        //    HistoricPDCData.Add(data);
+
+        //}
+        //public void GetPCSSeasonStats(string href)
+        //{
+        //    using (WebClient client = new WebClient())
+        //    {
+        //        try
+        //        {
+        //            var parser = new HtmlParser();
+
+        //            string url = String.Format("http://www.procyclingstats.com/rider.php{0}", href);
+
+        //            string htmlCode = client.DownloadString(url);
+
+        //            var document = parser.Parse(htmlCode);
+
+        //            //var table = document.QuerySelectorAll("body > div.wrapper > div.content > div:nth - child(4) > table > tbody");
+        //            var currSeason = document.QuerySelectorAll("body > div.wrapper > div.content > div:nth-child(4) > table > tbody > tr:nth-child(1)").First();
+        //            var prevSeason = document.QuerySelectorAll("body > div.wrapper > div.content > div:nth-child(4) > table > tbody > tr:nth-child(2)").First();
+
+        //            PCS_SeasonStat current = new PCS_SeasonStat();
+
+        //            PCS_CurrentSeasonStats.Year = Convert.ToInt32(currSeason.ChildNodes[0].TextContent);
+        //            PCS_CurrentSeasonStats.PCSPoints = Convert.ToInt32(currSeason.ChildNodes[1].TextContent);
+        //            PCS_CurrentSeasonStats.RaceDays = Convert.ToInt32(currSeason.ChildNodes[2].TextContent);
+        //            PCS_CurrentSeasonStats.KMs = Convert.ToInt32(currSeason.ChildNodes[3].TextContent);
+        //            PCS_CurrentSeasonStats.Wins = Convert.ToInt32(currSeason.ChildNodes[4].TextContent);
+        //            PCS_CurrentSeasonStats.Top10s = Convert.ToInt32(currSeason.ChildNodes[5].TextContent);
 
 
-                    var GC = specialtyPts.First().NextSibling.ChildNodes[1].ChildNodes[1].TextContent;
-                    GCPoints = Convert.ToInt32(GC);
+        //            PCS_SeasonStat prev = new PCS_SeasonStat();
 
-                    var TT = specialtyPts.First().NextSibling.ChildNodes[2].ChildNodes[1].TextContent;
-                    TTPoints = Convert.ToInt32(TT);
+        //            PCS_PreviousSeasonStats.Year = Convert.ToInt32(prevSeason.ChildNodes[0].TextContent);
+        //            PCS_PreviousSeasonStats.PCSPoints = Convert.ToInt32(prevSeason.ChildNodes[1].TextContent);
+        //            PCS_PreviousSeasonStats.RaceDays = Convert.ToInt32(prevSeason.ChildNodes[2].TextContent);
+        //            PCS_PreviousSeasonStats.KMs = Convert.ToInt32(prevSeason.ChildNodes[3].TextContent);
+        //            PCS_PreviousSeasonStats.Wins = Convert.ToInt32(prevSeason.ChildNodes[4].TextContent);
+        //            PCS_PreviousSeasonStats.Top10s = Convert.ToInt32(prevSeason.ChildNodes[5].TextContent);
+        //        }
+        //        catch (Exception)
+        //        {
 
-                    var Sprint = specialtyPts.First().NextSibling.ChildNodes[3].ChildNodes[1].TextContent;
-                    SprintPoints = Convert.ToInt32(Sprint);
-                }
-            }
-            catch (Exception)
-            {                
-            }
+        //        }
+        //    }
+        //}
+        //private void Parse(AngleSharp.Dom.Html.IHtmlDocument document)
+        //{
 
-        }
+        //    try {
+
+        //        string seasonStatsLink = String.Empty;
+
+        //        if (TryParse.TryToParse(document, QS.SeasonStatsLink))
+        //            seasonStatsLink = document.QuerySelectorAll(QS.SeasonStatsLink).First().Attributes[0].Value;
+
+        //        GetPCSSeasonStats(seasonStatsLink);
+
+        //        if (TryParse.TryToParse(document, QS.Age))
+        //        {
+        //            var age = document.QuerySelectorAll(QS.Age).First().NextSibling.TextContent.Trim();
+        //            Age = Convert.ToInt32(age);
+        //        }
+
+        //        string specialToUse = "";
 
 
-        //[BsonElement("Id")]
-        //public ObjectId Id { get; set; }
-        public string Name { get; set; }
-        public string Nationality { get; set; }
+        //        if (TryParse.TryToParse(document, QS.Weight))
+        //        {
 
-        public string PDC_RiderURL { get; set; }
+        //            var weight = document.QuerySelectorAll(QS.Weight).First().NextSibling.TextContent.Trim();
+        //            if (weight.Contains("kg"))
+        //                Weight = Convert.ToInt32(weight.Replace("kg", "").Trim());
+        //            else if (weight.Contains("m"))
+        //                Height = Convert.ToDouble(weight.Replace("m", "").Trim()); //they fucked up
 
-        public string PDC_RiderID { get; set; }
+        //            specialToUse = QS.Specialty;
+        //        }
+        //        else
+        //        {
+        //            specialToUse = QS.Specialty2;
+        //        }
 
-        public string ID { get; set; }
+        //        if (TryParse.TryToParse(document, QS.Height))
+        //        {
+        //            string height = document.QuerySelectorAll(QS.Height).First().NextSibling.TextContent;
+        //            if (height.Contains("m"))
+        //                Height = Convert.ToDouble(height.Replace("m", "").Trim());
+        //            else if (height.Contains("kg"))
+        //                Weight = Convert.ToInt32(height.Replace("kg", "").Trim()); //they fucked up
+        //        }
 
-        /// <summary>
-        /// pro world tour, pro conti, conti etc
-        /// </summary>
-        public string TeamStatus { get; set; }
-        public string Team { get; set; }
-        //public string RiderType { get; set; }
-        public double Height { get; set; }
-        public double Weight { get; set; }
-        public double Age { get; set; }
-        public double YearBorn { get; set; }
-        //public int RaceCountCurrentYear { get; set; }
 
-        public double PreviousPoints { get; set; }
-        public double PreviousCost { get; set; }
-        public double CurrentYearPoints { get; set; }
-        public double CurrentYearCost { get; set; }
-        public int PdcRankCurrentYear { get; set; }
+        //        if (TryParse.TryToParse(document, specialToUse))
+        //        {
+        //            var specialtyPts = document.QuerySelectorAll(specialToUse);
+        //            var oneDay = specialtyPts.First().NextSibling.ChildNodes[0].ChildNodes[1].TextContent;
+        //            OneDayPoints = Convert.ToInt32(oneDay);
 
-        public double CostDiff { get; set; }
-        public double PointsDiff { get; set; }
 
-        public double CostDiffPercent { get; set; }
+        //            var GC = specialtyPts.First().NextSibling.ChildNodes[1].ChildNodes[1].TextContent;
+        //            GCPoints = Convert.ToInt32(GC);
 
-        public double PointsDiffPercent { get; set; }
+        //            var TT = specialtyPts.First().NextSibling.ChildNodes[2].ChildNodes[1].TextContent;
+        //            TTPoints = Convert.ToInt32(TT);
 
-        //from pro cycling stats
-        #region
-        public double OneDayPoints { get; set; }
-        public double GCPoints { get; set; }
-        public double TTPoints { get; set; }
-        public double SprintPoints { get; set; }
+        //            var Sprint = specialtyPts.First().NextSibling.ChildNodes[3].ChildNodes[1].TextContent;
+        //            SprintPoints = Convert.ToInt32(Sprint);
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {                
+        //    }
 
-        public PCS_SeasonStat PCS_CurrentSeasonStats { get; set; }
-        public PCS_SeasonStat PCS_PreviousSeasonStats { get; set; }
+        //}
 
-        public List<PDC_AnnualData> HistoricPDCData { get; set; }
-        //public List<PCS_SeasonStat> PCS_SeasonStats { get; set; }
         #endregion
 
     }
@@ -341,6 +346,8 @@ namespace FantasyCyclingParser
         public bool IsDraftTeam { get; set; }
 
         public string TeamName { get; set; }
+        public string TeamURL { get; set; }
+        public int Rank { get; set; }
 
         #region stats
         public double AveragePointsScored { get; set; }
@@ -383,31 +390,33 @@ namespace FantasyCyclingParser
             Riders.Add(r);
             TotalPointsScored += r.CurrentYearPoints;
 
-            CostVariance = MathNet.Numerics.Statistics.ArrayStatistics.Variance(Riders.Select(x => x.CurrentYearCost).ToArray());
+            #region old stuff
+            //CostVariance = MathNet.Numerics.Statistics.ArrayStatistics.Variance(Riders.Select(x => x.CurrentYearCost).ToArray());
 
 
-            CostKurtosis = MathNet.Numerics.Statistics.Statistics.Kurtosis(Riders.Select(x => x.CurrentYearCost).ToArray());
-            CostSkew = MathNet.Numerics.Statistics.Statistics.Skewness(Riders.Select(x => x.CurrentYearCost).ToArray());
+            //CostKurtosis = MathNet.Numerics.Statistics.Statistics.Kurtosis(Riders.Select(x => x.CurrentYearCost).ToArray());
+            //CostSkew = MathNet.Numerics.Statistics.Statistics.Skewness(Riders.Select(x => x.CurrentYearCost).ToArray());
 
-            // MathNet.Numerics.Statistics.Histogram h = new MathNet.Numerics.Statistics.Histogram(Riders.Select(x => x.CurrentYearCost).ToArray(), 1);
+            //// MathNet.Numerics.Statistics.Histogram h = new MathNet.Numerics.Statistics.Histogram(Riders.Select(x => x.CurrentYearCost).ToArray(), 1);
 
-            AverageCostOfRiders = Riders.Average(x => x.CurrentYearCost);
-            AveragePointsScored = Riders.Average(x => x.CurrentYearPoints);
+            //AverageCostOfRiders = Riders.Average(x => x.CurrentYearCost);
+            //AveragePointsScored = Riders.Average(x => x.CurrentYearPoints);
 
-            AveragePreviousCostOfRiders = Riders.Average(x => x.PreviousCost);
-            AveragePreviousPointsScored = Riders.Average(x => x.PreviousPoints);
-
-
-            AverageRiderAge = Riders.Average(x => x.Age);
-            AverageRiderHeight = Riders.Average(x => x.Height);
-            AverageRiderWeight = Riders.Average(x => x.Weight);
+            //AveragePreviousCostOfRiders = Riders.Average(x => x.PreviousCost);
+            //AveragePreviousPointsScored = Riders.Average(x => x.PreviousPoints);
 
 
-            //from pro cycling stats
-            AverageOneDayPoints = Riders.Average(x => x.OneDayPoints);
-            AverageGCPoints = Riders.Average(x => x.GCPoints);
-            AverageTTPoints = Riders.Average(x => x.TTPoints);
-            AverageSprintPoints = Riders.Average(x => x.SprintPoints);
+            //AverageRiderAge = Riders.Average(x => x.Age);
+            //AverageRiderHeight = Riders.Average(x => x.Height);
+            //AverageRiderWeight = Riders.Average(x => x.Weight);
+
+
+            ////from pro cycling stats
+            //AverageOneDayPoints = Riders.Average(x => x.OneDayPoints);
+            //AverageGCPoints = Riders.Average(x => x.GCPoints);
+            //AverageTTPoints = Riders.Average(x => x.TTPoints);
+            //AverageSprintPoints = Riders.Average(x => x.SprintPoints);
+            #endregion
 
         }
 
@@ -422,19 +431,19 @@ namespace FantasyCyclingParser
 
             return cf;
         }
-        public double[][] ToVector()
-        {
-            double[][] vector = new double[Riders.Count][];
+        //public double[][] ToVector()
+        //{
+        //    double[][] vector = new double[Riders.Count][];
 
 
-            for (int x = 0; x < Riders.Count; x++)
-            {
-                vector[x] = Riders[x].ToVector();
-            }
+        //    for (int x = 0; x < Riders.Count; x++)
+        //    {
+        //        vector[x] = Riders[x].ToVector();
+        //    }
 
-            return vector;
+        //    return vector;
 
-        }
+        //}
 
         public void ToCSVFile()
         {
@@ -684,6 +693,27 @@ namespace FantasyCyclingParser
         public int TotalPointsScored { get; set; }
 
         public Team Team { get; set; }
+    }
+
+    public class PDC_Season : Entity
+    {
+        public PDC_Season()
+        {
+
+        }
+        public void Update()
+        {            
+            Results = Parser.ParsePDCResults(Year);            
+            Teams = Parser.ParseTeamList(Year);
+        }
+        public int Year{ get; set; }
+        public List<PDC_Result> Results { get; set; }
+
+        public List<Rider> Riders { get; set; }
+
+        public List<Team> Teams { get; set; }
+
+        public DateTime LastUpdated { get; set; }
     }
 
 }

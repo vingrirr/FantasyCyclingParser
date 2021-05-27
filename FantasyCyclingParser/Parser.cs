@@ -227,11 +227,6 @@ namespace FantasyCyclingParser
             List<Rider> failList = new List<Rider>();
 
             List<Rider> riderList = new List<Rider>();
-            //string path = "C:\\Code\\FantasyCycling\\FantasyCyclingParser\\FantasyCyclingParser\\Pages\\FSA DS __ Men 2016 __ Riders_All.html";
-            //FileStream fs = File.Open(path, FileMode.Open);
-            //var parser = new HtmlParser();
-
-            //var document = parser.Parse(fs);
 
             using (WebClient client = new WebClient())
             {
@@ -258,37 +253,42 @@ namespace FantasyCyclingParser
                         string[] rd = rider.TextContent.Trim().Replace("\n", "").Split('\t');
 
                         AngleSharp.Dom.Html.IHtmlAnchorElement anc2 = (AngleSharp.Dom.Html.IHtmlAnchorElement)rider.ChildNodes[9].ChildNodes[0];
-                        string riderlink = anc2.Href;
+                        
 
-                        riderlink = Regex.Replace(riderlink, @"y=\d{2,}", "y={0}");
+                        //riderlink = Regex.Replace(riderlink, @"y=\d{2,}", "y={0}");
                         if (rd.Count() == 17)
                         {
-
-
+                            string riderlink = anc2.Href;
+                            r.PDC_RiderID = riderlink.Split('=')[3].Split('&')[0];
+                            r.PDC_RiderURL = String.Format("https://pdcvds.com/riders.php?mw=1&y={0}&pid={1}", year, r.PDC_RiderID); 
                             r.PdcRankCurrentYear = Convert.ToInt32(rd[0].Trim().Replace(".", ""));
                             r.Team = rd[4].Trim();
                             r.TeamStatus = rd[6].Trim();
                             r.PDC_RiderURL = riderlink;
                             r.Name = rd[8].Trim();
+                            r.Year = year; 
                             r.YearBorn = Convert.ToInt32(rd[10]);
                             r.CurrentYearCost = Convert.ToInt32(rd[12]);
+                            r.PreviousPoints = Convert.ToInt32(rd[14]);
                             r.CurrentYearPoints = Convert.ToInt32(rd[16]);
-                            PDC_AnnualData adata = Parser.ParseHistoricPDCStats(riderlink, DateTime.Now.Year - 1);
+                            
+                            //PDC_AnnualData adata = Parser.ParseHistoricPDCStats(riderlink, DateTime.Now.Year - 1);
 
-                            r.PreviousCost = adata.Cost;
-                            r.PreviousPoints = adata.PointsScored;
+                            //r.PreviousCost = adata.Cost;
+                            //r.PreviousPoints = adata.PointsScored;
 
-                            r.PointsDiff = r.CurrentYearPoints - r.PreviousPoints;
+                            #region old stuff
+                            //r.PointsDiff = r.CurrentYearPoints - r.PreviousPoints;
 
-                            r.CostDiff = r.CurrentYearCost - r.PreviousCost;
+                            //r.CostDiff = r.CurrentYearCost - r.PreviousCost;
 
-                            r.CostDiffPercent = Math.Round((r.CostDiff / r.PreviousCost), 2) * 100.0;
-                            r.PointsDiffPercent = Math.Round((r.PointsDiff / r.PreviousPoints), 2) * 100.0;
+                            //r.CostDiffPercent = Math.Round((r.CostDiff / r.PreviousCost), 2) * 100.0;
+                            //r.PointsDiffPercent = Math.Round((r.PointsDiff / r.PreviousPoints), 2) * 100.0;
 
-                            if (loadPCSstats)
-                                r.LoadProCyclingStats();
+                            //if (loadPCSstats)
+                            //    r.LoadProCyclingStats();
 
-
+                            #endregion
 
                             //r.ToCSV();
 
@@ -553,16 +553,64 @@ namespace FantasyCyclingParser
 
             return riderList;
         }
-        public static void ParseTeamList()
+        public static List<Team> ParseTeamList(int year)
         {
-            string path = "C:\\Code\\FantasyCycling\\FantasyCyclingParser\\FantasyCyclingParser\\Pages\\FSA DS __ Men 2016 __ Teams.html";
-            FileStream fs = File.Open(path, FileMode.Open);
-            var parser = new HtmlParser();
+            List<Team> teams = new List<Team>();
 
-            var document = parser.Parse(fs);
+            using (WebClient client = new WebClient())
+            {
+                string url = String.Format("https://pdcvds.com/teams.php?mw=1&y={0}", year);
 
-            var tbl = document.QuerySelectorAll("#content > table");            
 
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+                ServicePointManager.ServerCertificateValidationCallback = (sender, x509Certificate, chain, sslPolicyErrors) => true;
+
+
+                string htmlCode = client.DownloadString(url);
+                var parser = new HtmlParser();
+
+                var document = parser.Parse(htmlCode);
+
+                var tbl = document.QuerySelectorAll("#content > table.cell > tbody");
+                
+                foreach (var team in tbl[0].ChildNodes)
+                {
+                    try
+                    {
+                        string[] tm = team.TextContent.Trim().Replace("\n", "").Split('\t');
+                        KeyValuePair<double, double> kvp;
+                        
+                        if (tm.Count() == 7)
+                        {
+
+                            Team t = new Team();
+                            AngleSharp.Dom.Html.IHtmlAnchorElement ahref = (AngleSharp.Dom.Html.IHtmlAnchorElement) team.ChildNodes[5].ChildNodes[0];
+
+                            t.TeamURL = "https://pdcvds.com/teams.php" + ahref.Search;
+                            t.PDC_ID = ahref.Search.Split('=')[3];
+                            t.Rank = Int32.Parse(tm[0].Replace('.', ' ').Trim());
+                            t.TeamName = tm[4].Trim();
+                            t.CurrentPoints = Int32.Parse(tm[6].Trim());
+
+                            teams.Add(t);
+
+                            Console.WriteLine("Adding team: " + t.TeamName);
+                            
+                        }
+
+                        }
+                    catch (Exception)
+                    {
+                        IElement el = (IElement)team;
+                        Console.WriteLine("Unable to parse team: " + el.InnerHtml);
+                    }
+
+                }
+
+            }
+
+            return teams; 
         }
 
         public static int GetTeamPoints(int teamUID, int year)
@@ -653,10 +701,10 @@ namespace FantasyCyclingParser
 
                             r.PreviousPoints = Convert.ToInt32(rd[12]);
                             r.CurrentYearPoints = Convert.ToInt32(rd[14]);
-                            r.PointsDiff = r.CurrentYearPoints - r.PreviousPoints;
+                            //r.PointsDiff = r.CurrentYearPoints - r.PreviousPoints;
 
-                            if (getPCSstats)
-                                r.LoadProCyclingStats();
+                            //if (getPCSstats)
+                               // r.LoadProCyclingStats();
 
                             t.AddRider(r);
 
@@ -686,26 +734,7 @@ namespace FantasyCyclingParser
             }
         }
 
-        public static void Testing_ParseProStatsRider()
-        {
-            string path = "C:\\Code\\FantasyCycling\\FantasyCyclingParser\\FantasyCyclingParser\\Pages\\PeterSagan.html";
-            FileStream fs = File.Open(path, FileMode.Open);
-            var parser = new HtmlParser();
-
-            var document = parser.Parse(fs);
-            //var document = parser.Parse("http://www.procyclingstats.com/rider/Peter_Sagan");
-
-            var age = document.QuerySelectorAll("body > div.wrapper > div.content > div:nth-child(5) > div:nth-child(3) > span > b").First().NextSibling.TextContent.Trim();
-            var weight = document.QuerySelectorAll("body > div.wrapper > div.content > div:nth-child(5) > div:nth-child(3) > span > span > span:nth-child(5) > b").First().NextSibling.TextContent.Trim();
-            var height = document.QuerySelectorAll("body > div.wrapper > div.content > div:nth-child(5) > div:nth-child(3) > span > span > span:nth-child(5) > span > b:nth-child(1)").First().NextSibling.TextContent;
-
-            var specialtyPts = document.QuerySelectorAll("body > div.wrapper > div.content > div:nth-child(5) > div:nth-child(3) > span > span > span:nth-child(5) > span > b:nth-child(3)");
-            var oneDay = specialtyPts.First().NextSibling.ChildNodes[0].ChildNodes[1].TextContent;
-            var GC = specialtyPts.First().NextSibling.ChildNodes[1].ChildNodes[1].TextContent;
-            var TT = specialtyPts.First().NextSibling.ChildNodes[2].ChildNodes[1].TextContent;
-            var Sprint = specialtyPts.First().NextSibling.ChildNodes[3].ChildNodes[1].TextContent;
-            
-        }
+    
 
     }
 }

@@ -35,9 +35,11 @@ namespace FantasyCyclingParser
        
             int year = 2021;
             //List<PDC_Result> results = Parser.ParsePDCResults(year);
+            List<Rider> riders = Parser.ParseAllRiders(year);            
+            //List<Team> teams = Parser.ParseTeamList(year);
 
 
-            FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
+           // FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
             int x = 0; 
             //List<Team> Teams = new List<Team>();
             //foreach (TeamYear ty in config.TeamUIDS)
