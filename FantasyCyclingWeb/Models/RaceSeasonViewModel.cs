@@ -11,18 +11,18 @@ namespace FantasyCyclingWeb.Models
     {
         public RaceSeasonViewModel(int year, List<PDC_Result> results)
         {
-            //List<List<LineDataPoint>> teamLineDataPoints = new List<List<LineDataPoint>>(); 
+            //List<List<LineDataPoint>> PDCTeamLineDataPoints = new List<List<LineDataPoint>>(); 
             //LineData = new List<List<LineDataPoint>>();
 
             ////List<FantasyResult> fr = new List<FantasyResult>();
             //FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
-            //List<Team> Teams = new List<Team>();
-            //foreach (TeamYear ty in config.TeamUIDS)
+            //List<PDCTeam> PDCTeams = new List<PDCTeam>();
+            //foreach (PDCTeamYear ty in config.PDCTeamUIDS)
             //{
-            //    Team t = Parser.ParseTeam(ty.TeamUID, ty.Year);
-            //    Teams.Add(t);
+            //    PDCTeam t = Parser.ParsePDCTeam(ty.PDCTeamUID, ty.Year);
+            //    PDCTeams.Add(t);
 
-            //    //teamLineDataPoints.Add(new  )
+            //    //PDCTeamLineDataPoints.Add(new  )
             //}
 
             ////int sumPoints = 0;
@@ -32,10 +32,10 @@ namespace FantasyCyclingWeb.Models
 
             //    FantasyResult f = new FantasyResult();
             //    f.Race = r;
-            //    foreach (Team tm in Teams)
+            //    foreach (PDCTeam tm in PDCTeams)
             //    {
-            //        TeamPoints t = r.CompareTeamToRace(tm);
-            //        t.Name = tm.PDCTeamName;
+            //        PDCTeamPoints t = r.ComparePDCTeamToRace(tm);
+            //        t.Name = tm.PDCPDCTeamName;
             //        f.Points.Add(t);
 
             //        FantasyResults.Add(f);
@@ -56,12 +56,12 @@ namespace FantasyCyclingWeb.Models
 
             //Results = Parser.ParsePDCResults(year);
             FantasyResults = new List<FantasyResult>();
-            Team KamnaChameleon = Parser.ParseTeam("2483", year);
-            Team TheBauhausMovement = Parser.ParseTeam("2534", year);
-            Team Plaidstockings = Parser.ParseTeam("1881", year);
-            Team Rubicon = Parser.ParseTeam("1191", year);
-            Team Zauzage = Parser.ParseTeam("37", year);
-            Team Cowboys = Parser.ParseTeam("2176", year);
+            PDCTeam KamnaChameleon = Parser.ParsePDCTeam("2483", year);
+            PDCTeam TheBauhausMovement = Parser.ParsePDCTeam("2534", year);
+            PDCTeam Plaidstockings = Parser.ParsePDCTeam("1881", year);
+            PDCTeam Rubicon = Parser.ParsePDCTeam("1191", year);
+            PDCTeam Zauzage = Parser.ParsePDCTeam("37", year);
+            PDCTeam Cowboys = Parser.ParsePDCTeam("2176", year);
 
             int kamnaSum = 0;
             int bauhausSum = 0;
@@ -79,7 +79,7 @@ namespace FantasyCyclingWeb.Models
                 f.Race = r;
                 f.TempID = RaceCount; 
 
-                TeamPoints t = r.CompareTeamToRace(KamnaChameleon);
+                PDCTeamPoints t = r.ComparePDCTeamToRace(KamnaChameleon);
                 t.Name = "AlternativeFlats";
                 kamnaSum += t.Points;
                 t.RunningTotalPoints = kamnaSum; 
@@ -89,7 +89,7 @@ namespace FantasyCyclingWeb.Models
                 KamnaChameleonPoints.Add(new LineDataPoint(RaceCount, kamnaSum));
 
 
-                t = r.CompareTeamToRace(TheBauhausMovement);
+                t = r.ComparePDCTeamToRace(TheBauhausMovement);
                 t.Name = "BauhauseMovement";
                 bauhausSum += t.Points;
                 t.RunningTotalPoints = bauhausSum;
@@ -97,28 +97,28 @@ namespace FantasyCyclingWeb.Models
                 BauhausMovementPoints.Add(new LineDataPoint(RaceCount, bauhausSum));
 
 
-                t = r.CompareTeamToRace(Plaidstockings);
+                t = r.ComparePDCTeamToRace(Plaidstockings);
                 t.Name = "Plaidstockings";
                 plaidstockingsSum += t.Points;
                 t.RunningTotalPoints = plaidstockingsSum;
                 f.Points.Add(t);
                 PlaidstockingsPoints.Add(new LineDataPoint(RaceCount, plaidstockingsSum));
 
-                t = r.CompareTeamToRace(Rubicon);
+                t = r.ComparePDCTeamToRace(Rubicon);
                 t.Name = "Rubicon";
                 rubiconSum += t.Points;
                 t.RunningTotalPoints = rubiconSum;
                 f.Points.Add(t);
                 RubiconPoints.Add(new LineDataPoint(RaceCount, rubiconSum));
 
-                t = r.CompareTeamToRace(Zauzage);
+                t = r.ComparePDCTeamToRace(Zauzage);
                 t.Name = "Zauzage";
                 zauzageSum += t.Points;
                 t.RunningTotalPoints = zauzageSum;                
                 f.Points.Add(t);
                 ZauzagePoints.Add(new LineDataPoint(RaceCount, zauzageSum));
 
-                t = r.CompareTeamToRace(Cowboys);
+                t = r.ComparePDCTeamToRace(Cowboys);
                 t.Name = "Cowboys";
                 cowboySum += t.Points;
                 t.RunningTotalPoints = cowboySum;
@@ -130,7 +130,7 @@ namespace FantasyCyclingWeb.Models
             }
 
             MaxPointsRace = FantasyResults.OrderByDescending(x => x.Points.Max(y => y.Points)).First();
-            MaxPointsTeam = MaxPointsRace.Points.OrderByDescending(x => x.Points).First();
+            MaxPointsPDCTeam = MaxPointsRace.Points.OrderByDescending(x => x.Points).First();
           
 
         }
@@ -154,7 +154,7 @@ namespace FantasyCyclingWeb.Models
         public List<LineDataPoint> CowboysPoints { get; set; }
 
         public FantasyResult MaxPointsRace { get; set; }
-        public TeamPoints MaxPointsTeam { get; set; }
+        public PDCTeamPoints MaxPointsPDCTeam { get; set; }
     }
 
     public class LineDataPoint

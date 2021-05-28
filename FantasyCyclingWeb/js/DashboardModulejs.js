@@ -9,10 +9,10 @@
         vm = model; 
 
        // points = vm.Points;
-        //points = vm.TeamUIDs;
+        //points = vm.PDCTeamUIDs;
 
-       // teamNames = vm.TeamNames;
-        //CHARTS.FCBarChart(points, teamNames);
+       // PDCTeamNames = vm.PDCTeamNames;
+        //CHARTS.FCBarChart(points, PDCTeamNames);
        
 
             //$.ajax({
@@ -24,11 +24,11 @@
             //    success: function (data) {
                               
             //        var points = [];
-            //        var teamNames = [];
+            //        var PDCTeamNames = [];
 
             //        points = data.Points;
-            //        teamNames = data.TeamNames;
-            //        CHARTS.FCBarChart(points, teamNames);
+            //        PDCTeamNames = data.PDCTeamNames;
+            //        CHARTS.FCBarChart(points, PDCTeamNames);
             //        //plot_statistics.setData(data.ChartData);
             //        //plot_statistics.setupGrid();
             //        //plot_statistics.draw();

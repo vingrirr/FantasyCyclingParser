@@ -19,46 +19,46 @@ namespace FantasyCyclingParser
         public FantasyYearConfig()
         {
             
-            TeamUIDS = new List<TeamYear>();
+            PDCTeamUIDS = new List<PDCTeamYear>();
             Year = DateTime.Now.Year; 
         }
         public FantasyYearConfig(int year )
         {
           
-            TeamUIDS = new List<TeamYear>(); 
+            PDCTeamUIDS = new List<PDCTeamYear>(); 
             Year = year; 
         }
 
         public string ConfigName { get; set; }
         public int Year { get; set; }
-        public List<TeamYear> TeamUIDS { get; set; }
+        public List<PDCTeamYear> PDCTeamUIDS { get; set; }
         public bool IsDefault { get; set; }
 
-        public string URLToAddTeam { get; set; }
+        public string URLToAddPDCTeam { get; set; }
 
       
     }
 
-    public class TeamYear
+    public class PDCTeamYear
     {
-        public TeamYear()
+        public PDCTeamYear()
         {
             GUID = Guid.NewGuid().ToString();
         }
-        public TeamYear(string id, int year, string name)
+        public PDCTeamYear(string id, int year, string name)
                 : this()
         {
-            TeamUID = id;
+            PDCTeamUID = id;
             Year = year;
             Name = name;
         }
-        public TeamYear(string id)
+        public PDCTeamYear(string id)
             : this()
         {
-            TeamUID = id;
+            PDCTeamUID = id;
             Year = DateTime.Now.Year;
         }
-        public string TeamUID { get; set; }
+        public string PDCTeamUID { get; set; }
         public int Year { get; set; }
 
         public string Name { get; set; }
@@ -87,18 +87,17 @@ namespace FantasyCyclingParser
         /// <summary>
         /// pro world tour, pro conti, conti etc
         /// </summary>
-        public string TeamStatus { get; set; }
-        public string Team { get; set; }
+        public string PDCTeamStatus { get; set; }
+        public string PDCTeam { get; set; }
 
         public double Age { get; set; }
         public double YearBorn { get; set; }
+        public String Birthday { get; set; }
 
 
         public double PreviousPoints { get; set; }
         public double PreviousCost { get; set; }
 
-
-        public List<PDC_AnnualData> HistoricPDCData { get; set; }
 
 
         #region old stuff
@@ -126,8 +125,7 @@ namespace FantasyCyclingParser
         #endregion
         public Rider()
         {
-    
-            HistoricPDCData = new List<PDC_AnnualData>();
+   
         }
         
         public string ToCSV()
@@ -331,7 +329,37 @@ namespace FantasyCyclingParser
 
     }
 
-    public class Team : Entity
+
+    public class RiderSeason
+    {
+        public int Year { get; set; }
+        public Team Team { get; set; }
+        public int Price { get; set; }
+        public int PointsScored { get; set; }
+        public int OwnedByCount { get; set; }
+
+        public List<PDC_Result> Results { get; set; }
+        public RiderSeason()
+        {
+
+        }
+
+    }
+
+    public class Team
+    {
+        public Team()
+        {
+
+        }
+        public string Name { get; set; }
+        public string Status { get; set; }
+        public string PDC_URL { get; set; }
+    }
+
+
+
+    public class PDCTeam : Entity
     {
         //[BsonElement("Id")]
         //public ObjectId Id { get; set; }
@@ -343,10 +371,10 @@ namespace FantasyCyclingParser
 
         public string ID { get; set; }
 
-        public bool IsDraftTeam { get; set; }
+        public bool IsDraftPDCTeam { get; set; }
 
-        public string TeamName { get; set; }
-        public string TeamURL { get; set; }
+        public string PDCTeamName { get; set; }
+        public string PDCTeamURL { get; set; }
         public int Rank { get; set; }
 
         #region stats
@@ -372,13 +400,13 @@ namespace FantasyCyclingParser
 
         #endregion
         public List<string> MissingStatsForRiders { get; set; }
-        public Team()
+        public PDCTeam()
         {
             Riders = new List<Rider>();
             MissingStatsForRiders = new List<string>();
         }
 
-        public Team(List<Rider> riders)
+        public PDCTeam(List<Rider> riders)
             : this()
         {
             Riders = riders;
@@ -474,7 +502,7 @@ namespace FantasyCyclingParser
         public override string ToString()
         {
             string d = String.Empty;
-            d = this.TeamName;
+            d = this.PDCTeamName;
             d += "\r\n__________________________\r\n\r\n";
             foreach (Rider r in Riders.OrderByDescending(x => x.CurrentYearPoints).ToList())
             {
@@ -488,24 +516,24 @@ namespace FantasyCyclingParser
 
     }
 
-    public class TeamList
+    public class PDCTeamList
     {
-        public TeamList()
+        public PDCTeamList()
         {
-            Teams = new List<Team>();
+            PDCTeams = new List<PDCTeam>();
             //todo: finish this as it might be one of the more helpful things.
             AverageCostFrequency = new List<KeyValuePair<double, int>>();
         }
 
-        public void AddTeam(Team t)
+        public void AddPDCTeam(PDCTeam t)
         {
-            Teams.Add(t);
+            PDCTeams.Add(t);
             Calculate();
         }
 
         public void Calculate()
         {
-            foreach (Team t in Teams)
+            foreach (PDCTeam t in PDCTeams)
             {
                 foreach (Rider r in t.Riders)
                 {
@@ -514,7 +542,7 @@ namespace FantasyCyclingParser
             }
 
         }
-        List<Team> Teams { get; set; }
+        List<PDCTeam> PDCTeams { get; set; }
 
         List<KeyValuePair<double, int>> AverageCostFrequency { get; set; }
     }
@@ -546,13 +574,13 @@ namespace FantasyCyclingParser
         public int PointsScored { get; set; }
     }
 
-    public class TeamPoints
+    public class PDCTeamPoints
     {
-        public TeamPoints()
+        public PDCTeamPoints()
         {
 
         }
-        public TeamPoints(string n, int p)
+        public PDCTeamPoints(string n, int p)
         {
             Name = n;
             Points = p;
@@ -584,13 +612,13 @@ namespace FantasyCyclingParser
 
         public List<PDC_RaceResult> RaceResults { get; set; }
 
-        public TeamPoints CompareTeamToRace(Team t)
+        public PDCTeamPoints ComparePDCTeamToRace(PDCTeam t)
         {
-            TeamPoints tp = new TeamPoints();
+            PDCTeamPoints tp = new PDCTeamPoints();
 
             foreach (PDC_RaceResult r in RaceResults)
             {
-                //if a rider in the result exists in the team, add up the points. 
+                //if a rider in the result exists in the PDCTeam, add up the points. 
                 if (t.Riders.Exists(x => x.Name == r.Name))
                 {
                     tp.Points += r.Points;
@@ -637,7 +665,7 @@ namespace FantasyCyclingParser
         }
 
         public string Place { get; set; }
-        public string Team { get; set; }
+        public string PDCTeam { get; set; }
         public string Name { get; set; }
         public int Points { get; set; }
 
@@ -645,18 +673,32 @@ namespace FantasyCyclingParser
         {
             string s = String.Empty;
 
-            s = String.Format("{0} {1} {2} {3}", this.Place, this.Team, this.Name, this.Points);
+            s = String.Format("{0} {1} {2} {3}", this.Place, this.PDCTeam, this.Name, this.Points);
             return s; 
         }
         public string ToCSV()
         {
             string s = String.Empty;
 
-            s = String.Format("{0},{1},{2},{3}", this.Place, this.Team, this.Name, this.Points);
+            s = String.Format("{0},{1},{2},{3}", this.Place, this.PDCTeam, this.Name, this.Points);
             s += Environment.NewLine;
             return s;
         }
 
+
+    }
+
+    public class PDC_Event
+    {
+        public string PDC_ID { get; set; }
+        public string Month { get; set; }
+        public string Day { get; set; }
+        public int Category { get; set; }
+        public string Name { get; set; }
+        public PDC_Event()
+        {
+
+        }
 
     }
 
@@ -666,15 +708,15 @@ namespace FantasyCyclingParser
         public FantasyResult()
         {
             Race = new PDC_Result();
-            Points = new List<TeamPoints>();
+            Points = new List<PDCTeamPoints>();
         }
-        public FantasyResult(PDC_Result r, List<TeamPoints> p)
+        public FantasyResult(PDC_Result r, List<PDCTeamPoints> p)
         {
             Race = r;
             Points = p; 
         }
         public PDC_Result Race { get; set; }
-        public List<TeamPoints> Points { get; set; }
+        public List<PDCTeamPoints> Points { get; set; }
 
         public int TempID { get; set; }
     }
@@ -688,13 +730,20 @@ namespace FantasyCyclingParser
         }
 
         public int Year { get; set; }
-        public string TeamName { get; set; }
+        public string PDCTeamName { get; set; }
 
         public int TotalPointsScored { get; set; }
 
-        public Team Team { get; set; }
+        public PDCTeam PDCTeam { get; set; }
     }
 
+
+    /// <summary>
+    /// This will hold the race calendar, 
+    /// A list of all the riders and their salary/points scored
+    /// A list of all the results 
+    /// for a given year
+    /// </summary>
     public class PDC_Season : Entity
     {
         public PDC_Season()
@@ -704,14 +753,16 @@ namespace FantasyCyclingParser
         public void Update()
         {            
             Results = Parser.ParsePDCResults(Year);            
-            Teams = Parser.ParseTeamList(Year);
+            PDCTeams = Parser.ParsePDCTeamList(Year);
         }
         public int Year{ get; set; }
         public List<PDC_Result> Results { get; set; }
 
         public List<Rider> Riders { get; set; }
 
-        public List<Team> Teams { get; set; }
+        public List<PDCTeam> PDCTeams { get; set; }
+        
+        public List<PDC_Event> RaceCalendar { get; set; }
 
         public DateTime LastUpdated { get; set; }
     }

@@ -3,7 +3,7 @@
 		privateVariable = 1;
     var barChart = null;
 
-    my.FCBarChart = function (points, teamNames) {
+    my.FCBarChart = function (points, PDCTeamNames) {
 
         barChart = echarts.init(document.getElementById('barChart'));
 
@@ -27,7 +27,7 @@
 
             // Add legend
             legend: {
-                data: ['150 Point Team']
+                data: ['150 Point PDCTeam']
             },
             toolbox: {
                 show: false,
@@ -64,7 +64,7 @@
                     },
                 },
                 //data: ['Kämna Chameleon', 'The Bauhaus Movement', 'Plaidstockings', 'Rubicon', 'Zauzage', 'Cowboys']
-                data: teamNames
+                data: PDCTeamNames
             }],
 
             // Add series
@@ -148,7 +148,7 @@
         //};
         //var TacoVan = {
         //    values: vm.TacoVan,      //values - represents the array of {x,y} data points
-        //    key: 'Team TacoVan', //key  - the name of the series.
+        //    key: 'PDCTeam TacoVan', //key  - the name of the series.
         //    color: 'rgb(255,127,14)'  //color - optional: choose your own line color.
         //};
         //   var TheBauhaus = { 

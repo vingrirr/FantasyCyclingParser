@@ -35,9 +35,9 @@ namespace FantasyCyclingParser
 
         public const string PDCHistoric = "#content > table:nth-child(5)";
 
-        public const string TeamTotalPoints = "#content > table:nth-child(4) > tbody > tr:nth-child(27) > th:nth-child(5)";
+        public const string PDCTeamTotalPoints = "#content > table:nth-child(4) > tbody > tr:nth-child(27) > th:nth-child(5)";
 
-      //  public const string TeamName = "#content > h2"; ...not being used, probably should be.  Used in ParseTeam
+      //  public const string PDCTeamName = "#content > h2"; ...not being used, probably should be.  Used in ParsePDCTeam
 
         //public const string PDCHistoricCost = "#content > table:nth-child(5) > tbody > tr:nth-child(10) > td.tar";
         //public const string PDCHistoricPoints = "#content > table:nth-child(5) > tbody > tr:nth-child(9) > td.tar";
@@ -83,7 +83,7 @@ namespace FantasyCyclingParser
                 {
                     try
                     {
-                        string url = String.Format("http://www.procyclingstats.com/rankings.php?c=1&filter=1&id=18732&index={0}&nation=&team=&compare_to_id=0&younger_than=&older_than=", i);
+                        string url = String.Format("http://www.procyclingstats.com/rankings.php?c=1&filter=1&id=18732&index={0}&nation=&PDCTeam=&compare_to_id=0&younger_than=&older_than=", i);
 
                         string htmlCode = client.DownloadString(url);
 
@@ -262,8 +262,8 @@ namespace FantasyCyclingParser
                             r.PDC_RiderID = riderlink.Split('=')[3].Split('&')[0];
                             r.PDC_RiderURL = String.Format("https://pdcvds.com/riders.php?mw=1&y={0}&pid={1}", year, r.PDC_RiderID); 
                             r.PdcRankCurrentYear = Convert.ToInt32(rd[0].Trim().Replace(".", ""));
-                            r.Team = rd[4].Trim();
-                            r.TeamStatus = rd[6].Trim();
+                            r.PDCTeam = rd[4].Trim();
+                            r.PDCTeamStatus = rd[6].Trim();
                             r.PDC_RiderURL = riderlink;
                             r.Name = rd[8].Trim();
                             r.Year = year; 
@@ -314,9 +314,37 @@ namespace FantasyCyclingParser
             return riderList;
         }
 
-        //public static List<Rider> ParseEvent(string url)
-        //{
-        //}
+
+        public static Rider ParseRiderDetails(int year, string pdcID)
+        {
+            string url = String.Format("https://pdcvds.com/riders.php?mw=1&y={0}&pid={1}", year, pdcID);
+            var parser = new HtmlParser();
+
+            Rider rider = new Rider(); 
+
+            using (WebClient client = new WebClient())
+            {
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+                ServicePointManager.ServerCertificateValidationCallback = (sender, x509Certificate, chain, sslPolicyErrors) => true;
+
+
+                string htmlCode = client.DownloadString(url);
+
+                var document = parser.Parse(htmlCode);
+
+                var tbl = document.QuerySelectorAll("#content > table.cell > tbody");
+
+                foreach (var r in tbl[0].ChildNodes)
+                {
+                    int x = 0;
+                }
+            }
+
+            return rider; 
+        }
+
+                    
         public static List<PDC_Result> ParsePDCResults(int year)
         {
             using (WebClient client = new WebClient())
@@ -442,7 +470,7 @@ namespace FantasyCyclingParser
                 }
                 if (document.QuerySelectorAll("table").Count() == 3)
                 {
-                    rows = document.QuerySelectorAll("table")[1].QuerySelectorAll("tr"); //"last" is the DSTeams, not the results
+                    rows = document.QuerySelectorAll("table")[1].QuerySelectorAll("tr"); //"last" is the DSPDCTeams, not the results
                 }
 
 
@@ -462,10 +490,10 @@ namespace FantasyCyclingParser
                             PDC_RaceResult r = new PDC_RaceResult();
                            
                             string[] rd = el.TextContent.Trim().Replace("\n", "").Split('\t');
-                            if (rd.Count() == 9) //avoid empty or "Scoring Teams" results which pass above filters.  
+                            if (rd.Count() == 9) //avoid empty or "Scoring PDCTeams" results which pass above filters.  
                             {
                                 r.Place = rd[0];
-                                r.Team = rd[4];
+                                r.PDCTeam = rd[4];
                                 r.Name = rd[6];
                                 r.Points = Convert.ToInt32(rd[8]);
 
@@ -489,7 +517,38 @@ namespace FantasyCyclingParser
         }
 
 
-        public static List<Rider> ParseUniqueCostPriceRiders()
+        public static List<PDC_Event> ParsePDCCalendar(int year)
+        {
+            List<PDC_Event> events = new List<PDC_Event>(); 
+
+            using (WebClient client = new WebClient())
+            {
+                string url = String.Format("https://pdcvds.com/cal.php?mw=1&y={0}", year);
+
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+                ServicePointManager.ServerCertificateValidationCallback = (sender, x509Certificate, chain, sslPolicyErrors) => true;
+
+
+
+                string htmlCode = client.DownloadString(url);
+                var parser = new HtmlParser();
+
+                var document = parser.Parse(htmlCode);
+
+                var tbl = document.QuerySelectorAll("#content > table.cell > tbody");
+                foreach (var r in tbl[0].ChildNodes)
+                {
+                    int x = 0;
+                }
+
+            }
+
+            return events; 
+        }
+
+
+                public static List<Rider> ParseUniqueCostPriceRiders()
         {
             //string path = "http://pdcvds.com/riders.php?mw=1&y=2016&n=0";            
             //var parser = new HtmlParser();
@@ -523,8 +582,8 @@ namespace FantasyCyclingParser
                         Rider r = new Rider();
 
                         r.PdcRankCurrentYear = Convert.ToInt32(rd[0].Trim().Replace(".", ""));
-                        r.Team = rd[4].Trim();
-                        r.TeamStatus = rd[6].Trim();
+                        r.PDCTeam = rd[4].Trim();
+                        r.PDCTeamStatus = rd[6].Trim();
                         r.Name = rd[8].Trim();
                         r.YearBorn = Convert.ToInt32(rd[10]);
                         r.CurrentYearCost = Convert.ToInt32(rd[12]);
@@ -553,13 +612,13 @@ namespace FantasyCyclingParser
 
             return riderList;
         }
-        public static List<Team> ParseTeamList(int year)
+        public static List<PDCTeam> ParsePDCTeamList(int year)
         {
-            List<Team> teams = new List<Team>();
+            List<PDCTeam> PDCTeams = new List<PDCTeam>();
 
             using (WebClient client = new WebClient())
             {
-                string url = String.Format("https://pdcvds.com/teams.php?mw=1&y={0}", year);
+                string url = String.Format("https://pdcvds.com/PDCTeams.php?mw=1&y={0}", year);
 
 
                 ServicePointManager.Expect100Continue = true;
@@ -574,52 +633,52 @@ namespace FantasyCyclingParser
 
                 var tbl = document.QuerySelectorAll("#content > table.cell > tbody");
                 
-                foreach (var team in tbl[0].ChildNodes)
+                foreach (var PDCTeam in tbl[0].ChildNodes)
                 {
                     try
                     {
-                        string[] tm = team.TextContent.Trim().Replace("\n", "").Split('\t');
-                        KeyValuePair<double, double> kvp;
+                        string[] tm = PDCTeam.TextContent.Trim().Replace("\n", "").Split('\t');
+                      
                         
                         if (tm.Count() == 7)
                         {
 
-                            Team t = new Team();
-                            AngleSharp.Dom.Html.IHtmlAnchorElement ahref = (AngleSharp.Dom.Html.IHtmlAnchorElement) team.ChildNodes[5].ChildNodes[0];
+                            PDCTeam t = new PDCTeam();
+                            AngleSharp.Dom.Html.IHtmlAnchorElement ahref = (AngleSharp.Dom.Html.IHtmlAnchorElement) PDCTeam.ChildNodes[5].ChildNodes[0];
 
-                            t.TeamURL = "https://pdcvds.com/teams.php" + ahref.Search;
+                            t.PDCTeamURL = "https://pdcvds.com/Teams.php" + ahref.Search;
                             t.PDC_ID = ahref.Search.Split('=')[3];
                             t.Rank = Int32.Parse(tm[0].Replace('.', ' ').Trim());
-                            t.TeamName = tm[4].Trim();
+                            t.PDCTeamName = tm[4].Trim();
                             t.CurrentPoints = Int32.Parse(tm[6].Trim());
 
-                            teams.Add(t);
+                            PDCTeams.Add(t);
 
-                            Console.WriteLine("Adding team: " + t.TeamName);
+                            Console.WriteLine("Adding PDCTeam: " + t.PDCTeamName);
                             
                         }
 
                         }
                     catch (Exception)
                     {
-                        IElement el = (IElement)team;
-                        Console.WriteLine("Unable to parse team: " + el.InnerHtml);
+                        IElement el = (IElement)PDCTeam;
+                        Console.WriteLine("Unable to parse PDCTeam: " + el.InnerHtml);
                     }
 
                 }
 
             }
 
-            return teams; 
+            return PDCTeams; 
         }
 
-        public static int GetTeamPoints(int teamUID, int year)
+        public static int GetPDCTeamPoints(int PDCTeamUID, int year)
         {
             int points = -1; 
 
             using (WebClient client = new WebClient())
             {
-                string url = String.Format("https://pdcvds.com/teams.php?mw=1&y={1}&uid={0}", teamUID, year);
+                string url = String.Format("https://pdcvds.com/PDCTeams.php?mw=1&y={1}&uid={0}", PDCTeamUID, year);
 
 
                 ServicePointManager.Expect100Continue = true;
@@ -643,17 +702,17 @@ namespace FantasyCyclingParser
             return points; 
         }
 
-        public static Team ParseTeam(string teamUID, int year, bool getPCSstats = false)
+        public static PDCTeam ParsePDCTeam(string PDCTeamUID, int year, bool getPCSstats = false)
         {
-            // MongoRepository<Team> db = new MongoRepository<Team>();
-            Team t = new Team();
-            //string path = "C:\\Code\\FantasyCycling\\FantasyCyclingParser\\FantasyCyclingParser\\Pages\\FSA DS __ Men 2016 __ Teams __ il vaut mieux pomper.html";
+            // MongoRepository<PDCTeam> db = new MongoRepository<PDCTeam>();
+            PDCTeam t = new PDCTeam();
+            //string path = "C:\\Code\\FantasyCycling\\FantasyCyclingParser\\FantasyCyclingParser\\Pages\\FSA DS __ Men 2016 __ PDCTeams __ il vaut mieux pomper.html";
             //FileStream fs = File.Open(path, FileMode.Open);
             //var parser = new HtmlParser();
 
             using (WebClient client = new WebClient())
             {
-                string url = String.Format("https://pdcvds.com/teams.php?mw=1&y={1}&uid={0}", teamUID, year);
+                string url = String.Format("https://pdcvds.com/PDCTeams.php?mw=1&y={1}&uid={0}", PDCTeamUID, year);
 
                 ServicePointManager.Expect100Continue = true;
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
@@ -668,7 +727,7 @@ namespace FantasyCyclingParser
 
                 ///var document = parser.Parse(fs);
 
-                t.TeamName = document.QuerySelectorAll("#content > h2").First().TextContent.Trim().Replace("Teams :: ", "").Trim();
+                t.PDCTeamName = document.QuerySelectorAll("#content > h2").First().TextContent.Trim().Replace("PDCTeams :: ", "").Trim();
                 var rows = document.QuerySelectorAll("table.cell").First().QuerySelectorAll("tr");
 
                 var els = rows.ToArray();
@@ -689,8 +748,8 @@ namespace FantasyCyclingParser
                             r = new Rider();
 
                             r.PdcRankCurrentYear = Convert.ToInt32(rd[0].Trim().Replace(".", ""));
-                            r.Team = rd[4];
-                            r.TeamStatus = rd[6];
+                            r.PDCTeam = rd[4];
+                            r.PDCTeamStatus = rd[6];
                             r.Name = rd[8];
                             name = r.Name;
                             r.Nationality = anc.Attributes[1].Value;

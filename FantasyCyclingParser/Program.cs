@@ -32,20 +32,22 @@ namespace FantasyCyclingParser
         static void Main(string[] args)
         {
 
-       
+        //test
             int year = 2021;
             //List<PDC_Result> results = Parser.ParsePDCResults(year);
-            List<Rider> riders = Parser.ParseAllRiders(year);            
-            //List<Team> teams = Parser.ParseTeamList(year);
+            Parser.ParsePDCCalendar(2021);
+            //List<Rider> riders = Parser.ParseAllRiders(year);            
+            Rider r = Parser.ParseRiderDetails(2021, "3005");
+            //List<PDCTeam> PDCTeams = Parser.ParsePDCTeamList(year);
 
 
-           // FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
+            // FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
             int x = 0; 
-            //List<Team> Teams = new List<Team>();
-            //foreach (TeamYear ty in config.TeamUIDS)
+            //List<PDCTeam> PDCTeams = new List<PDCTeam>();
+            //foreach (PDCTeamYear ty in config.PDCTeamUIDS)
             //{
-            //    Team t = Parser.ParseTeam(ty.TeamUID, ty.Year);
-            //    Teams.Add(t);
+            //    PDCTeam t = Parser.ParsePDCTeam(ty.PDCTeamUID, ty.Year);
+            //    PDCTeams.Add(t);
             //}
 
 
@@ -60,10 +62,10 @@ namespace FantasyCyclingParser
 
             //    f.Race = r;
 
-            //    foreach (Team tm in Teams)
+            //    foreach (PDCTeam tm in PDCTeams)
             //    {
-            //        TeamPoints t = r.CompareTeamToRace(tm);
-            //        t.Name = tm.TeamName;
+            //        PDCTeamPoints t = r.ComparePDCTeamToRace(tm);
+            //        t.Name = tm.PDCTeamName;
             //        f.Points.Add(t);
 
             //        fr.Add(f);
@@ -77,7 +79,7 @@ namespace FantasyCyclingParser
     
 
         
-        static void FindOptimalTeam(List<Rider> riderList)
+        static void FindOptimalPDCTeam(List<Rider> riderList)
         {
 
             //NOTE: WHEN HE COMES OUT WITH NEW COST OF EACH RIDER, USE THIS TO FIND SUBSTITUTIONS?
@@ -89,7 +91,7 @@ namespace FantasyCyclingParser
             var selection = new TournamentSelection();
 
             var problem = new FantasyCyclingGAProblem();
-            var fitness = new TeamFitness(riderList);
+            var fitness = new PDCTeamFitness(riderList);
 
             var crossover = new UniformCrossover();
             //var crossover = new OrderedCrossover();
@@ -136,7 +138,7 @@ namespace FantasyCyclingParser
                 Console.WriteLine("Generations: {0}", ga.Population.GenerationsNumber);
 
 
-                Console.WriteLine("Optimal Team is: ");
+                Console.WriteLine("Optimal PDCTeam is: ");
 
                 foreach (Gene g in bestChromosome.GetGenes())
                 {
@@ -202,10 +204,10 @@ namespace FantasyCyclingParser
 
         //injured riders and other stats - http://www.procyclingstats.com/statistics.php?c=1&stat_id=224
 
-        //Christopher Lathan of Team Wiggins, only 22 years old, finished in the top ten once again.
+        //Christopher Lathan of PDCTeam Wiggins, only 22 years old, finished in the top ten once again.
 
 
-        //Parser.ParseTeam();
+        //Parser.ParsePDCTeam();
 
         //List<string> urls = ParsePCSRiders();
 
@@ -220,7 +222,7 @@ namespace FantasyCyclingParser
 
         //MongoTest();
 
-        //ParseTeam();
+        //ParsePDCTeam();
 
 
 

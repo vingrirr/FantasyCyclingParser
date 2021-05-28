@@ -20,17 +20,17 @@ namespace FantasyCyclingParser
 
         public IChromosome CreateChromosome()
         {
-            return new TeamChromosome(25);
+            return new PDCTeamChromosome(25);
         }
     }
-    public class TeamFitness : IFitness
+    public class PDCTeamFitness : IFitness
     {
         List<Rider> _allRiders;
-        public TeamFitness()
+        public PDCTeamFitness()
         {
             _allRiders = new List<Rider>();
         }
-        public TeamFitness(List<Rider> riders)
+        public PDCTeamFitness(List<Rider> riders)
         {
             _allRiders = riders;
         }
@@ -86,12 +86,12 @@ namespace FantasyCyclingParser
         }
     }
 
-    public class TeamChromosome : ChromosomeBase
+    public class PDCTeamChromosome : ChromosomeBase
     {
         int[] uindexes = null;
         int _length = 0;
         List<Rider> _riders;
-        public TeamChromosome(int length)
+        public PDCTeamChromosome(int length)
             : base(length)
         {
             _length = length;
@@ -112,7 +112,7 @@ namespace FantasyCyclingParser
 
         public override IChromosome CreateNew()
         {
-            return new TeamChromosome(_length);
+            return new PDCTeamChromosome(_length);
         }
     }
 }

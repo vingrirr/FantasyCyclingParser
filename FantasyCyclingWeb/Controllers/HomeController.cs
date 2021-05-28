@@ -75,25 +75,25 @@ namespace FantasyCyclingWeb.Controllers
         }
 
         [HttpPost]
-        public JsonResult AddTeamToConfig(FantasyYearConfig vm)
+        public JsonResult AddPDCTeamToConfig(FantasyYearConfig vm)
         {
 
-            Uri myUri = new Uri(vm.URLToAddTeam);
+            Uri myUri = new Uri(vm.URLToAddPDCTeam);
             string year = HttpUtility.ParseQueryString(myUri.Query).Get("y");
-            string teamUID = HttpUtility.ParseQueryString(myUri.Query).Get("uid");
+            string PDCTeamUID = HttpUtility.ParseQueryString(myUri.Query).Get("uid");
 
-            Team t = Parser.ParseTeam(teamUID, Convert.ToInt32(year));
+            PDCTeam t = Parser.ParsePDCTeam(PDCTeamUID, Convert.ToInt32(year));
 
-            TeamYear ty = new TeamYear(teamUID, Convert.ToInt32(year), t.TeamName);
+            PDCTeamYear ty = new PDCTeamYear(PDCTeamUID, Convert.ToInt32(year), t.PDCTeamName);
 
 
-            vm.TeamUIDS.Add(ty);
+            vm.PDCTeamUIDS.Add(ty);
 
             var obj = new
             {
                 //Message = "Success!  Your event has been created.",
-                TeamListHTML = RenderHelper.PartialView(this, "_TeamYearList", vm.TeamUIDS),
-                TeamListData = vm.TeamUIDS
+                PDCTeamListHTML = RenderHelper.PartialView(this, "_PDCTeamYearList", vm.PDCTeamUIDS),
+                PDCTeamListData = vm.PDCTeamUIDS
             };
 
             return Json(obj);

@@ -32,53 +32,53 @@
 
     };
 
-    my.AddTeamUID = function ()
+    my.AddPDCTeamUID = function ()
     {
-        //todo: look up the TeamUID to make sure it is valid
-       // var TeamYear = {};
-        var teamURL = $("#txtTeamURL").val();
-        vm.URLToAddTeam = teamURL;
+        //todo: look up the PDCTeamUID to make sure it is valid
+       // var PDCTeamYear = {};
+        var PDCTeamURL = $("#txtPDCTeamURL").val();
+        vm.URLToAddPDCTeam = PDCTeamURL;
        // var year = $("#txtYear").val();
 
-        //TeamYear.TeamUID = teamUID;
-       // TeamYear.Year = year;
+        //PDCTeamYear.PDCTeamUID = PDCTeamUID;
+       // PDCTeamYear.Year = year;
 
-        // vm.TeamUIDS.push(TeamYear);
+        // vm.PDCTeamUIDS.push(PDCTeamYear);
 
 
         $.ajax({
             cache: false,
             async: true,
             type: "POST",
-            url: "/Home/AddTeamToConfig",
+            url: "/Home/AddPDCTeamToConfig",
             data: vm,
             dataType: "json",
             success: function (data) {
 
-                $("#mytable tbody").html(data.TeamListHTML);
+                $("#mytable tbody").html(data.PDCTeamListHTML);
 
-                vm.TeamUIDS = data.TeamListData;
+                vm.PDCTeamUIDS = data.PDCTeamListData;
                 
-                $("#txtTeamURL").val("");
-                $("#txtTeamURL").focus();
+                $("#txtPDCTeamURL").val("");
+                $("#txtPDCTeamURL").focus();
             },
             error: function (data) {
-                alert("Unable to parse that team URL.  Try again or send the URL to ryan.");
+                alert("Unable to parse that PDCTeam URL.  Try again or send the URL to ryan.");
             }
         });
     };
 
 
-    my.RemoveTeamUID = function (id) {
+    my.RemovePDCTeamUID = function (id) {
 
-        //vm.TeamUIDS.
-        for (var i = 0; i < vm.TeamUIDS.length; i++) {
-            var obj = vm.TeamUIDS[i];
+        //vm.PDCTeamUIDS.
+        for (var i = 0; i < vm.PDCTeamUIDS.length; i++) {
+            var obj = vm.PDCTeamUIDS[i];
 
-            if (vm.TeamUIDS[i].GUID == id) {
+            if (vm.PDCTeamUIDS[i].GUID == id) {
                 
 
-                vm.TeamUIDS.splice(i, 1);
+                vm.PDCTeamUIDS.splice(i, 1);
 
                 $("#tr_" + id).hide();
             }

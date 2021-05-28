@@ -58,7 +58,7 @@
         <div class="panel panel-flat">
             <div class="panel-body">
 
-                @foreach (TeamPoints t in Model.TeamData)
+                @foreach (PDCTeamPoints t in Model.PDCTeamData)
             {
                     <strong>@t.Name<span style="float:right;"> Score: @t.Points</span></strong>
                             <hr />
@@ -75,7 +75,7 @@
                     <hr />
                     <strong>Krtecek_35<span style="float:right;"> Score: @Model.Krtecek_35.TotalPointsScored</span></strong>
                     <hr />
-                    <strong>Team Taco Van<span style="float:right;"> Score: @Model.TeamTacoVan.TotalPointsScored</span></strong>
+                    <strong>PDCTeam Taco Van<span style="float:right;"> Score: @Model.PDCTeamTacoVan.TotalPointsScored</span></strong>
                     <hr />
                     <strong>Closer Encounter<span style="float:right;"> Score: @Model.CloserEncounter.TotalPointsScored</span></strong>
                     <hr />
@@ -87,9 +87,9 @@
         </div>
     </div>
 
-@foreach (Team t in Model.Teams)
+@foreach (PDCTeam t in Model.PDCTeams)
 {
-    @Html.Partial("_Team", t)
+    @Html.Partial("_PDCTeam", t)
 }
  
 
@@ -110,7 +110,7 @@
             data5 = [];
             var item = null;
 
-            vm.TeamData.forEach(function(item) {
+            vm.PDCTeamData.forEach(function(item) {
                 data5.push({x: item.Name, y: item.Points});
                 // ^ only 1 source/color
                 // ^ incremental X, starting at 0

@@ -35,13 +35,13 @@ $(function() {
                             "noneLabel": "Pick a Sport..."
                         }
                     },
-                    "team": {
+                    "PDCTeam": {
                         "schema": {
                             "type": "string"
                         },
                         "options": {
                             "type": "select",
-                            "noneLabel": "Pick a Team..."
+                            "noneLabel": "Pick a PDCTeam..."
                         }
                     },
                     "player": {
@@ -54,33 +54,33 @@ $(function() {
                         }
                     }
                 },
-                "order": ["sport", "team", "player"],
+                "order": ["sport", "PDCTeam", "player"],
                 "data": [{
                     "value": 23,
                     "attributes": {
                         "sport": "Basketball",
-                        "team": "Chicago Bulls",
+                        "PDCTeam": "Chicago Bulls",
                         "player": "Michael Jordan"
                     }
                 }, {
                     "value": 33,
                     "attributes": {
                         "sport": "Basketball",
-                        "team": "Chicago Bulls",
+                        "PDCTeam": "Chicago Bulls",
                         "player": "Scotty Pippen"
                     }
                 }, {
                     "value": 4,
                     "attributes": {
                         "sport": "Football",
-                        "team": "Green Bay Packers",
+                        "PDCTeam": "Green Bay Packers",
                         "player": "Brett Favre"
                     }
                 }, {
                     "value": 19,
                     "attributes": {
                         "sport": "Baseball",
-                        "team": "Milwaukee Brewers",
+                        "PDCTeam": "Milwaukee Brewers",
                         "player": "Robin Yount"
                     }
                 }, {

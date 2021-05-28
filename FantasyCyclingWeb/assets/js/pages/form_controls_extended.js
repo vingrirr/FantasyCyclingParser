@@ -412,22 +412,22 @@ $(function() {
     // ------------------------------
 
     // Constructs the suggestion engine for 1st dataset
-    var nbaTeams = new Bloodhound({
-        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('team'),
+    var nbaPDCTeams = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('PDCTeam'),
         queryTokenizer: Bloodhound.tokenizers.whitespace,
         prefetch: 'assets/demo_data/typeahead/nba.json'
     });
 
     // Constructs the suggestion engine for 2nd dataset
-    var nhlTeams = new Bloodhound({
-        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('team'),
+    var nhlPDCTeams = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('PDCTeam'),
         queryTokenizer: Bloodhound.tokenizers.whitespace,
         prefetch: 'assets/demo_data/typeahead/nhl.json'
     });
 
     // Initialize engines
-    nbaTeams.initialize();
-    nhlTeams.initialize();
+    nbaPDCTeams.initialize();
+    nhlPDCTeams.initialize();
 
     // Initialize 1st dataset
     $('.typeahead-multiple-datasets').typeahead(
@@ -436,18 +436,18 @@ $(function() {
         },
         {
             name: 'group',
-            displayKey: 'team',
-            source: nbaTeams.ttAdapter(),
+            displayKey: 'PDCTeam',
+            source: nbaPDCTeams.ttAdapter(),
             templates: {
-                header: '<span class="tt-heading">NBA Teams</span>'
+                header: '<span class="tt-heading">NBA PDCTeams</span>'
             }
         },
         {
             name: 'group',
-            displayKey: 'team',
-            source: nhlTeams.ttAdapter(),
+            displayKey: 'PDCTeam',
+            source: nhlPDCTeams.ttAdapter(),
             templates: {
-                header: '<span class="tt-heading">NHL Teams</span>'
+                header: '<span class="tt-heading">NHL PDCTeams</span>'
             }
         }
     );

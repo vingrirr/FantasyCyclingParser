@@ -60,7 +60,7 @@
             <div class="panel-group panel-group-control content-group-lg" id="accordion-control">
                 @foreach (FantasyResult f in Model.FantasyResults)
                 {
-                    @Html.Partial("_SeasonRacePointsPerTeam", f)
+                    @Html.Partial("_SeasonRacePointsPerPDCTeam", f)
                 }
 
             </div>
@@ -83,7 +83,7 @@
                 @Model.MaxPointsRace.Race.Country <br />
                 @Model.MaxPointsRace.Race.EventName
             </h4>
-            <h4>@Model.MaxPointsTeam.Name scored @Model.MaxPointsTeam.Points points</h4>
+            <h4>@Model.MaxPointsPDCTeam.Name scored @Model.MaxPointsPDCTeam.Points points</h4>
 
             </div>
         </div>

@@ -37,11 +37,11 @@
            
                 <div class="col-md-10">
                     <div class="input-group input-group-xlg">
-                        <label class="control-label text-size-large text-bold">Team URL</label>
-                        <input id="txtTeamURL" type="text" class="form-control input-xlg">
-                        <span id="htxTeamUID" class="help-block"> ex: https://pdcvds.com/teams.php?mw=1&y=2019&uid=2483 </span>
+                        <label class="control-label text-size-large text-bold">PDCTeam URL</label>
+                        <input id="txtPDCTeamURL" type="text" class="form-control input-xlg">
+                        <span id="htxPDCTeamUID" class="help-block"> ex: https://pdcvds.com/PDCTeams.php?mw=1&y=2019&uid=2483 </span>
                         <div class="input-group-btn">
-                            <button onclick="CONFIG.AddTeamUID();" class="btn btn-primary btn-xlg legitRipple">Add Team</button>
+                            <button onclick="CONFIG.AddPDCTeamUID();" class="btn btn-primary btn-xlg legitRipple">Add PDCTeam</button>
                         </div>
                     </div>
                 </div>
@@ -53,9 +53,9 @@
                     <table id="mytable" class="table table-bordered table-framed">
                         <thead>
                             <tr>
-                                <th>TeamUID</th>
+                                <th>PDCTeamUID</th>
                                 <th>Year </th>
-                                <th> Team Name</th>
+                                <th> PDCTeam Name</th>
                             </tr>
                         </thead>
                         <tbody>
