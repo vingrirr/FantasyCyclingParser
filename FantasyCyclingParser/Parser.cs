@@ -537,9 +537,47 @@ namespace FantasyCyclingParser
                 var document = parser.Parse(htmlCode);
 
                 var tbl = document.QuerySelectorAll("#content > table.cell > tbody");
+
+                int currentMonth = 1; 
+
                 foreach (var r in tbl[0].ChildNodes)
                 {
                     int x = 0;
+                    if (r.ChildNodes.Count() == 13)
+                    {
+                        PDC_Event ev = new PDC_Event();
+                        AngleSharp.Dom.Html.IHtmlTableDataCellElement row = (AngleSharp.Dom.Html.IHtmlTableDataCellElement)r.ChildNodes[1];
+                        string month = row.TextContent; 
+                        
+                        row = (AngleSharp.Dom.Html.IHtmlTableDataCellElement)r.ChildNodes[3];
+                        int day = !String.IsNullOrEmpty(row.TextContent) ? Convert.ToInt32(row.TextContent) : 0;
+
+                        if (!String.IsNullOrEmpty(month))                        
+                            currentMonth = FindMonthNumber(month);
+
+
+                        ev.Date = new DateTime(year, currentMonth, day);
+                                                   
+                        row = (AngleSharp.Dom.Html.IHtmlTableDataCellElement)r.ChildNodes[5];
+                        AngleSharp.Dom.Html.IHtmlAnchorElement country = (AngleSharp.Dom.Html.IHtmlAnchorElement)row.ChildNodes[0];
+                        ev.Country = country.Title; 
+
+                        row = (AngleSharp.Dom.Html.IHtmlTableDataCellElement)r.ChildNodes[7];
+                        ev.Category = ! String.IsNullOrEmpty(row.TextContent) ? Convert.ToInt32(row.TextContent) : 0;
+
+                        row = (AngleSharp.Dom.Html.IHtmlTableDataCellElement)r.ChildNodes[9];
+                        ev.Name = row.TextContent;
+
+                        AngleSharp.Dom.Html.IHtmlAnchorElement link = (AngleSharp.Dom.Html.IHtmlAnchorElement)row.ChildNodes[0];
+                        ev.ResultsURL = "https://pdcvds.com/results.php" + link.Search;
+                        ev.PDC_ID = link.Search.Split('=').Last(); 
+
+
+                        row = (AngleSharp.Dom.Html.IHtmlTableDataCellElement)r.ChildNodes[11];
+                        ev.StageCount = !String.IsNullOrEmpty(row.TextContent) ? Convert.ToInt32(row.TextContent) : 0;
+                        events.Add(ev);
+                    }
+                    
                 }
 
             }
@@ -791,6 +829,35 @@ namespace FantasyCyclingParser
                 return t;
 
             }
+        }
+
+        private static int FindMonthNumber(string month)
+        {
+            int m = 1;
+
+            Dictionary<string, int>  months = new Dictionary<string, int>()
+            {
+                { "jan", 1 },
+                { "feb", 2 },
+                { "mar", 3 },
+                { "apr", 4 },
+                { "may", 5 },
+                { "jun", 6 },
+                { "jul", 7 },
+                { "aug", 8 },
+                { "sep", 9 },
+                { "oct", 10 },
+                { "nov", 11 },
+                { "dec", 12 }
+            };
+
+            if (months.TryGetValue(month.ToLower(), out m))
+                return m;
+            else
+                return 1; 
+            
+            
+
         }
 
     

@@ -691,10 +691,12 @@ namespace FantasyCyclingParser
     public class PDC_Event
     {
         public string PDC_ID { get; set; }
-        public string Month { get; set; }
-        public string Day { get; set; }
+        public DateTime Date { get; set; }
         public int Category { get; set; }
         public string Name { get; set; }
+        public string Country { get; set; }
+        public int StageCount { get; set; }
+        public string ResultsURL { get; set; }
         public PDC_Event()
         {
 

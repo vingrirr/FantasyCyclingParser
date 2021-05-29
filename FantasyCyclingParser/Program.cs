@@ -32,10 +32,10 @@ namespace FantasyCyclingParser
         static void Main(string[] args)
         {
 
-        //test
+            
             int year = 2021;
             //List<PDC_Result> results = Parser.ParsePDCResults(year);
-            Parser.ParsePDCCalendar(2021);
+            //Parser.ParsePDCCalendar(2021);
             //List<Rider> riders = Parser.ParseAllRiders(year);            
             Rider r = Parser.ParseRiderDetails(2021, "3005");
             //List<PDCTeam> PDCTeams = Parser.ParsePDCTeamList(year);
