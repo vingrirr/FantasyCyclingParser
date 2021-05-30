@@ -32,12 +32,22 @@ namespace FantasyCyclingParser
         static void Main(string[] args)
         {
 
-            
+           // Utilities.NationalityList["FRA"] = new Nationality({ Name="France", PDC_URL=})
             int year = 2021;
-            //List<PDC_Result> results = Parser.ParsePDCResults(year);
+
+
+
+            PDC_Season season = new PDC_Season(year);
+            season.Update();
+
+            Repository.PDCSeasonInsert(season); 
+
+            //List<PDC_Result> results = Parser.ParsePDCResults(year);            
             //Parser.ParsePDCCalendar(2021);
             //List<Rider> riders = Parser.ParseAllRiders(year);            
-            Rider r = Parser.ParseRiderDetails(2021, "3005");
+
+            //Rider r = Parser.ParseRiderDetails(2021, "3005");  this is not finished...not sure if we really need it
+
             //List<PDCTeam> PDCTeams = Parser.ParsePDCTeamList(year);
 
 

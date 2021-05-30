@@ -53,7 +53,7 @@ namespace FantasyCyclingWeb.Controllers
         public ActionResult ParseSeason()
         {
 
-            Repository.ParseSeasonToDB(DateTime.Now.Year);      
+            //Repository.ParseSeasonToDB(DateTime.Now.Year);      
             return View("");
 
         }

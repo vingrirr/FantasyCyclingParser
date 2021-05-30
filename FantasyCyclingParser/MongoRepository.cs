@@ -40,21 +40,26 @@ namespace FantasyCyclingParser
             MongoRepository<PDC_Result> db = new MongoRepository<PDC_Result>();
 
             return db.ToList();
-        } 
-
-           
-
-        public static void ParseSeasonToDB(int year)
-        {
-            MongoRepository<PDC_Result> db = new MongoRepository<PDC_Result>();
-
-            List<PDC_Result> results = Parser.ParsePDCResults(year);
-
-            foreach (PDC_Result r in results)
-            {
-                db.Add(r);
-            }
         }
+
+        public static void PDCSeasonInsert(PDC_Season season)
+        {
+            (new MongoRepository<PDC_Season>()).Add(season);
+        }
+
+
+
+        //public static void ParseSeasonToDB(int year)
+        //{
+        //    MongoRepository<PDC_Result> db = new MongoRepository<PDC_Result>();
+
+        //    List<PDC_Result> results = Parser.ParsePDCResults(year);
+
+        //    foreach (PDC_Result r in results)
+        //    {
+        //        db.Add(r);
+        //    }
+        //}
 
     }
 }

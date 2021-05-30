@@ -13,7 +13,25 @@ using MongoRepository;
 namespace FantasyCyclingParser
 {
 
-    
+    //public static class Utilities
+    //{
+    //    public static Nationality GetNationality(string key)
+    //    {
+    //        if (NationalityList.ContainsKey(key))
+    //        {
+    //            return NationalityList[key];
+    //        }
+    //    } 
+
+    //    private static Dictionary<string, Nationality> NationalityList = new Dictionary<string, Nationality>()
+    //    {
+    //        { "BEL", new Nationality {Name = "Belgium", PDC_URL=String.Format("https://pdcvds.com/riders.php?mw=1&y={0}&nat=BEL",DateTime.Now.Year) }},
+    //        { "COL", new Nationality {Name = "Colombia", PDC_URL=String.Format("https://pdcvds.com/riders.php?mw=1&y={0}&nat=COL",DateTime.Now.Year) } }
+
+    //    };
+    //}
+
+
     public class FantasyYearConfig : Entity
     {
         public FantasyYearConfig()
@@ -78,9 +96,15 @@ namespace FantasyCyclingParser
         public string PDC_RiderID { get; set; }
 
         public string ID { get; set; }
+
+        public List<RiderSeason> Seasons { get; set; }
+
+        public RiderSeason CurrentSeason { get; set; }
+
+        #region old stuff
         public double CurrentYearPoints { get; set; }
         public double CurrentYearCost { get; set; }
-        public int PdcRankCurrentYear { get; set; }
+       // public int PdcRankCurrentYear { get; set; }
 
         public int Year { get; set; }
 
@@ -97,7 +121,7 @@ namespace FantasyCyclingParser
 
         public double PreviousPoints { get; set; }
         public double PreviousCost { get; set; }
-
+        #endregion
 
 
         #region old stuff
@@ -125,7 +149,10 @@ namespace FantasyCyclingParser
         #endregion
         public Rider()
         {
-   
+            Seasons = new List<RiderSeason>();
+            CurrentSeason = new RiderSeason();
+            //Nationality = new Nationality(); 
+            
         }
         
         public string ToCSV()
@@ -334,14 +361,15 @@ namespace FantasyCyclingParser
     {
         public int Year { get; set; }
         public Team Team { get; set; }
-        public int Price { get; set; }
+        public int Cost { get; set; }
         public int PointsScored { get; set; }
         public int OwnedByCount { get; set; }
 
         public List<PDC_Result> Results { get; set; }
         public RiderSeason()
         {
-
+            Results = new List<PDC_Result>();
+            Team = new Team(); 
         }
 
     }
@@ -357,6 +385,17 @@ namespace FantasyCyclingParser
         public string PDC_URL { get; set; }
     }
 
+    public class Nationality 
+    {
+        public Nationality()
+        {
+           
+        }
+        public string Name { get; set; }        
+        public string PDC_URL { get; set; }        
+    }
+
+  
 
 
     public class PDCTeam : Entity
@@ -378,25 +417,25 @@ namespace FantasyCyclingParser
         public int Rank { get; set; }
 
         #region stats
-        public double AveragePointsScored { get; set; }
-        public double AverageCostOfRiders { get; set; }
+        //public double AveragePointsScored { get; set; }
+        //public double AverageCostOfRiders { get; set; }
 
-        public double AveragePreviousPointsScored { get; set; }
-        public double AveragePreviousCostOfRiders { get; set; }
+        //public double AveragePreviousPointsScored { get; set; }
+        //public double AveragePreviousCostOfRiders { get; set; }
 
-        public double AverageRiderAge { get; set; }
-        public double AverageRiderHeight { get; set; }
-        public double AverageRiderWeight { get; set; }
-        public double AverageOneDayPoints { get; set; }
-        public double AverageGCPoints { get; set; }
-        public double AverageTTPoints { get; set; }
-        public double AverageSprintPoints { get; set; }
+        //public double AverageRiderAge { get; set; }
+        //public double AverageRiderHeight { get; set; }
+        //public double AverageRiderWeight { get; set; }
+        //public double AverageOneDayPoints { get; set; }
+        //public double AverageGCPoints { get; set; }
+        //public double AverageTTPoints { get; set; }
+        //public double AverageSprintPoints { get; set; }
         
 
-        public double CostVariance { get; set; }
+        //public double CostVariance { get; set; }
 
-        public double CostKurtosis { get; set; }  
-        public double CostSkew { get; set; }
+        //public double CostKurtosis { get; set; }  
+        //public double CostSkew { get; set; }
 
         #endregion
         public List<string> MissingStatsForRiders { get; set; }
@@ -404,12 +443,14 @@ namespace FantasyCyclingParser
         {
             Riders = new List<Rider>();
             MissingStatsForRiders = new List<string>();
+            IsDraftPDCTeam = false; 
         }
 
         public PDCTeam(List<Rider> riders)
             : this()
         {
             Riders = riders;
+            IsDraftPDCTeam = false;
         }
 
         public void AddRider(Rider r)
@@ -750,12 +791,22 @@ namespace FantasyCyclingParser
     {
         public PDC_Season()
         {
-
+            Year = DateTime.Now.Year; 
+        }
+        public PDC_Season(int year)
+        {
+            Year = year; 
         }
         public void Update()
-        {            
+        {
+            Riders = Parser.ParseAllRiders(Year);
             Results = Parser.ParsePDCResults(Year);            
+            
             PDCTeams = Parser.ParsePDCTeamList(Year);
+            
+            //this may not need to be updated if it exists already...
+            RaceCalendar = Parser.ParsePDCCalendar(Year);
+            LastUpdated = DateTime.Now; 
         }
         public int Year{ get; set; }
         public List<PDC_Result> Results { get; set; }
@@ -763,7 +814,9 @@ namespace FantasyCyclingParser
         public List<Rider> Riders { get; set; }
 
         public List<PDCTeam> PDCTeams { get; set; }
-        
+
+        //public List<Team> Teams { get; set; }
+
         public List<PDC_Event> RaceCalendar { get; set; }
 
         public DateTime LastUpdated { get; set; }
