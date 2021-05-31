@@ -35,12 +35,14 @@ namespace FantasyCyclingParser
            // Utilities.NationalityList["FRA"] = new Nationality({ Name="France", PDC_URL=})
             int year = 2021;
 
+            PDCTeam team = Parser.ParsePDCTeam("2483", 2021, true);
 
+            //PDC_Season season = new PDC_Season(year);
+            //season.Update();
 
-            PDC_Season season = new PDC_Season(year);
-            season.Update();
+            //Repository.PDCSeasonInsert(season); 
 
-            Repository.PDCSeasonInsert(season); 
+            //Repository.PDCSeasonDelete(year);
 
             //List<PDC_Result> results = Parser.ParsePDCResults(year);            
             //Parser.ParsePDCCalendar(2021);

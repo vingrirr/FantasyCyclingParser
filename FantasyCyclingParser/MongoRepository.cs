@@ -47,7 +47,20 @@ namespace FantasyCyclingParser
             (new MongoRepository<PDC_Season>()).Add(season);
         }
 
+        public static void PDCSeasonDelete(int year)
+        {
+            MongoRepository<PDC_Season> db = new MongoRepository<PDC_Season>();
+            PDC_Season season = db.Where(x => x.Year == year).FirstOrDefault();
+            db.Delete(season);
+        }
 
+        public static PDC_Season PDCSeasonGet(int year)
+        {
+            MongoRepository<PDC_Season> season = new MongoRepository<PDC_Season>();
+            PDC_Season item = season.Where(x => x.Year == year).FirstOrDefault();
+
+            return item;
+        }
 
         //public static void ParseSeasonToDB(int year)
         //{

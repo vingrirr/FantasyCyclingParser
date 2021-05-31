@@ -87,13 +87,13 @@ namespace FantasyCyclingWeb.Controllers
             PDCTeamYear ty = new PDCTeamYear(PDCTeamUID, Convert.ToInt32(year), t.PDCTeamName);
 
 
-            vm.PDCTeamUIDS.Add(ty);
+            vm.TeamUIDS.Add(ty);
 
             var obj = new
             {
                 //Message = "Success!  Your event has been created.",
-                PDCTeamListHTML = RenderHelper.PartialView(this, "_PDCTeamYearList", vm.PDCTeamUIDS),
-                PDCTeamListData = vm.PDCTeamUIDS
+                PDCTeamListHTML = RenderHelper.PartialView(this, "_PDCTeamYearList", vm.TeamUIDS),
+                PDCTeamListData = vm.TeamUIDS
             };
 
             return Json(obj);

@@ -261,8 +261,7 @@ namespace FantasyCyclingParser
                             r.PDC_RiderURL = String.Format("https://pdcvds.com/riders.php?mw=1&y={0}&pid={1}", year, r.PDC_RiderID); 
                             //r.PdcRankCurrentYear = Convert.ToInt32(rd[0].Trim().Replace(".", ""));
                             r.PDCTeam = rd[4].Trim();
-                            r.PDCTeamStatus = rd[6].Trim();
-                            r.PDC_RiderURL = riderlink;
+                            r.PDCTeamStatus = rd[6].Trim();                            
                             r.Name = rd[8].Trim();
                             r.Year = year; 
                             r.YearBorn = Convert.ToInt32(rd[10]);
@@ -744,7 +743,7 @@ namespace FantasyCyclingParser
 
             using (WebClient client = new WebClient())
             {
-                string url = String.Format("https://pdcvds.com/PDCTeams.php?mw=1&y={1}&uid={0}", PDCTeamUID, year);
+                string url = String.Format("https://pdcvds.com/teams.php?mw=1&y={1}&uid={0}", PDCTeamUID, year);
 
 
                 ServicePointManager.Expect100Continue = true;
@@ -778,7 +777,7 @@ namespace FantasyCyclingParser
 
             using (WebClient client = new WebClient())
             {
-                string url = String.Format("https://pdcvds.com/PDCTeams.php?mw=1&y={1}&uid={0}", PDCTeamUID, year);
+                string url = String.Format("https://pdcvds.com/teams.php?mw=1&y={1}&uid={0}", PDCTeamUID, year);
 
                 ServicePointManager.Expect100Continue = true;
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;

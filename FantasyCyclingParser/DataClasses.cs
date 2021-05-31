@@ -37,19 +37,19 @@ namespace FantasyCyclingParser
         public FantasyYearConfig()
         {
             
-            PDCTeamUIDS = new List<PDCTeamYear>();
+            TeamUIDS = new List<PDCTeamYear>();
             Year = DateTime.Now.Year; 
         }
         public FantasyYearConfig(int year )
         {
           
-            PDCTeamUIDS = new List<PDCTeamYear>(); 
+            TeamUIDS = new List<PDCTeamYear>(); 
             Year = year; 
         }
 
         public string ConfigName { get; set; }
         public int Year { get; set; }
-        public List<PDCTeamYear> PDCTeamUIDS { get; set; }
+        public List<PDCTeamYear> TeamUIDS { get; set; }
         public bool IsDefault { get; set; }
 
         public string URLToAddPDCTeam { get; set; }
@@ -66,17 +66,17 @@ namespace FantasyCyclingParser
         public PDCTeamYear(string id, int year, string name)
                 : this()
         {
-            PDCTeamUID = id;
+            TeamUID = id;
             Year = year;
             Name = name;
         }
         public PDCTeamYear(string id)
             : this()
         {
-            PDCTeamUID = id;
+            TeamUID = id;
             Year = DateTime.Now.Year;
         }
-        public string PDCTeamUID { get; set; }
+        public string TeamUID { get; set; }
         public int Year { get; set; }
 
         public string Name { get; set; }
@@ -95,7 +95,6 @@ namespace FantasyCyclingParser
 
         public string PDC_RiderID { get; set; }
 
-        public string ID { get; set; }
 
         public List<RiderSeason> Seasons { get; set; }
 
@@ -799,6 +798,7 @@ namespace FantasyCyclingParser
         }
         public void Update()
         {
+            Repository.PDCSeasonDelete(Year);
             Riders = Parser.ParseAllRiders(Year);
             Results = Parser.ParsePDCResults(Year);            
             
@@ -814,7 +814,7 @@ namespace FantasyCyclingParser
         public List<Rider> Riders { get; set; }
 
         public List<PDCTeam> PDCTeams { get; set; }
-
+               
         //public List<Team> Teams { get; set; }
 
         public List<PDC_Event> RaceCalendar { get; set; }
