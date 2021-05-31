@@ -790,9 +790,8 @@ namespace FantasyCyclingParser
 
                 var document = parser.Parse(htmlCode);
 
-                ///var document = parser.Parse(fs);
-
-                t.PDCTeamName = document.QuerySelectorAll("#content > h2").First().TextContent.Trim().Replace("PDCTeams :: ", "").Trim();
+      
+                t.PDCTeamName = document.QuerySelectorAll("#content > h2").First().TextContent.Trim().Replace("Teams :: ", "").Trim();
                 var rows = document.QuerySelectorAll("table.cell").First().QuerySelectorAll("tr");
 
                 var els = rows.ToArray();

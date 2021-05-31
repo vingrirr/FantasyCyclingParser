@@ -1,1 +1,1 @@
-{"options":{},"indexes":[{"v":1,"key":{"_id":1},"name":"_id_","ns":"FantasyCycling.FantasyYearConfig"}]}
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"FantasyCycling.FantasyYearConfig"}],"uuid":"568e78e016b64f77af0fbe04d3755aaf"}

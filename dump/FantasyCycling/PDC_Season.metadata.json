@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"FantasyCycling.PDC_Season"}],"uuid":"a5873fe5cfda492ebfb1a2036ab34ad0"}

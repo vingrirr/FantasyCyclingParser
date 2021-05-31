@@ -1,13 +1,33 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FantasyCyclingParser", "FantasyCyclingParser\FantasyCyclingParser.csproj", "{EA4A5BAC-D253-43CA-B4B6-E652D5495EDA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FantasyCyclingWeb", "FantasyCyclingWeb\FantasyCyclingWeb.csproj", "{E93E9725-E3AB-4447-8996-4DAB15BF0F80}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsService1", "WindowsService1\WindowsService1.csproj", "{E9CBA4AE-9040-4924-8FAB-457A25BE37D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{782C6926-4034-48C9-BEF5-B714B0393AAB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dump", "dump", "{A5164735-91EB-4B55-8C37-C83733944322}"
+	ProjectSection(SolutionItems) = preProject
+		dump\FantasyCycling\FantasyYearConfig.bson = dump\FantasyCycling\FantasyYearConfig.bson
+		dump\FantasyCycling\FantasyYearConfig.metadata.json = dump\FantasyCycling\FantasyYearConfig.metadata.json
+		dump\FantasyCycling\MongoTest.bson = dump\FantasyCycling\MongoTest.bson
+		dump\FantasyCycling\MongoTest.metadata.json = dump\FantasyCycling\MongoTest.metadata.json
+		dump\FantasyCycling\PDC_Result.bson = dump\FantasyCycling\PDC_Result.bson
+		dump\FantasyCycling\PDC_Result.metadata.json = dump\FantasyCycling\PDC_Result.metadata.json
+		dump\FantasyCycling\PDC_Season.bson = dump\FantasyCycling\PDC_Season.bson
+		dump\FantasyCycling\PDC_Season.metadata.json = dump\FantasyCycling\PDC_Season.metadata.json
+		dump\FantasyCycling\Rider.bson = dump\FantasyCycling\Rider.bson
+		dump\FantasyCycling\Rider.metadata.json = dump\FantasyCycling\Rider.metadata.json
+		dump\FantasyCycling\SeasonSnapshot.bson = dump\FantasyCycling\SeasonSnapshot.bson
+		dump\FantasyCycling\SeasonSnapshot.metadata.json = dump\FantasyCycling\SeasonSnapshot.metadata.json
+		dump\FantasyCycling\Team.bson = dump\FantasyCycling\Team.bson
+		dump\FantasyCycling\Team.metadata.json = dump\FantasyCycling\Team.metadata.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +50,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A5164735-91EB-4B55-8C37-C83733944322} = {782C6926-4034-48C9-BEF5-B714B0393AAB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7CA9449D-44D1-4C2A-9C7F-ADE60B144C88}
 	EndGlobalSection
 EndGlobal

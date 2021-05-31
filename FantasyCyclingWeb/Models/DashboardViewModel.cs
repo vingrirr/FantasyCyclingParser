@@ -34,7 +34,7 @@ namespace FantasyCyclingWeb.Models
             PDCTeamData = PDCTeamData.OrderByDescending(x => x.Points).ToList();
       
 
-            TeamUIDs.Reverse();
+           TeamUIDs.Reverse();
 
         
         }

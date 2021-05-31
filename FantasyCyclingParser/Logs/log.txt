@@ -1,0 +1,6 @@
+2021-05-31 12:37:43.6519|ERROR|FantasyCyclingParser.Program|doh!
+2021-05-31 12:37:43.6519|ERROR|FantasyCyclingParser.Program|doh!
+2021-05-31 12:37:43.6718|WARN|FantasyCyclingParser.Program|wtf?!
+2021-05-31 12:38:05.9293|ERROR|FantasyCyclingParser.Program|doh!
+2021-05-31 12:38:05.9293|ERROR|FantasyCyclingParser.Program|doh!
+2021-05-31 12:38:05.9473|WARN|FantasyCyclingParser.Program|wtf?!
