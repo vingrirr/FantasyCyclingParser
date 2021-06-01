@@ -34,25 +34,13 @@ namespace FantasyCyclingParser
 
    
 
-        
-        public static List<PDC_Result> RaceResultsAll()
-        {
-            MongoRepository<PDC_Result> db = new MongoRepository<PDC_Result>();
+        //race results now stored and updated as part of the season
+        //public static List<PDC_Result> RaceResultsAll()
+        //{
+        //    MongoRepository<PDC_Result> db = new MongoRepository<PDC_Result>();
 
-            return db.ToList();
-        }
-
-        public static void PDCSeasonInsert(PDC_Season season)
-        {
-            (new MongoRepository<PDC_Season>()).Add(season);
-        }
-
-        public static void PDCSeasonDelete(int year)
-        {
-            MongoRepository<PDC_Season> db = new MongoRepository<PDC_Season>();
-            PDC_Season season = db.Where(x => x.Year == year).FirstOrDefault();
-            db.Delete(season);
-        }
+        //    return db.ToList();
+        //}
 
         public static PDC_Season PDCSeasonGet(int year)
         {
@@ -61,6 +49,22 @@ namespace FantasyCyclingParser
 
             return item;
         }
+
+        public static void PDCSeasonInsert(PDC_Season season)
+        {
+            (new MongoRepository<PDC_Season>()).Add(season);
+        }
+        public static void PDCSeasonUpdate(PDC_Season season)
+        {
+            (new MongoRepository<PDC_Season>()).Update(season);
+        }
+
+        public static void PDCSeasonDelete(int year)
+        {
+            MongoRepository<PDC_Season> db = new MongoRepository<PDC_Season>();
+            PDC_Season season = db.Where(x => x.Year == year).FirstOrDefault();
+            db.Delete(season);
+        }    
 
         //public static void ParseSeasonToDB(int year)
         //{

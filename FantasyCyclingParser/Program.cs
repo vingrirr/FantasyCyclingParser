@@ -35,28 +35,33 @@ namespace FantasyCyclingParser
            // Utilities.NationalityList["FRA"] = new Nationality({ Name="France", PDC_URL=})
             int year = 2021;
 
-            //PDCTeam team = Parser.ParsePDCTeam("2483", 2021, true);
 
-            Logger.Error("doh!");
-            Logger.Warn("wtf?!");
-
-            //PDC_Season season = new PDC_Season(year);
-            //season.Update();
-
-            //Repository.PDCSeasonInsert(season); 
-
-            //Repository.PDCSeasonDelete(year);
-
-            //List<PDC_Result> results = Parser.ParsePDCResults(year);            
-            //Parser.ParsePDCCalendar(2021);
-            //List<Rider> riders = Parser.ParseAllRiders(year);            
-
-            //Rider r = Parser.ParseRiderDetails(2021, "3005");  this is not finished...not sure if we really need it
-
-            //List<PDCTeam> PDCTeams = Parser.ParsePDCTeamList(year);
+            //Logger.Debug("doh!");
+            //Logger.Warn("wtf?!");
 
 
-            // FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
+            //season.UpdateResults();
+            // Repository.PDCSeasonUpdate(season);
+
+            FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
+            PDC_Season season = Repository.PDCSeasonGet(year);
+            
+            List<PDC_Result> results = season.RaceResults;
+
+            List<PDCTeam> configTeams = new List<PDCTeam>();
+            foreach (PDCTeamYear ty in config.TeamUIDS)
+            {
+
+                PDCTeam team = season.PDCTeams.FirstOrDefault(m => m.PDC_ID == ty.TeamUID);
+                configTeams.Add(team);
+            }
+
+
+            List<PDC_Result> resultsForRider = (from res in season.RaceResults
+                                     where res.RaceResults.Any(p => p.Rider_PDCID == "3446")
+                                     select res).ToList();
+
+
             int x = 0; 
             //List<PDCTeam> PDCTeams = new List<PDCTeam>();
             //foreach (PDCTeamYear ty in config.PDCTeamUIDS)

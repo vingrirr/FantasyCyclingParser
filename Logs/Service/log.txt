@@ -1,0 +1,63 @@
+2021-06-01 11:57:52.4749|DEBUG|WindowsService1.Worker|Starting to update season
+2021-06-01 11:58:18.4563|DEBUG|WindowsService1.Worker|Saving updated season to database
+2021-06-01 11:58:18.5261|DEBUG|WindowsService1.Worker|Season updated
+2021-06-01 12:08:18.5351|DEBUG|WindowsService1.Worker|Starting to update season
+2021-06-01 12:08:42.9778|DEBUG|WindowsService1.Worker|Saving updated season to database
+2021-06-01 12:08:43.0227|DEBUG|WindowsService1.Worker|Season updated
+2021-06-01 12:18:43.0305|DEBUG|WindowsService1.Worker|Starting to update season
+2021-06-01 12:19:07.7131|DEBUG|WindowsService1.Worker|Saving updated season to database
+2021-06-01 12:19:07.7589|DEBUG|WindowsService1.Worker|Season updated
+2021-06-01 12:29:07.7625|DEBUG|WindowsService1.Worker|Starting to update season
+2021-06-01 12:29:33.0588|DEBUG|WindowsService1.Worker|Saving updated season to database
+2021-06-01 12:29:33.1076|DEBUG|WindowsService1.Worker|Season updated
+2021-06-01 12:39:33.1122|DEBUG|WindowsService1.Worker|Starting to update season
+2021-06-01 12:39:58.0398|DEBUG|WindowsService1.Worker|Saving updated season to database
+2021-06-01 12:39:58.0827|DEBUG|WindowsService1.Worker|Season updated
+2021-06-01 12:49:58.0938|DEBUG|WindowsService1.Worker|Starting to update season
+2021-06-01 12:50:23.0702|DEBUG|WindowsService1.Worker|Saving updated season to database
+2021-06-01 12:50:23.1111|DEBUG|WindowsService1.Worker|Season updated
+2021-06-01 13:00:23.1140|DEBUG|WindowsService1.Worker|Starting to update season
+2021-06-01 13:00:49.7228|DEBUG|WindowsService1.Worker|Saving updated season to database
+2021-06-01 13:00:49.7706|DEBUG|WindowsService1.Worker|Season updated
+2021-06-01 13:10:49.7714|DEBUG|WindowsService1.Worker|Starting to update season
+2021-06-01 13:11:16.5074|DEBUG|WindowsService1.Worker|Saving updated season to database
+2021-06-01 13:11:16.5522|DEBUG|WindowsService1.Worker|Season updated
+2021-06-01 13:21:16.5609|DEBUG|WindowsService1.Worker|Starting to update season
+2021-06-01 13:21:42.0604|DEBUG|WindowsService1.Worker|Saving updated season to database
+2021-06-01 13:21:42.1033|DEBUG|WindowsService1.Worker|Season updated
+2021-06-01 13:31:42.1118|DEBUG|WindowsService1.Worker|Starting to update season
+2021-06-01 13:32:07.0059|DEBUG|WindowsService1.Worker|Saving updated season to database
+2021-06-01 13:32:07.0538|DEBUG|WindowsService1.Worker|Season updated
+2021-06-01 13:42:07.0559|DEBUG|WindowsService1.Worker|Starting to update season
+2021-06-01 13:42:32.0267|DEBUG|WindowsService1.Worker|Saving updated season to database
+2021-06-01 13:42:32.0665|DEBUG|WindowsService1.Worker|Season updated
+2021-06-01 13:52:32.0824|DEBUG|WindowsService1.Worker|Starting to update season
+2021-06-01 13:52:56.5775|DEBUG|WindowsService1.Worker|Saving updated season to database
+2021-06-01 13:52:56.6274|DEBUG|WindowsService1.Worker|Season updated
+2021-06-01 14:02:56.6374|DEBUG|WindowsService1.Worker|Starting to update season
+2021-06-01 14:03:22.6741|DEBUG|WindowsService1.Worker|Saving updated season to database
+2021-06-01 14:03:22.7239|DEBUG|WindowsService1.Worker|Season updated
+2021-06-01 14:13:22.7250|DEBUG|WindowsService1.Worker|Starting to update season
+2021-06-01 14:13:49.0020|DEBUG|WindowsService1.Worker|Saving updated season to database
+2021-06-01 14:13:49.0440|DEBUG|WindowsService1.Worker|Season updated
+2021-06-01 14:23:49.0512|DEBUG|WindowsService1.Worker|Starting to update season
+2021-06-01 14:24:15.4472|DEBUG|WindowsService1.Worker|Saving updated season to database
+2021-06-01 14:24:15.4902|DEBUG|WindowsService1.Worker|Season updated
+2021-06-01 14:34:15.5033|DEBUG|WindowsService1.Worker|Starting to update season
+2021-06-01 14:34:40.6471|DEBUG|WindowsService1.Worker|Saving updated season to database
+2021-06-01 14:34:40.6930|DEBUG|WindowsService1.Worker|Season updated
+2021-06-01 14:44:40.7050|DEBUG|WindowsService1.Worker|Starting to update season
+2021-06-01 14:45:06.8848|DEBUG|WindowsService1.Worker|Saving updated season to database
+2021-06-01 14:45:06.9277|DEBUG|WindowsService1.Worker|Season updated
+2021-06-01 14:55:06.9289|DEBUG|WindowsService1.Worker|Starting to update season
+2021-06-01 14:55:32.7815|DEBUG|WindowsService1.Worker|Saving updated season to database
+2021-06-01 14:55:32.8284|DEBUG|WindowsService1.Worker|Season updated
+2021-06-01 15:05:32.8352|DEBUG|WindowsService1.Worker|Starting to update season
+2021-06-01 15:06:00.5306|DEBUG|WindowsService1.Worker|Saving updated season to database
+2021-06-01 15:06:00.5784|DEBUG|WindowsService1.Worker|Season updated
+2021-06-01 15:16:00.5935|DEBUG|WindowsService1.Worker|Starting to update season
+2021-06-01 15:16:29.7253|DEBUG|WindowsService1.Worker|Saving updated season to database
+2021-06-01 15:16:29.7691|DEBUG|WindowsService1.Worker|Season updated
+2021-06-01 15:26:29.7833|DEBUG|WindowsService1.Worker|Starting to update season
+2021-06-01 15:26:55.2223|DEBUG|WindowsService1.Worker|Saving updated season to database
+2021-06-01 15:26:55.2622|DEBUG|WindowsService1.Worker|Season updated

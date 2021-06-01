@@ -23,9 +23,10 @@ namespace WindowsService1
         {
 
 
-#if DEBUG
-            System.Diagnostics.Debugger.Launch();
-#endif
+            
+            Debugger.Launch();
+            Debugger.Break();
+
             worker = new Worker();
 
         }

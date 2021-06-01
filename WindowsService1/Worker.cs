@@ -33,7 +33,9 @@ namespace WindowsService1
                 
                 lock(padlock)
                 {
-                    Monitor.Wait(padlock, TimeSpan.FromMinutes(360));
+                    //Monitor.Wait(padlock, TimeSpan.FromMinutes(360));
+                    //Monitor.Wait(padlock, TimeSpan.FromSeconds(3));
+                    Monitor.Wait(padlock, TimeSpan.FromMinutes(10));
                 }
             }
         }
@@ -42,25 +44,35 @@ namespace WindowsService1
         {
             try
             {
+                Logger.Debug("Starting to update season");
                 FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
-                DashboardViewModel vm = new DashboardViewModel(config); //get the data
-         
-        //store the data. 
-    }
+                PDC_Season season = Repository.PDCSeasonGet(config.Year);
+                season.UpdateResults();
 
-            catch(ThreadInterruptedException TIE)
+                Logger.Debug("Saving updated season to database" );
+                Repository.PDCSeasonUpdate(season);
+                Logger.Debug("Season updated");
+
+            }
+
+            catch (ThreadInterruptedException TIE)
             {
-                Logger.Error(TIE);
+                Logger.Error("Thread Interupt Exception in parsing service");
+                Logger.Error(TIE.Message);
                 return; 
             }
             catch(ThreadAbortException TAE)
             {
-                Logger.Error(TAE);
+                Logger.Error("Thread Abort Exception in parsing service");
+                Logger.Error(TAE.Message);
+                
                 return; 
             }
-            catch(Exception)
+            catch(Exception ex)
             {
-                for (int i = 1; i <= 120; i++)
+                Logger.Error("General Exception in parsing service");
+                Logger.Error(ex.Message);                
+                for (int i = 1; i <= 30; i++)
                     System.Threading.Thread.Sleep(1000);
             }
         }

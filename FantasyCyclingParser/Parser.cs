@@ -499,9 +499,14 @@ namespace FantasyCyclingParser
                             string[] rd = el.TextContent.Trim().Replace("\n", "").Split('\t');
                             if (rd.Count() == 9) //avoid empty or "Scoring PDCTeams" results which pass above filters.  
                             {
+
+                            
+                                AngleSharp.Dom.Html.IHtmlAnchorElement riderPDCID = (AngleSharp.Dom.Html.IHtmlAnchorElement)el.ChildNodes[7].ChildNodes[0];
+                                string id = riderPDCID.Href.Split('=')[3].Split('&')[0];
                                 r.Place = rd[0];
                                 r.PDCTeam = rd[4];
                                 r.Name = rd[6];
+                                r.Rider_PDCID = id;
                                 r.Points = Convert.ToInt32(rd[8]);
 
                                 raceResults.Add(r);
@@ -691,11 +696,19 @@ namespace FantasyCyclingParser
                             PDCTeam t = new PDCTeam();
                             AngleSharp.Dom.Html.IHtmlAnchorElement ahref = (AngleSharp.Dom.Html.IHtmlAnchorElement) PDCTeam.ChildNodes[5].ChildNodes[0];
 
-                            t.PDCTeamURL = "https://pdcvds.com/Teams.php" + ahref.Search;
-                            t.PDC_ID = ahref.Search.Split('=')[3];
+                            //t.PDCTeamURL = "https://pdcvds.com/teams.php" + ahref.Search;
+                            //t.PDC_ID = ahref.Search.Split('=')[3];
                             //t.Rank = Int32.Parse(tm[0].Replace('.', ' ').Trim());
-                            t.PDCTeamName = tm[4].Trim();
-                            t.CurrentPoints = Int32.Parse(tm[6].Trim());
+                            //t.PDCTeamName = tm[4].Trim();
+                            //t.CurrentPoints = Int32.Parse(tm[6].Trim());
+
+                            string teamurl = "https://pdcvds.com/teams.php" + ahref.Search;
+                            string pdcId = ahref.Search.Split('=')[3];
+                        
+
+                            t = ParsePDCTeam(pdcId, year);
+                            t.PDCTeamURL = teamurl;
+                            t.PDC_ID = pdcId;
 
                             PDCTeams.Add(t);
 
@@ -707,11 +720,17 @@ namespace FantasyCyclingParser
                             PDCTeam t = new PDCTeam();
                             AngleSharp.Dom.Html.IHtmlAnchorElement ahref = (AngleSharp.Dom.Html.IHtmlAnchorElement)PDCTeam.ChildNodes[5].ChildNodes[0];
 
-                            t.PDCTeamURL = "https://pdcvds.com/Teams.php" + ahref.Search;
-                            t.PDC_ID = ahref.Search.Split('=')[3];
+                            string teamurl = "https://pdcvds.com/teams.php" + ahref.Search;
+                            string pdcId = ahref.Search.Split('=')[3];
+                            //t.PDCTeamURL = "https://pdcvds.com/teams.php" + ahref.Search;
+                            //t.PDC_ID = ahref.Search.Split('=')[3];
                             //t.Rank = Int32.Parse(tm[0].Replace('.', ' ').Trim());
-                            t.PDCTeamName = tm[2].Trim();
-                            t.CurrentPoints = Int32.Parse(tm[4].Trim());
+                            //t.PDCTeamName = tm[2].Trim();
+                            //t.CurrentPoints = Int32.Parse(tm[4].Trim());
+
+                            t = ParsePDCTeam(pdcId, year);
+                            t.PDCTeamURL = teamurl; 
+                            t.PDC_ID = pdcId;
 
                             PDCTeams.Add(t);
                         }

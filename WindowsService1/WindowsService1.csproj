@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WindowsService1</RootNamespace>
-    <AssemblyName>WindowsService1</AssemblyName>
+    <AssemblyName>FantasyCyclingService</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,6 +33,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MongoDB.Bson, Version=1.11.0.92, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dlls\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=1.11.0.92, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dlls\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.12.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dlls\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoRepository.Net45">
+      <HintPath>dlls\MongoRepository.Net45.dll</HintPath>
+    </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.7.10\lib\net45\NLog.dll</HintPath>
     </Reference>
@@ -92,6 +107,19 @@
     <EmbeddedResource Include="Service1.resx">
       <DependentUpon>Service1.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="dlls\mongocrypt.dll" />
+    <Content Include="dlls\MongoDB.Bson.dll" />
+    <Content Include="dlls\MongoDB.Bson.xml" />
+    <Content Include="dlls\MongoDB.Driver.Core.dll" />
+    <Content Include="dlls\MongoDB.Driver.Core.xml" />
+    <Content Include="dlls\MongoDB.Driver.dll" />
+    <Content Include="dlls\MongoDB.Driver.xml" />
+    <Content Include="dlls\MongoDB.Libmongocrypt.dll" />
+    <Content Include="dlls\MongoRepository.Net45.dll" />
+    <Content Include="dlls\MongoRepository.Net45.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

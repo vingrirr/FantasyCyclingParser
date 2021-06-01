@@ -707,6 +707,7 @@ namespace FantasyCyclingParser
         public string Place { get; set; }
         public string PDCTeam { get; set; }
         public string Name { get; set; }
+        public string Rider_PDCID { get; set; }
         public int Points { get; set; }
 
         public override string ToString()
@@ -794,22 +795,27 @@ namespace FantasyCyclingParser
         }
         public PDC_Season(int year)
         {
-            Year = year; 
+            
         }
-        public void Update()
+
+        public void Create(int year)
         {
-            Repository.PDCSeasonDelete(Year);
+            Year = year; 
+            //we should only need to do this one time to start off the season.  Teams, Riders, and Calendar wont change
             Riders = Parser.ParseAllRiders(Year);
-            Results = Parser.ParsePDCResults(Year);            
-            
+            //this grabs all teams and their riders.
             PDCTeams = Parser.ParsePDCTeamList(Year);
-            
-            //this may not need to be updated if it exists already...
             RaceCalendar = Parser.ParsePDCCalendar(Year);
-            LastUpdated = DateTime.Now; 
+        }
+        public void UpdateResults()
+        {
+                        
+            RaceResults = Parser.ParsePDCResults(Year);                                                            
+            LastUpdated = DateTime.Now;
+            
         }
         public int Year{ get; set; }
-        public List<PDC_Result> Results { get; set; }
+        public List<PDC_Result> RaceResults { get; set; }
 
         public List<Rider> Riders { get; set; }
 

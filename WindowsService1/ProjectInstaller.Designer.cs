@@ -28,31 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.serviceProcessInstaller1 = new System.ServiceProcess.ServiceProcessInstaller();
+            this.FantasyCyclingServiceInstaller = new System.ServiceProcess.ServiceProcessInstaller();
             this.serviceInstaller1 = new System.ServiceProcess.ServiceInstaller();
             // 
-            // serviceProcessInstaller1
+            // FantasyCyclingServiceInstaller
             // 
-            this.serviceProcessInstaller1.Account = System.ServiceProcess.ServiceAccount.LocalSystem;
-            this.serviceProcessInstaller1.Password = null;
-            this.serviceProcessInstaller1.Username = null;
+            this.FantasyCyclingServiceInstaller.Account = System.ServiceProcess.ServiceAccount.NetworkService;
+            this.FantasyCyclingServiceInstaller.Password = null;
+            this.FantasyCyclingServiceInstaller.Username = null;
+            this.FantasyCyclingServiceInstaller.AfterInstall += new System.Configuration.Install.InstallEventHandler(this.serviceProcessInstaller1_AfterInstall);
             // 
             // serviceInstaller1
             // 
+            this.serviceInstaller1.Description = "Fantasy Cycling Data poller";
             this.serviceInstaller1.ServiceName = "FantasyCyclingWatcher";
+            this.serviceInstaller1.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
             this.serviceInstaller1.AfterInstall += new System.Configuration.Install.InstallEventHandler(this.serviceInstaller1_AfterInstall);
             // 
             // ProjectInstaller
             // 
             this.Installers.AddRange(new System.Configuration.Install.Installer[] {
-            this.serviceProcessInstaller1,
+            this.FantasyCyclingServiceInstaller,
             this.serviceInstaller1});
 
         }
 
         #endregion
 
-        private System.ServiceProcess.ServiceProcessInstaller serviceProcessInstaller1;
+        private System.ServiceProcess.ServiceProcessInstaller FantasyCyclingServiceInstaller;
         private System.ServiceProcess.ServiceInstaller serviceInstaller1;
     }
 }

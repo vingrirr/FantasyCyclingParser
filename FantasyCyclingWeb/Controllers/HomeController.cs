@@ -111,6 +111,22 @@ namespace FantasyCyclingWeb.Controllers
             return Json(vm, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult ForceSeasonUpdate()
+        {
+
+            
+            FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
+            PDC_Season season = Repository.PDCSeasonGet(config.Year);
+            season.UpdateResults();
+
+            
+            Repository.PDCSeasonUpdate(season);
+            
+
+
+            return Json("", JsonRequestBehavior.AllowGet);
+        }
+
 
     }
 }

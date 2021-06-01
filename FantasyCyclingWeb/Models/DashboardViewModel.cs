@@ -23,7 +23,7 @@ namespace FantasyCyclingWeb.Models
 
             foreach (PDCTeamYear ty in config.TeamUIDS)
             {
-                PDCTeam t = Parser.ParsePDCTeam(ty.TeamUID, ty.Year);
+                PDCTeam t = Parser.ParsePDCTeam(ty.TeamUID, ty.Year);                
                 PDCTeams.Add(t);
 
                 int points = FantasyCyclingParser.Parser.GetPDCTeamPoints(Convert.ToInt32(ty.TeamUID), ty.Year);
