@@ -43,9 +43,15 @@ namespace FantasyCyclingParser
             //season.UpdateResults();
             // Repository.PDCSeasonUpdate(season);
 
+
+            //PDC_Season season = new PDC_Season();
+            //season.Create(2021);
+            //season.UpdateResults();
+            //Repository.PDCSeasonInsert(season); 
+
             FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
             PDC_Season season = Repository.PDCSeasonGet(year);
-            
+
             List<PDC_Result> results = season.RaceResults;
 
             List<PDCTeam> configTeams = new List<PDCTeam>();
@@ -56,11 +62,22 @@ namespace FantasyCyclingParser
                 configTeams.Add(team);
             }
 
+            //todo: the team riders need the rider id when it is parsed...
+            foreach (PDCTeam t in configTeams)
+            {
 
-            List<PDC_Result> resultsForRider = (from res in season.RaceResults
-                                     where res.RaceResults.Any(p => p.Rider_PDCID == "3446")
-                                     select res).ToList();
+                foreach (Rider r in t.Riders)
+                {
+                //these are all the races they scored points in...but need to figure out how much they actually scored in each one...
+                    List<PDC_Result> resultsForRider = (from res in season.RaceResults
+                                                        where res.RaceResults.Any(p => p.Rider_PDCID == r.PDC_RiderID)
+                                                        select res).ToList();
 
+                    var raceResults = resultsForRider.SelectMany(q => q.RaceResults.Where(p => p.Rider_PDCID == r.PDC_RiderID)).Sum(g => g.Points); 
+                    int z = 0;
+
+                }
+            }
 
             int x = 0; 
             //List<PDCTeam> PDCTeams = new List<PDCTeam>();

@@ -836,9 +836,9 @@ namespace FantasyCyclingParser
                             r.Name = rd[8];
                             name = r.Name;
                            // r.Nationality = anc.Attributes[1].Value;
-                            r.PDC_RiderURL = anc.Href.ToString();
-                            // anc2.Href.ToString().Replace("http://pdcvds.com/riders.php?mw=1&y=2016&pid=", "").Trim();
-                            //   r.PDC_RiderURL = anc2.Attributes[1].Value;
+                          
+                            //string pid = anc2.Href.ToString().Replace("http://pdcvds.com/riders.php?mw=1&y=2016&pid=", "").Trim();
+                            r.PDC_RiderID = anc2.Href.Split('=')[3]; 
                             r.CurrentYearCost = Convert.ToInt32(rd[10]);
 
                             r.PreviousPoints = Convert.ToInt32(rd[12]);
