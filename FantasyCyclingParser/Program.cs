@@ -33,22 +33,21 @@ namespace FantasyCyclingParser
         {
 
            // Utilities.NationalityList["FRA"] = new Nationality({ Name="France", PDC_URL=})
-            int year = 2021;
+            int year = 2022;
 
 
-            //Logger.Debug("doh!");
-            //Logger.Warn("wtf?!");
 
+            //BuildSeason(year);
+           // WorkerCode(); 
 
-            //season.UpdateResults();
-            // Repository.PDCSeasonUpdate(season);
+            //IterateSeason(year);
+            int x = 0; 
+            
+        }
 
-
-            //PDC_Season season = new PDC_Season();
-            //season.Create(2021);
-            //season.UpdateResults();
-            //Repository.PDCSeasonInsert(season); 
-
+        static void IterateSeason(int year)
+        {
+            List<PDCTeamPoints> PDCTeamData = new List<PDCTeamPoints>();
             FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
             PDC_Season season = Repository.PDCSeasonGet(year);
 
@@ -61,61 +60,46 @@ namespace FantasyCyclingParser
                 PDCTeam team = season.PDCTeams.FirstOrDefault(m => m.PDC_ID == ty.TeamUID);
                 configTeams.Add(team);
             }
+            List<int> points = new List<int>();
 
-            //todo: the team riders need the rider id when it is parsed...
             foreach (PDCTeam t in configTeams)
             {
 
                 foreach (Rider r in t.Riders)
                 {
-                //these are all the races they scored points in...but need to figure out how much they actually scored in each one...
-                    List<PDC_Result> resultsForRider = (from res in season.RaceResults
-                                                        where res.RaceResults.Any(p => p.Rider_PDCID == r.PDC_RiderID)
-                                                        select res).ToList();
+                    //these are all the races they scored points in...but need to figure out how much they actually scored in each one...
+                    //List<PDC_Result> resultsForRider = (from res in season.RaceResults
+                    //                                    where res.RaceResults.Any(p => p.Rider_PDCID == r.PDC_RiderID)
+                    //                                    select res).ToList();
 
-                    var raceResults = resultsForRider.SelectMany(q => q.RaceResults.Where(p => p.Rider_PDCID == r.PDC_RiderID)).Sum(g => g.Points); 
-                    int z = 0;
-
+                    int raceResults = season.RaceResults.SelectMany(q => q.RaceResults.Where(p => p.Rider_PDCID == r.PDC_RiderID)).Sum(g => g.Points);
+                    points.Add(raceResults);
                 }
+                PDCTeamPoints ptp = new PDCTeamPoints(t.PDCTeamName, points.Sum());
+                PDCTeamData.Add(ptp);
+                points.Clear();
             }
 
-            int x = 0; 
-            //List<PDCTeam> PDCTeams = new List<PDCTeam>();
-            //foreach (PDCTeamYear ty in config.PDCTeamUIDS)
-            //{
-            //    PDCTeam t = Parser.ParsePDCTeam(ty.PDCTeamUID, ty.Year);
-            //    PDCTeams.Add(t);
-            //}
-
-
-
-            //List<FantasyResult> fr = new List<FantasyResult>();
-            //int sumPoints = 0; 
-
-            //foreach (PDC_Result r in results)
-            //{
-
-            //    FantasyResult f = new FantasyResult();
-
-            //    f.Race = r;
-
-            //    foreach (PDCTeam tm in PDCTeams)
-            //    {
-            //        PDCTeamPoints t = r.ComparePDCTeamToRace(tm);
-            //        t.Name = tm.PDCTeamName;
-            //        f.Points.Add(t);
-
-            //        fr.Add(f);
-            //        sumPoints += t.Points;
-
-            //    }
-            //}
+            int x = 0;
+        }
     
+        static void BuildSeason(int year)
+        {
+            PDC_Season season = new PDC_Season();
+            season.Create(year);
+            season.UpdateResults();
+            Repository.PDCSeasonInsert(season); 
+
         }
 
-    
-
-        
+        static void WorkerCode()
+        {
+            FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
+            PDC_Season season = Repository.PDCSeasonGet(config.Year);
+            season.UpdateResults();
+            
+            Repository.PDCSeasonUpdate(season);
+        }
         static void FindOptimalPDCTeam(List<Rider> riderList)
         {
 

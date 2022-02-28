@@ -61,3 +61,12 @@
 2021-06-01 15:26:29.7833|DEBUG|WindowsService1.Worker|Starting to update season
 2021-06-01 15:26:55.2223|DEBUG|WindowsService1.Worker|Saving updated season to database
 2021-06-01 15:26:55.2622|DEBUG|WindowsService1.Worker|Season updated
+2022-02-27 12:09:28.0683|DEBUG|WindowsService1.Worker|Starting to update season
+2022-02-27 12:09:28.3672|ERROR|WindowsService1.Worker|General Exception in parsing service
+2022-02-27 12:09:28.3672|ERROR|WindowsService1.Worker|Object reference not set to an instance of an object.
+2022-02-27 12:10:34.6881|DEBUG|WindowsService1.Worker|Starting to update season
+2022-02-27 12:10:57.5112|ERROR|WindowsService1.Worker|General Exception in parsing service
+2022-02-27 12:10:57.5112|ERROR|WindowsService1.Worker|Object reference not set to an instance of an object.
+2022-02-28 10:38:20.6940|DEBUG|WindowsService1.Worker|Starting to update season
+2022-02-28 10:38:25.8496|DEBUG|WindowsService1.Worker|Saving updated season to database
+2022-02-28 10:38:25.9264|DEBUG|WindowsService1.Worker|Season updated

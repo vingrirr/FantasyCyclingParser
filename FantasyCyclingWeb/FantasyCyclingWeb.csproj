@@ -234,6 +234,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\NewDashboardViewModel.cs" />
     <Compile Include="Models\DashboardViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\RaceSeasonViewModel.cs" />
@@ -2104,6 +2105,7 @@
     <Content Include="Views\Home\AddConfig.cshtml" />
     <Content Include="Views\Shared\_TeamYearList.cshtml" />
     <Content Include="Views\Draft\Index.cshtml" />
+    <Content Include="Views\Home\NewIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

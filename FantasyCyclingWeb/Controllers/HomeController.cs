@@ -14,11 +14,55 @@ namespace FantasyCyclingWeb.Controllers
         public ActionResult Index()
         {
 
+  
             //List<Rider> all = Parser.ParseAllRiders(false);
 
             FantasyYearConfig c = Repository.FantasyYearConfigGetDefault();
             
             DashboardViewModel vm = new DashboardViewModel(c);                
+            return View(vm);
+        }
+        public ActionResult NewIndex()
+        {
+
+
+            List<PDCTeamPoints> PDCTeamData = new List<PDCTeamPoints>();
+            FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
+            PDC_Season season = Repository.PDCSeasonGet(config.Year);
+
+            List<PDC_Result> results = season.RaceResults;
+
+            List<PDCTeam> configTeams = new List<PDCTeam>();
+            foreach (PDCTeamYear ty in config.TeamUIDS)
+            {
+
+                PDCTeam team = season.PDCTeams.FirstOrDefault(m => m.PDC_ID == ty.TeamUID);
+                configTeams.Add(team);
+            }
+            List<int> points = new List<int>();
+
+            foreach (PDCTeam t in configTeams)
+            {
+
+                foreach (Rider r in t.Riders)
+                {
+                    //these are all the races they scored points in...but need to figure out how much they actually scored in each one...
+                    //List<PDC_Result> resultsForRider = (from res in season.RaceResults
+                    //                                    where res.RaceResults.Any(p => p.Rider_PDCID == r.PDC_RiderID)
+                    //                                    select res).ToList();
+
+                    int raceResults = season.RaceResults.SelectMany(q => q.RaceResults.Where(p => p.Rider_PDCID == r.PDC_RiderID)).Sum(g => g.Points);
+                    points.Add(raceResults);
+                }
+                PDCTeamPoints ptp = new PDCTeamPoints(t.PDCTeamName, points.Sum());
+                PDCTeamData.Add(ptp);
+                points.Clear();
+
+            }
+
+            NewDashboardViewModel vm = new NewDashboardViewModel(config, PDCTeamData, points, configTeams);
+            
+            
             return View(vm);
         }
 
@@ -37,18 +81,20 @@ namespace FantasyCyclingWeb.Controllers
 
         }
 
-        public ActionResult HallOfFame()
-        {
+  
 
-            //List<PDC_Result> results = Parser.ParsePDCResults(2018);
+        //public ActionResult HallOfFame()
+        //{
 
-            List<PDC_Result> results = Repository.RaceResultsAll();
-            results.Reverse();
+        //    //List<PDC_Result> results = Parser.ParsePDCResults(2018);
 
-            RaceSeasonViewModel vm = new RaceSeasonViewModel(2018, results);
-            return View(vm);
+        //    List<PDC_Result> results = Repository.RaceResultsAll();
+        //    results.Reverse();
 
-        }
+        //    RaceSeasonViewModel vm = new RaceSeasonViewModel(2018, results);
+        //    return View(vm);
+
+        //}
 
         public ActionResult ParseSeason()
         {

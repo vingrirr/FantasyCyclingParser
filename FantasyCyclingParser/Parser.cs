@@ -777,7 +777,11 @@ namespace FantasyCyclingParser
 
                 IElement lastRow = document.QuerySelectorAll("table.cell").First().QuerySelectorAll("tr").Last();
 
-                points = Convert.ToInt32(lastRow.ChildNodes[9].TextContent);
+
+                if (lastRow.ChildNodes.Count() > 9 && !String.IsNullOrEmpty(lastRow.ChildNodes[9].TextContent))
+                {
+                    points = Convert.ToInt32(lastRow.ChildNodes[9].TextContent);
+                }
 
                
             }
