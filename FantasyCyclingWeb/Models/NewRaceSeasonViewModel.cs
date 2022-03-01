@@ -26,8 +26,14 @@ namespace FantasyCyclingWeb.Models
             {
                 runningSum = 0;
                 List<LineDataPoint> currTeamLineData = new List<LineDataPoint>();
+
+                if (config.TeamUIDS.FirstOrDefault(t => t.TeamUID == currTeam.PDC_ID).Is35Team)
+                    continue;
+
+                int count = 0; 
                 foreach (PDC_Result r in _results)
                 {
+
                     FantasyResult f = new FantasyResult();
                                
                     f.Race = r;
@@ -40,15 +46,15 @@ namespace FantasyCyclingWeb.Models
                     t.RunningTotalPoints = runningSum;
 
                     f.Points.Add(t);
-                    currTeamLineData.Add(new LineDataPoint(RaceCount, runningSum));                                        
+                    currTeamLineData.Add(new LineDataPoint(count, runningSum));                                        
                     FantasyResults.Add(f);
-                    RaceCount++;
+                    count++;
                 }
                 
                 LineChartVM.AddTeam(currTeam, currTeamLineData);
                 
             }
-
+            int x = 0;
             // MaxPointsRace = FantasyResults.OrderByDescending(x => x.Points.Max(y => y.Points)).First();
             //MaxPointsPDCTeam = MaxPointsRace.Points.OrderByDescending(x => x.Points).First();
 

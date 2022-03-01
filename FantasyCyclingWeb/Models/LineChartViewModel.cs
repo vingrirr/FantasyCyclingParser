@@ -31,7 +31,24 @@ namespace FantasyCyclingWeb.Models
             "rgb(174, 199, 232)",
             "rgb(255, 187, 120)",
             "rgb(31, 119, 180)",
+            "rgb(152, 223, 138)",
+
+            "rgb(255, 127, 14)",
+            "rgb(44, 160, 44)",
+            "rgb(174, 199, 232)",
+            "rgb(255, 187, 120)",
+            "rgb(31, 119, 180)",
+            "rgb(152, 223, 138)",
+
+            "rgb(255, 127, 14)",
+            "rgb(44, 160, 44)",
+            "rgb(174, 199, 232)",
+            "rgb(255, 187, 120)",
+            "rgb(31, 119, 180)",
             "rgb(152, 223, 138)"
+
+
+
         };
     }
 
@@ -50,6 +67,6 @@ namespace FantasyCyclingWeb.Models
         }
         public string color { get; set; }
         public string key { get; set; }
-        public List<LineDataPoint> values { get; set; }
+        public List<int[][]> values { get; set; }
     }
 }

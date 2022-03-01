@@ -37,6 +37,7 @@ namespace FantasyCyclingWeb.Controllers
             {
 
                 PDCTeam team = season.PDCTeams.FirstOrDefault(m => m.PDC_ID == ty.TeamUID);
+                team.Is35Team = ty.Is35Team; 
                 configTeams.Add(team);
             }
             List<int> points = new List<int>();
@@ -87,10 +88,7 @@ namespace FantasyCyclingWeb.Controllers
 
             FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
             PDC_Season season = Repository.PDCSeasonGet(config.Year);
-            
-                        
-            
-
+                                           
             NewRaceSeasonViewModel vm = new NewRaceSeasonViewModel(season, config);
             return View(vm);
 

@@ -12,29 +12,20 @@
         data = [];
         var item = null;
 
-        var moreData = new Array(vm.RaceCount);
+        //var moreData = new Array(vm.RaceCount);
 
-        for (var i = 0; i < moreData.length; i++)
-        {
-            moreData[i] = [vm.KamnaChameleonPoints[i].X,vm.KamnaChameleonPoints[i].Y] ;
-        }
+        //for (var i = 0; i < moreData.length; i++)
+        //{
+        //    moreData[i] = [vm.KamnaChameleonPoints[i].X,vm.KamnaChameleonPoints[i].Y] ;
+        //}
 
-        var KamnaGanna = {
-            values: moreData,      //values - represents the array of {x,y} data points
-            key: 'AlternativeFlats', //key  - the name of the series.
-            color: 'rgb(255, 127, 14)'  //color - optional: choose your own line color.
-        };
-
+        var x = 0;
         
 
         ///////////////////////////////////////////////
 
-        data.push(Zauzage);
-        data.push(Plaidstockings);
-        data.push(KamnaGanna);        
-        data.push(Rubicon);
-        data.push(Bauhaus);                
-        data.push(Cowboys);
+        //data.push(Zauzage);
+
 
 
         nv.addGraph(function () {

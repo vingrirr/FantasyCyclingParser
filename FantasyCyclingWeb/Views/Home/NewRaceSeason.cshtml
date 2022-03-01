@@ -9,7 +9,7 @@
 @model NewRaceSeasonViewModel
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js" charset="utf-8"></script>
-<script src="~/js/RaceSeasonModule.js"></script>
+<script src="~/js/NewRaceSeasonModule.js"></script>
 <script src="~/js/ChartsModule.js"></script>
 <script src="~/echarts-master/dist/echarts.min.js"></script>
 <script src="~/js/nvd3charts/nv.d3.min.js"></script>
@@ -78,12 +78,7 @@
             <hr />
         </div>
         <div class="panel-body">
-            <h4>
-                @Model.MaxPointsRace.Race.Month @Model.MaxPointsRace.Race.DayNum <br />
-                @Model.MaxPointsRace.Race.Country <br />
-                @Model.MaxPointsRace.Race.EventName
-            </h4>
-            <h4>@Model.MaxPointsPDCTeam.Name scored @Model.MaxPointsPDCTeam.Points points</h4>
+        
 
             </div>
         </div>

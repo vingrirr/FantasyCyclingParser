@@ -38,13 +38,15 @@ namespace FantasyCyclingParser
         {
             
             TeamUIDS = new List<PDCTeamYear>();
-            Year = DateTime.Now.Year; 
+            Year = DateTime.Now.Year;
+            
         }
-        public FantasyYearConfig(int year )
+        public FantasyYearConfig(int year)
         {
           
             TeamUIDS = new List<PDCTeamYear>(); 
-            Year = year; 
+            Year = year;
+            
         }
 
         public string ConfigName { get; set; }
@@ -53,8 +55,7 @@ namespace FantasyCyclingParser
         public bool IsDefault { get; set; }
 
         public string URLToAddPDCTeam { get; set; }
-
-      
+              
     }
 
     public class PDCTeamYear
@@ -63,12 +64,13 @@ namespace FantasyCyclingParser
         {
             GUID = Guid.NewGuid().ToString();
         }
-        public PDCTeamYear(string id, int year, string name)
+        public PDCTeamYear(string id, int year, string name, bool is35team =false)
                 : this()
         {
             TeamUID = id;
             Year = year;
             Name = name;
+            Is35Team = is35team;
         }
         public PDCTeamYear(string id)
             : this()
@@ -81,6 +83,8 @@ namespace FantasyCyclingParser
 
         public string Name { get; set; }
         public string GUID { get; set; }
+        
+        public bool Is35Team { get; set; }
 
     }
     public class Rider : Entity
@@ -410,6 +414,8 @@ namespace FantasyCyclingParser
         public string ID { get; set; }
 
         public bool IsDraftPDCTeam { get; set; }
+        
+        public bool Is35Team { get; set; }
 
         public string PDCTeamName { get; set; }
         public string PDCTeamURL { get; set; }
