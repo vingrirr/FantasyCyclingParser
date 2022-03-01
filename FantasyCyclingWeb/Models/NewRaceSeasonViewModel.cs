@@ -44,7 +44,8 @@ namespace FantasyCyclingWeb.Models
                     FantasyResults.Add(f);
                     RaceCount++;
                 }
-                LineChartVM.AddTeam(currTeam, currTeamLineData)
+                
+                LineChartVM.AddTeam(currTeam, currTeamLineData);
                 
             }
 
