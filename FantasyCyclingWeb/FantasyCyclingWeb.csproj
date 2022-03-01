@@ -234,10 +234,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\LineChartViewModel.cs" />
+    <Compile Include="Models\LineDataPoint.cs" />
     <Compile Include="Models\NewDashboardViewModel.cs" />
     <Compile Include="Models\DashboardViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\RaceSeasonViewModel.cs" />
+    <Compile Include="Models\NewRaceSeasonViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -1890,6 +1892,7 @@
     <Content Include="js\DraftModule.js" />
     <Content Include="js\nvd3charts\nv.d3.css" />
     <Content Include="js\nvd3charts\nv.d3.js" />
+    <Content Include="js\NewRaceSeasonModule.js" />
     <Content Include="js\RaceSeasonModule.js" />
     <Content Include="js\DashboardModulejs.js" />
     <Content Include="js\nvd3charts\nv.d3.min.css" />
@@ -2099,13 +2102,13 @@
     <Content Include="Views\Shared\_Rider.cshtml" />
     <Content Include="Views\Shared\_LayoutNew.cshtml" />
     <Content Include="Views\Home\Line.cshtml" />
-    <Content Include="Views\Home\RaceSeason.cshtml" />
     <Content Include="Views\Shared\_SeasonRacePointsPerTeam.cshtml" />
     <Content Include="Views\Home\HallofFame.cshtml" />
     <Content Include="Views\Home\AddConfig.cshtml" />
     <Content Include="Views\Shared\_TeamYearList.cshtml" />
     <Content Include="Views\Draft\Index.cshtml" />
     <Content Include="Views\Home\NewIndex.cshtml" />
+    <Content Include="Views\Home\NewRaceSeason.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

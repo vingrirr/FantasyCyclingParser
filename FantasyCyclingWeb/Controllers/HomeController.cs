@@ -66,22 +66,37 @@ namespace FantasyCyclingWeb.Controllers
             return View(vm);
         }
 
-        public ActionResult RaceSeason()
+        //public ActionResult RaceSeason()
+        //{
+
+
+
+        //    List<PDC_Result> results = Parser.ParsePDCResults(DateTime.Now.Year);
+
+        //    //List<PDC_Result> results = Repository.RaceResultsAll();
+        //    results.Reverse();
+
+        //    RaceSeasonViewModel vm = new RaceSeasonViewModel(DateTime.Now.Year, results);
+        //    return View(vm);
+
+        //}
+
+        public ActionResult NewRaceSeason()
         {
 
 
+            FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
+            PDC_Season season = Repository.PDCSeasonGet(config.Year);
+            
+                        
+            
 
-            List<PDC_Result> results = Parser.ParsePDCResults(DateTime.Now.Year);
-
-            //List<PDC_Result> results = Repository.RaceResultsAll();
-            results.Reverse();
-
-            RaceSeasonViewModel vm = new RaceSeasonViewModel(DateTime.Now.Year, results);
+            NewRaceSeasonViewModel vm = new NewRaceSeasonViewModel(season, config);
             return View(vm);
 
         }
 
-  
+
 
         //public ActionResult HallOfFame()
         //{

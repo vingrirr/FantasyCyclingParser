@@ -667,6 +667,21 @@ namespace FantasyCyclingParser
             return tp;
         }
 
+        //public int ComparePDCTeamToRace(PDCTeam t)
+        //{
+        //    int total = 0;
+
+        //    foreach (PDC_RaceResult r in RaceResults)
+        //    {
+        //        //if a rider in the result exists in the PDCTeam, add up the points. 
+        //        if (t.Riders.Exists(x => x.Name == r.Name))
+        //        {
+        //            total += r.Points;
+        //        }
+        //    }
+        //    return total;
+        //}
+
         public string ToCSV()
         {
             string r = String.Empty;
@@ -814,6 +829,7 @@ namespace FantasyCyclingParser
             LastUpdated = DateTime.Now;
             
         }
+        
         public int Year{ get; set; }
         public List<PDC_Result> RaceResults { get; set; }
 
