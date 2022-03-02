@@ -13,17 +13,54 @@ namespace FantasyCyclingWeb.Models
             ChartData = new List<LineChartModel>();
         }
 
-        public void AddTeam(PDCTeam team, List<LineDataPoint> points)
+        public void AddTeam(PDCTeam team, int[,] points)
         {
-            string clr = _ColorList[ChartData.Count()];
-            string key = team.PDCTeamName;
+            string clr = "";
+            if (!_data.ContainsKey(team.PDCTeamName))
+            {
+                string key = team.PDCTeamName;
+                
+                if (!_teamColors.ContainsKey(team.PDCTeamName))
+                {                    
+                    clr = _ColorList[ChartData.Count()];
+                    _teamColors.Add(team.PDCTeamName, clr);
+                }
+                else
+                {
+                    clr = _teamColors[team.PDCTeamName];
+                }
+                List<LineChartModel> list = new List<LineChartModel>(); 
+                LineChartModel m = new LineChartModel(key, clr);
+                
+                m.values.Add(points);
 
-            LineChartModel m = new LineChartModel(key, clr);
-            m.values = points;
-            ChartData.Add(m);
+                list.Add(m);
+                _data.Add(key, list);
+                ChartData.Add(m);
+            }
+            else
+            {
+                LineChartModel m = ChartData.FirstOrDefault(x => x.key == team.PDCTeamName);                
+                m.values.Add(points);                
+            }
+                                                                                             
+        }
+        public int GetRunningSumPoints(PDCTeam team)
+        {
+            if (!_data.ContainsKey(team.PDCTeamName))
+                return 0;
+            else
+            {
+                LineChartModel m = ChartData.FirstOrDefault(x => x.key == team.PDCTeamName);
+
+                int[,] sum = m.values.Last();
+
+                return sum[0, 1];
+            }
         }
 
-        public List<LineChartModel> ChartData { get; set; }
+        
+        public  List<LineChartModel> ChartData { get; set; }
         private List<string> _ColorList = new List<string>
         {
             "rgb(255, 127, 14)",
@@ -50,13 +87,15 @@ namespace FantasyCyclingWeb.Models
 
 
         };
+        private Dictionary<string, string> _teamColors = new Dictionary<string, string>();
+        private Dictionary<string, List<LineChartModel>> _data = new Dictionary<string, List<LineChartModel>>();
     }
 
     public class LineChartModel
     {
         public LineChartModel()
         {
-            values = new List<LineDataPoint>(); 
+            values = new List<int[,]>(); 
         }
         public LineChartModel(string ky, string clr)
             :this()
@@ -67,6 +106,6 @@ namespace FantasyCyclingWeb.Models
         }
         public string color { get; set; }
         public string key { get; set; }
-        public List<int[][]> values { get; set; }
+        public List<int[,]> values { get; set; }
     }
 }

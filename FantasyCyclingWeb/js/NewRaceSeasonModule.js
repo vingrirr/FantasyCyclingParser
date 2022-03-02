@@ -19,7 +19,7 @@
         //    moreData[i] = [vm.KamnaChameleonPoints[i].X,vm.KamnaChameleonPoints[i].Y] ;
         //}
 
-        var x = 0;
+        
         
 
         ///////////////////////////////////////////////
@@ -101,8 +101,8 @@
             d3.select('#lineChart svg')
                 //.attr('perserveAspectRatio', 'xMinYMid')
                 //.attr('width', width)
-                //.attr('height', height)
-                .datum(data)
+                //.attr('height', 800)
+                .datum(model.LineChartVM.ChartData)
                 .call(chart);
             //TODO: Figure out a good way to do this automatically
             //nv.utils.windowResize(chart.update);
