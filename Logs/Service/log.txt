@@ -118,3 +118,12 @@
 2022-03-01 20:03:09.6081|DEBUG|WindowsService1.Worker|Starting to update season
 2022-03-01 20:03:12.0014|DEBUG|WindowsService1.Worker|Saving updated season to database
 2022-03-01 20:03:12.6228|DEBUG|WindowsService1.Worker|Season updated
+2022-03-01 20:13:12.6327|DEBUG|WindowsService1.Worker|Starting to update season
+2022-03-01 20:13:15.0272|DEBUG|WindowsService1.Worker|Saving updated season to database
+2022-03-01 20:13:15.6068|DEBUG|WindowsService1.Worker|Season updated
+2022-03-01 20:23:15.6185|DEBUG|WindowsService1.Worker|Starting to update season
+2022-03-01 20:23:19.1296|DEBUG|WindowsService1.Worker|Saving updated season to database
+2022-03-01 20:23:19.6712|DEBUG|WindowsService1.Worker|Season updated
+2022-03-01 20:33:19.6852|DEBUG|WindowsService1.Worker|Starting to update season
+2022-03-01 20:33:22.4288|DEBUG|WindowsService1.Worker|Saving updated season to database
+2022-03-01 20:33:23.0154|DEBUG|WindowsService1.Worker|Season updated

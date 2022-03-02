@@ -67,8 +67,8 @@ namespace FantasyCyclingWeb.Models
 
             }
             int x = 0;
-            // MaxPointsRace = FantasyResults.OrderByDescending(x => x.Points.Max(y => y.Points)).First();
-            //MaxPointsPDCTeam = MaxPointsRace.Points.OrderByDescending(x => x.Points).First();
+            MaxPointsRace = FantasyResults.OrderByDescending(m => m.Points.Max(y => y.Points)).First();
+            MaxPointsPDCTeam = MaxPointsRace.Points.OrderByDescending(n => n.Points).First();
 
 
         }
