@@ -236,10 +236,9 @@
     </Compile>
     <Compile Include="Models\LineChartViewModel.cs" />
     <Compile Include="Models\LineDataPoint.cs" />
-    <Compile Include="Models\NewDashboardViewModel.cs" />
     <Compile Include="Models\DashboardViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\NewRaceSeasonViewModel.cs" />
+    <Compile Include="Models\RaceSeasonViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -2077,7 +2076,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\IndexOld.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -2107,8 +2106,8 @@
     <Content Include="Views\Home\AddConfig.cshtml" />
     <Content Include="Views\Shared\_TeamYearList.cshtml" />
     <Content Include="Views\Draft\Index.cshtml" />
-    <Content Include="Views\Home\NewIndex.cshtml" />
-    <Content Include="Views\Home\NewRaceSeason.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\RaceSeason.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

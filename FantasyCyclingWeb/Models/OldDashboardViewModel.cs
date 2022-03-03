@@ -9,23 +9,32 @@ namespace FantasyCyclingWeb.Models
 {
 
 
-    public class NewDashboardViewModel
+    public class OldDashboardViewModel
     {
-        public NewDashboardViewModel(FantasyYearConfig config, List<PDCTeamPoints> teamData, List<int> pts, List<PDCTeam> teams)
+        public OldDashboardViewModel(FantasyYearConfig config)
         {
-            CurrentConfig = config;
+            CurrentConfig = config; 
             //'Kämna Chameleon', 'The Bauhaus Movement', 'Plaidstockings', 'Rubicon', 'Zauzage', 'Cowboys'
+            TeamUIDs = new List<int>();
+            PDCTeamData = new List<PDCTeamPoints>();
+            Points = new List<int>();
+            PDCTeams = new List<PDCTeam>();
 
-            PDCTeamData = teamData;
-            Points = pts;
-            PDCTeams = teams;
-     
+
+            foreach (PDCTeamYear ty in config.TeamUIDS)
+            {
+                PDCTeam t = Parser.ParsePDCTeam(ty.TeamUID, ty.Year);
+                PDCTeams.Add(t);
+
+                int points = FantasyCyclingParser.Parser.GetPDCTeamPoints(Convert.ToInt32(ty.TeamUID), ty.Year);
+                PDCTeamData.Add(new PDCTeamPoints(t.PDCTeamName, points));
+            }
 
             PDCTeams = PDCTeams.OrderByDescending(x => x.TotalPointsScored).ToList();
             PDCTeamData = PDCTeamData.OrderByDescending(x => x.Points).ToList();
 
 
-           // TeamUIDs.Reverse();
+            TeamUIDs.Reverse();
 
 
         }

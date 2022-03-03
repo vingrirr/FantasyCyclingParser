@@ -14,17 +14,6 @@ namespace FantasyCyclingWeb.Controllers
         public ActionResult Index()
         {
 
-  
-            //List<Rider> all = Parser.ParseAllRiders(false);
-
-            FantasyYearConfig c = Repository.FantasyYearConfigGetDefault();
-            
-            DashboardViewModel vm = new DashboardViewModel(c);                
-            return View(vm);
-        }
-        public ActionResult NewIndex()
-        {
-
 
             List<PDCTeamPoints> PDCTeamData = new List<PDCTeamPoints>();
             FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
@@ -37,7 +26,7 @@ namespace FantasyCyclingWeb.Controllers
             {
 
                 PDCTeam team = season.PDCTeams.FirstOrDefault(m => m.PDC_ID == ty.TeamUID);
-                team.Is35Team = ty.Is35Team; 
+                team.Is35Team = ty.Is35Team;
                 configTeams.Add(team);
             }
             List<int> points = new List<int>();
@@ -47,11 +36,7 @@ namespace FantasyCyclingWeb.Controllers
 
                 foreach (Rider r in t.Riders)
                 {
-                    //these are all the races they scored points in...but need to figure out how much they actually scored in each one...
-                    //List<PDC_Result> resultsForRider = (from res in season.RaceResults
-                    //                                    where res.RaceResults.Any(p => p.Rider_PDCID == r.PDC_RiderID)
-                    //                                    select res).ToList();
-
+               
                     int raceResults = season.RaceResults.SelectMany(q => q.RaceResults.Where(p => p.Rider_PDCID == r.PDC_RiderID)).Sum(g => g.Points);
                     points.Add(raceResults);
                 }
@@ -61,11 +46,56 @@ namespace FantasyCyclingWeb.Controllers
 
             }
 
-            NewDashboardViewModel vm = new NewDashboardViewModel(config, PDCTeamData, points, configTeams);
-            
-            
+            DashboardViewModel vm = new DashboardViewModel(config, PDCTeamData, points, configTeams);
+
+
+            return View(vm);
             return View(vm);
         }
+        //public ActionResult NewIndex()
+        //{
+
+
+        //    List<PDCTeamPoints> PDCTeamData = new List<PDCTeamPoints>();
+        //    FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
+        //    PDC_Season season = Repository.PDCSeasonGet(config.Year);
+
+        //    List<PDC_Result> results = season.RaceResults;
+
+        //    List<PDCTeam> configTeams = new List<PDCTeam>();
+        //    foreach (PDCTeamYear ty in config.TeamUIDS)
+        //    {
+
+        //        PDCTeam team = season.PDCTeams.FirstOrDefault(m => m.PDC_ID == ty.TeamUID);
+        //        team.Is35Team = ty.Is35Team; 
+        //        configTeams.Add(team);
+        //    }
+        //    List<int> points = new List<int>();
+
+        //    foreach (PDCTeam t in configTeams)
+        //    {
+
+        //        foreach (Rider r in t.Riders)
+        //        {
+        //            //these are all the races they scored points in...but need to figure out how much they actually scored in each one...
+        //            //List<PDC_Result> resultsForRider = (from res in season.RaceResults
+        //            //                                    where res.RaceResults.Any(p => p.Rider_PDCID == r.PDC_RiderID)
+        //            //                                    select res).ToList();
+
+        //            int raceResults = season.RaceResults.SelectMany(q => q.RaceResults.Where(p => p.Rider_PDCID == r.PDC_RiderID)).Sum(g => g.Points);
+        //            points.Add(raceResults);
+        //        }
+        //        PDCTeamPoints ptp = new PDCTeamPoints(t.PDCTeamName, points.Sum());
+        //        PDCTeamData.Add(ptp);
+        //        points.Clear();
+
+        //    }
+
+        //    NewDashboardViewModel vm = new NewDashboardViewModel(config, PDCTeamData, points, configTeams);
+            
+            
+        //    return View(vm);
+        //}
 
         //public ActionResult RaceSeason()
         //{
@@ -82,7 +112,7 @@ namespace FantasyCyclingWeb.Controllers
 
         //}
 
-        public ActionResult NewRaceSeason()
+        public ActionResult RaceSeason()
         {
 
 
@@ -160,15 +190,15 @@ namespace FantasyCyclingWeb.Controllers
         }
 
 
-        public JsonResult GetData()
-        {
+        //public JsonResult GetData()
+        //{
             
-            FantasyYearConfig c = new FantasyYearConfig();
-            DashboardViewModel vm = new DashboardViewModel(c); 
+        //    FantasyYearConfig c = new FantasyYearConfig();
+        //    DashboardViewModel vm = new DashboardViewModel(c); 
 
 
-            return Json(vm, JsonRequestBehavior.AllowGet);
-        }
+        //    return Json(vm, JsonRequestBehavior.AllowGet);
+        //}
 
         public JsonResult ForceSeasonUpdate()
         {
