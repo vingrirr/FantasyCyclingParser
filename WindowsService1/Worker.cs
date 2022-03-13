@@ -19,6 +19,7 @@ namespace WindowsService1
 
         public Worker()
         {
+            Logger.Debug("In Worker");
             _mythread = new Thread(ThreadedWork);
             _mythread.Name = "Fantasy Cycling Watcher";
             _mythread.IsBackground = true;
@@ -29,12 +30,14 @@ namespace WindowsService1
         {
             while (!stopping)
             {
+                Logger.Debug("Getting Data");
                 GetData();
                 
                 lock(padlock)
                 {
                     //Monitor.Wait(padlock, TimeSpan.FromMinutes(360));
                     //Monitor.Wait(padlock, TimeSpan.FromSeconds(3));
+                    Logger.Debug("Waiting 10mins");
                     Monitor.Wait(padlock, TimeSpan.FromMinutes(10));
                 }
             }
@@ -44,12 +47,19 @@ namespace WindowsService1
         {
             try
             {
-                Logger.Debug("Starting to update season");
+                
+            Logger.Debug("Starting to update season");
+                
                 FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
+                Logger.Debug("Got config");
+                
                 PDC_Season season = Repository.PDCSeasonGet(config.Year);
+                Logger.Debug("Got season");
+                
                 season.UpdateResults();
 
                 Logger.Debug("Saving updated season to database" );
+                
                 Repository.PDCSeasonUpdate(season);
                 Logger.Debug("Season updated");
 

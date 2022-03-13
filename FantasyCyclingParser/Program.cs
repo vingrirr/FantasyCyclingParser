@@ -35,10 +35,10 @@ namespace FantasyCyclingParser
            // Utilities.NationalityList["FRA"] = new Nationality({ Name="France", PDC_URL=})
             int year = 2022;
 
-
+               MockWindowsService(); 
 
             //BuildSeason(year);
-           // WorkerCode(); 
+            // WorkerCode(); 
 
             //IterateSeason(year);
             int x = 0; 
@@ -92,13 +92,20 @@ namespace FantasyCyclingParser
 
         }
 
-        static void WorkerCode()
+        static void MockWindowsService()
         {
-            FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
-            PDC_Season season = Repository.PDCSeasonGet(config.Year);
-            season.UpdateResults();
-            
-            Repository.PDCSeasonUpdate(season);
+            try
+            {
+                FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
+                PDC_Season season = Repository.PDCSeasonGet(config.Year);
+                season.UpdateResults();
+
+                Repository.PDCSeasonUpdate(season);
+            }
+            catch(Exception ex)
+            {
+                int x = 0; 
+            }
         }
         static void FindOptimalPDCTeam(List<Rider> riderList)
         {

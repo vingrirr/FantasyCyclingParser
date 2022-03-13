@@ -1,0 +1,15 @@
+﻿Open Developer Command Prompt for Visual Studio with administrative credentials.
+
+In Developer Command Prompt for Visual Studio, navigate to the folder that contains your project's output (by default, the \bin\Debug subdirectory of your project).
+
+Enter the following command:
+
+shell
+
+Copy
+installutil MyNewService.exe
+If the service installs successfully, the command reports success.
+
+cd\
+cd code\FantasyCyclingParser\WindowsService1\bin\Debug
+installutil -u FantasyCyclingService.exe

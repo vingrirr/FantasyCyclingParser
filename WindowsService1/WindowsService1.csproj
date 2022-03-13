@@ -120,6 +120,7 @@
     <Content Include="dlls\MongoDB.Libmongocrypt.dll" />
     <Content Include="dlls\MongoRepository.Net45.dll" />
     <Content Include="dlls\MongoRepository.Net45.xml" />
+    <Content Include="Install howto.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

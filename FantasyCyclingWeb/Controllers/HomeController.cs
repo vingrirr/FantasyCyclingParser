@@ -119,7 +119,7 @@ namespace FantasyCyclingWeb.Controllers
             FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
             PDC_Season season = Repository.PDCSeasonGet(config.Year);
                                            
-            NewRaceSeasonViewModel vm = new NewRaceSeasonViewModel(season, config);
+            RaceSeasonViewModel vm = new RaceSeasonViewModel(season, config);
             return View(vm);
 
         }
