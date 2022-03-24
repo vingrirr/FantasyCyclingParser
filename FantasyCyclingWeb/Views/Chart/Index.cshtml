@@ -1,0 +1,482 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_LayoutNew.cshtml";
+}
+
+@using FantasyCyclingParser
+@using FantasyCyclingWeb.Models
+
+
+<!-- Styles -->
+<style>
+    #chartdiv {
+        width: 100%;
+        height: 500px;
+    }
+</style>
+
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+<!-- Chart code -->
+<script>
+    am5.ready(function () {
+
+        var raceList = ["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10"]
+
+        // Data
+        var allData = {
+            "Stage 1": {
+                "Friendster": 0,
+                "Facebook": 0,
+                "Flickr": 0,
+                "Google Buzz": 0,
+                "Google+": 0,
+                "Hi5": 0,
+                "Instagram": 0,
+                "MySpace": 0,
+                "Orkut": 0,
+                "Pinterest": 0,
+                "Reddit": 0,
+                "Snapchat": 0,
+                "TikTok": 0,
+                "Tumblr": 0,
+                "Twitter": 0,
+                "WeChat": 0,
+                "Weibo": 0,
+                "Whatsapp": 0,
+                "YouTube": 0
+            },
+            "Stage 2": {
+                "Friendster": 4470000,
+                "Facebook": 0,
+                "Flickr": 0,
+                "Google Buzz": 0,
+                "Google+": 0,
+                "Hi5": 0,
+                "Instagram": 0,
+                "MySpace": 0,
+                "Orkut": 0,
+                "Pinterest": 0,
+                "Reddit": 0,
+                "Snapchat": 0,
+                "TikTok": 0,
+                "Tumblr": 0,
+                "Twitter": 0,
+                "WeChat": 0,
+                "Weibo": 0,
+                "Whatsapp": 0,
+                "YouTube": 0
+            },
+            "Stage 3": {
+                "Friendster": 5970054,
+                "Facebook": 0,
+                "Flickr": 3675135,
+                "Google Buzz": 0,
+                "Google+": 0,
+                "Hi5": 0,
+                "Instagram": 0,
+                "MySpace": 980036,
+                "Orkut": 4900180,
+                "Pinterest": 0,
+                "Reddit": 0,
+                "Snapchat": 0,
+                "TikTok": 0,
+                "Tumblr": 0,
+                "Twitter": 0,
+                "WeChat": 0,
+                "Weibo": 0,
+                "Whatsapp": 0,
+                "YouTube": 0
+            },
+            "Stage 4": {
+                "Friendster": 7459742,
+                "Facebook": 0,
+                "Flickr": 7399354,
+                "Google Buzz": 0,
+                "Google+": 0,
+                "Hi5": 9731610,
+                "Instagram": 0,
+                "MySpace": 19490059,
+                "Orkut": 9865805,
+                "Pinterest": 0,
+                "Reddit": 0,
+                "Snapchat": 0,
+                "TikTok": 0,
+                "Tumblr": 0,
+                "Twitter": 0,
+                "WeChat": 0,
+                "Weibo": 0,
+                "Whatsapp": 0,
+                "YouTube": 1946322
+            },
+            "Stage 5": {
+                "Friendster": 8989854,
+                "Facebook": 0,
+                "Flickr": 14949270,
+                "Google Buzz": 0,
+                "Google+": 0,
+                "Hi5": 19932360,
+                "Instagram": 0,
+                "MySpace": 54763260,
+                "Orkut": 14966180,
+                "Pinterest": 0,
+                "Reddit": 248309,
+                "Snapchat": 0,
+                "TikTok": 0,
+                "Tumblr": 0,
+                "Twitter": 0,
+                "WeChat": 0,
+                "Weibo": 0,
+                "Whatsapp": 0,
+                "YouTube": 19878248
+            },
+            "Stage 6": {
+                "Friendster": 24253200,
+                "Facebook": 0,
+                "Flickr": 29299875,
+                "Google Buzz": 0,
+                "Google+": 0,
+                "Hi5": 29533250,
+                "Instagram": 0,
+                "MySpace": 69299875,
+                "Orkut": 26916562,
+                "Pinterest": 0,
+                "Reddit": 488331,
+                "Snapchat": 0,
+                "TikTok": 0,
+                "Tumblr": 0,
+                "Twitter": 0,
+                "WeChat": 0,
+                "Weibo": 0,
+                "Whatsapp": 0,
+                "YouTube": 143932250
+            },
+            "Stage 7": {
+                "Friendster": 51008911,
+                "Facebook": 100000000,
+                "Flickr": 30000000,
+                "Google Buzz": 0,
+                "Google+": 0,
+                "Hi5": 55045618,
+                "Instagram": 0,
+                "MySpace": 72408233,
+                "Orkut": 44357628,
+                "Pinterest": 0,
+                "Reddit": 1944940,
+                "Snapchat": 0,
+                "TikTok": 0,
+                "Tumblr": 0,
+                "Twitter": 0,
+                "WeChat": 0,
+                "Weibo": 0,
+                "Whatsapp": 0,
+                "YouTube": 294493950
+            },
+            "Stage 8": {
+                "Friendster": 28804331,
+                "Facebook": 276000000,
+                "Flickr": 41834525,
+                "Google Buzz": 0,
+                "Google+": 0,
+                "Hi5": 57893524,
+                "Instagram": 0,
+                "MySpace": 70133095,
+                "Orkut": 47366905,
+                "Pinterest": 0,
+                "Reddit": 3893524,
+                "Snapchat": 0,
+                "TikTok": 0,
+                "Tumblr": 0,
+                "Twitter": 0,
+                "WeChat": 0,
+                "Weibo": 0,
+                "Whatsapp": 0,
+                "YouTube": 413611440
+            },
+            "Stage 9": {
+                "Friendster": 0,
+                "Facebook": 517750000,
+                "Flickr": 54708063,
+                "Google Buzz": 166029650,
+                "Google+": 0,
+                "Hi5": 59953290,
+                "Instagram": 0,
+                "MySpace": 68046710,
+                "Orkut": 49941613,
+                "Pinterest": 0,
+                "Reddit": 0,
+                "Snapchat": 0,
+                "TikTok": 0,
+                "Tumblr": 0,
+                "Twitter": 43250000,
+                "WeChat": 0,
+                "Weibo": 19532900,
+                "Whatsapp": 0,
+                "YouTube": 480551990
+            },
+            "Stage 10": {
+                "Friendster": 0,
+                "Facebook": 766000000,
+                "Flickr": 66954600,
+                "Google Buzz": 170000000,
+                "Google+": 0,
+                "Hi5": 46610848,
+                "Instagram": 0,
+                "MySpace": 46003536,
+                "Orkut": 47609080,
+                "Pinterest": 0,
+                "Reddit": 0,
+                "Snapchat": 0,
+                "TikTok": 0,
+                "Tumblr": 0,
+                "Twitter": 92750000,
+                "WeChat": 47818400,
+                "Weibo": 48691040,
+                "Whatsapp": 0,
+                "YouTube": 642669824
+            }         
+        };
+
+
+        // Create root element
+        // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+        var root = am5.Root.new("chartdiv");
+
+        root.numberFormatter.setAll({
+            numberFormat: "#a",
+
+            // Group only into M (millions), and B (billions)
+            bigNumberPrefixes: [
+                { number: 1e6, suffix: "M" },
+                { number: 1e9, suffix: "B" }
+            ],
+
+            // Do not use small number prefixes at all
+            smallNumberPrefixes: []
+        });
+
+        var stepDuration = 500;
+
+
+        // Set themes
+        // https://www.amcharts.com/docs/v5/concepts/themes/
+        root.setThemes([am5themes_Animated.new(root)]);
+
+
+        // Create chart
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/
+        var chart = root.container.children.push(am5xy.XYChart.new(root, {
+            panX: true,
+            panY: true,
+            wheelX: "none",
+            wheelY: "none"
+        }));
+
+
+        // We don't want zoom-out button to appear while animating, so we hide it at all
+        chart.zoomOutButton.set("forceHidden", true);
+
+
+        // Create axes
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+        var yRenderer = am5xy.AxisRendererY.new(root, {
+            minGridDistance: 20,
+            inversed: true
+        });
+        // hide grid
+        yRenderer.grid.template.set("visible", false);
+
+        var yAxis = chart.yAxes.push(am5xy.CategoryAxis.new(root, {
+            maxDeviation: 0,
+            categoryField: "network",
+            renderer: yRenderer
+        }));
+
+        var xAxis = chart.xAxes.push(am5xy.ValueAxis.new(root, {
+            maxDeviation: 0,
+            min: 0,
+            strictMinMax: true,
+            extraMax: 0.1,
+            renderer: am5xy.AxisRendererX.new(root, {})
+        }));
+
+        xAxis.set("interpolationDuration", stepDuration / 10);
+        xAxis.set("interpolationEasing", am5.ease.linear);
+
+
+        // Add series
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+        var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+            xAxis: xAxis,
+            yAxis: yAxis,
+            valueXField: "value",
+            categoryYField: "network"
+        }));
+
+        // Rounded corners for columns
+        series.columns.template.setAll({ cornerRadiusBR: 5, cornerRadiusTR: 5 });
+
+        // Make each column to be of a different color
+        series.columns.template.adapters.add("fill", function (fill, target) {
+            return chart.get("colors").getIndex(series.columns.indexOf(target));
+        });
+
+        series.columns.template.adapters.add("stroke", function (stroke, target) {
+            return chart.get("colors").getIndex(series.columns.indexOf(target));
+        });
+
+        // Add label bullet
+        series.bullets.push(function () {
+            return am5.Bullet.new(root, {
+                locationX: 1,
+                sprite: am5.Label.new(root, {
+                    text: "{valueXWorking.formatNumber('#.# a')}",
+                    fill: root.interfaceColors.get("alternativeText"),
+                    centerX: am5.p100,
+                    centerY: am5.p50,
+                    populateText: true
+                })
+            });
+        });
+
+        var label = chart.plotContainer.children.push(am5.Label.new(root, {
+            text: "2002",
+            fontSize: "8em",
+            opacity: 0.2,
+            x: am5.p100,
+            y: am5.p100,
+            centerY: am5.p100,
+            centerX: am5.p100
+        }));
+
+        // Get series item by category
+        function getSeriesItem(category) {
+            for (var i = 0; i < series.dataItems.length; i++) {
+                var dataItem = series.dataItems[i];
+                if (dataItem.get("categoryY") == category) {
+                    return dataItem;
+                }
+            }
+        }
+
+        // Axis sorting
+        function sortCategoryAxis() {
+            // sort by value
+            series.dataItems.sort(function (x, y) {
+                return y.get("valueX") - x.get("valueX"); // descending
+                //return x.get("valueX") - y.get("valueX"); // ascending
+            });
+
+            // go through each axis item
+            am5.array.each(yAxis.dataItems, function (dataItem) {
+                // get corresponding series item
+                var seriesDataItem = getSeriesItem(dataItem.get("category"));
+
+                if (seriesDataItem) {
+                    // get index of series data item
+                    var index = series.dataItems.indexOf(seriesDataItem);
+                    // calculate delta position
+                    var deltaPosition =
+                        (index - dataItem.get("index", 0)) / series.dataItems.length;
+                    // set index to be the same as series data item index
+                    if (dataItem.get("index") != index) {
+                        dataItem.set("index", index);
+                        // set deltaPosition instanlty
+                        dataItem.set("deltaPosition", -deltaPosition);
+                        // animate delta position to 0
+                        dataItem.animate({
+                            key: "deltaPosition",
+                            to: 0,
+                            duration: stepDuration / 2,
+                            easing: am5.ease.out(am5.ease.cubic)
+                        });
+                    }
+                }
+            });
+            // sort axis items by index.
+            // This changes the order instantly, but as deltaPosition is set, they keep in the same places and then animate to true positions.
+            yAxis.dataItems.sort(function (x, y) {
+                return x.get("index") - y.get("index");
+            });
+        }
+
+        var raceCount = 0;
+
+        // update data with values each 1.5 sec
+        var interval = setInterval(function () {
+
+            //??raceCount < totalRaceCount?            
+            if (raceCount < raceList.length) {
+              //  clearInterval(interval);
+                clearInterval(sortInterval);
+            }
+            raceCount++;
+
+            updateData();
+        }, stepDuration);
+
+        var sortInterval = setInterval(function () {
+            sortCategoryAxis();
+        }, 100);
+
+        function setInitialData() {
+            var d = allData[raceList[raceCount]];
+
+            for (var n in d) {
+                series.data.push({ network: n, value: d[n] });
+                yAxis.data.push({ network: n });
+            }
+        }
+
+        function updateData() {
+            var itemsWithNonZero = 0;
+
+            //if (allData[raceCount]) {
+                label.set("text", raceList[raceCount]);
+
+                am5.array.each(series.dataItems, function (dataItem) {
+                    var category = dataItem.get("categoryY");
+                    var value = allData[raceList[raceCount]][category];
+
+                    if (value > 0) {
+                        itemsWithNonZero++;
+                    }
+
+                    dataItem.animate({
+                        key: "valueX",
+                        to: value,
+                        duration: stepDuration,
+                        easing: am5.ease.linear
+                    });
+                    dataItem.animate({
+                        key: "valueXWorking",
+                        to: value,
+                        duration: stepDuration,
+                        easing: am5.ease.linear
+                    });
+                });
+
+                yAxis.zoom(0, itemsWithNonZero / yAxis.dataItems.length);
+            //}
+        }
+
+        setInitialData();
+        setTimeout(function () {
+            raceCount++;
+            updateData();
+        }, 50);
+
+        // Make stuff animate on load
+        // https://www.amcharts.com/docs/v5/concepts/animations/
+        series.appear(1000);
+        chart.appear(1000, 100);
+
+    }); // end am5.ready()
+</script>
+
+<!-- HTML -->
+<div id="chartdiv"></div>
+
