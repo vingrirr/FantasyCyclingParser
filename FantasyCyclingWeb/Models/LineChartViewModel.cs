@@ -57,7 +57,9 @@ namespace FantasyCyclingWeb.Models
 
                 return sum[0, 1];
             }
-         public  List<LineChartModel> ChartData { get; set; }
+        }
+        
+        public  List<LineChartModel> ChartData { get; set; }
         private List<string> _ColorList = new List<string>
         {
             "rgb(255, 127, 14)",

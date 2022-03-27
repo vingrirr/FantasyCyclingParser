@@ -1888,6 +1888,7 @@
     <Content Include="FSA DS Men 2018.ics" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="js\BarChartRaceModule.js" />
     <Content Include="js\ChartsModule.js" />
     <Content Include="js\ConfigModule.js" />
     <Content Include="js\DraftModule.js" />
