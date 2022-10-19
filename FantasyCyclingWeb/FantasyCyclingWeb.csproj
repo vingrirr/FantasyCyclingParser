@@ -238,6 +238,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BarChartRaceViewModel.cs" />
+    <Compile Include="Models\HallOfFameViewModel.cs" />
     <Compile Include="Models\LineChartViewModel.cs" />
     <Compile Include="Models\LineDataPoint.cs" />
     <Compile Include="Models\DashboardViewModel.cs" />
@@ -2116,6 +2117,7 @@
     <Content Include="Views\Home\RaceSeason.cshtml" />
     <Content Include="Views\Chart\Index.cshtml" />
     <Content Include="Views\Admin\ConfigAdmin.cshtml" />
+    <Content Include="Views\HallOfFame\_HoFentry.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

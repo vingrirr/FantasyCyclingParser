@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using FantasyCyclingParser;
+using FantasyCyclingWeb.Models;
+using Common;
 
 namespace FantasyCyclingWeb.Controllers
 {
@@ -11,7 +14,13 @@ namespace FantasyCyclingWeb.Controllers
         // GET: HallOfFame
         public ActionResult Index()
         {
-            return View();
+            
+            List<FantasyYearConfig> configs = Repository.FantasyYearConfigGetAll();            
+            configs = configs.OrderByDescending(x => x.Year).ToList();
+
+            HallOfFameViewModel vm = new HallOfFameViewModel(configs);
+
+            return View(vm);
         }
     }
 }

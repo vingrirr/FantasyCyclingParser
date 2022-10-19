@@ -1,0 +1,35 @@
+﻿@using FantasyCyclingWeb.Models
+@using FantasyCyclingParser
+
+@model HallOfFameModel
+
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+    <div class="panel panel-flat">
+        <div class="panel-heading">
+            <h5>@Model.Year<span style="float:right;"></span></h5>
+            <hr />
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (PDCTeamPoints r in Model.Results)
+                        {
+                            <tr>
+                                <td>@r.Name</td>
+                                <td>@r.Points</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
