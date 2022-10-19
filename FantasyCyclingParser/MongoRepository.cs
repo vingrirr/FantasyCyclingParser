@@ -32,7 +32,23 @@ namespace FantasyCyclingParser
             return item;
         }
 
-   
+        public static FantasyYearConfig FantasyYearConfigGetByYear(int year)
+        {
+            MongoRepository<FantasyYearConfig> fyConfig = new MongoRepository<FantasyYearConfig>();
+            FantasyYearConfig item = fyConfig.Where(x => x.Year == year).FirstOrDefault();
+
+            return item;
+        }
+
+        public static List<FantasyYearConfig> FantasyYearConfigGetAll()
+        {
+            MongoRepository<FantasyYearConfig> fyConfig = new MongoRepository<FantasyYearConfig>();
+            List<FantasyYearConfig> items = fyConfig.ToList();
+
+            return items;
+        }
+
+
 
         //race results now stored and updated as part of the season
         //public static List<PDC_Result> RaceResultsAll()

@@ -31,16 +31,27 @@ namespace FantasyCyclingParser
 
         static void Main(string[] args)
         {
+            BuildSeason(2010);
+            BuildSeason(2011);
+            BuildSeason(2012);
+            BuildSeason(2013);
+            BuildSeason(2014);
+            BuildSeason(2015);
+            BuildSeason(2016);
+            BuildSeason(2017);
+            BuildSeason(2018);
+            BuildSeason(2019);
+            BuildSeason(2020);
+            // Utilities.NationalityList["FRA"] = new Nationality({ Name="France", PDC_URL=})
+            //int year = 2022;
 
-           // Utilities.NationalityList["FRA"] = new Nationality({ Name="France", PDC_URL=})
-            int year = 2022;
+            //MockWindowsService(); 
 
-               MockWindowsService(); 
-
-            //BuildSeason(year);
+            
             // WorkerCode(); 
 
             //IterateSeason(year);
+            
             int x = 0; 
             
         }

@@ -50,7 +50,7 @@ namespace FantasyCyclingWeb.Controllers
 
 
             return View(vm);
-            return View(vm);
+
         }
         //public ActionResult NewIndex()
         //{
@@ -126,18 +126,12 @@ namespace FantasyCyclingWeb.Controllers
 
 
 
-        //public ActionResult HallOfFame()
-        //{
+        public ActionResult HallOfFame()
+        {
+            
+            return View();
 
-        //    //List<PDC_Result> results = Parser.ParsePDCResults(2018);
-
-        //    List<PDC_Result> results = Repository.RaceResultsAll();
-        //    results.Reverse();
-
-        //    RaceSeasonViewModel vm = new RaceSeasonViewModel(2018, results);
-        //    return View(vm);
-
-        //}
+        }
 
         public ActionResult ParseSeason()
         {

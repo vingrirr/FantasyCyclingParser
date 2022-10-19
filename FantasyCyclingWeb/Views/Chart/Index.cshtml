@@ -62,7 +62,7 @@
             smallNumberPrefixes: []
         });
 
-        var stepDuration = 1000;
+        var stepDuration =250;
 
 
         // Set themes
@@ -213,9 +213,9 @@
         var interval = setInterval(function () {
 
             //??raceCount < totalRaceCount?
-            if (raceCount < raceList.length) {
-                //clearInterval(interval);
-                //clearInterval(sortInterval);
+            if (raceCount >= raceList.length) {
+                clearInterval(interval);
+                clearInterval(sortInterval);
             }
             raceCount++;
 

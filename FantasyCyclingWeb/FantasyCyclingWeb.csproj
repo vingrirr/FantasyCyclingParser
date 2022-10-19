@@ -229,8 +229,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Common\RenderHelper.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\DraftController.cs" />
+    <Compile Include="Controllers\HallOfFameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2106,13 +2108,14 @@
     <Content Include="Views\Shared\_LayoutNew.cshtml" />
     <Content Include="Views\Home\Line.cshtml" />
     <Content Include="Views\Shared\_SeasonRacePointsPerTeam.cshtml" />
-    <Content Include="Views\Home\HallofFame.cshtml" />
-    <Content Include="Views\Home\AddConfig.cshtml" />
+    <Content Include="Views\HallOfFame\Index.cshtml" />
+    <Content Include="Views\Admin\AddConfig.cshtml" />
     <Content Include="Views\Shared\_TeamYearList.cshtml" />
     <Content Include="Views\Draft\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\RaceSeason.cshtml" />
     <Content Include="Views\Chart\Index.cshtml" />
+    <Content Include="Views\Admin\ConfigAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
