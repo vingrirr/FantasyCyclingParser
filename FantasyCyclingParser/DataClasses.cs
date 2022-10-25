@@ -100,11 +100,6 @@ namespace FantasyCyclingParser
         public string PDC_RiderID { get; set; }
 
 
-        public List<RiderSeason> Seasons { get; set; }
-
-        public RiderSeason CurrentSeason { get; set; }
-
-        #region old stuff
         public int CurrentYearPoints { get; set; }
         public int CurrentYearCost { get; set; }
        // public int PdcRankCurrentYear { get; set; }
@@ -124,60 +119,16 @@ namespace FantasyCyclingParser
 
         public double PreviousPoints { get; set; }
         public double PreviousCost { get; set; }
-        #endregion
-
-
-        #region old stuff
-        //public string RiderType { get; set; }
-        //public double Height { get; set; }
-        //public double Weight { get; set; }
-        //public double CostDiff { get; set; }
-        //public double PointsDiff { get; set; }
-        //public int RaceCountCurrentYear { get; set; }
-        //public double CostDiffPercent { get; set; }
-
-        //public double PointsDiffPercent { get; set; }
-
-        //from pro cycling stats
-
-        //public double OneDayPoints { get; set; }
-        //public double GCPoints { get; set; }
-        //public double TTPoints { get; set; }
-        //public double SprintPoints { get; set; }
-
-        //public PCS_SeasonStat PCS_CurrentSeasonStats { get; set; }
-        //public PCS_SeasonStat PCS_PreviousSeasonStats { get; set; }
-
-        //public List<PCS_SeasonStat> PCS_SeasonStats { get; set; }
-        #endregion
+    
         public Rider()
         {
-            Seasons = new List<RiderSeason>();
-            CurrentSeason = new RiderSeason();
-            //Nationality = new Nationality(); 
-            
+                        
         }
         
-        public string ToCSV()
+        public void CalculatePoints(List<PDC_Result> results)
         {
-            string r = String.Empty;
-
-            PropertyInfo[] properties = typeof(Rider).GetProperties();
-            foreach (PropertyInfo property in properties)
-            {
-                if (property.PropertyType.Name != typeof(PCS_SeasonStat).Name)
-                {
-
-                    r += property.GetValue(this);
-                    r += ",";
-                }
-            }
-
-            //r = String.Format("{0}, ")
-
-            return r;
+            CurrentYearPoints = results.SelectMany(q => q.RaceResults.Where(p => p.Rider_PDCID == PDC_RiderID)).Sum(g => g.Points);
         }
-
 
         #region old stuff
         //public double[] ToVector()
@@ -499,9 +450,13 @@ namespace FantasyCyclingParser
             List<int> points = new List<int>();
             foreach (Rider r in Riders)
             {
-                int raceResults = results.SelectMany(q => q.RaceResults.Where(p => p.Rider_PDCID == r.PDC_RiderID)).Sum(g => g.Points);
-                points.Add(raceResults);
-                r.CurrentYearPoints = raceResults; 
+                //int raceResults = results.SelectMany(q => q.RaceResults.Where(p => p.Rider_PDCID == r.PDC_RiderID)).Sum(g => g.Points);
+                //points.Add(raceResults);
+                //r.CurrentYearPoints = raceResults;
+
+                r.CalculatePoints(results);
+                points.Add(r.CurrentYearPoints);
+                
             }
             TotalPointsScored = points.Sum(); 
         }
@@ -531,32 +486,7 @@ namespace FantasyCyclingParser
 
         //}
 
-        public void ToCSVFile()
-        {
-
-            using (StreamWriter writer =
-            new StreamWriter("FCT_" + Guid.NewGuid().ToString() + ".csv"))
-            {
-                foreach (Rider r in Riders.OrderByDescending(x => x.CurrentYearPoints).ToList())
-                {
-                    writer.WriteLine(r.ToCSV());
-                }
-            }
-
-        }
-
-
-        public void ToCSVFile(string filename)
-        {
-            using (StreamWriter writer =
-            new StreamWriter(filename + ".csv"))
-            {
-                foreach (Rider r in Riders.OrderByDescending(x => x.CurrentYearPoints).ToList())
-                {
-                    writer.WriteLine(r.ToCSV());
-                }
-            }
-        }
+   
         public override string ToString()
         {
             string d = String.Empty;
@@ -574,51 +504,7 @@ namespace FantasyCyclingParser
 
     }
 
-    public class PDCTeamList
-    {
-        public PDCTeamList()
-        {
-            PDCTeams = new List<PDCTeam>();
-            //todo: finish this as it might be one of the more helpful things.
-            AverageCostFrequency = new List<KeyValuePair<double, int>>();
-        }
 
-        public void AddPDCTeam(PDCTeam t)
-        {
-            PDCTeams.Add(t);
-            Calculate();
-        }
-
-        public void Calculate()
-        {
-            foreach (PDCTeam t in PDCTeams)
-            {
-                foreach (Rider r in t.Riders)
-                {
-
-                }
-            }
-
-        }
-        List<PDCTeam> PDCTeams { get; set; }
-
-        List<KeyValuePair<double, int>> AverageCostFrequency { get; set; }
-    }
-
-    public class PCS_SeasonStat
-    {
-        public PCS_SeasonStat()
-        {
-
-        }
-
-        public int Year { get; set; }
-        public int PCSPoints { get; set; }
-        public int RaceDays { get; set; }
-        public int KMs { get; set; }
-        public int Wins { get; set; }
-        public int Top10s { get; set; }
-    }
 
     public class PDC_AnnualData
     {
@@ -846,6 +732,14 @@ namespace FantasyCyclingParser
             RaceResults = Parser.ParsePDCResults(Year);                                                            
             LastUpdated = DateTime.Now;
             
+        }
+
+        public void UpdateRiderPoints()
+        {
+            foreach(Rider r in Riders)
+            {
+                r.CalculatePoints(RaceResults);
+            }
         }
         
         public int Year{ get; set; }

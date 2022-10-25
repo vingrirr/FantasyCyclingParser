@@ -35,16 +35,18 @@
                             <thead>
                                 <tr>
                                     <th>Name</th>
+                                    <th>Cost</th>
                                     <th>Points</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (Rider r in Model.Riders)
+                                @foreach (Rider r in Model.Riders.OrderByDescending(x => x.CurrentYearPoints).ToList())
                                 {
-                                    <tr>
-                                        <td>@r.Name</td>
-                                        <td>@r.CurrentYearPoints</td>
-                                    </tr>
+                                <tr>
+                                    <td>@r.Name</td>
+                                    <td>@r.CurrentYearCost</td>
+                                    <td>@r.CurrentYearPoints</td>
+                                </tr>
                                 }
                             </tbody>
                         </table>

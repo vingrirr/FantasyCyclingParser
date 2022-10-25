@@ -23,6 +23,7 @@ namespace FantasyCyclingWeb.Controllers
         {
             FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
             PDC_Season season = Repository.PDCSeasonGet(config.Year);
+            season.UpdateRiderPoints(); 
 
             return View(season);
         }

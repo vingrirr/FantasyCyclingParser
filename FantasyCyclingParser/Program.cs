@@ -33,24 +33,9 @@ namespace FantasyCyclingParser
         {
 
 
+           
 
-            FantasyYearConfig fyc = Repository.FantasyYearConfigGetDefault();
-
-            PDC_Season season = Repository.PDCSeasonGet(fyc.Year);
-
-            foreach (PDCTeam team in season.PDCTeams)
-            {                
-                if (team != null)
-                {
-                    foreach(Rider r in team.Riders)
-                    {
-                        r.CurrentYearPoints = 0; 
-                    }
-                }
-            }
-
-            Repository.PDCSeasonUpdate(season);
-
+            
                     #region rider photo stuff
                     //List<RiderPhoto> photos = Repository.RiderPhotoGetAll();
 
