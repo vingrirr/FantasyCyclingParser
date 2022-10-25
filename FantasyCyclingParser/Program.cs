@@ -32,66 +32,79 @@ namespace FantasyCyclingParser
         static void Main(string[] args)
         {
 
-            //List<RiderPhoto> urls = Parser.ParsePCSRiderPhotos();
-            //foreach (RiderPhoto p in urls)
-            //  Repository.RiderPhotoInsert(p);
 
-            List<RiderPhoto> photos = Repository.RiderPhotoGetAll();
-             
+
             FantasyYearConfig fyc = Repository.FantasyYearConfigGetDefault();
 
             PDC_Season season = Repository.PDCSeasonGet(fyc.Year);
-            string match1 = String.Empty;
-            string match2 = String.Empty;
-            Dictionary<string, string> matches = new Dictionary<string, string>(); 
-            foreach (Rider r in season.Riders)
-            {
-                int currScore = Int32.MaxValue; 
-                foreach (RiderPhoto p in photos)
-                {
-                    string temp = p.Name.Replace("-", " ").Trim().ToLower();
-                    
-                    if (String.IsNullOrEmpty(temp))
-                        continue;
 
-                    int score = FantasyCyclingParser.Helpers.LevenshteinDistance.Compute(r.Name.ToLower(), temp);
-                    
-                    if (score < currScore)
-                    {                        
-                        match2 = temp;
-                        currScore = score; 
+            foreach (PDCTeam team in season.PDCTeams)
+            {                
+                if (team != null)
+                {
+                    foreach(Rider r in team.Riders)
+                    {
+                        r.CurrentYearPoints = 0; 
                     }
                 }
-                
-                matches.Add(r.Name.ToLower(), match2); 
             }
 
-          //  RiderPhoto photo = Parser.GetPCSRiderPhoto("https://www.procyclingstats.com/rider/tadej-pogacar");
+            Repository.PDCSeasonUpdate(season);
 
-            //Repository.RiderPhotoInsert(photo);
+                    #region rider photo stuff
+                    //List<RiderPhoto> photos = Repository.RiderPhotoGetAll();
 
-            //BuildSeason(2010);
-            //BuildSeason(2011);
-            //BuildSeason(2012);
-            //BuildSeason(2013);
-            //BuildSeason(2014);
-            //BuildSeason(2015);
-            //BuildSeason(2016);
-            //BuildSeason(2017);
-            //BuildSeason(2018);
-            //BuildSeason(2019);
-            //BuildSeason(2020);
-            // Utilities.NationalityList["FRA"] = new Nationality({ Name="France", PDC_URL=})
-            //int year = 2022;
+                    //FantasyYearConfig fyc = Repository.FantasyYearConfigGetDefault();
 
-            //MockWindowsService(); 
+                    //PDC_Season season = Repository.PDCSeasonGet(fyc.Year);
+                    //string match1 = String.Empty;
+                    //string match2 = String.Empty;
+                    //Dictionary<string, string> matches = new Dictionary<string, string>(); 
+                    //foreach (Rider r in season.Riders)
+                    //{
+                    //    int currScore = Int32.MaxValue; 
+                    //    foreach (RiderPhoto p in photos)
+                    //    {
+                    //        string temp = p.Name.Replace("-", " ").Trim().ToLower();
+
+                    //        if (String.IsNullOrEmpty(temp))
+                    //            continue;
+
+                    //        int score = FantasyCyclingParser.Helpers.LevenshteinDistance.Compute(r.Name.ToLower(), temp);
+
+                    //        if (score < currScore)
+                    //        {                        
+                    //            match2 = temp;
+                    //            currScore = score; 
+                    //        }
+                    //    }
+
+                    //    matches.Add(r.Name.ToLower(), match2); 
+                    //}
+                    #endregion
+
+                    //BuildSeason(2010);
+                    //BuildSeason(2011);
+                    //BuildSeason(2012);
+                    //BuildSeason(2013);
+                    //BuildSeason(2014);
+                    //BuildSeason(2015);
+                    //BuildSeason(2016);
+                    //BuildSeason(2017);
+                    //BuildSeason(2018);
+                    //BuildSeason(2019);
+                    //BuildSeason(2020);
+                    // Utilities.NationalityList["FRA"] = new Nationality({ Name="France", PDC_URL=})
+                    //int year = 2022;
+
+                    //MockWindowsService(); 
 
 
-            // WorkerCode(); 
+                    // WorkerCode(); 
 
-            //IterateSeason(year);
+                    //IterateSeason(year);
 
-              int x = 0; 
+                    int x = 0; 
             
         }
 

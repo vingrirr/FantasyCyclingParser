@@ -19,7 +19,7 @@ namespace FantasyCyclingWeb.Models
             PDCTeams = teams;
      
 
-            PDCTeams = PDCTeams.OrderByDescending(x => x.TotalPointsScored).ToList();
+            PDCTeams = PDCTeams.OrderByDescending(x => x.PDCTeamName).ToList();
             PDCTeamData = PDCTeamData.OrderByDescending(x => x.Points).ToList();
            
         }
@@ -66,24 +66,16 @@ namespace FantasyCyclingWeb.Models
                 if (team != null)
                 {
                     team.Is35Team = ty.Is35Team;
+                    team.CalculatePoints(results); 
                     PDCTeams.Add(team);
                 }
             }
-            List<int> points = new List<int>();
-
+            
             foreach (PDCTeam t in PDCTeams)
             {
 
-                foreach (Rider r in t.Riders)
-                {
-
-                    int raceResults = season.RaceResults.SelectMany(q => q.RaceResults.Where(p => p.Rider_PDCID == r.PDC_RiderID)).Sum(g => g.Points);
-                    points.Add(raceResults);
-                }
-                PDCTeamPoints ptp = new PDCTeamPoints(t.PDCTeamName, points.Sum());
-                PDCTeamData.Add(ptp);
-                points.Clear();
-
+                PDCTeamPoints ptp = new PDCTeamPoints(t.PDCTeamName, t.TotalPointsScored);
+                PDCTeamData.Add(ptp);                
             }
 
         }

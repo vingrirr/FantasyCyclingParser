@@ -105,8 +105,8 @@ namespace FantasyCyclingParser
         public RiderSeason CurrentSeason { get; set; }
 
         #region old stuff
-        public double CurrentYearPoints { get; set; }
-        public double CurrentYearCost { get; set; }
+        public int CurrentYearPoints { get; set; }
+        public int CurrentYearCost { get; set; }
        // public int PdcRankCurrentYear { get; set; }
 
         public int Year { get; set; }
@@ -406,8 +406,8 @@ namespace FantasyCyclingParser
         //[BsonElement("Id")]
         //public ObjectId Id { get; set; }
         public List<Rider> Riders { get; set; }
-        public double TotalPointsScored { get; set; }
-        public int CurrentPoints { get; set; }
+        public int TotalPointsScored { get; set; }
+  
 
         public string PDC_ID { get; set; }
 
@@ -492,6 +492,18 @@ namespace FantasyCyclingParser
             //AverageSprintPoints = Riders.Average(x => x.SprintPoints);
             #endregion
 
+        }
+
+        public void CalculatePoints(List<PDC_Result> results)
+        {
+            List<int> points = new List<int>();
+            foreach (Rider r in Riders)
+            {
+                int raceResults = results.SelectMany(q => q.RaceResults.Where(p => p.Rider_PDCID == r.PDC_RiderID)).Sum(g => g.Points);
+                points.Add(raceResults);
+                r.CurrentYearPoints = raceResults; 
+            }
+            TotalPointsScored = points.Sum(); 
         }
 
         public List<KeyValuePair<double, int>> GetCostFrequency()
