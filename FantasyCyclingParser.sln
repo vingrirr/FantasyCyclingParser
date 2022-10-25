@@ -29,6 +29,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dump", "dump", "{A5164735-9
 		dump\FantasyCycling\Team.metadata.json = dump\FantasyCycling\Team.metadata.json
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FantasyDraftReact", "FantasyDraftReact\FantasyDraftReact.csproj", "{A286BD25-53AE-4032-BDA6-F0DA1483EB98}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{E9CBA4AE-9040-4924-8FAB-457A25BE37D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9CBA4AE-9040-4924-8FAB-457A25BE37D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9CBA4AE-9040-4924-8FAB-457A25BE37D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A286BD25-53AE-4032-BDA6-F0DA1483EB98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A286BD25-53AE-4032-BDA6-F0DA1483EB98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A286BD25-53AE-4032-BDA6-F0DA1483EB98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A286BD25-53AE-4032-BDA6-F0DA1483EB98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

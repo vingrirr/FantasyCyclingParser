@@ -13,9 +13,7 @@ namespace FantasyCyclingWeb.Models
     {
         public DashboardViewModel(FantasyYearConfig config, List<PDCTeamPoints> teamData, List<int> pts, List<PDCTeam> teams)
         {
-            CurrentConfig = config;
-            //'Kämna Chameleon', 'The Bauhaus Movement', 'Plaidstockings', 'Rubicon', 'Zauzage', 'Cowboys'
-
+            CurrentConfig = config;            
             PDCTeamData = teamData;
             Points = pts;
             PDCTeams = teams;
@@ -28,12 +26,9 @@ namespace FantasyCyclingWeb.Models
 
         public DashboardViewModel(DashboardModel model)
         {
-            CurrentConfig = model.CurrentConfig;
-            //'Kämna Chameleon', 'The Bauhaus Movement', 'Plaidstockings', 'Rubicon', 'Zauzage', 'Cowboys'
-
+            CurrentConfig = model.CurrentConfig;            
             PDCTeamData = model.PDCTeamData;
             PDCTeams = model.PDCTeams;
-
 
             PDCTeams = PDCTeams.OrderByDescending(x => x.TotalPointsScored).ToList();
             PDCTeamData = PDCTeamData.OrderByDescending(x => x.Points).ToList();

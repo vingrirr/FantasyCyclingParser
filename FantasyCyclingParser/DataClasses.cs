@@ -850,4 +850,21 @@ namespace FantasyCyclingParser
         public DateTime LastUpdated { get; set; }
     }
 
+    public class RiderPhoto : Entity
+    {
+        public RiderPhoto()
+        {
+
+        }
+        public RiderPhoto(byte[] photo)
+        {
+            Image = photo; 
+        }
+
+        public string Name { get; set; }
+        public string PCS_RiderURL { get; set; }
+        public byte[] Image { get; set; }
+    }
+
+
 }

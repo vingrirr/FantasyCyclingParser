@@ -116,9 +116,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataClasses.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="FlightParser.cs" />
     <Compile Include="GAStuff.cs" />
     <Compile Include="KMeansDemo.cs" />
+    <Compile Include="LevenshteinDistance.cs" />
     <Compile Include="MongoRepository.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="Program.cs" />

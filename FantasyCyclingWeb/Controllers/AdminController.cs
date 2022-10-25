@@ -18,5 +18,13 @@ namespace FantasyCyclingWeb.Controllers
             List<FantasyYearConfig> configs = Repository.FantasyYearConfigGetAll();
             return View();
         }
+
+        public ActionResult RiderAdmin()
+        {
+            FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
+            PDC_Season season = Repository.PDCSeasonGet(config.Year);
+
+            return View(season);
+        }
     }
 }

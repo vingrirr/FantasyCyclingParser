@@ -2459,3 +2459,177 @@
    at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
    at System.Convert.ToInt32(String value)
    at FantasyCyclingParser.Parser.ParseAllRiders(Int32 year, Boolean loadPCSstats) in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 267
+2022-10-20 15:30:03.6748|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-20 15:30:03.6748|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-20 15:30:04.1888|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-20 15:30:04.1888|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-20 15:30:04.6660|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-20 15:30:04.6660|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-20 15:30:05.1565|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-20 15:30:05.1565|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-20 15:30:05.6323|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-20 15:30:05.6323|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-20 15:30:06.0873|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-20 15:30:06.0873|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-20 15:30:06.6085|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-20 15:30:06.6085|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-20 15:30:07.0894|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-20 15:30:07.0894|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-20 15:30:07.6049|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-20 15:30:07.6049|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-21 10:15:18.8078|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-21 10:15:18.8078|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-21 10:15:19.2980|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-21 10:15:19.2980|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-21 10:15:19.7897|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-21 10:15:19.7897|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-21 10:15:20.2472|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-21 10:15:20.2472|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-21 10:15:20.6878|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-21 10:15:20.6878|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-21 10:15:21.1728|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-21 10:15:21.1728|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-21 10:15:21.6434|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-21 10:15:21.6434|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-21 10:15:22.1096|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-21 10:15:22.1096|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-21 10:15:22.8501|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-21 10:15:22.8501|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-21 10:15:23.3155|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-21 10:15:23.3155|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 92
+2022-10-21 10:23:42.3077|ERROR|FantasyCyclingParser.Parser|AngleSharp.Dom.DomException: The string did not match the expected pattern.
+   at AngleSharp.Extensions.QueryExtensions.Validate(ISelector selector)
+   at AngleSharp.Extensions.QueryExtensions.QuerySelectorAll(INodeList elements, String selectors)
+   at AngleSharp.Dom.Document.QuerySelectorAll(String selectors)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2022-10-21 10:23:42.3077|ERROR|FantasyCyclingParser.Parser|AngleSharp.Dom.DomException: The string did not match the expected pattern.
+   at AngleSharp.Extensions.QueryExtensions.Validate(ISelector selector)
+   at AngleSharp.Extensions.QueryExtensions.QuerySelectorAll(INodeList elements, String selectors)
+   at AngleSharp.Dom.Document.QuerySelectorAll(String selectors)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2022-10-21 10:23:42.7206|ERROR|FantasyCyclingParser.Parser|AngleSharp.Dom.DomException: The string did not match the expected pattern.
+   at AngleSharp.Extensions.QueryExtensions.Validate(ISelector selector)
+   at AngleSharp.Extensions.QueryExtensions.QuerySelectorAll(INodeList elements, String selectors)
+   at AngleSharp.Dom.Document.QuerySelectorAll(String selectors)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2022-10-21 10:23:42.7206|ERROR|FantasyCyclingParser.Parser|AngleSharp.Dom.DomException: The string did not match the expected pattern.
+   at AngleSharp.Extensions.QueryExtensions.Validate(ISelector selector)
+   at AngleSharp.Extensions.QueryExtensions.QuerySelectorAll(INodeList elements, String selectors)
+   at AngleSharp.Dom.Document.QuerySelectorAll(String selectors)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2022-10-21 10:23:43.3795|ERROR|FantasyCyclingParser.Parser|AngleSharp.Dom.DomException: The string did not match the expected pattern.
+   at AngleSharp.Extensions.QueryExtensions.Validate(ISelector selector)
+   at AngleSharp.Extensions.QueryExtensions.QuerySelectorAll(INodeList elements, String selectors)
+   at AngleSharp.Dom.Document.QuerySelectorAll(String selectors)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2022-10-21 10:23:43.3795|ERROR|FantasyCyclingParser.Parser|AngleSharp.Dom.DomException: The string did not match the expected pattern.
+   at AngleSharp.Extensions.QueryExtensions.Validate(ISelector selector)
+   at AngleSharp.Extensions.QueryExtensions.QuerySelectorAll(INodeList elements, String selectors)
+   at AngleSharp.Dom.Document.QuerySelectorAll(String selectors)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2022-10-21 10:23:43.7217|ERROR|FantasyCyclingParser.Parser|AngleSharp.Dom.DomException: The string did not match the expected pattern.
+   at AngleSharp.Extensions.QueryExtensions.Validate(ISelector selector)
+   at AngleSharp.Extensions.QueryExtensions.QuerySelectorAll(INodeList elements, String selectors)
+   at AngleSharp.Dom.Document.QuerySelectorAll(String selectors)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2022-10-21 10:23:43.7217|ERROR|FantasyCyclingParser.Parser|AngleSharp.Dom.DomException: The string did not match the expected pattern.
+   at AngleSharp.Extensions.QueryExtensions.Validate(ISelector selector)
+   at AngleSharp.Extensions.QueryExtensions.QuerySelectorAll(INodeList elements, String selectors)
+   at AngleSharp.Dom.Document.QuerySelectorAll(String selectors)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2022-10-21 10:23:44.1157|ERROR|FantasyCyclingParser.Parser|AngleSharp.Dom.DomException: The string did not match the expected pattern.
+   at AngleSharp.Extensions.QueryExtensions.Validate(ISelector selector)
+   at AngleSharp.Extensions.QueryExtensions.QuerySelectorAll(INodeList elements, String selectors)
+   at AngleSharp.Dom.Document.QuerySelectorAll(String selectors)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2022-10-21 10:23:44.1157|ERROR|FantasyCyclingParser.Parser|AngleSharp.Dom.DomException: The string did not match the expected pattern.
+   at AngleSharp.Extensions.QueryExtensions.Validate(ISelector selector)
+   at AngleSharp.Extensions.QueryExtensions.QuerySelectorAll(INodeList elements, String selectors)
+   at AngleSharp.Dom.Document.QuerySelectorAll(String selectors)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2022-10-21 10:23:44.3763|ERROR|FantasyCyclingParser.Parser|AngleSharp.Dom.DomException: The string did not match the expected pattern.
+   at AngleSharp.Extensions.QueryExtensions.Validate(ISelector selector)
+   at AngleSharp.Extensions.QueryExtensions.QuerySelectorAll(INodeList elements, String selectors)
+   at AngleSharp.Dom.Document.QuerySelectorAll(String selectors)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2022-10-21 10:23:44.3763|ERROR|FantasyCyclingParser.Parser|AngleSharp.Dom.DomException: The string did not match the expected pattern.
+   at AngleSharp.Extensions.QueryExtensions.Validate(ISelector selector)
+   at AngleSharp.Extensions.QueryExtensions.QuerySelectorAll(INodeList elements, String selectors)
+   at AngleSharp.Dom.Document.QuerySelectorAll(String selectors)
+   at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94

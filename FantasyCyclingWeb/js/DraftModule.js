@@ -4,7 +4,8 @@
     var vm = null;
 
     my.init = function (model) {
-        vm = model;
+        //vm = model;
+       
     };
 
 

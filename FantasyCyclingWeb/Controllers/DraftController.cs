@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using FantasyCyclingParser;
+using FantasyCyclingWeb.Models;
+using Common;
+
 
 namespace FantasyCyclingWeb.Controllers
 {
@@ -11,7 +15,8 @@ namespace FantasyCyclingWeb.Controllers
         // GET: Draft
         public ActionResult Index()
         {
-            return View();
+            RiderPhoto vm = Repository.RiderPhotoGetAll().First(); 
+            return View(vm);
         }
     }
 }

@@ -64,10 +64,10 @@ namespace FantasyCyclingParser
     public static class Parser
     {
         private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
-        public static List<string> ParsePCSRiders()
+        public static List<RiderPhoto> ParsePCSRiderPhotos()
         {
 
-            List<string> riderURLs = new List<string>();
+            List<RiderPhoto> riders = new List<RiderPhoto>();
             using (WebClient client = new WebClient())
             {
 
@@ -79,25 +79,36 @@ namespace FantasyCyclingParser
                 var parser = new HtmlParser();
 
 
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 23; i++)
                 {
                     try
                     {
-                        string url = String.Format("http://www.procyclingstats.com/rankings.php?c=1&filter=1&id=18732&index={0}&nation=&PDCTeam=&compare_to_id=0&younger_than=&older_than=", i);
-
+                        
+                        int offset = i * 100;
+                        string url = String.Format("https://www.procyclingstats.com/rankings.php?nation=&age=&zage=&page=smallerorequal&team=&offset={0}&filter=Filter&p=me&s=season-individual", offset); 
+    
                         string htmlCode = client.DownloadString(url);
-
                         var document = parser.Parse(htmlCode);
+                         
+                        //var table = document.QuerySelectorAll("body > div.wrapper > div.content > div:nth-child(5) > table > tbody").First();
+                        var table = document.QuerySelectorAll("body > div.wrapper > div.content > div.page-content.page-object.default > div:nth-child(2) > span > table").First();
 
-                        var table = document.QuerySelectorAll("body > div.wrapper > div.content > div:nth-child(5) > table > tbody").First();
-                        foreach (var row in table.ChildNodes)
+                        AngleSharp.Dom.Html.IHtmlTableSectionElement selectEl = (AngleSharp.Dom.Html.IHtmlTableSectionElement)table.ChildNodes[1];
+                        
+                        foreach (var row in selectEl.Rows)
                         {
-                            AngleSharp.Dom.Html.IHtmlAnchorElement name = (AngleSharp.Dom.Html.IHtmlAnchorElement)row.ChildNodes[3].ChildNodes[2];
-                            string riderURL = name.Attributes[1].Value.ToString();
+                            RiderPhoto p = new RiderPhoto();
+                            AngleSharp.Dom.Html.IHtmlAnchorElement link = (AngleSharp.Dom.Html.IHtmlAnchorElement)row.ChildNodes[3].ChildNodes[1].NextSibling;
+                            // AngleSharp.Dom.Html.IHtmlTableRowElement r = (AngleSharp.Dom.Html.IHtmlTableRowElement)row;
 
-                            riderURLs.Add(riderURL);
-
+                            string name = link.PathName.Replace("/rider/", ""); 
+                            string riderURL = String.Format("https://www.procyclingstats.com{0}", link.PathName);
                             
+                            p.PCS_RiderURL = riderURL;
+                            p.Image = GetPCSRiderPhoto(riderURL);
+                            p.Name = name; 
+
+                            riders.Add(p);                            
                         }
                     }
                     catch (Exception ex)
@@ -107,12 +118,78 @@ namespace FantasyCyclingParser
 
                     }
                 }
-
-                return riderURLs;
+  
             }
+            return riders;
         }
 
+        public static byte[] GetPCSRiderPhoto(string riderUrl)
+        {
 
+            byte[] imgBytes; 
+            using (WebClient client = new WebClient())
+            {
+
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+                ServicePointManager.ServerCertificateValidationCallback = (sender, x509Certificate, chain, sslPolicyErrors) => true;
+
+                var parser = new HtmlParser();
+                try
+                {
+                    string htmlCode = client.DownloadString(riderUrl);
+                    var document = parser.Parse(htmlCode);
+
+                    var temp = document.QuerySelectorAll("body > div.wrapper > div.content > div.page-content.page-object.default").First();
+                    var img = temp.ChildNodes[1].ChildNodes[1].ChildNodes[0].ChildNodes[1].ChildNodes[0].ChildNodes[0];
+                    AngleSharp.Dom.Html.IHtmlImageElement imgElement = (AngleSharp.Dom.Html.IHtmlImageElement)img;
+
+                    string src = imgElement.Source;
+                    string url = src.Replace("about://", "https://www.procyclingstats.com").Trim();
+                    imgBytes = GetImage(url);
+                    if (imgBytes == null)
+                        imgBytes = null;
+                    
+                }
+                catch(Exception ex)
+                {
+                    imgBytes = null; 
+                }
+            }
+
+            return imgBytes; 
+        }
+
+        private static byte[] GetImage(string url)
+        {
+            Stream stream = null;
+            byte[] buf;
+
+            try
+            {
+                WebProxy myProxy = new WebProxy();
+                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
+
+                HttpWebResponse response = (HttpWebResponse)req.GetResponse();
+                stream = response.GetResponseStream();
+
+                using (BinaryReader br = new BinaryReader(stream))
+                {
+                    int len = (int)(response.ContentLength);
+                    buf = br.ReadBytes(len);
+                    br.Close();
+                }
+
+                stream.Close();
+                response.Close();
+            }
+            catch (Exception exp)
+            {
+                buf = null;
+            }
+
+            return (buf);
+        }
         public static List<string> ParsePCSRider(int riderID, int year)
         {
 
@@ -309,46 +386,6 @@ namespace FantasyCyclingParser
 
             }
             return riderList;
-        }
-
-
-        public static Rider ParseRiderDetails(int year, string pdcID)
-        {
-            string url = String.Format("https://pdcvds.com/riders.php?mw=1&y={0}&pid={1}", year, pdcID);
-            var parser = new HtmlParser();
-
-            Rider rider = new Rider(); 
-
-            using (WebClient client = new WebClient())
-            {
-                ServicePointManager.Expect100Continue = true;
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
-                ServicePointManager.ServerCertificateValidationCallback = (sender, x509Certificate, chain, sslPolicyErrors) => true;
-
-
-                string htmlCode = client.DownloadString(url);
-
-                var document = parser.Parse(htmlCode);
-
-                var tbl = document.QuerySelectorAll("#content > table.cell > tbody");
-
-                foreach (var r in tbl[0].ChildNodes)
-                {
-                    int x = 0;
-
-                    //6 = nationality
-                    //8 = birthday
-                    //10 = team
-                    //12 = team category
-                    //14 = previous year score
-                    //16 = current year score
-                    //18 = current year salary
-                    //22 = ownedby teams count
-                    
-                }
-            }
-
-            return rider; 
         }
 
                     

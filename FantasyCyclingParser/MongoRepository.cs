@@ -80,7 +80,7 @@ namespace FantasyCyclingParser
             MongoRepository<PDC_Season> db = new MongoRepository<PDC_Season>();
             PDC_Season season = db.Where(x => x.Year == year).FirstOrDefault();
             db.Delete(season);
-        }    
+        }
 
         //public static void ParseSeasonToDB(int year)
         //{
@@ -94,5 +94,18 @@ namespace FantasyCyclingParser
         //    }
         //}
 
+
+        public static void RiderPhotoInsert(RiderPhoto photo)
+        {
+            (new MongoRepository<RiderPhoto>()).Add(photo);
+        }
+
+        public static List<RiderPhoto> RiderPhotoGetAll()
+        {
+            MongoRepository<RiderPhoto> pics = new MongoRepository<RiderPhoto>();
+            List<RiderPhoto> items = pics.ToList();
+
+            return items; 
+        }
     }
 }

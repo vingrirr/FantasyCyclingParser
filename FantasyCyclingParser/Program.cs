@@ -31,28 +31,67 @@ namespace FantasyCyclingParser
 
         static void Main(string[] args)
         {
-            BuildSeason(2010);
-            BuildSeason(2011);
-            BuildSeason(2012);
-            BuildSeason(2013);
-            BuildSeason(2014);
-            BuildSeason(2015);
-            BuildSeason(2016);
-            BuildSeason(2017);
-            BuildSeason(2018);
-            BuildSeason(2019);
-            BuildSeason(2020);
+
+            //List<RiderPhoto> urls = Parser.ParsePCSRiderPhotos();
+            //foreach (RiderPhoto p in urls)
+            //  Repository.RiderPhotoInsert(p);
+
+            List<RiderPhoto> photos = Repository.RiderPhotoGetAll();
+             
+            FantasyYearConfig fyc = Repository.FantasyYearConfigGetDefault();
+
+            PDC_Season season = Repository.PDCSeasonGet(fyc.Year);
+            string match1 = String.Empty;
+            string match2 = String.Empty;
+            Dictionary<string, string> matches = new Dictionary<string, string>(); 
+            foreach (Rider r in season.Riders)
+            {
+                int currScore = Int32.MaxValue; 
+                foreach (RiderPhoto p in photos)
+                {
+                    string temp = p.Name.Replace("-", " ").Trim().ToLower();
+                    
+                    if (String.IsNullOrEmpty(temp))
+                        continue;
+
+                    int score = FantasyCyclingParser.Helpers.LevenshteinDistance.Compute(r.Name.ToLower(), temp);
+                    
+                    if (score < currScore)
+                    {                        
+                        match2 = temp;
+                        currScore = score; 
+                    }
+                }
+                
+                matches.Add(r.Name.ToLower(), match2); 
+            }
+
+          //  RiderPhoto photo = Parser.GetPCSRiderPhoto("https://www.procyclingstats.com/rider/tadej-pogacar");
+
+            //Repository.RiderPhotoInsert(photo);
+
+            //BuildSeason(2010);
+            //BuildSeason(2011);
+            //BuildSeason(2012);
+            //BuildSeason(2013);
+            //BuildSeason(2014);
+            //BuildSeason(2015);
+            //BuildSeason(2016);
+            //BuildSeason(2017);
+            //BuildSeason(2018);
+            //BuildSeason(2019);
+            //BuildSeason(2020);
             // Utilities.NationalityList["FRA"] = new Nationality({ Name="France", PDC_URL=})
             //int year = 2022;
 
             //MockWindowsService(); 
 
-            
+
             // WorkerCode(); 
 
             //IterateSeason(year);
-            
-            int x = 0; 
+
+              int x = 0; 
             
         }
 
@@ -274,75 +313,6 @@ namespace FantasyCyclingParser
 
 
 
-    public static class LevenshteinDistance
-    {
-        /// <summary>
-        /// Compute the distance between two strings.
-        /// </summary>
-        public static int Compute(string s, string t)
-        {
-            int n = s.Length;
-            int m = t.Length;
-            int[,] d = new int[n + 1, m + 1];
 
-            // Step 1
-            if (n == 0)
-            {
-                return m;
-            }
 
-            if (m == 0)
-            {
-                return n;
-            }
-
-            // Step 2
-            for (int i = 0; i <= n; d[i, 0] = i++)
-            {
-            }
-
-            for (int j = 0; j <= m; d[0, j] = j++)
-            {
-            }
-
-            // Step 3
-            for (int i = 1; i <= n; i++)
-            {
-                //Step 4
-                for (int j = 1; j <= m; j++)
-                {
-                    // Step 5
-                    int cost = (t[j - 1] == s[i - 1]) ? 0 : 1;
-
-                    // Step 6
-                    d[i, j] = Math.Min(
-                        Math.Min(d[i - 1, j] + 1, d[i, j - 1] + 1),
-                        d[i - 1, j - 1] + cost);
-                }
-            }
-            // Step 7
-            return d[n, m];
-        }
-    }
-
-    public static class Extensions
-    {
-        private static readonly ThreadLocal<Random> RandomThreadLocal =
-            new ThreadLocal<Random>(() => new Random());
-
-        public static void Shuffle<T>(this IList<T> list, int seed = -1)
-        {
-
-            var r = seed >= 0 ? new Random(seed) : RandomThreadLocal.Value;
-            var len = list.Count;
-            for (var i = len - 1; i >= 1; --i)
-            {
-                var j = r.Next(i);
-                var tmp = list[i];
-                list[i] = list[j];
-                list[j] = tmp;
-            }
-        }
-
-    }
 }
