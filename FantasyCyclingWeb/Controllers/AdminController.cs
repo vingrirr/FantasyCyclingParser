@@ -27,5 +27,26 @@ namespace FantasyCyclingWeb.Controllers
 
             return View(season);
         }
+
+        public ActionResult AssignRiderPhoto(string riderPhotoURL, string pdcRiderID, string pcs_riderURL)        
+        {
+            
+                
+            FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
+            PDC_Season season = Repository.PDCSeasonGet(config.Year);
+
+            Rider r = season.Riders.Where(x => x.PDC_RiderID == pdcRiderID).First();
+
+            RiderPhoto photo = new RiderPhoto();
+            photo.Name = r.Name;
+            photo.Image = Parser.GetImage(riderPhotoURL);
+            photo.PCS_RiderURL = pcs_riderURL;
+
+            r.Photo = photo;
+
+            Repository.PDCSeasonUpdate(season);
+
+            return View(season);
+        }
     }
 }

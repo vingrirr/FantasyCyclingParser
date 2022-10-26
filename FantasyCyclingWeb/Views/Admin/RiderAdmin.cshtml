@@ -7,7 +7,7 @@
 @using FantasyCyclingParser;
 @model PDC_Season
 
-
+<script src="~/js/RiderAdminModule.js"></script>
 
 <div id="pnlTargets" class="panel panel-default">
     <div class="panel-heading">
@@ -34,6 +34,7 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
+                                    <th>&nbsp;</th>
                                     <th>Name</th>
                                     <th>Cost</th>
                                     <th>Points</th>
@@ -42,11 +43,23 @@
                             <tbody>
                                 @foreach (Rider r in Model.Riders.OrderByDescending(x => x.CurrentYearPoints).ToList())
                                 {
-                                <tr>
-                                    <td>@r.Name</td>
-                                    <td>@r.CurrentYearCost</td>
-                                    <td>@r.CurrentYearPoints</td>
-                                </tr>
+
+                                    <tr>
+                                        <td>
+                                            @if (r.Photo.Image != null)
+                                            {
+                                                <img src="data:image;base64,@System.Convert.ToBase64String(r.Photo.Image)" />
+                                            }
+                                            else
+                                            {
+                                                <button type="button" class="btn btn-light"  onclick="RIDER_ADMIN.ShowModal(@r.PDC_RiderID, '@r.Name');" data-target="#modal_centered">Launch <i class="ph-play-circle ms-2"></i></button>
+                                            }
+                                        </td>
+                                        <td>@r.Name</td>
+                                        <td>@r.CurrentYearCost</td>
+                                        <td>@r.CurrentYearPoints</td>
+                                    </tr>
+
                                 }
                             </tbody>
                         </table>
@@ -56,3 +69,53 @@
         </div>
     </div>
 </div>
+
+<div id="modal_centered" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="riderName" class="modal-title"> </h5>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+
+                    <div class="col-md-10">
+                        <div class="form-group form-group-xlg">
+                            <label class="control-label text-size-large text-bold">PDC_RiderID</label>
+                            <input id="txtPDCRiderID" type="text" class="form-control input-xlg">
+
+                            <label class="control-label text-size-large text-bold">PCS Rider URL</label>
+                            <input id="txtPCSRiderURL" type="text" class="form-control input-xlg">
+
+                            <label class="control-label text-size-large text-bold">Photo URL</label>
+                            <input id="txtPhotoURL" type="text" class="form-control input-xlg">
+
+
+
+
+                            <!--<span id="htxtConfigName" class="help-block">eg: Last Years Top 5 vs me</span>-->
+                        </div>
+                    </div>
+
+                </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" onclick="RIDER_ADMIN.CloseModal();" class="btn btn-link" data-bs-dismiss="modal">Close</button>
+                    <button type="button" onclick="RIDER_ADMIN.AssignRiderPhoto();" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+    });
+
+    RIDER_ADMIN.init();
+
+</script>

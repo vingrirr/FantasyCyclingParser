@@ -1894,6 +1894,7 @@
     <Content Include="js\BarChartRaceModule.js" />
     <Content Include="js\ChartsModule.js" />
     <Content Include="js\ConfigModule.js" />
+    <Content Include="js\RiderAdminModule.js" />
     <Content Include="js\DraftModule.js" />
     <Content Include="js\nvd3charts\nv.d3.css" />
     <Content Include="js\nvd3charts\nv.d3.js" />

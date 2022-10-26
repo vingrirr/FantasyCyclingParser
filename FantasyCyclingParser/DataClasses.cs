@@ -99,7 +99,6 @@ namespace FantasyCyclingParser
 
         public string PDC_RiderID { get; set; }
 
-
         public int CurrentYearPoints { get; set; }
         public int CurrentYearCost { get; set; }
        // public int PdcRankCurrentYear { get; set; }
@@ -119,10 +118,12 @@ namespace FantasyCyclingParser
 
         public double PreviousPoints { get; set; }
         public double PreviousCost { get; set; }
+
+        public RiderPhoto Photo { get; set; }
     
         public Rider()
         {
-                        
+            Photo = new RiderPhoto(); 
         }
         
         public void CalculatePoints(List<PDC_Result> results)
@@ -741,6 +742,47 @@ namespace FantasyCyclingParser
                 r.CalculatePoints(RaceResults);
             }
         }
+
+        public void MatchRiderPhotos()
+        {
+            List<RiderPhoto> photos = Repository.RiderPhotoGetAll();
+
+            if (photos != null & photos.Count() > 0)
+            {
+                FantasyYearConfig fyc = Repository.FantasyYearConfigGetDefault();
+
+                PDC_Season season = Repository.PDCSeasonGet(fyc.Year);
+                string match1 = String.Empty;
+                string match2 = String.Empty;
+                Dictionary<string, string> matches = new Dictionary<string, string>();
+                foreach (Rider r in season.Riders)
+                {
+                    int currScore = Int32.MaxValue;
+                    foreach (RiderPhoto p in photos)
+                    {
+                        string temp = p.Name.Replace("-", " ").Trim().ToLower();
+
+                        if (String.IsNullOrEmpty(temp))
+                            continue;
+
+                        int score = FantasyCyclingParser.Helpers.LevenshteinDistance.Compute(r.Name.ToLower(), temp);
+
+                        if (score < currScore)
+                        {
+                            r.Photo = p;
+                            currScore = score;
+                        }
+                    }
+
+                }
+
+                Repository.PDCSeasonUpdate(season);
+            }
+            else
+            {
+                throw new Exception("No rider photos availabe in the DB");
+            }
+        }
         
         public int Year{ get; set; }
         public List<PDC_Result> RaceResults { get; set; }
@@ -760,7 +802,7 @@ namespace FantasyCyclingParser
     {
         public RiderPhoto()
         {
-
+            //todo: have a stand in image if none is available
         }
         public RiderPhoto(byte[] photo)
         {

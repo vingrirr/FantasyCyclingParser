@@ -160,7 +160,7 @@ namespace FantasyCyclingParser
             return imgBytes; 
         }
 
-        private static byte[] GetImage(string url)
+        public   static byte[] GetImage(string url)
         {
             Stream stream = null;
             byte[] buf;
