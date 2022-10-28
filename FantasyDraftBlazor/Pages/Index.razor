@@ -1,0 +1,76 @@
+﻿@page "/"
+
+@using Microsoft.AspNetCore.SignalR.Client
+@using FantasyCyclingParser;
+@inject NavigationManager NavManager
+@implements IAsyncDisposable
+
+<PageTitle>Fantasy Cycling Draft</PageTitle>
+
+<div class="form-group">
+    <label>
+        User: <input @bind="userInput" />
+    </label>
+</div>
+<div class="form-group">
+    <label>
+        Message: <input @bind="messageInput" />
+    </label>
+</div>
+<MatButton Unelevated="true" @onclick="Send" disabled="@(IsConnected == false)">Send</MatButton>
+<img src="data:image;base64,@System.Convert.ToBase64String(photo.Image)" />
+<hr />
+
+<ul>
+    @foreach (string message in messages)
+    {
+        <li>@message</li>
+    }
+</ul>
+
+@code {
+
+    private HubConnection? hubConnection;
+    private List<string> messages = new();
+    private string? userInput;
+    private string? messageInput;
+    private RiderPhoto photo; 
+    protected override async Task OnInitializedAsync()
+    {
+
+        photo = Repository.RiderPhotoGetAll().First();
+
+        hubConnection = new HubConnectionBuilder()
+            .WithUrl(NavManager.ToAbsoluteUri("/drafthub"))
+            .WithAutomaticReconnect()
+            .Build();
+
+        hubConnection.On<string, string>("ReceiveMessage", (user, message) =>
+        {
+            var formattedMessage = $"{user}: {message}";
+            messages.Add(formattedMessage);
+            InvokeAsync(StateHasChanged);
+        });
+
+        await hubConnection.StartAsync();
+    }
+
+    private async Task Send()
+    {
+        if (hubConnection is not null)
+        {
+            await hubConnection.SendAsync("SendMessage", userInput, messageInput);
+        }
+    }
+
+    public bool IsConnected => hubConnection?.State == HubConnectionState.Connected;
+
+    public async ValueTask DisposeAsync()
+    {
+        if (hubConnection is not null)
+        {
+            await hubConnection.DisposeAsync();
+        }
+    }
+
+}

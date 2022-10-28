@@ -102,6 +102,7 @@ namespace FantasyCyclingParser
 
         public static List<RiderPhoto> RiderPhotoGetAll()
         {
+            
             MongoRepository<RiderPhoto> pics = new MongoRepository<RiderPhoto>();
             List<RiderPhoto> items = pics.ToList();
 
