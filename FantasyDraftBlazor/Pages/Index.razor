@@ -1,8 +1,10 @@
 ﻿@page "/"
 
+@using FantasyDraftBlazor.Data
 @using Microsoft.AspNetCore.SignalR.Client
 @using FantasyCyclingParser;
 @inject NavigationManager NavManager
+@inject RiderService RiderService
 @implements IAsyncDisposable
 
 <PageTitle>Fantasy Cycling Draft</PageTitle>
@@ -38,12 +40,12 @@
     protected override async Task OnInitializedAsync()
     {
 
-        photo = Repository.RiderPhotoGetAll().First();
-
         hubConnection = new HubConnectionBuilder()
             .WithUrl(NavManager.ToAbsoluteUri("/drafthub"))
             .WithAutomaticReconnect()
             .Build();
+
+        photo = await RiderService.GetPhotoAsync();
 
         hubConnection.On<string, string>("ReceiveMessage", (user, message) =>
         {

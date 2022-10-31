@@ -117,7 +117,6 @@
   <ItemGroup>
     <Compile Include="DataClasses.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="FlightParser.cs" />
     <Compile Include="GAStuff.cs" />
     <Compile Include="KMeansDemo.cs" />
     <Compile Include="LevenshteinDistance.cs" />
@@ -144,6 +143,7 @@
     <Content Include="Core\Compression\Zstandard\lib\win\libzstd.dll" />
     <Content Include="dlls\AngleSharp.dll" />
     <Content Include="dlls\AngleSharp.pdb" />
+    <Content Include="MongExportImport.txt" />
     <Content Include="mongocrypt.dll" />
     <Content Include="Pages\FSA DS __ Men 2016 __ Riders __ Alexander Kristoff.html" />
     <Content Include="Pages\FSA DS __ Men 2016 __ Riders_All.html" />
