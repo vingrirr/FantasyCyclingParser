@@ -1,0 +1,11 @@
+﻿For lazy people, use mongodump, it's faster:
+
+mongodump -d <database_name> -o <directory_backup>
+
+
+And to "restore/import" it (from directory_backup/dump/):
+
+mongorestore -d <database_name> <directory_backup>
+
+
+https://stackoverflow.com/questions/11255630/how-to-export-all-collections-in-mongodb
