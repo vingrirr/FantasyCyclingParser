@@ -6,9 +6,24 @@ using System.Threading.Tasks;
 
 namespace FantasyCyclingParser
 {
-    public static class SnakeDraft
-    {       
-        public static List<List<int>> BuildDraftOrder( int numTeams, int rounds)
+    public class SnakeDraft
+    {
+        public SnakeDraft(List<string> teams, int numRounds)
+        {
+            Teams = teams;  
+            numTeams = teams.Count;
+            rounds = numRounds; 
+
+        }
+        public void RandomizeTeamAssignment()
+        {
+            Teams.Shuffle();
+            
+
+
+        }
+        
+        public List<List<int>> BuildDraftOrder()
         {
         
             List<List<int>> allDraftPositions = new List<List<int>>();
@@ -46,5 +61,13 @@ namespace FantasyCyclingParser
             return allDraftPositions; 
             
         }
+
+        public List<string> Teams { get; set; }
+        private int rounds { get; set; }
+        private int numTeams { get; set; }
+        
     }
+
+
+    
 }
