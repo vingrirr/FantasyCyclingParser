@@ -33,7 +33,11 @@ namespace FantasyCyclingParser
         {
 
 
+            #region snake draft
+            
+            List<List<int>> positions = SnakeDraft.BuildDraftOrder(5,25); 
 
+            #endregion
 
 
             #region rider photo stuff
@@ -74,19 +78,19 @@ namespace FantasyCyclingParser
 
             #region photo find nulls
             //List<RiderPhoto> photos = Repository.RiderPhotoGetAll();
-            FantasyYearConfig fyc = Repository.FantasyYearConfigGetDefault();
-            PDC_Season season = Repository.PDCSeasonGet(fyc.Year);
-            int count = 0; 
-            foreach (Rider r in season.Riders)
-            {
-              if (r.Photo == null || r.Photo.Image == null) 
-              {
-                    Console.WriteLine(r.Name);
-                    count++; 
-              }
+            //FantasyYearConfig fyc = Repository.FantasyYearConfigGetDefault();
+            //PDC_Season season = Repository.PDCSeasonGet(fyc.Year);
+            //int count = 0; 
+            //foreach (Rider r in season.Riders)
+            //{
+            //  if (r.Photo == null || r.Photo.Image == null) 
+            //  {
+            //        Console.WriteLine(r.Name);
+            //        count++; 
+            //  }
 
-            }
-            Console.WriteLine("Count: " + count);
+            //}
+            //Console.WriteLine("Count: " + count);
             #endregion
 
             //BuildSeason(2010);
