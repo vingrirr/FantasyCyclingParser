@@ -43,8 +43,7 @@ namespace FantasyCyclingParser
             teams.Add("Bill");
             
             SnakeDraft draft = new SnakeDraft(teams, 25);            
-            List<List<int>> positions = draft.BuildDraftOrder();
-            draft.RandomizeTeamAssignment(); 
+            
             #endregion
 
 
