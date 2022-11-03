@@ -29,7 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dump", "dump", "{A5164735-9
 		dump\FantasyCycling\Team.metadata.json = dump\FantasyCycling\Team.metadata.json
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FantasyDraftBlazor", "FantasyDraftBlazor\FantasyDraftBlazor.csproj", "{D2903464-7564-4AB5-BEDB-F567FEBD7F49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FantasyDraftBlazor", "FantasyDraftBlazor\FantasyDraftBlazor.csproj", "{D2903464-7564-4AB5-BEDB-F567FEBD7F49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -13,6 +13,8 @@ builder.Services.AddMatBlazor();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddSingleton<RiderService>();
+builder.Services.AddScoped<AppState>();
+
 builder.Services.AddResponseCompression(opts =>
 {
     opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
