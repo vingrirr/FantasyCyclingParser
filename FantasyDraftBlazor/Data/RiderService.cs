@@ -10,5 +10,13 @@ namespace FantasyDraftBlazor.Data
             return Task.FromResult(photo); 
         }
 
+        public Task<List<FantasyCyclingParser.Rider>> GetAllRidersAsync()
+        {
+            FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
+            PDC_Season season = Repository.PDCSeasonGet(config.Year);
+            
+            return Task.FromResult(season.Riders);
+        }
+
     }
 }

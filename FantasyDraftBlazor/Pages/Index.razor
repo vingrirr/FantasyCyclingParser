@@ -12,7 +12,47 @@
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
+<style>
+    #div1 {
+        width: 350px;
+        height: 70px;
+        padding: 10px;
+        border: 1px solid #aaaaaa;
+    }
+</style>
 
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            console.log("data:" + data);
+            var table = document.getElementById("myTable");
+            var riderTable = document.getElementById("riderTable");
+            // Create an empty <tr> element and add it to the 1st position of the table:
+            var row = table.insertRow(2);
+
+            // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+
+            // Add some text to the new cells:
+            cell1.innerHTML = "NEW CELL1";
+            cell2.innerHTML = "NEW CELL2";
+            //ev.target.appendChild(document.getElementById(data));
+
+            var delRow = document.getElementById(data);
+            delRow.remove();
+            
+        }
+    </script>
 <div class="form-group">
     <label>
         User: <input @bind="userInput" />
@@ -27,6 +67,26 @@
 <img class="animate__animated animate__backOutLeft animate__delay-2s" src="data:image;base64,@System.Convert.ToBase64String(photo.Image)" />
 <hr />
 
+<DraftRiderListComponent></DraftRiderListComponent>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<table id="myTable" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Points</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>blah blah </td>
+            <td>100</td>
+        </tr>
+
+    </tbody>
+</table>
 @*<div class="mat-layout-grid">
     <div class="mat-layout-grid-inner">
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6">asdfff</div>

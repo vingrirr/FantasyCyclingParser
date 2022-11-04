@@ -1,0 +1,13 @@
+﻿@using FantasyCyclingParser
+
+<h3>DraftRiderListComponent</h3>
+
+
+
+<ul>
+@foreach(Rider r in RiderList)
+{
+        <li draggable="true" ondragstart="drag(event)" >@r.Name</li>
+}
+
+</ul>
