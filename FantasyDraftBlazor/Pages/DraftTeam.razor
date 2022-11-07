@@ -1,0 +1,36 @@
+﻿@using FantasyCyclingParser;
+
+<div class="rider-status">
+    <h3>@Team.PDCTeamName</h3>
+    <ul class="dropzone @dropClass"
+        ondragover="event.preventDefault();"
+        ondragstart="event.dataTransfer.setData('', event.target.id);"
+        @ondrop="HandleDrop"
+        @ondragenter="HandleDragEnter"
+        @ondragleave="HandleDragLeave">
+
+
+
+    </ul>
+
+    <hr />
+    <table id="myTable" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Rider r in Team.Riders)
+            {
+                <tr>
+                    <td>@r.Name </td>
+                    <td>@r.CurrentYearCost</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+</div>

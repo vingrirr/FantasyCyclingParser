@@ -1,4 +1,5 @@
 ﻿using FantasyCyclingParser;
+using Microsoft.AspNetCore.Http;
 
 namespace FantasyDraftBlazor.Pages
 {
@@ -6,18 +7,32 @@ namespace FantasyDraftBlazor.Pages
     {
         protected override void OnInitialized()
         {
+            DraftTeam = new PDCTeam();
+            DraftTeam.PDCTeamName = "Fake Draft Team";
+
             FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
             PDC_Season season = Repository.PDCSeasonGet(config.Year);
             AvailableRiders = season.Riders;
-            Empty = AvailableRiders.Take(2).ToList();
+
+            //foreach (PDCTeamYear ty in config.TeamUIDS)
+            //{
+
+            //    PDCTeam team = season.PDCTeams.FirstOrDefault(m => m.PDC_ID == ty.TeamUID);
+            //    if (team != null && ty.Is35Team == false)
+            //    {                                        
+            //        PDCTeams.Add(team);
+            //    }
+            //}
+            int z = 0;
         }
 
         void HandleStatusUpdated(Rider updatedRider)
         {
-            int x = 0;
+            AvailableRiders.Remove(updatedRider);
         }
 
         public List<Rider> AvailableRiders { get; set; }
-        public List<Rider> Empty { get; set; }
+
+        public PDCTeam DraftTeam { get; set; }
     }
 }

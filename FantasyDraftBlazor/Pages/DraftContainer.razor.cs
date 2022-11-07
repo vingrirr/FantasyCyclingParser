@@ -12,7 +12,8 @@ namespace FantasyDraftBlazor.Pages
 
         public async Task UpdateRiderAsync()
         {
-            int x = 0;
+            RiderList.Remove(Payload);
+            await OnStatusUpdated.InvokeAsync(Payload);
         }
 
 
