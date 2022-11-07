@@ -10,7 +10,7 @@ namespace FantasyDraftBlazor.Pages
     {
         string dropClass = "";
         public List<Rider> RiderList { get; set; }
-
+        [CascadingParameter] DraftContainer Container { get; set; }
         protected override async Task OnInitializedAsync()
         {
            
@@ -20,7 +20,7 @@ namespace FantasyDraftBlazor.Pages
         {
             //Jobs.Clear();
             // Jobs.AddRange(Container.Jobs.Where(x => x.Status == ListStatus));
-            int x = 0; 
+            RiderList = Container.RiderList;
         }
 
         private void HandleDragEnter()
@@ -44,11 +44,11 @@ namespace FantasyDraftBlazor.Pages
 
         private async Task HandleDrop()
         {
-            dropClass = "";
+              dropClass = "";
 
             //if (AllowedStatuses != null && !AllowedStatuses.Contains(Container.Payload.Status)) return;
 
-            //await Container.UpdateJobAsync(ListStatus);
+           // await Container.UpdateRiderAsync(ListStatus);
         }
 
         

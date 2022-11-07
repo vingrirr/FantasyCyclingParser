@@ -1,9 +1,8 @@
 ﻿@using FantasyCyclingParser
 
-<h3>DraftRiderList</h3>
 
 
-
+<div class="rider-status">
     <ul class="dropzone @dropClass"
         ondragover="event.preventDefault();"
         ondragstart="event.dataTransfer.setData('', event.target.id);"
@@ -13,7 +12,9 @@
 
         @foreach (var rider in RiderList)
         {
-            <DraftRider JobModel="job" />
+            <DraftRider Rider="rider" />
         }
 
     </ul>
+
+</div>

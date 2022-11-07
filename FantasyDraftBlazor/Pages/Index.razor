@@ -35,11 +35,23 @@
 <MatButton Unelevated="true" @onclick="Send" disabled="@(IsConnected == false)">Send</MatButton>
 <img class="animate__animated animate__backOutLeft animate__delay-2s" src="data:image;base64,@System.Convert.ToBase64String(photo.Image)" />
 <hr />
+<div class="mat-layout-grid">
+    <div class="mat-layout-grid-inner">
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6">
+            <DraftContainer RiderList="AvailableRiders" OnStatusUpdated="HandleStatusUpdated">
+                <DraftRiderList></DraftRiderList>
+            </DraftContainer>
+        </div>
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6">
+            <DraftContainer RiderList="Empty" OnStatusUpdated="HandleStatusUpdated">
+                <DraftRiderList></DraftRiderList>
 
-<DraftContainer RiderList="AvailableRiders" OnStatusUpdated="HandleStatusUpdated">
-    <DraftRiderList></DraftRiderList>
+            </DraftContainer>
+        </div>
+    </div>
+</div>
 
-</DraftContainer>
+
 
 <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
@@ -84,7 +96,7 @@
     private List<string> messages = new();
     private string? userInput;
     private string? messageInput;
-    private RiderPhoto photo; 
+    private RiderPhoto photo;
     protected override async Task OnInitializedAsync()
     {
 

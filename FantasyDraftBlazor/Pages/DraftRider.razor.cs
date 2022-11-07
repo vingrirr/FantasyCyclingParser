@@ -11,11 +11,15 @@ namespace FantasyDraftBlazor.Pages
 
         }
 
-        [Parameter] public Rider Rider { get; set; }
-        //[CascadingParameter] JobsContainer Container { get; set; }
+       
+        
         private void HandleDragStart(Rider selectedRider)
         {
-           // Container.Payload = selectedRider;
+            int x = 0; 
+            Container.Payload = selectedRider;
         }
+
+        [Parameter] public Rider Rider { get; set; }
+        [CascadingParameter] DraftContainer Container { get; set; }
     }
 }
