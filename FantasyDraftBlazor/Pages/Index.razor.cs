@@ -10,6 +10,9 @@ namespace FantasyDraftBlazor.Pages
             DraftTeam = new PDCTeam();
             DraftTeam.PDCTeamName = "Fake Draft Team";
 
+            DraftTeam2 = new PDCTeam();
+            DraftTeam2.PDCTeamName = "Other Draft Team";
+
             FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
             PDC_Season season = Repository.PDCSeasonGet(config.Year);
             AvailableRiders = season.Riders;
@@ -34,5 +37,7 @@ namespace FantasyDraftBlazor.Pages
         public List<Rider> AvailableRiders { get; set; }
 
         public PDCTeam DraftTeam { get; set; }
+        
+        public PDCTeam DraftTeam2 { get; set; }
     }
 }

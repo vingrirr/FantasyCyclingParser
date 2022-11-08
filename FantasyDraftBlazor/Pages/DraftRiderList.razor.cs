@@ -11,6 +11,8 @@ namespace FantasyDraftBlazor.Pages
         string dropClass = "";
         public List<Rider> RiderList { get; set; }
         [CascadingParameter] DraftContainer Container { get; set; }
+
+
         protected override async Task OnInitializedAsync()
         {
            

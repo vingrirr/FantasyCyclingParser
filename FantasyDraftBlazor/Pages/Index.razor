@@ -37,10 +37,17 @@
 <hr />
 <div class="mat-layout-grid">
     <div class="mat-layout-grid-inner">
-        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6">
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
             <DraftContainer RiderList="AvailableRiders" OnStatusUpdated="HandleStatusUpdated">
-                <DraftRiderList></DraftRiderList>
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                <DraftRiderList ></DraftRiderList>
+                </div>
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
                 <DraftTeam Team="DraftTeam"></DraftTeam>
+                </div>
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                <DraftTeam Team="DraftTeam2"></DraftTeam>
+                </div>
             </DraftContainer>
         </div>
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6">

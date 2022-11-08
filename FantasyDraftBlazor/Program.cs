@@ -4,6 +4,7 @@ using MatBlazor;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.ResponseCompression;
+using Syncfusion.Blazor;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddMatBlazor();
 builder.Services.AddServerSideBlazor();
+builder.Services.AddSyncfusionBlazor();
+
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddSingleton<RiderService>();
 builder.Services.AddScoped<AppState>();
