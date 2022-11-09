@@ -1,5 +1,5 @@
 ﻿@page "/fetchdata"
-
+ 
 <PageTitle>Weather forecast</PageTitle>
 
 @using FantasyDraftBlazor.Data
@@ -25,24 +25,24 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var forecast in forecasts)
-            {
+             <GetFilterData Items=@forecasts GetFilterableText=@(item => $"{item.Date} {item.Summary} {item.TemperatureC} {item.TemperatureF}" )>
                 <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
+                    <td>@context.Date.ToShortDateString()</td>
+                    <td>@context.TemperatureC</td>
+                    <td>@context.TemperatureF</td>
+                    <td>@context.Summary</td> 
                 </tr>
-            }
+            </GetFilterData>
         </tbody>
     </table>
 }
 
 @code {
-    private WeatherForecast[]? forecasts;
+    private IEnumerable<WeatherForecast> forecasts;
 
-    protected override async Task OnInitializedAsync()
+      protected override async Task OnInitializedAsync()
     {
         forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
     }
+
 }
