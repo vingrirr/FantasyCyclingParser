@@ -3,17 +3,34 @@
 
 
 <div class="rider-status">
-    <ul class="dropzone @dropClass"
-        ondragover="event.preventDefault();"
-        ondragstart="event.dataTransfer.setData('', event.target.id);"
-        @ondrop="HandleDrop"
-        @ondragenter="HandleDragEnter"
-        @ondragleave="HandleDragLeave">
+        <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>                           
+            </tr>
+        </thead>
+        <tbody class="dropzone @dropClass"
+               ondragover="event.preventDefault();"
+               ondragstart="event.dataTransfer.setData('', event.target.id);"
+               @ondrop="HandleDrop"
+               @ondragenter="HandleDragEnter"
+               @ondragleave="HandleDragLeave">
+            <GetFilterData 
+                Items=@RiderList GetFilterableText=@(item => $"{item.Name} {item.CurrentYearCost} " )>
+                <DraftRider Rider="@context" />
+        </GetFilterData>
+        </tbody>
+        </table>
 
-        @foreach (var rider in RiderList)
-        {
-            <DraftRider Rider="rider" />
-        }
 
-    </ul>
+
+    
 </div>
+
+@*class="dropzone @dropClass"
+                ondragover="event.preventDefault();"
+                ondragstart="event.dataTransfer.setData('', event.target.id);"
+@ondrop="HandleDrop"
+@ondragenter="HandleDragEnter"
+@ondragleave="HandleDragLeave"*@
