@@ -1,6 +1,16 @@
 ﻿@typeparam TItem
 
-<input @bind=Filter @bind:event="oninput" />
+<tr>
+    <td colspan="2">
+        <h5>Filter Riders: </h5>
+        <input @bind=Filter @bind:event="oninput" />
+    </td>
+</tr>
+<tr>
+    <td colspan="2">
+     <hr />
+    </td>
+</tr>
 @foreach (TItem item in GetFilteredItems())
 {
     if (ChildContent == null)

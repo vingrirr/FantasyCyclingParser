@@ -11,6 +11,7 @@
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="6.0.10" />
     <PackageReference Include="mongocsharpdriver" Version="1.11.0" />
     <PackageReference Include="MongoRepository" Version="1.6.11" />
+    <PackageReference Include="Recurop" Version="1.1.0" />
     <PackageReference Include="Syncfusion.Blazor.Core" Version="20.3.0.56" />
     <PackageReference Include="Syncfusion.Blazor.Grid" Version="20.3.0.56" />
     <PackageReference Include="Syncfusion.Blazor.Themes" Version="20.3.0.56" />
