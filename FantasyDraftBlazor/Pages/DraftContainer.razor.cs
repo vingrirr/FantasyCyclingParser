@@ -8,6 +8,8 @@ namespace FantasyDraftBlazor.Pages
         [Parameter] public List<Rider> RiderList { get; set; }
         [Parameter] public RenderFragment ChildContent { get; set; }
         [Parameter] public EventCallback<Rider> OnStatusUpdated { get; set; }
+
+        [Parameter] public EventCallback<int> OnTimerUpdated { get; set; }
         public Rider Payload { get; set; }
 
         public async Task UpdateRiderAsync()
@@ -18,7 +20,8 @@ namespace FantasyDraftBlazor.Pages
 
         public async Task UpdateTimer()
         {
-            int x = 0; 
+            int x = 0;
+            await OnTimerUpdated.InvokeAsync(0);
         }
 
 
