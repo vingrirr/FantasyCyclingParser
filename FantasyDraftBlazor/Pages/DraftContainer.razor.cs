@@ -16,6 +16,11 @@ namespace FantasyDraftBlazor.Pages
             await OnStatusUpdated.InvokeAsync(Payload);
         }
 
+        public async Task UpdateTimer()
+        {
+            int x = 0; 
+        }
+
 
     }
 }

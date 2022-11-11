@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using FantasyCyclingParser;
+using FantasyDraftBlazor.Pages;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.DataProtection.KeyManagement.Internal;
 using Recurop;
 
@@ -6,6 +8,8 @@ namespace FantasyDraftBlazor.Shared
 {
     public partial class Timer : ComponentBase
     {
+
+        [CascadingParameter] DraftContainer Container { get; set; }
 
         RecurringOperation _timerOperation;        
         TimeSpan _displayTime = default;        
@@ -36,7 +40,15 @@ namespace FantasyDraftBlazor.Shared
 
         void TimerOperationStatusChanged()
         {
-            int x = 0; 
+            if (_elapsedSeconds == 3)
+            {
+                Container.UpdateTimer();
+            }
+        }
+
+        private async Task ResetTimer()
+        {                        
+            await Container.UpdateRiderAsync();
         }
 
         void LogError(Exception ex)

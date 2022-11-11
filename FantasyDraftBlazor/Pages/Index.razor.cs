@@ -33,6 +33,8 @@ namespace FantasyDraftBlazor.Pages
         {
             AvailableRiders.Remove(updatedRider);
         }
+    
+
 
         public List<Rider> AvailableRiders { get; set; }
 
