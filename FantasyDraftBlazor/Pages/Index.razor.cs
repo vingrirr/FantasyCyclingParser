@@ -7,11 +7,11 @@ namespace FantasyDraftBlazor.Pages
     {
         protected override void OnInitialized()
         {
-            DraftTeam = new PDCTeam();
-            DraftTeam.PDCTeamName = "Fake Draft Team";
+            RyansTeam = new PDCTeam();
+            RyansTeam.PDCTeamName = "Ryan's Draft Team";
 
-            DraftTeam2 = new PDCTeam();
-            DraftTeam2.PDCTeamName = "Other Draft Team";
+            DanasTeam = new PDCTeam();
+            DanasTeam.PDCTeamName = "Dana's Draft Team";
 
             FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
             PDC_Season season = Repository.PDCSeasonGet(config.Year);
@@ -43,8 +43,8 @@ namespace FantasyDraftBlazor.Pages
 
         public List<Rider> AvailableRiders { get; set; }
 
-        public PDCTeam DraftTeam { get; set; }
+        public PDCTeam RyansTeam { get; set; }
         
-        public PDCTeam DraftTeam2 { get; set; }
+        public PDCTeam DanasTeam { get; set; }
     }
 }

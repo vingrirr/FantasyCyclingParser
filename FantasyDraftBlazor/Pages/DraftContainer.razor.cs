@@ -19,8 +19,7 @@ namespace FantasyDraftBlazor.Pages
         }
 
         public async Task UpdateTimer()
-        {
-            int x = 0;
+        {            
             await OnTimerUpdated.InvokeAsync(0);
         }
 

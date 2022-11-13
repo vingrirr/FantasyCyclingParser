@@ -13,7 +13,7 @@ namespace FantasyDraftBlazor.Shared
 
         RecurringOperation _timerOperation;        
         TimeSpan _displayTime = default;        
-        int _elapsedSeconds;
+        int _elapsedSeconds = 60;
 
         protected override void OnInitialized()
         {
@@ -31,7 +31,7 @@ namespace FantasyDraftBlazor.Shared
         }
         void IncrementTimer()
         {
-            _elapsedSeconds++;
+            _elapsedSeconds--;
             _displayTime = TimeSpan.FromSeconds(_elapsedSeconds);
 
             InvokeAsync(StateHasChanged);
@@ -40,9 +40,10 @@ namespace FantasyDraftBlazor.Shared
 
         void TimerOperationStatusChanged()
         {
-            if (_elapsedSeconds == 3)
+            if (_elapsedSeconds == 50)
             {
                 Container.UpdateTimer();
+                _elapsedSeconds = 60;
             }
         }
 
