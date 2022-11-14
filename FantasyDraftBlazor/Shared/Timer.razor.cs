@@ -22,7 +22,7 @@ namespace FantasyDraftBlazor.Shared
             _timerOperation.StatusChanged += TimerOperationStatusChanged;
             _timerOperation.OperationFaulted += LogError;
 
-            StartTimer();
+          //  StartTimer();
 
         }
         void StartTimer()
