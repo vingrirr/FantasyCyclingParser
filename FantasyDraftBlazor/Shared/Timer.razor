@@ -1,11 +1,13 @@
 ﻿@using Recurop
 @inject RecurringOperationsManager Recurop
+@inject NavigationManager NavManager
 @implements IDisposable
 
 
 <div style="margin-top:55px; text-align:center">
     <div>
         <p style="font-size: 75px;">@_displayTime</p>
+        <p><MatButton Unelevated="true" @onclick="StartTimer">Start</MatButton></p>
     </div>
  
 </div>

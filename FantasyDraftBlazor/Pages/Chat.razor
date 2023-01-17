@@ -42,7 +42,7 @@
         {
             var formattedMessage = $"{user}: {message}";
             messages.Add(formattedMessage);
-            InvokeAsync(StateHasChanged);
+              InvokeAsync(StateHasChanged);
         });
 
         await hubConnection.StartAsync();

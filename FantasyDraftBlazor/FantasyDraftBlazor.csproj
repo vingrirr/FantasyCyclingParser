@@ -7,7 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Hubs\TimerHub.cs" />
+    <Compile Remove="Shared\Timer.razor.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="Pages\FetchData.razor" />
+    <Content Remove="Shared\Timer.razor" />
   </ItemGroup>
 
   <ItemGroup>
