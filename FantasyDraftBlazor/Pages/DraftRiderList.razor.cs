@@ -22,7 +22,7 @@ namespace FantasyDraftBlazor.Pages
         {
             //Jobs.Clear();
             // Jobs.AddRange(Container.Jobs.Where(x => x.Status == ListStatus));
-            RiderList = Container.RiderList;
+            RiderList = Container.RiderList.OrderByDescending(x => x.CurrentYearCost).ToList();
         }
 
         private void HandleDragEnter()

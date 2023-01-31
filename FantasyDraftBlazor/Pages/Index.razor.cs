@@ -57,6 +57,10 @@ namespace FantasyDraftBlazor.Pages
         {
             AvailableRiders.Remove(updatedRider);
         }
+        void HandleRiderUndo(Rider addRider)
+        {
+            AvailableRiders.Add(addRider);
+        }
 
         void HandleTimerUpdated(int timer)
         {

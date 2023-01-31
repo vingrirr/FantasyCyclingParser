@@ -2,15 +2,13 @@
 
 <div class="rider-status">
     <h3>@Team.PDCTeamName</h3>
+    <h3><MatButton Unelevated="true">Save Changes</MatButton> </h3>
     <ul class="dropzone @dropClass"
         ondragover="event.preventDefault();"
         ondragstart="event.dataTransfer.setData('', event.target.id);"
         @ondrop="HandleDrop"
         @ondragenter="HandleDragEnter"
         @ondragleave="HandleDragLeave">
-
-
-
     </ul>
 
     <hr />
@@ -19,6 +17,7 @@
             <tr>
                 <th>Name</th>
                 <th>Price</th>
+                <th>Remove</th>
             </tr>
         </thead>
         <tbody>
@@ -27,6 +26,7 @@
                 <tr>
                     <td>@r.Name </td>
                     <td>@r.CurrentYearCost</td>
+                    <td><MatButton Unelevated="true" @onclick="RemoveRider" ><i class="oi oi-action-undo " /> </MatButton> </td>
                 </tr>
             }
 

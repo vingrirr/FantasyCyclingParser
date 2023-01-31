@@ -32,14 +32,14 @@
         Message: <input @bind="messageInput" />
     </label>
 </div>
-<MatButton Unelevated="true" @onclick="Send" disabled="@(IsConnected == false)">Send</MatButton>
+<MatButton Unelevated="true" >Send</MatButton>
 <img class="animate__animated animate__backOutLeft animate__delay-2s" src="data:image;base64,@System.Convert.ToBase64String(photo.Image)" />
 <hr />
 <div class="mat-layout-grid">
     <div class="mat-layout-grid-inner">
         
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-            <DraftContainer RiderList="AvailableRiders" OnTimerUpdated="HandleTimerUpdated" OnStatusUpdated="HandleStatusUpdated">
+            <DraftContainer RiderList="AvailableRiders" OnTimerUpdated="HandleTimerUpdated" OnRiderUndo="HandleRiderUndo" OnStatusUpdated="HandleStatusUpdated">
                 <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
                     <Timer></Timer>
                 </div>

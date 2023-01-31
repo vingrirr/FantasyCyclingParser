@@ -9,6 +9,8 @@ namespace FantasyDraftBlazor.Pages
         [Parameter] public RenderFragment ChildContent { get; set; }
         [Parameter] public EventCallback<Rider> OnStatusUpdated { get; set; }
 
+        [Parameter] public EventCallback<Rider> OnRiderUndo { get; set; }
+
         [Parameter] public EventCallback<int> OnTimerUpdated { get; set; }
         public Rider Payload { get; set; }
 
@@ -16,6 +18,12 @@ namespace FantasyDraftBlazor.Pages
         {
             RiderList.Remove(Payload);
             await OnStatusUpdated.InvokeAsync(Payload);
+        }
+
+        public async Task UndoRiderAsync()
+        {
+           // RiderList.Add(Payload);
+            await OnRiderUndo.InvokeAsync(Payload);
         }
 
         public async Task UpdateTimer()

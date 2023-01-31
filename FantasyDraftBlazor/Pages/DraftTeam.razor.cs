@@ -37,6 +37,12 @@ namespace FantasyDraftBlazor.Pages
 
             await Container.UpdateRiderAsync();
         }
+        private async Task RemoveRider()
+        {
+            Team.Riders.Remove(Container.Payload);
+            
+            await Container.UndoRiderAsync();
+        }
 
     }
 
