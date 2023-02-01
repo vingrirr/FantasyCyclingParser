@@ -27,7 +27,15 @@ namespace FantasyCyclingParser
         public static FantasyYearConfig FantasyYearConfigGetDefault()
         {
             MongoRepository<FantasyYearConfig> fyConfig = new MongoRepository<FantasyYearConfig>();
-            FantasyYearConfig item = fyConfig.Where(x => x.IsDefault == true).FirstOrDefault();
+            FantasyYearConfig item = fyConfig.Where(x => x.IsDefault == true && x.IsDraft ==false).FirstOrDefault();
+
+            return item;
+        }
+
+        public static FantasyYearConfig FantasyYearConfigGetDefaultDraft()
+        {
+            MongoRepository<FantasyYearConfig> fyConfig = new MongoRepository<FantasyYearConfig>();
+            FantasyYearConfig item = fyConfig.Where(x => x.IsDefault == true && x.IsDraft == true).FirstOrDefault();
 
             return item;
         }

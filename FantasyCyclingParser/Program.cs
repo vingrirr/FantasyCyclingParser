@@ -31,6 +31,68 @@ namespace FantasyCyclingParser
 
         static void Main(string[] args)
         {
+            
+
+            //FantasyYearConfig config = Repository.FantasyYearConfigGetDefaultDraft();
+
+            #region build a draft fantasy config
+            //FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
+
+
+            //PDCTeamYear ryan = new PDCTeamYear();
+            //ryan.Year = 2023;
+            //ryan.Name = "Ryan";
+            //ryan.TeamUID = "99901";
+            //ryan.Is35Team = false;
+
+
+            //PDCTeamYear dana = new PDCTeamYear();
+            //dana.Year = 2023;
+            //dana.Name = "Dana";
+            //dana.TeamUID = "99902";
+            //dana.Is35Team = false;
+
+            //PDCTeamYear tim = new PDCTeamYear();
+            //tim.Year = 2023;
+            //tim.Name = "Tim";
+            //tim.TeamUID = "99903";
+            //tim.Is35Team = false;
+
+
+            //PDCTeamYear alex = new PDCTeamYear();
+            //alex.Year = 2023;
+            //alex.Name = "Alex";
+            //alex.TeamUID = "99904";
+            //alex.Is35Team = false;
+
+            //PDCTeamYear allen = new PDCTeamYear();
+            //allen.Year = 2023;
+            //allen.Name = "Allen";
+            //allen.TeamUID = "99905";
+            //allen.Is35Team = false;
+
+            //PDCTeamYear bill = new PDCTeamYear();
+            //bill.Year = 2023;
+            //bill.Name = "Bill";
+            //bill.TeamUID = "99906";
+            //bill.Is35Team = false;
+
+            //FantasyYearConfig vm = new FantasyYearConfig();
+
+            //vm.ConfigName = "First Ever Draft Season 2023!";
+            //vm.TeamUIDS.Add(ryan);
+            //vm.TeamUIDS.Add(dana);
+            //vm.TeamUIDS.Add(tim);
+            //vm.TeamUIDS.Add(alex);
+            //vm.TeamUIDS.Add(allen);
+            //vm.TeamUIDS.Add(bill);
+
+            //vm.Year = 2023;
+            //vm.IsDraft = true;
+            //vm.IsDefault = true; 
+
+            ////Repository.FantasyYearConfigInsert(vm);
+            #endregion
 
 
             #region snake draft
@@ -42,8 +104,8 @@ namespace FantasyCyclingParser
             teams.Add("Allen");
             teams.Add("Bill");
             
-            SnakeDraft draft = new SnakeDraft(teams, 25);            
-            
+           // SnakeDraft draft = new SnakeDraft(teams, 25);
+
             #endregion
 
 
@@ -111,6 +173,9 @@ namespace FantasyCyclingParser
             //BuildSeason(2018);
             //BuildSeason(2019);
             //BuildSeason(2020);
+            
+            //BuildSeason(2023);
+
             // Utilities.NationalityList["FRA"] = new Nationality({ Name="France", PDC_URL=})
             //int year = 2022;
 
@@ -168,6 +233,7 @@ namespace FantasyCyclingParser
             PDC_Season season = new PDC_Season();
             season.Create(year);
             season.UpdateResults();
+            season.LastUpdated = DateTime.Now;
             Repository.PDCSeasonInsert(season); 
 
         }

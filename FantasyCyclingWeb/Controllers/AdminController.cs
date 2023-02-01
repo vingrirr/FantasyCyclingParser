@@ -18,6 +18,26 @@ namespace FantasyCyclingWeb.Controllers
             List<FantasyYearConfig> configs = Repository.FantasyYearConfigGetAll();
             return View();
         }
+        public ActionResult AddConfig()
+        {
+            FantasyYearConfig vm = new FantasyYearConfig();
+            return View(vm);
+
+        }
+
+
+        [HttpPost]
+        public ActionResult AddConfig(FantasyYearConfig vm)
+        {
+
+            Repository.FantasyYearConfigInsert(vm);
+            return View(vm);
+        }
+        public ActionResult Action()
+        {
+            List<FantasyYearConfig> configs = Repository.FantasyYearConfigGetAll();
+            return View();
+        }
 
         public ActionResult RiderAdmin()
         {

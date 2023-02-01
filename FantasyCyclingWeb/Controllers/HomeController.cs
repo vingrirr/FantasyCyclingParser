@@ -143,21 +143,7 @@ namespace FantasyCyclingWeb.Controllers
 
         }
 
-        public ActionResult AddConfig()
-        {
-            FantasyYearConfig vm = new FantasyYearConfig();
-            return View(vm);
 
-        }
-
-
-        [HttpPost]
-        public ActionResult AddConfig(FantasyYearConfig vm)
-        {
-
-            Repository.FantasyYearConfigInsert(vm);
-            return View(vm);
-        }
 
         [HttpPost]
         public JsonResult AddPDCTeamToConfig(FantasyYearConfig vm)

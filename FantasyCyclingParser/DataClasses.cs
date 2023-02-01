@@ -54,6 +54,8 @@ namespace FantasyCyclingParser
         public List<PDCTeamYear> TeamUIDS { get; set; }
         public bool IsDefault { get; set; }
 
+        public bool IsDraft { get; set; }
+
         public string URLToAddPDCTeam { get; set; }
               
     }

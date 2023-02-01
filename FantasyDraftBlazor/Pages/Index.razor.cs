@@ -10,36 +10,37 @@ namespace FantasyDraftBlazor.Pages
             RyansTeam = new PDCTeam();
             RyansTeam.PDCTeamName = "Ryan's Draft Team";
 
-            DanasTeam = new PDCTeam();
-            DanasTeam.PDCTeamName = "Dana's Draft Team";
+            //DanasTeam = new PDCTeam();
+            //DanasTeam.PDCTeamName = "Dana's Draft Team";
 
-            TimsTeam = new PDCTeam();
-            TimsTeam.PDCTeamName = "Tim's Draft Team";
+            //TimsTeam = new PDCTeam();
+            //TimsTeam.PDCTeamName = "Tim's Draft Team";
 
-            BillsTeam = new PDCTeam();
-            BillsTeam.PDCTeamName = "Bill's Draft Team";
+            //BillsTeam = new PDCTeam();
+            //BillsTeam.PDCTeamName = "Bill's Draft Team";
 
-            AlexsTeam = new PDCTeam();
-            AlexsTeam.PDCTeamName = "Alex's Draft Team";
+            //AlexsTeam = new PDCTeam();
+            //AlexsTeam.PDCTeamName = "Alex's Draft Team";
 
-            AllensTeam = new PDCTeam();
-            AllensTeam.PDCTeamName = "Allen's Draft Team";
+            //AllensTeam = new PDCTeam();
+            //AllensTeam.PDCTeamName = "Allen's Draft Team";
 
-            DraftTeams = new List<PDCTeam>();
-            DraftTeams.Add(RyansTeam);
-            DraftTeams.Add(DanasTeam);
-            DraftTeams.Add(TimsTeam);
-            DraftTeams.Add(BillsTeam);
-            DraftTeams.Add(AlexsTeam);
-            DraftTeams.Add(AllensTeam);
+            //DraftTeams = new List<PDCTeam>();
+            //DraftTeams.Add(RyansTeam);
+            //DraftTeams.Add(DanasTeam);
+            //DraftTeams.Add(TimsTeam);
+            //DraftTeams.Add(BillsTeam);
+            //DraftTeams.Add(AlexsTeam);
+            //DraftTeams.Add(AllensTeam);
 
-            
-            
-            FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
+
+
+            FantasyYearConfig config = Repository.FantasyYearConfigGetDefaultDraft();
             PDC_Season season = Repository.PDCSeasonGet(config.Year);
             AvailableRiders = season.Riders;
 
-            CurrentTeam = RyansTeam; 
+            //CurrentTeam = config.TeamUIDS.FirstOrDefault(); 
+            CurrentTeam = RyansTeam;
 
             //foreach (PDCTeamYear ty in config.TeamUIDS)
             //{

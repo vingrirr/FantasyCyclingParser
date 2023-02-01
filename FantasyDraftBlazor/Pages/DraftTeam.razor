@@ -2,7 +2,7 @@
 
 <div class="rider-status">
     <h3>@Team.PDCTeamName</h3>
-    <h3><MatButton Unelevated="true">Save Changes</MatButton> </h3>
+    <h3><MatButton Unelevated="true" @onclick="SaveChanges">Save Changes</MatButton> </h3>
     <ul class="dropzone @dropClass"
         ondragover="event.preventDefault();"
         ondragstart="event.dataTransfer.setData('', event.target.id);"
@@ -16,7 +16,7 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Price</th>
+                <th>Price</th> 
                 <th>Remove</th>
             </tr>
         </thead>

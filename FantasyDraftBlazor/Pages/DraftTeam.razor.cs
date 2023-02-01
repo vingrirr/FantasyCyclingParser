@@ -43,6 +43,12 @@ namespace FantasyDraftBlazor.Pages
             
             await Container.UndoRiderAsync();
         }
+        private void SaveChanges()
+        {
+            int x = 0; 
+            //await Container.SaveChangesAsync();
+            
+        }
 
     }
 
