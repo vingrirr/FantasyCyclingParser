@@ -411,6 +411,14 @@ namespace FantasyCyclingParser
             Riders = riders;
             IsDraftPDCTeam = false;
         }
+        public PDCTeam(PDCTeamYear team, bool? isDraftTeam)
+            : this()
+        {            
+            IsDraftPDCTeam = isDraftTeam.HasValue ? isDraftTeam.Value : false;
+            Is35Team = team.Is35Team;
+            PDCTeamName = team.Name;
+
+        }
 
         public void AddRider(Rider r)
         {

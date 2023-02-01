@@ -7,50 +7,21 @@ namespace FantasyDraftBlazor.Pages
     {
         protected override void OnInitialized()
         {
-            RyansTeam = new PDCTeam();
-            RyansTeam.PDCTeamName = "Ryan's Draft Team";
+            DraftTeams = new List<PDCTeam>();
 
-            //DanasTeam = new PDCTeam();
-            //DanasTeam.PDCTeamName = "Dana's Draft Team";
-
-            //TimsTeam = new PDCTeam();
-            //TimsTeam.PDCTeamName = "Tim's Draft Team";
-
-            //BillsTeam = new PDCTeam();
-            //BillsTeam.PDCTeamName = "Bill's Draft Team";
-
-            //AlexsTeam = new PDCTeam();
-            //AlexsTeam.PDCTeamName = "Alex's Draft Team";
-
-            //AllensTeam = new PDCTeam();
-            //AllensTeam.PDCTeamName = "Allen's Draft Team";
-
-            //DraftTeams = new List<PDCTeam>();
-            //DraftTeams.Add(RyansTeam);
-            //DraftTeams.Add(DanasTeam);
-            //DraftTeams.Add(TimsTeam);
-            //DraftTeams.Add(BillsTeam);
-            //DraftTeams.Add(AlexsTeam);
-            //DraftTeams.Add(AllensTeam);
-
-
-
+ 
             FantasyYearConfig config = Repository.FantasyYearConfigGetDefaultDraft();
             PDC_Season season = Repository.PDCSeasonGet(config.Year);
             AvailableRiders = season.Riders;
 
+            foreach(PDCTeamYear t in config.TeamUIDS)
+            {
+                PDCTeam temp = new PDCTeam(t, true);
+                DraftTeams.Add(temp);
+            }
             //CurrentTeam = config.TeamUIDS.FirstOrDefault(); 
-            CurrentTeam = RyansTeam;
+            CurrentTeam = DraftTeams.First();
 
-            //foreach (PDCTeamYear ty in config.TeamUIDS)
-            //{
-
-            //    PDCTeam team = season.PDCTeams.FirstOrDefault(m => m.PDC_ID == ty.TeamUID);
-            //    if (team != null && ty.Is35Team == false)
-            //    {                                        
-            //        PDCTeams.Add(team);
-            //    }
-            //}
             int z = 0;
         }
 
