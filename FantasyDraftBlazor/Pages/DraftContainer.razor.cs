@@ -12,6 +12,8 @@ namespace FantasyDraftBlazor.Pages
         [Parameter] public EventCallback<Rider> OnRiderUndo { get; set; }
 
         [Parameter] public EventCallback<int> OnTimerUpdated { get; set; }
+
+        [Parameter] public EventCallback<PDCTeam> OnTeamSave { get; set; }
         public Rider Payload { get; set; }
 
         public async Task UpdateRiderAsync()
@@ -29,6 +31,11 @@ namespace FantasyDraftBlazor.Pages
         public async Task UpdateTimer()
         {            
             await OnTimerUpdated.InvokeAsync(0);
+        }
+
+        public async Task SaveChangesAsync(PDCTeam team)
+        {
+            await OnTeamSave.InvokeAsync(team);
         }
 
 
