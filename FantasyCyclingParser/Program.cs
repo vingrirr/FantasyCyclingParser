@@ -103,8 +103,8 @@ namespace FantasyCyclingParser
             teams.Add("Alex");
             teams.Add("Allen");
             teams.Add("Bill");
-            
-           // SnakeDraft draft = new SnakeDraft(teams, 25);
+
+            // SnakeDraft draft = new SnakeDraft(teams, 25);
 
             #endregion
 
@@ -173,8 +173,8 @@ namespace FantasyCyclingParser
             //BuildSeason(2018);
             //BuildSeason(2019);
             //BuildSeason(2020);
-            
-            //BuildSeason(2023);
+
+            BuildPreSeason(2023);
 
             // Utilities.NationalityList["FRA"] = new Nationality({ Name="France", PDC_URL=})
             //int year = 2022;
@@ -235,6 +235,19 @@ namespace FantasyCyclingParser
             season.UpdateResults();
             season.LastUpdated = DateTime.Now;
             Repository.PDCSeasonInsert(season); 
+
+        }
+
+        /// <summary>
+        /// Builds a season but without any race results which dont exist in the pre season
+        /// </summary>
+        /// <param name="year"></param>
+        static void BuildPreSeason(int year)
+        {
+            PDC_Season season = new PDC_Season();
+            season.CreatePreSeason(year);            
+            season.LastUpdated = DateTime.Now;
+            Repository.PDCSeasonInsert(season);
 
         }
 

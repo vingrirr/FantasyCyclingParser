@@ -400,6 +400,7 @@ namespace FantasyCyclingParser
         public List<string> MissingStatsForRiders { get; set; }
         public PDCTeam()
         {
+            ID = Guid.NewGuid().ToString();
             Riders = new List<Rider>();
             MissingStatsForRiders = new List<string>();
             IsDraftPDCTeam = false; 
@@ -721,21 +722,30 @@ namespace FantasyCyclingParser
     {
         public PDC_Season()
         {
-            Year = DateTime.Now.Year; 
+            Year = DateTime.Now.Year;
+            DraftTeams = new List<PDCTeam>();
         }
-        public PDC_Season(int year)
-        {
-            
-        }
-
+        
         public void Create(int year)
         {
-            Year = year; 
+            Year = year;
+            DraftTeams = new List<PDCTeam>();
             //we should only need to do this one time to start off the season.  Teams, Riders, and Calendar wont change
             Riders = Parser.ParseAllRiders(Year);
             //this grabs all teams and their riders.
             PDCTeams = Parser.ParsePDCTeamList(Year);
             RaceCalendar = Parser.ParsePDCCalendar(Year);
+            
+        }
+        public void CreatePreSeason(int year)
+        {
+            Year = year;
+            DraftTeams = new List<PDCTeam>();
+            //we should only need to do this one time to start off the season.  Teams, Riders, and Calendar wont change
+            Riders = Parser.ParseAllRiders(Year);
+            //this grabs all teams and their riders.         
+            RaceCalendar = Parser.ParsePDCCalendar(Year);
+
         }
         public void UpdateResults()
         {
@@ -800,7 +810,9 @@ namespace FantasyCyclingParser
         public List<Rider> Riders { get; set; }
 
         public List<PDCTeam> PDCTeams { get; set; }
-               
+
+        public List<PDCTeam> DraftTeams { get; set; }
+
         //public List<Team> Teams { get; set; }
 
         public List<PDC_Event> RaceCalendar { get; set; }
