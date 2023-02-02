@@ -8,7 +8,7 @@ namespace FantasyCyclingParser
 {
     public class SnakeDraft
     {
-        public SnakeDraft(List<string> teams, int numRounds)
+        public SnakeDraft(List<PDCTeam> teams, int numRounds)
         {
             DraftOrder = new List<DraftPick>();
             DraftRounds = new List<DraftRound>(); 
@@ -16,7 +16,7 @@ namespace FantasyCyclingParser
             numTeams = teams.Count;
             rounds = numRounds;
             
-            RandomizeTeamAssignment();
+            //RandomizeTeamAssignment();
             BuildDraftOrder();
 
         }
@@ -64,7 +64,8 @@ namespace FantasyCyclingParser
                 for (int n = 0; n < allDraftPositions[m].Count; n++)
                 {
                     DraftPick dr = new DraftPick();
-                    dr.Name = Teams[m];
+                    dr.TeamName = Teams[m].PDCTeamName;
+                    dr.ID = Teams[m].ID;
                     dr.PickNum = allDraftPositions[m][n];
                     DraftOrder.Add(dr);
                 }
@@ -82,7 +83,7 @@ namespace FantasyCyclingParser
 
         }
 
-        public List<string> Teams { get; set; }
+        public List<PDCTeam> Teams { get; set; }
         private int rounds { get; set; }
         private int numTeams { get; set; }
         
@@ -97,7 +98,8 @@ namespace FantasyCyclingParser
 
         }
         public int PickNum { get; set; }
-        public string Name { get; set; }
+        public string TeamName { get; set; }
+        public string ID { get; set; }
     }
 
     public class DraftRound

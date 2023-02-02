@@ -1,7 +1,7 @@
 ﻿@using FantasyCyclingParser;
 
 <div class="rider-status">
-    <h3>@Team.PDCTeamName</h3>
+    <h3>@Team.Model.PDCTeamName</h3>
     <h3><MatButton Unelevated="true" @onclick="SaveChanges">Save Changes</MatButton> </h3>
     <ul class="dropzone @dropClass"
         ondragover="event.preventDefault();"
@@ -12,8 +12,11 @@
     </ul>
 
     <hr />
-    <table id="myTable" class="table table-striped">
-        <thead>
+
+    @if (Team.RiderToDraft != null)
+    {
+        <table id="myTable" class="table table-striped">
+            <thead>
             <tr>
                 <th>Name</th>
                 <th>Price</th> 
@@ -21,20 +24,19 @@
             </tr>
         </thead>
         <tbody>
-            @foreach(Rider r in Team.Riders)
-            {
+            
                 <tr>
-                    <td>@r.Name </td>
-                    <td>@r.CurrentYearCost</td>
+                    <td>@Team.RiderToDraft.Name </td>
+                    <td>@Team.RiderToDraft.CurrentYearCost</td>
                     <td><MatButton Unelevated="true" @onclick="RemoveRider" ><i class="oi oi-action-undo " /> </MatButton> </td>
                 </tr>
-            }
+            
 
         </tbody>
     </table>
+    }
 
-
-
+        <h3>Current Riders</h3>
       <table id="currentTable" class="table table-striped">
         <thead>
             <tr>
@@ -44,7 +46,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach(Rider r in Team.Riders)
+            @foreach(Rider r in Team.Model.Riders)
             {
                 <tr>
                     <td>@r.Name </td>

@@ -1,4 +1,5 @@
 ﻿using FantasyCyclingParser;
+using FantasyDraftBlazor.ViewModels;
 using Microsoft.AspNetCore.Http;
 
 namespace FantasyDraftBlazor.Pages
@@ -22,10 +23,19 @@ namespace FantasyDraftBlazor.Pages
                 Repository.PDCSeasonUpdate(Season);
             }
             
-            DraftTeams = new List<PDCTeam>(Season.DraftTeams);
+            DraftTeams = new List<DraftTeamViewModel>();
+
+            foreach (PDCTeam tm in Season.DraftTeams)
+            {
+                DraftTeamViewModel d = new DraftTeamViewModel(tm);
+                DraftTeams.Add(d);
+            }
             //CurrentTeam = config.TeamUIDS.FirstOrDefault(); 
-            CurrentTeam = DraftTeams.Where(x => x.ID == "d194d906-c138-47a5-8084-3545eca36e28").First();
+            CurrentTeam = DraftTeams.Where(x => x.ID == "c9c8d30e-6264-4455-b60a-d50b7bac983c").First();
             LoadAvailableRiders();
+            
+            Draft = new SnakeDraft(Season.DraftTeams, 25);
+            int x = 0; 
 
         }
 
@@ -39,23 +49,21 @@ namespace FantasyDraftBlazor.Pages
         {
             AvailableRiders.Add(addRider);
         }
-        void HandleSaveChanges(PDCTeam team)
+        void HandleSaveChanges(DraftTeamViewModel team)
         {
-            int x = 0;
-            //CurrentTeam = DanasTeam;
 
             if (Season.DraftTeams.Where(x => x.ID == team.ID).Count() > 0)
             {
                 PDCTeam temp = Season.DraftTeams.First(x => x.ID == team.ID);
                 Season.DraftTeams.Remove(temp);
-                
-                Season.DraftTeams.Add(team);
+
+                Season.DraftTeams.Add(team.Model);
             }
             else
             {
-                Season.DraftTeams.Add(team);
+                Season.DraftTeams.Add(team.Model);
             }
-            
+
             Repository.PDCSeasonUpdate(Season);
 
 
@@ -63,7 +71,7 @@ namespace FantasyDraftBlazor.Pages
 
         void HandleTimerUpdated(int timer)
         {
-            CurrentTeam = DanasTeam;
+           // CurrentTeam = DanasTeam;
             
         }
 
@@ -72,9 +80,9 @@ namespace FantasyDraftBlazor.Pages
             AvailableRiders = new List<Rider>(Season.Riders);
 
             //remove any riders which may have already been drafted
-            foreach (PDCTeam team in DraftTeams)
+            foreach (DraftTeamViewModel team in DraftTeams)
             {
-                foreach (Rider r in team.Riders)
+                foreach (Rider r in team.Model.Riders)
                 {
                     Rider temp = AvailableRiders.Where(x => x.PDC_RiderID == r.PDC_RiderID).First();
                     AvailableRiders.Remove(temp);
@@ -88,20 +96,10 @@ namespace FantasyDraftBlazor.Pages
 
         public List<Rider> AvailableRiders { get; set; }
 
-        public List<PDCTeam> DraftTeams { get; set; }
-        public PDCTeam CurrentTeam { get; set; }
-        public PDCTeam RyansTeam { get; set; }
-        
-        public PDCTeam DanasTeam { get; set; }
+        public List<DraftTeamViewModel> DraftTeams { get; set; }
+        public DraftTeamViewModel CurrentTeam { get; set; }
 
-        public PDCTeam TimsTeam { get; set; }
-
-        public PDCTeam BillsTeam { get; set; }
-
-        public PDCTeam AlexsTeam { get; set; }
-
-        public PDCTeam AllensTeam { get; set; }
-
+        public SnakeDraft Draft { get; set; }
 
     }
 }

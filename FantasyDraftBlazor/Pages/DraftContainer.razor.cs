@@ -1,4 +1,5 @@
 ﻿using FantasyCyclingParser;
+using FantasyDraftBlazor.ViewModels;
 using Microsoft.AspNetCore.Components;
 
 namespace FantasyDraftBlazor.Pages
@@ -13,7 +14,7 @@ namespace FantasyDraftBlazor.Pages
 
         [Parameter] public EventCallback<int> OnTimerUpdated { get; set; }
 
-        [Parameter] public EventCallback<PDCTeam> OnTeamSave { get; set; }
+        [Parameter] public EventCallback<DraftTeamViewModel> OnTeamSave { get; set; }
         public Rider Payload { get; set; }
 
         public async Task UpdateRiderAsync()
@@ -33,7 +34,7 @@ namespace FantasyDraftBlazor.Pages
             await OnTimerUpdated.InvokeAsync(0);
         }
 
-        public async Task SaveChangesAsync(PDCTeam team)
+        public async Task SaveChangesAsync(DraftTeamViewModel team)
         {
             await OnTeamSave.InvokeAsync(team);
         }

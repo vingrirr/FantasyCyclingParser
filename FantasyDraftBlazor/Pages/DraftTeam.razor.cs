@@ -1,4 +1,5 @@
 ﻿using FantasyCyclingParser;
+using FantasyDraftBlazor.ViewModels;
 using Microsoft.AspNetCore.Components;
 using System.ComponentModel;
 
@@ -8,7 +9,7 @@ namespace FantasyDraftBlazor.Pages
     {
         string dropClass = "";
         [CascadingParameter] DraftContainer Container { get; set; }
-        [Parameter] public PDCTeam Team { get; set; }
+        [Parameter] public DraftTeamViewModel Team { get; set; }
         protected override async Task OnInitializedAsync()
         {
 
@@ -33,19 +34,22 @@ namespace FantasyDraftBlazor.Pages
         private async Task HandleDrop()
         {
             dropClass = "";
-            Team.Riders.Add(Container.Payload);
+            //Team.Model.Riders.Add(Container.Payload);
+            Team.RiderToDraft = Container.Payload; 
 
             await Container.UpdateRiderAsync();
         }
         private async Task RemoveRider()
         {
-            Team.Riders.Remove(Container.Payload);
-            
+            //Team.Model.Riders.Remove(Container.Payload);
+            Team.RiderToDraft = null;
             await Container.UndoRiderAsync();
         }
         private async Task SaveChanges()
         {
-            int x = 0; 
+            
+            Team.Model.Riders.Add(Team.RiderToDraft);
+            Team.RiderToDraft = null;
             await Container.SaveChangesAsync(Team);
             
         }

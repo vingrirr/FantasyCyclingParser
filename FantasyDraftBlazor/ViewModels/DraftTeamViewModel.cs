@@ -6,17 +6,21 @@ namespace FantasyDraftBlazor.ViewModels
     {
         public DraftTeamViewModel()
         {
-            Riders = new List<DraftRiderViewModel>();
+           // Riders = new List<DraftRiderViewModel>();
+        }
+        public DraftTeamViewModel(PDCTeam team)
+        {
+            Model = team;
+            ID = team.ID;
+            TeamName = team.PDCTeamName;
+            
+
         }
         public string ID { get; set; }
 
-        public bool IsDraftPDCTeam { get; set; }
-
-        public bool Is35Team { get; set; }
-
-        public string PDCTeamName { get; set; }
+        public string TeamName { get; set; }
         public PDCTeam Model { get; set; }
-        public List<DraftRiderViewModel> Riders { get; set; }
+        public Rider RiderToDraft { get; set; }
         
     }
 }

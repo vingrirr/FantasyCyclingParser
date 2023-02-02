@@ -418,6 +418,7 @@ namespace FantasyCyclingParser
             IsDraftPDCTeam = isDraftTeam.HasValue ? isDraftTeam.Value : false;
             Is35Team = team.Is35Team;
             PDCTeamName = team.Name;
+            
 
         }
 
