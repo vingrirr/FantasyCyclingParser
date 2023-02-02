@@ -21,20 +21,8 @@
     }
 </style>
 
+<!--<img class="animate__animated animate__backOutLeft animate__delay-2s" src="data:image;base64,@System.Convert.ToBase64String(photo.Image)" /> -->
 
-<div class="form-group">
-    <label>
-        User: <input @bind="userInput" />
-    </label>
-</div>
-<div class="form-group">
-    <label>
-        Message: <input @bind="messageInput" />
-    </label>
-</div>
-<MatButton Unelevated="true" >Send</MatButton>
-<img class="animate__animated animate__backOutLeft animate__delay-2s" src="data:image;base64,@System.Convert.ToBase64String(photo.Image)" />
-<hr />
 <div class="mat-layout-grid">
     <div class="mat-layout-grid-inner">
         
@@ -60,45 +48,6 @@
     </div>
 </div>
 
-
-
-<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-
-<table id="myTable" class="table table-striped">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Points</th>
-        </tr>
-    </thead>
-    <tbody>
-
-        <tr>
-            <td>blah blah </td>
-            <td>100</td>
-        </tr>
-
-    </tbody>
-</table>
-@*<div class="mat-layout-grid">
-    <div class="mat-layout-grid-inner">
-        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6">asdfff</div>
-        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">fasdfadf</div>
-        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">daaaa</div>
-        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-1">dddd</div>
-        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">fff</div>
-        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-1">ssss</div>
-        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-8">fasdfadfasdf</div>
-    </div>
-</div>*@
-<hr />
-<ul>
-    @foreach (string message in messages)
-    {
-        <li>@message</li>
-    }
-</ul>
-
 @code {
 
     private HubConnection? hubConnection;
@@ -106,25 +55,25 @@
     private string? userInput;
     private string? messageInput;
     private RiderPhoto photo;
-    protected override async Task OnInitializedAsync()
-    {
+    //protected override async Task OnInitializedAsync()
+    //{
 
-        hubConnection = new HubConnectionBuilder()
-            .WithUrl(NavManager.ToAbsoluteUri("/drafthub"))
-            .WithAutomaticReconnect()
-            .Build();
+    //    hubConnection = new HubConnectionBuilder()
+    //        .WithUrl(NavManager.ToAbsoluteUri("/drafthub"))
+    //        .WithAutomaticReconnect()
+    //        .Build();
 
-        photo = await RiderService.GetPhotoAsync();
+    //   // photo = await RiderService.GetPhotoAsync();
 
-        hubConnection.On<string, string>("ReceiveMessage", (user, message) =>
-        {
-            var formattedMessage = $"{user}: {message}";
-            messages.Add(formattedMessage);
-            InvokeAsync(StateHasChanged);
-        });
+    //    hubConnection.On<string, string>("ReceiveMessage", (user, message) =>
+    //    {
+    //        var formattedMessage = $"{user}: {message}";
+    //        messages.Add(formattedMessage);
+    //        InvokeAsync(StateHasChanged);
+    //    });
 
-        await hubConnection.StartAsync();
-    }
+    //    await hubConnection.StartAsync();
+    //}
 
     private async Task Send()
     {

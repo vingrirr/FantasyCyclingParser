@@ -2633,3 +2633,141 @@
    at AngleSharp.Extensions.QueryExtensions.QuerySelectorAll(INodeList elements, String selectors)
    at AngleSharp.Dom.Document.QuerySelectorAll(String selectors)
    at FantasyCyclingParser.Parser.ParsePCSRiders() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:53.9266|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:53.9266|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:54.2876|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:54.2876|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:54.5922|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:54.5922|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:54.8581|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:54.8581|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:55.0994|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:55.0994|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:55.2856|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:55.2856|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:55.4691|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:55.4691|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:55.9302|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:55.9302|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:56.1034|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:56.1034|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:56.2858|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:56.2858|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:56.4622|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:56.4622|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:56.6467|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:56.6467|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:56.8525|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:56.8525|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:57.0398|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:57.0398|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:57.2158|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:57.2158|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:57.4355|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:57.4355|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:57.6278|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:57.6278|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:57.8053|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:57.8053|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:58.0072|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:58.0072|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:58.1806|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:58.1806|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:58.3728|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:58.3728|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:58.5522|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:58.5522|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:58.7469|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94
+2023-02-02 15:42:58.7469|ERROR|FantasyCyclingParser.Parser|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at FantasyCyclingParser.Parser.ParsePCSRiderPhotos() in C:\code\FantasyCyclingParser\FantasyCyclingParser\Parser.cs:line 94

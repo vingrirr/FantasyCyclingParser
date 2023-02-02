@@ -39,8 +39,6 @@ namespace FantasyDraftBlazor.Pages
             DraftPick firstPick = Draft.DraftOrder[0];
             CurrentTeam = DraftTeams.Where(x => x.ID == firstPick.ID).First();
 
-            int x = 0; 
-
         }
 
 

@@ -112,6 +112,12 @@ namespace FantasyCyclingParser
             #region rider photo stuff
 
             //Do the matching
+            //List<RiderPhoto> photoList = Parser.ParsePCSRiderPhotos();
+
+            //foreach (RiderPhoto p in photoList)
+            //{
+            //    Repository.RiderPhotoInsert(p);
+            //}
 
             //List<RiderPhoto> photos = Repository.RiderPhotoGetAll();
 
@@ -174,7 +180,7 @@ namespace FantasyCyclingParser
             //BuildSeason(2019);
             //BuildSeason(2020);
 
-            BuildPreSeason(2023);
+            //BuildPreSeason(2023);
 
             // Utilities.NationalityList["FRA"] = new Nationality({ Name="France", PDC_URL=})
             //int year = 2022;
