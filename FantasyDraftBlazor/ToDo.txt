@@ -1,5 +1,6 @@
 ﻿
-* Implement Save for a Draft Team
+
 * Hide Undo button when a rider is saved
 * Have a running total of Points left for the Team and How many are used
 * Make a DraftTeamViewModel?  Currently using a PDCTeam and it may get confusing.
+* Make a log of the draft, who did what and what round etc

@@ -33,4 +33,27 @@
         </tbody>
     </table>
 
+
+
+      <table id="currentTable" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th> 
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Rider r in Team.Riders)
+            {
+                <tr>
+                    <td>@r.Name </td>
+                    <td>@r.CurrentYearCost</td>
+                    
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
 </div>
