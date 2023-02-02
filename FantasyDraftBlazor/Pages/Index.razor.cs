@@ -30,11 +30,15 @@ namespace FantasyDraftBlazor.Pages
                 DraftTeamViewModel d = new DraftTeamViewModel(tm);
                 DraftTeams.Add(d);
             }
-            //CurrentTeam = config.TeamUIDS.FirstOrDefault(); 
-            CurrentTeam = DraftTeams.Where(x => x.ID == "c9c8d30e-6264-4455-b60a-d50b7bac983c").First();
+            
+            
             LoadAvailableRiders();
             
             Draft = new SnakeDraft(Season.DraftTeams, 25);
+            
+            DraftPick firstPick = Draft.DraftOrder[0];
+            CurrentTeam = DraftTeams.Where(x => x.ID == firstPick.ID).First();
+
             int x = 0; 
 
         }
@@ -66,7 +70,9 @@ namespace FantasyDraftBlazor.Pages
 
             Repository.PDCSeasonUpdate(Season);
 
-
+            Draft.DraftOrder.RemoveAt(0); //basically this is pop
+            DraftPick nextPick = Draft.DraftOrder[0];
+            CurrentTeam = DraftTeams.Where(x => x.ID == nextPick.ID).First();
         }
 
         void HandleTimerUpdated(int timer)
