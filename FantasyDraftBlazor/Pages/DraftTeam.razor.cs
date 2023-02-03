@@ -8,11 +8,13 @@ namespace FantasyDraftBlazor.Pages
     public partial class DraftTeam : ComponentBase
     {
         string dropClass = "";
+        string animateClass = "";
         [CascadingParameter] DraftContainer Container { get; set; }
         [Parameter] public DraftTeamViewModel Team { get; set; }
         protected override async Task OnInitializedAsync()
         {
 
+            //animateClass = "animate__animated animate__backInRight animate__delay-2s";
         }
 
         protected override void OnParametersSet()
@@ -51,7 +53,7 @@ namespace FantasyDraftBlazor.Pages
             Team.Model.Riders.Add(Team.RiderToDraft);
             Team.RiderToDraft = null;
             await Container.SaveChangesAsync(Team);
-            
+            //animateClass = "animate__animated animate__backOutLeft animate__delay-2s";
         }
 
     }

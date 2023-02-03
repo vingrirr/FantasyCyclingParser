@@ -25,19 +25,15 @@ namespace FantasyDraftBlazor.Pages
             
             DraftTeams = new List<DraftTeamViewModel>();
 
-            foreach (PDCTeam tm in Season.DraftTeams)
-            {
-                DraftTeamViewModel d = new DraftTeamViewModel(tm);
-                DraftTeams.Add(d);
-            }
-            
-            
-            LoadAvailableRiders();
-            
-            Draft = new SnakeDraft(Season.DraftTeams, 25);
-            
-            DraftPick firstPick = Draft.DraftOrder[0];
+                                    
+            BuildSnakeDraft();
+            DraftPick firstPick = Draft.DraftOrder[0];            
             CurrentTeam = DraftTeams.Where(x => x.ID == firstPick.ID).First();
+
+            //note: Must load available riders after draft teams have been made so we filter out
+            //any already selected riders
+            LoadAvailableRiders();
+
 
         }
 
@@ -77,6 +73,53 @@ namespace FantasyDraftBlazor.Pages
         {
            // CurrentTeam = DanasTeam;
             
+        }
+
+        private void BuildSnakeDraft()
+        {
+            //Dana - fc2e7a01-3a31-4aa2-bdcc-1203933932bc
+            //Allen - 3ab287a5-5a34-4dda-9203-a6bc2404ee15
+            //Alex - 7b8e450c-1079-4cc6-bc7a-42479657799d
+            //Tim - 0b90f656-e1f0-4a9b-af34-5724f126a13b
+            //Ryan - c9c8d30e-6264-4455-b60a-d50b7bac983c
+            //Bill - 1ebb9ae7-0467-4522-b4dc-fe7fc7803806
+
+            PDCTeam dana = Season.DraftTeams.Where(x => x.ID == "fc2e7a01-3a31-4aa2-bdcc-1203933932bc").First();
+            PDCTeam allen = Season.DraftTeams.Where(x => x.ID == "3ab287a5-5a34-4dda-9203-a6bc2404ee15").First();
+            PDCTeam alex = Season.DraftTeams.Where(x => x.ID == "7b8e450c-1079-4cc6-bc7a-42479657799d").First();
+            PDCTeam tim = Season.DraftTeams.Where(x => x.ID == "0b90f656-e1f0-4a9b-af34-5724f126a13b").First();
+            PDCTeam ryan = Season.DraftTeams.Where(x => x.ID == "c9c8d30e-6264-4455-b60a-d50b7bac983c").First();
+            PDCTeam bill = Season.DraftTeams.Where(x => x.ID == "1ebb9ae7-0467-4522-b4dc-fe7fc7803806").First();
+
+
+            List<PDCTeam> initialDraftOrder = new List<PDCTeam>();
+            initialDraftOrder.Add(dana);
+            initialDraftOrder.Add(allen);
+            initialDraftOrder.Add(alex);
+            initialDraftOrder.Add(tim);
+            initialDraftOrder.Add(ryan);
+            initialDraftOrder.Add(bill);
+
+            Draft = new SnakeDraft(initialDraftOrder, 25);
+
+            DraftTeamViewModel d = new DraftTeamViewModel(dana);
+            DraftTeams.Add(d);
+
+            DraftTeamViewModel al = new DraftTeamViewModel(allen);
+            DraftTeams.Add(al);
+
+            DraftTeamViewModel ax = new DraftTeamViewModel(alex);
+            DraftTeams.Add(ax);
+
+            DraftTeamViewModel t = new DraftTeamViewModel(tim);
+            DraftTeams.Add(t);
+
+            DraftTeamViewModel r = new DraftTeamViewModel(ryan);
+            DraftTeams.Add(r);
+
+            DraftTeamViewModel b = new DraftTeamViewModel(bill);
+            DraftTeams.Add(b);
+
         }
 
         private void LoadAvailableRiders()

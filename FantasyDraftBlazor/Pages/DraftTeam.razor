@@ -1,6 +1,6 @@
 ﻿@using FantasyCyclingParser;
 
-<div class="rider-status">
+<div class="rider-status @animateClass">
     <h3>@Team.Model.PDCTeamName</h3>
     <h3><MatButton Unelevated="true" @onclick="SaveChanges">Save Changes</MatButton> </h3>
     <ul class="dropzone @dropClass"
