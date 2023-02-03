@@ -69,8 +69,10 @@ namespace FantasyDraftBlazor.Pages
                 }
 
                 Repository.PDCSeasonUpdate(Season);
-                
+                DraftLogEntry log = new DraftLogEntry(DraftRound, PickNumber, team.TeamName, team.RiderToDraft.Name, team.RiderToDraft.PDC_RiderID);
+                Repository.DraftLogInsert(log);
 
+                team.RiderToDraft = null;
 
                 Draft.DraftOrder.RemoveAt(0); //basically this is pop
                 DraftPick currPick = Draft.DraftOrder[0];
@@ -86,6 +88,8 @@ namespace FantasyDraftBlazor.Pages
             }
             catch(Exception ex)
             {
+                DraftLogEntry err = new DraftLogEntry(0,0,"", ex.Message, ex.StackTrace);
+                Repository.DraftLogInsert(err);
 
             }
         }
