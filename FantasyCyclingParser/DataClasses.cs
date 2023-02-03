@@ -837,5 +837,28 @@ namespace FantasyCyclingParser
         public byte[] Image { get; set; }
     }
 
+    public class DraftLogEntry : Entity
+    {
+        public DraftLogEntry(int round, int pickNum, string team, string riderName, string riderId)
+        {
+            ID = Guid.NewGuid().ToString(); 
+            DraftTime = DateTime.Now.ToString();
+
+            DraftRound = round;
+            PickNumber = pickNum;
+            DraftingTeam = team;
+            RiderDrafted = riderName;
+            RiderID = riderId; 
+
+        }
+
+        public string ID { get; set; }
+        public int DraftRound { get; set; }
+        public int PickNumber { get; set; }
+        public string DraftTime { get; set; }
+        public string DraftingTeam { get; set; }
+        public string RiderDrafted { get; set; }
+        public string RiderID { get; set; }
+    }
 
 }

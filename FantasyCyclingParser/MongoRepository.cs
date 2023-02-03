@@ -116,5 +116,19 @@ namespace FantasyCyclingParser
 
             return items; 
         }
+
+        public static void DraftLogInsert(DraftLogEntry entry)
+        {
+            (new MongoRepository<DraftLogEntry>()).Add(entry);
+        }
+
+        public static List<DraftLogEntry> DraftLogGetAll()
+        {
+
+            MongoRepository<DraftLogEntry> entries = new MongoRepository<DraftLogEntry>();
+            List<DraftLogEntry> log = entries.ToList();
+
+            return log;
+        }
     }
 }

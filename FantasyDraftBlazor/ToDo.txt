@@ -1,12 +1,11 @@
 ﻿
 
-
+* Handle Save in a try catch and create an error log and display error to page?
 * Have a running total of Points left for the Team and How many are used
 * Make a log of the draft, who did what and what round etc
 * Fix Rider Names
 * How to see who is currently on your team  
 * On save, animate a team leaving and the new team in
-* Show next team to draft
 * Add a timer?
 
 * Rider photos (needs fixed)

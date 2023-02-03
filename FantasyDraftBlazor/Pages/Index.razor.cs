@@ -54,31 +54,40 @@ namespace FantasyDraftBlazor.Pages
         void HandleSaveChanges(DraftTeamViewModel team)
         {
 
-            if (Season.DraftTeams.Where(x => x.ID == team.ID).Count() > 0)
+            try
             {
-                PDCTeam temp = Season.DraftTeams.First(x => x.ID == team.ID);
-                Season.DraftTeams.Remove(temp);
+                if (Season.DraftTeams.Where(x => x.ID == team.ID).Count() > 0)
+                {
+                    PDCTeam temp = Season.DraftTeams.First(x => x.ID == team.ID);
+                    Season.DraftTeams.Remove(temp);
 
-                Season.DraftTeams.Add(team.Model);
+                    Season.DraftTeams.Add(team.Model);
+                }
+                else
+                {
+                    Season.DraftTeams.Add(team.Model);
+                }
+
+                Repository.PDCSeasonUpdate(Season);
+                
+
+
+                Draft.DraftOrder.RemoveAt(0); //basically this is pop
+                DraftPick currPick = Draft.DraftOrder[0];
+                DraftPick nextPick = Draft.DraftOrder[1];
+                CurrentTeam = DraftTeams.Where(x => x.ID == currPick.ID).First();
+                NextTeam = DraftTeams.Where(x => x.ID == nextPick.ID).First();
+
+                PickNumber++;
+
+                if (((PickNumber - 1) % 6) == 0)
+                    DraftRound++;
+
             }
-            else
+            catch(Exception ex)
             {
-                Season.DraftTeams.Add(team.Model);
+
             }
-
-            Repository.PDCSeasonUpdate(Season);
-
-            Draft.DraftOrder.RemoveAt(0); //basically this is pop
-            DraftPick currPick = Draft.DraftOrder[0];
-            DraftPick nextPick = Draft.DraftOrder[1];
-            CurrentTeam = DraftTeams.Where(x => x.ID == currPick.ID).First();
-            NextTeam = DraftTeams.Where(x => x.ID == nextPick.ID).First();
-
-            PickNumber++;
-
-            if (((PickNumber -1) % 6) == 0)
-                DraftRound++;
-
         }
 
         void HandleTimerUpdated(int timer)
