@@ -10,7 +10,9 @@ namespace FantasyDraftBlazor.Pages
         {             
             Config = Repository.FantasyYearConfigGetDefaultDraft();
             Season = Repository.PDCSeasonGet(Config.Year);
-            
+
+            DraftRound = 1;
+            PickNumber = 1;
 
             if (Season.DraftTeams.Count() == 0)
             {
@@ -27,8 +29,10 @@ namespace FantasyDraftBlazor.Pages
 
                                     
             BuildSnakeDraft();
-            DraftPick firstPick = Draft.DraftOrder[0];            
-            CurrentTeam = DraftTeams.Where(x => x.ID == firstPick.ID).First();
+            DraftPick currPick = Draft.DraftOrder[0];
+            DraftPick nextPick = Draft.DraftOrder[1];
+            CurrentTeam = DraftTeams.Where(x => x.ID == currPick.ID).First();
+            NextTeam = DraftTeams.Where(x => x.ID == nextPick.ID).First();
 
             //note: Must load available riders after draft teams have been made so we filter out
             //any already selected riders
@@ -65,8 +69,16 @@ namespace FantasyDraftBlazor.Pages
             Repository.PDCSeasonUpdate(Season);
 
             Draft.DraftOrder.RemoveAt(0); //basically this is pop
-            DraftPick nextPick = Draft.DraftOrder[0];
-            CurrentTeam = DraftTeams.Where(x => x.ID == nextPick.ID).First();
+            DraftPick currPick = Draft.DraftOrder[0];
+            DraftPick nextPick = Draft.DraftOrder[1];
+            CurrentTeam = DraftTeams.Where(x => x.ID == currPick.ID).First();
+            NextTeam = DraftTeams.Where(x => x.ID == nextPick.ID).First();
+
+            PickNumber++;
+
+            if (((PickNumber -1) % 6) == 0)
+                DraftRound++;
+
         }
 
         void HandleTimerUpdated(int timer)
@@ -145,8 +157,10 @@ namespace FantasyDraftBlazor.Pages
 
         public List<DraftTeamViewModel> DraftTeams { get; set; }
         public DraftTeamViewModel CurrentTeam { get; set; }
-
+        public DraftTeamViewModel NextTeam { get; set; }
         public SnakeDraft Draft { get; set; }
 
+        public int DraftRound { get; set; }
+        public int PickNumber { get; set; }
     }
 }

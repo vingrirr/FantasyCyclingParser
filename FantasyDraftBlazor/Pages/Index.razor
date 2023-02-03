@@ -8,6 +8,7 @@
 @implements IAsyncDisposable
 
 
+
 <PageTitle>Fantasy Cycling Draft</PageTitle>
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -23,9 +24,17 @@
 
 <!--<img class="animate__animated animate__backOutLeft animate__delay-2s" src="data:image;base64,@System.Convert.ToBase64String(photo.Image)" /> -->
 
+
 <div class="mat-layout-grid">
     <div class="mat-layout-grid-inner">
         
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12" >
+        <h4>
+            Round: @DraftRound | Pick Number: @PickNumber | On Deck: @NextTeam.TeamName
+            
+        </h4>
+        <hr />
+          </div>
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
             <DraftContainer RiderList="AvailableRiders" OnTeamSave="HandleSaveChanges" OnTimerUpdated="HandleTimerUpdated" OnRiderUndo="HandleRiderUndo" OnStatusUpdated="HandleStatusUpdated">
                 <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
