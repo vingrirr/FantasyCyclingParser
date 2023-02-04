@@ -53,8 +53,12 @@ namespace FantasyDraftBlazor.Pages
         }
         private async Task RemoveExistingRider(string riderId)
         {
-            int x = 0;
             
+            Rider r = Team.Model.Riders.Where(x => x.PDC_RiderID == riderId).First();
+            Team.Model.Riders.Remove(r);
+            await Container.AddRiderAsync(r);
+            await Container.SaveChangesAsync(Team);
+            Team.HasUsedOverride = false;
         }
         private async Task SaveChanges()
         {

@@ -28,6 +28,11 @@ namespace FantasyDraftBlazor.Pages
            // RiderList.Add(Payload);
             await OnRiderUndo.InvokeAsync(Payload);
         }
+        public async Task AddRiderAsync(Rider rider)
+        {
+            // RiderList.Add(Payload);
+            await OnRiderUndo.InvokeAsync(rider);
+        }
 
         public async Task UpdateTimer()
         {            
