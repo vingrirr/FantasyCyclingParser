@@ -843,6 +843,7 @@ namespace FantasyCyclingParser
         {
             ID = Guid.NewGuid().ToString(); 
             DraftTime = DateTime.Now.ToString();
+            Year = DateTime.Now.Year; 
 
             DraftRound = round;
             PickNumber = pickNum;
@@ -853,6 +854,7 @@ namespace FantasyCyclingParser
         }
 
         public string ID { get; set; }
+        public int Year { get; set; }
         public int DraftRound { get; set; }
         public int PickNumber { get; set; }
         public string DraftTime { get; set; }

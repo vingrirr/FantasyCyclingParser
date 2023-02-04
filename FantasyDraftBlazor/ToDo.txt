@@ -1,7 +1,11 @@
 ﻿
 
+* Implement "override" functionality...can only click one time
+
 * Handle Save in a try catch and create an error log and display error to page?
 * Have a running total of Points left for the Team and How many are used
+
+
 * Fix Rider Names
 * How to see who is currently on your team  
 * On save, animate a team leaving and the new team in

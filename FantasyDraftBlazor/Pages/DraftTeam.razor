@@ -2,7 +2,8 @@
 
 <div class="rider-status @animateClass">
     <h3>@Team.Model.PDCTeamName</h3>
-    <h3><MatButton Unelevated="true" @onclick="SaveChanges">Save Changes</MatButton> </h3>
+    <h3><MatButton Unelevated="true" @onclick="SaveChanges">Save Changes</MatButton> | <MatButton Unelevated="true" @onclick="RemoveRider">Override<i class="oi oi-bolt " /> </MatButton></h3>
+
     <ul class="dropzone @dropClass"
         ondragover="event.preventDefault();"
         ondragstart="event.dataTransfer.setData('', event.target.id);"
@@ -36,12 +37,13 @@
     </table>
     }
 
-        <h3>Current Riders</h3>
+    <h3>Current Riders </h3>
       <table id="currentTable" class="table table-striped">
         <thead>
             <tr>
                 <th>Name</th>
                 <th>Price</th> 
+                
                 
             </tr>
         </thead>
