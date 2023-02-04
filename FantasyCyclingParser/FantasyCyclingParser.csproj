@@ -163,6 +163,7 @@
     <Content Include="Pages\PeterSagan.html" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="dbBackups\" />
     <Folder Include="Logs\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
