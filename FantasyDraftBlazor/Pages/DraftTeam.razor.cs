@@ -47,6 +47,15 @@ namespace FantasyDraftBlazor.Pages
             Team.RiderToDraft = null;
             await Container.UndoRiderAsync();
         }
+        private async Task OverrideTeam()
+        {            
+            Team.HasUsedOverride = true;            
+        }
+        private async Task RemoveExistingRider(string riderId)
+        {
+            int x = 0;
+            
+        }
         private async Task SaveChanges()
         {
             

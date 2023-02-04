@@ -2,7 +2,7 @@
 
 <div class="rider-status @animateClass">
     <h3>@Team.Model.PDCTeamName</h3>
-    <h3><MatButton Unelevated="true" @onclick="SaveChanges">Save Changes</MatButton> | <MatButton Unelevated="true" @onclick="RemoveRider">Override<i class="oi oi-bolt " /> </MatButton></h3>
+    <h3><MatButton Unelevated="true" @onclick="SaveChanges">Save Changes</MatButton> | <MatButton Unelevated="true" @onclick="OverrideTeam">Override<i class="oi oi-bolt " /> </MatButton></h3>
 
     <ul class="dropzone @dropClass"
         ondragover="event.preventDefault();"
@@ -53,7 +53,11 @@
                 <tr>
                     <td>@r.Name </td>
                     <td>@r.CurrentYearCost</td>
-                    
+                    @if (Team.HasUsedOverride)
+                    {
+                        <td><MatButton Unelevated="true" @onclick="() => RemoveExistingRider(r.PDC_RiderID)"><i class="oi oi-action-undo " /> </MatButton> </td>
+                    }
+
                 </tr>
             }
 
