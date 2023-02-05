@@ -49,16 +49,17 @@ namespace FantasyDraftBlazor.Pages
         }
         private async Task OverrideTeam()
         {            
-            Team.HasUsedOverride = true;            
+            Team.IsUsingOverride = true;            
         }
         private async Task RemoveExistingRider(string riderId)
         {
             
             Rider r = Team.Model.Riders.Where(x => x.PDC_RiderID == riderId).First();
-            Team.Model.Riders.Remove(r);
-            await Container.AddRiderAsync(r);
-            await Container.SaveChangesAsync(Team);
-            Team.HasUsedOverride = false;
+            Team.RiderToAddBackToDraft = r;
+            Team.Model.Riders.Remove(r);            
+            await Container.RemoveExistingRider(Team);
+            Team.IsUsingOverride = false;
+            Team.CanUseOverride = false;
         }
         private async Task SaveChanges()
         {

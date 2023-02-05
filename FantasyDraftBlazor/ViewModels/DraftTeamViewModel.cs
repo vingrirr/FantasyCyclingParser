@@ -13,8 +13,8 @@ namespace FantasyDraftBlazor.ViewModels
             Model = team;
             ID = team.ID;
             TeamName = team.PDCTeamName;
-            HasUsedOverride = false; 
-
+            CanUseOverride = true;
+            IsUsingOverride = false;
         }
         public string ID { get; set; }
 
@@ -22,7 +22,10 @@ namespace FantasyDraftBlazor.ViewModels
         public PDCTeam Model { get; set; }
         public Rider RiderToDraft { get; set; }
 
-        public bool HasUsedOverride { get; set; }
-        
+        public Rider RiderToAddBackToDraft { get; set; }
+
+        public bool CanUseOverride { get; set; }
+        public bool IsUsingOverride { get; set; }
+
     }
 }

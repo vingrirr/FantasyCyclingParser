@@ -56,6 +56,7 @@ namespace FantasyDraftBlazor.Pages
 
             try
             {
+                // everytime we add a rider, we save the entire updated draft team to the season
                 if (Season.DraftTeams.Where(x => x.ID == team.ID).Count() > 0)
                 {
                     PDCTeam temp = Season.DraftTeams.First(x => x.ID == team.ID);
@@ -69,8 +70,12 @@ namespace FantasyDraftBlazor.Pages
                 }
 
                 Repository.PDCSeasonUpdate(Season);
-                DraftLogEntry log = new DraftLogEntry(DraftRound, PickNumber, team.TeamName, team.RiderToDraft.Name, team.RiderToDraft.PDC_RiderID);
-                Repository.DraftLogInsert(log);
+
+                if (team.RiderToDraft != null)
+                {
+                    DraftLogEntry log = new DraftLogEntry(DraftRound, PickNumber, team.TeamName, team.RiderToDraft.Name, team.RiderToDraft.PDC_RiderID);
+                    Repository.DraftLogInsert(log);
+                }
 
                 team.RiderToDraft = null;
 
@@ -89,6 +94,41 @@ namespace FantasyDraftBlazor.Pages
             catch(Exception ex)
             {
                 DraftLogEntry err = new DraftLogEntry(0,0,"", ex.Message, ex.StackTrace);
+                Repository.DraftLogInsert(err);
+
+            }
+        }
+
+        void HandleRemoveExistingRider(DraftTeamViewModel team)
+        {
+            try
+            {
+                // everytime we add a rider, we save the entire updated draft team to the season
+                if (Season.DraftTeams.Where(x => x.ID == team.ID).Count() > 0)
+                {
+                    PDCTeam temp = Season.DraftTeams.First(x => x.ID == team.ID);
+                    Season.DraftTeams.Remove(temp);
+
+                    Season.DraftTeams.Add(team.Model);
+                }
+                else
+                {
+                    Season.DraftTeams.Add(team.Model);
+                }
+                Repository.PDCSeasonUpdate(Season);
+
+                AvailableRiders.Add(team.RiderToAddBackToDraft);
+
+                
+                //todo: add "action" to the draft log then log the removal of rider
+                
+                //DraftLogEntry log = new DraftLogEntry(DraftRound, PickNumber, team.TeamName, team.RiderToDraft.Name, team.RiderToDraft.PDC_RiderID);
+                //Repository.DraftLogInsert(log);
+
+            }
+            catch (Exception ex)
+            {
+                DraftLogEntry err = new DraftLogEntry(0, 0, "", ex.Message, ex.StackTrace);
                 Repository.DraftLogInsert(err);
 
             }
