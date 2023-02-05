@@ -6,8 +6,11 @@
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-8 rider-status @animateClass">
             <h3>@Team.Model.PDCTeamName</h3>
             <h3>
-                <MatButton Unelevated="true" @onclick="SaveChanges">Save Changes</MatButton> 
-             
+                <MatButton Unelevated="true" @onclick="SaveChanges">Save Changes</MatButton>
+                @if (Team.CanUseOverride)
+                {
+                    <span>|</span> <MatButton Unelevated="true" @onclick="OverrideTeam"> Override<i class="oi oi-bolt " /> </MatButton>
+                }
             </h3>
 
             <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
@@ -74,37 +77,6 @@
 
            
         </div>
-        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
-            <h3>Summary
-                @if (Team.CanUseOverride)
-                {
-                    <span>|</span> <MatButton Unelevated="true" @onclick="OverrideTeam"> Override<i class="oi oi-bolt " /> </MatButton>
-                }
-
-            </h3>
-            <hr />
-            <table id="myTable" class="table table-striped">              
-                <tbody>
-
-                    <tr>
-                        <td> Number Riders: </td> 
-                        <td>25 </td>
-                    </tr>
-                    <tr>
-                        <td> Team Budget: </td> 
-                        <td> 150</td>
-                        </tr>
-                    <tr>
-                        <td> # of ridrs 24 points or more:</td>
-                        <td> 1</td>
-                        </tr>
-                    <tr>
-                        <td> # of ridrs 18 points or more:</td>
-                        <td> 0 </td>
-
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        
     </div>
 </div>
