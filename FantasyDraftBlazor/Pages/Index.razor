@@ -30,32 +30,33 @@
         
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12" >
         <h4>
-            Round: @DraftRound | Pick Number: @PickNumber | On Deck: @NextTeam.TeamName
+                Round: @DraftRound | Pick Number: @PickNumber | <span style="float:right; color: #6200ee"> On Deck: @NextTeam.TeamName </span>
             
         </h4>
         <hr />
-          </div>
-        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-            <DraftContainer RiderList="AvailableRiders" OnExistingRiderUndo="HandleRemoveExistingRider" OnTeamSave="HandleSaveChanges" OnTimerUpdated="HandleTimerUpdated" OnRiderUndo="HandleRiderUndo" OnStatusUpdated="HandleStatusUpdated">
-                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+        </div>
+         @* <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
                     <Timer></Timer>
                 </div>
-                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+       *@
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+            <DraftContainer RiderList="AvailableRiders" OnExistingRiderUndo="HandleRemoveExistingRider" OnTeamSave="HandleSaveChanges" OnTimerUpdated="HandleTimerUpdated" OnRiderUndo="HandleRiderUndo" OnStatusUpdated="HandleStatusUpdated">
+              
+                <div class="mat-layout-grid-cell mat-layout-grid-cell">
                     <DraftRiderList ></DraftRiderList>
                 </div>
               
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell">
                     <DraftTeam  Team="CurrentTeam"></DraftTeam>
                     </div>
               
                 
             </DraftContainer>
         </div>
-        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6">
-
-        </div>
+ 
     </div>
-</div>
+    </div>
+
 
 @code {
 

@@ -71,7 +71,7 @@ a, .btn-link {
 .rider-status {
     display: flex;
     flex-direction: column;
-    width: 312px;
+    
 }
 
     .job-status ul {
