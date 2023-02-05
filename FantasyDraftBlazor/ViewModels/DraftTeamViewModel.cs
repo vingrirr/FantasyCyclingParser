@@ -25,6 +25,15 @@ namespace FantasyDraftBlazor.ViewModels
             Rider24ptCount = Model.Riders.Count(x => x.CurrentYearCost >= 24);
             Rider18ptCount = Model.Riders.Count(x => x.CurrentYearCost >= 18);
         }
+
+        public bool Validate()
+        {
+            return (RiderCount <= 25 &&
+                    TeamBudget <= 150 &&
+                    Rider24ptCount <= 1 &&
+                    Rider18ptCount <= 3
+            );
+        }
         public string ID { get; set; }
 
         public string TeamName { get; set; }
