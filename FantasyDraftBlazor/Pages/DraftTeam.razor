@@ -5,6 +5,37 @@
 
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-8 rider-status @animateClass">
             <h3>@Team.Model.PDCTeamName</h3>
+            <hr />
+               <MatAccordion>
+            <MatExpansionPanel>
+                <MatExpansionPanelSummary>
+                    <MatExpansionPanelHeader>Summary</MatExpansionPanelHeader>
+                    <MatExpansionPanelSubHeader>
+                        
+                    </MatExpansionPanelSubHeader>
+                </MatExpansionPanelSummary>
+                <MatExpansionPanelDetails>
+                        <MatList>
+                            <MatListItem>
+                                Rider Count: @Team.RiderCount
+                            </MatListItem>
+                            <MatListDivider></MatListDivider>
+                            <MatListItem>
+                                Team Budget: @Team.TeamBudget
+                            </MatListItem>
+                            <MatListDivider></MatListDivider>
+                            <MatListItem>
+                                # Riders >= 24pts: @Team.Rider24ptCount 
+                            </MatListItem>
+                            <MatListDivider></MatListDivider>
+                            <MatListItem>
+                                # Riders >= 18pts: @Team.Rider18ptCount
+                            </MatListItem>
+                        </MatList>
+                </MatExpansionPanelDetails>
+            </MatExpansionPanel>
+            </MatAccordion>
+            <hr />
             <h3>
                 <MatButton Unelevated="true" @onclick="SaveChanges">Save Changes</MatButton>
                 @if (Team.CanUseOverride)
@@ -23,7 +54,8 @@
                 </ul>
 
                 <hr />
-
+                
+                
                 @if (Team.RiderToDraft != null)
                 {
                     <table id="myTable" class="table table-striped">

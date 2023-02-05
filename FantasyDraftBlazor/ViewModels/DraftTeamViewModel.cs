@@ -15,6 +15,15 @@ namespace FantasyDraftBlazor.ViewModels
             TeamName = team.PDCTeamName;
             CanUseOverride = true;
             IsUsingOverride = false;
+            Calculate();
+        }
+
+        private void Calculate()
+        {
+            RiderCount = Model.Riders.Count();
+            TeamBudget = 150 - Model.Riders.Sum(x => x.CurrentYearCost);
+            Rider24ptCount = Model.Riders.Count(x => x.CurrentYearCost >= 24);
+            Rider18ptCount = Model.Riders.Count(x => x.CurrentYearCost >= 18);
         }
         public string ID { get; set; }
 
@@ -26,6 +35,14 @@ namespace FantasyDraftBlazor.ViewModels
 
         public bool CanUseOverride { get; set; }
         public bool IsUsingOverride { get; set; }
+
+        public int RiderCount { get; set; }
+
+        public int TeamBudget { get; set; }
+
+        public int Rider24ptCount { get; set; }
+
+        public int Rider18ptCount { get; set; }
 
     }
 }
