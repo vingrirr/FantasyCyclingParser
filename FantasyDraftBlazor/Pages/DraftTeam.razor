@@ -4,7 +4,7 @@
     <div class="mat-layout-grid-inner">
 
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-8 rider-status @animateClass">
-            <h3>@Team.Model.PDCTeamName</h3>
+            <h3>@Team.Model.PDCTeamName </h3>
             <hr />
                <MatAccordion>
             <MatExpansionPanel>
@@ -17,19 +17,19 @@
                 <MatExpansionPanelDetails>
                         <MatList>
                             <MatListItem>
-                                Rider Count: @Team.RiderCount
+                                Rider Count: @Team.RiderCount &nbsp;&nbsp;&nbsp; <i class="oi oi-x" style="color: red"></i>
                             </MatListItem>
                             <MatListDivider></MatListDivider>
                             <MatListItem>
-                                Team Budget: @Team.TeamBudget
+                                Team Budget: @Team.TeamBudget &nbsp;&nbsp;&nbsp; <i class="oi oi-x" style="color: red"></i>
                             </MatListItem>
                             <MatListDivider></MatListDivider>
                             <MatListItem>
-                                # Riders >= 24pts: @Team.Rider24ptCount 
+                                # Riders >= 24pts: @Team.Rider24ptCount &nbsp;&nbsp;&nbsp; <i class="oi oi-check" style="color: green"></i>
                             </MatListItem>
                             <MatListDivider></MatListDivider>
                             <MatListItem>
-                                # Riders >= 18pts: @Team.Rider18ptCount
+                                # Riders >= 18pts: @Team.Rider18ptCount &nbsp;&nbsp;&nbsp; <i class="oi oi-check" style="color: green"></i>
                             </MatListItem>
                         </MatList>
                 </MatExpansionPanelDetails>
