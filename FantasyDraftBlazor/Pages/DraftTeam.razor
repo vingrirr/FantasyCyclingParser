@@ -90,17 +90,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (Rider r in Team.Model.Riders)
+                        @foreach (Rider r in Team.Model.Riders.OrderByDescending(x =>x.CurrentYearCost).ToList())
                         {
-                            <tr>
-                                <td>@r.Name </td>
-                                <td>@r.CurrentYearCost</td>
-                                @if (Team.IsUsingOverride)
-                                {
-                                    <td><MatButton Unelevated="true" @onclick="() => RemoveExistingRider(r.PDC_RiderID)"><i class="oi oi-action-undo " /> </MatButton> </td>
-                                }
+                            if (r != null)
+                            {
+                                <tr>
+                                    <td>@r.Name </td>
+                                    <td>@r.CurrentYearCost</td>
+                                    @if (Team.IsUsingOverride)
+                                    {
+                                        <td><MatButton Unelevated="true" @onclick="() => RemoveExistingRider(r.PDC_RiderID)"><i class="oi oi-action-undo " /> </MatButton> </td>
+                                    }
 
-                            </tr>
+                                </tr>
+                            }
                         }
 
                     </tbody>

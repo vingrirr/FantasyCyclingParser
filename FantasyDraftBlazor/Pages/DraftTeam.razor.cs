@@ -63,11 +63,14 @@ namespace FantasyDraftBlazor.Pages
         }
         private async Task SaveChanges()
         {
-            
-            Team.Model.Riders.Add(Team.RiderToDraft);
-            //Team.RiderToDraft = null;
-            await Container.SaveChangesAsync(Team);
-            //animateClass = "animate__animated animate__backOutLeft animate__delay-2s";
+
+            if (Team.RiderToDraft != null)
+            {
+                Team.Model.Riders.Add(Team.RiderToDraft);
+                //Team.RiderToDraft = null;
+                await Container.SaveChangesAsync(Team);
+                //animateClass = "animate__animated animate__backOutLeft animate__delay-2s";
+            }
         }
 
     }

@@ -11,6 +11,8 @@ namespace FantasyDraftBlazor.ViewModels
         public DraftTeamViewModel(PDCTeam team)
         {
             Model = team;
+            team.Riders.RemoveAll(x => x == null);
+
             ID = team.ID;
             TeamName = team.PDCTeamName;
             CanUseOverride = true;
