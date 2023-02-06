@@ -70,11 +70,13 @@ namespace FantasyDraftBlazor.Pages
 
             if (Team.RiderToDraft != null)
             {
+                //animateClass = "animate__animated animate__backOutLeft animate__delay-2s";
                 Team.Model.Riders.Add(Team.RiderToDraft);
                 //Team.RiderToDraft = null;
-                await Container.SaveChangesAsync(Team);
                 Team.Calculate();
-                //animateClass = "animate__animated animate__backOutLeft animate__delay-2s";
+                
+                await Container.SaveChangesAsync(Team);
+                
             }
         }
 
