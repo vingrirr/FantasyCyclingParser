@@ -5,6 +5,7 @@
 
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-8 rider-status @animateClass">
             <h3>@Team.Model.PDCTeamName </h3>
+            <MatListItemSecondaryText>@Team.BudgetAvailable points available</MatListItemSecondaryText>
             <hr />
                <MatAccordion>
             <MatExpansionPanel>
@@ -17,19 +18,54 @@
                 <MatExpansionPanelDetails>
                         <MatList>
                             <MatListItem>
-                                Rider Count: @Team.RiderCount &nbsp;&nbsp;&nbsp; <i class="oi oi-x" style="color: red"></i>
+                                Rider Count: @Team.RiderCount &nbsp;&nbsp;&nbsp; 
+                                
+                                @if(Team.RiderCount == 25)
+                                {
+                                    <i class="oi oi-check" style="color: green"></i>
+                                }
+                                else
+                                {
+                                    <i class="oi oi-x" style="color: red"></i>
+                                }
+
                             </MatListItem>
                             <MatListDivider></MatListDivider>
                             <MatListItem>
-                                Team Budget: @Team.TeamBudget &nbsp;&nbsp;&nbsp; <i class="oi oi-x" style="color: red"></i>
+                                Team Budget: @Team.TeamBudget &nbsp;&nbsp;&nbsp; 
+                                @if(Team.TeamBudget <= 150)
+                                {
+                                    <i class="oi oi-check" style="color: green"></i>
+                                }
+                                else
+                                {
+                                    <i class="oi oi-x" style="color: red"></i>
+                                }
+                            </MatListItem>
+                            <MatListItemSecondaryText>@Team.BudgetAvailable points available</MatListItemSecondaryText>
+                            <MatListDivider></MatListDivider>
+                            <MatListItem>
+                                # Riders >= 24pts: @Team.Rider24ptCount &nbsp;&nbsp;&nbsp; 
+                                @if(Team.Rider24ptCount <= 1)
+                                {
+                                    <i class="oi oi-check" style="color: green"></i>
+                                }
+                                else
+                                {
+                                    <i class="oi oi-x" style="color: red"></i>
+                                }
                             </MatListItem>
                             <MatListDivider></MatListDivider>
                             <MatListItem>
-                                # Riders >= 24pts: @Team.Rider24ptCount &nbsp;&nbsp;&nbsp; <i class="oi oi-check" style="color: green"></i>
-                            </MatListItem>
-                            <MatListDivider></MatListDivider>
-                            <MatListItem>
-                                # Riders >= 18pts: @Team.Rider18ptCount &nbsp;&nbsp;&nbsp; <i class="oi oi-check" style="color: green"></i>
+                                # Riders >= 18pts: @Team.Rider18ptCount &nbsp;&nbsp;&nbsp; 
+                                @if(Team.Rider18ptCount <= 3)
+                                {
+                                    <i class="oi oi-check" style="color: green"></i>
+                                }
+                                else
+                                {
+                                    <i class="oi oi-x" style="color: red"></i>
+                                }
                             </MatListItem>
                         </MatList>
                 </MatExpansionPanelDetails>

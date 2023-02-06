@@ -37,15 +37,18 @@ namespace FantasyDraftBlazor.Pages
         {
             dropClass = "";
             //Team.Model.Riders.Add(Container.Payload);
-            Team.RiderToDraft = Container.Payload; 
 
+            Team.RiderToDraft = Container.Payload;
+            Team.Calculate();
             await Container.UpdateRiderAsync();
         }
         private async Task RemoveRider()
         {
             //Team.Model.Riders.Remove(Container.Payload);
             Team.RiderToDraft = null;
+            Team.Calculate();
             await Container.UndoRiderAsync();
+            
         }
         private async Task OverrideTeam()
         {            
@@ -60,6 +63,7 @@ namespace FantasyDraftBlazor.Pages
             await Container.RemoveExistingRider(Team);
             Team.IsUsingOverride = false;
             Team.CanUseOverride = false;
+            Team.Calculate();
         }
         private async Task SaveChanges()
         {
@@ -69,6 +73,7 @@ namespace FantasyDraftBlazor.Pages
                 Team.Model.Riders.Add(Team.RiderToDraft);
                 //Team.RiderToDraft = null;
                 await Container.SaveChangesAsync(Team);
+                Team.Calculate();
                 //animateClass = "animate__animated animate__backOutLeft animate__delay-2s";
             }
         }

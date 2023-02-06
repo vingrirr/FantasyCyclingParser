@@ -20,10 +20,11 @@ namespace FantasyDraftBlazor.ViewModels
             Calculate();
         }
 
-        private void Calculate()
+        public void Calculate()
         {
             RiderCount = Model.Riders.Count();
-            TeamBudget = 150 - Model.Riders.Sum(x => x.CurrentYearCost);
+            TeamBudget = Model.Riders.Sum(x => x.CurrentYearCost);
+            BudgetAvailable = 150 - TeamBudget;
             Rider24ptCount = Model.Riders.Count(x => x.CurrentYearCost >= 24);
             Rider18ptCount = Model.Riders.Count(x => x.CurrentYearCost >= 18);
         }
@@ -31,7 +32,7 @@ namespace FantasyDraftBlazor.ViewModels
         public bool Validate()
         {
             return (RiderCount <= 25 &&
-                    TeamBudget <= 150 &&
+                    TeamBudget >= 150 &&
                     Rider24ptCount <= 1 &&
                     Rider18ptCount <= 3
             );
@@ -50,6 +51,7 @@ namespace FantasyDraftBlazor.ViewModels
         public int RiderCount { get; set; }
 
         public int TeamBudget { get; set; }
+        public int BudgetAvailable { get; set; }
 
         public int Rider24ptCount { get; set; }
 
