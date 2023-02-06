@@ -23,7 +23,12 @@ namespace FantasyDraftBlazor.ViewModels
         public void Calculate()
         {
             RiderCount = Model.Riders.Count();
-            TeamBudget = Model.Riders.Sum(x => x.CurrentYearCost);
+
+            if (RiderToDraft != null)
+                TeamBudget = Model.Riders.Sum(x => x.CurrentYearCost) + RiderToDraft.CurrentYearCost;
+            else
+                TeamBudget = Model.Riders.Sum(x => x.CurrentYearCost);
+
             BudgetAvailable = 150 - TeamBudget;
             Rider24ptCount = Model.Riders.Count(x => x.CurrentYearCost >= 24);
             Rider18ptCount = Model.Riders.Count(x => x.CurrentYearCost >= 18);
