@@ -12,7 +12,7 @@ namespace FantasyDraftBlazor.Pages
             Season = Repository.PDCSeasonGet(Config.Year);
 
             DraftRound = 1;
-            PickNumber = 1;
+            PickNumber = 1;            
 
             if (Season.DraftTeams.Count() == 0)
             {
@@ -118,6 +118,14 @@ namespace FantasyDraftBlazor.Pages
                     Visibility = "hidden";
                 }
 
+                List<Rider> distinctRiders = AvailableRiders.DistinctBy(x => x.CurrentYearCost).ToList();
+                List<int> distinctPoints = new List<int>();
+                foreach(Rider r in distinctRiders.OrderByDescending(y => y.CurrentYearCost).ToList())
+                {
+                    distinctPoints.Add(r.CurrentYearCost);
+                }
+
+                Combinations = new PointCombinations(distinctPoints, CurrentTeam.BudgetAvailable, (25 - CurrentTeam.RiderCount));
             }
             catch(Exception ex)
             {
@@ -241,6 +249,7 @@ namespace FantasyDraftBlazor.Pages
         public DraftTeamViewModel NextTeam { get; set; }
         public SnakeDraft Draft { get; set; }
 
+        public PointCombinations Combinations { get; set; }
         public int DraftRound { get; set; }
         public int PickNumber { get; set; }
 
