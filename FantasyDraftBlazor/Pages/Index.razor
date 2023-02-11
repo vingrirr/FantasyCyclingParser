@@ -58,6 +58,32 @@
                 <div class="mat-layout-grid-cell mat-layout-grid-cell">
                     <DraftTeam Team="CurrentTeam" IsAdmin="false"></DraftTeam>
                     </div>
+
+                @if (Combinations != null)
+                {
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Combinations</th>                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                   @foreach(List<int> item in Combinations.Combos)
+                                   {
+                                       <tr>
+                                           <td>
+                                               @foreach(int i in item)
+                                               {
+                                                <span>@i.ToString()</span><span>&nbsp</span>
+                                               }
+                                           </td>
+                                       </tr>
+                                   }
+                            </tbody>
+                        </table>
+                    </div>
+                }
               
                 
             </DraftContainer>

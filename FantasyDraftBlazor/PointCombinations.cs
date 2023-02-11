@@ -9,13 +9,26 @@
     {
         public PointCombinations(List<int> pointArray, int targetSum, int numSlots)
         {
-            
+
+            Combos = new List<List<int>>(); 
 
             List<List<int>> ans
                 = GFG.combinationSum(pointArray, targetSum);
 
-            int x = 0;
+            foreach(List<int> c in ans)
+            {
+                if (c.Count <= numSlots)
+                    Combos.Add(c);
+            }
+            if (Combos.Count > 0)
+            {
+                Combos = Combos.OrderByDescending(x => x.Count).ToList();
+            }
+
+            
         }
+
+        public  List<List<int>> Combos { get; set; }
     }
 
     public static class GFG

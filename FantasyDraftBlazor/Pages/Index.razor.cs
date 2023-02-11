@@ -12,7 +12,18 @@ namespace FantasyDraftBlazor.Pages
             Season = Repository.PDCSeasonGet(Config.Year);
 
             DraftRound = 1;
-            PickNumber = 1;            
+            PickNumber = 1;
+
+
+            List<int> distinctPoints = new List<int>();
+            distinctPoints.Add(1);
+            distinctPoints.Add(2);
+            distinctPoints.Add(4);
+            distinctPoints.Add(6);
+
+            //for testing only...
+            //Combinations = new PointCombinations(distinctPoints, 14, 4);
+
 
             if (Season.DraftTeams.Count() == 0)
             {
@@ -118,14 +129,19 @@ namespace FantasyDraftBlazor.Pages
                     Visibility = "hidden";
                 }
 
-                List<Rider> distinctRiders = AvailableRiders.DistinctBy(x => x.CurrentYearCost).ToList();
-                List<int> distinctPoints = new List<int>();
-                foreach(Rider r in distinctRiders.OrderByDescending(y => y.CurrentYearCost).ToList())
+                if (DraftRound >= 20)
                 {
-                    distinctPoints.Add(r.CurrentYearCost);
+                    List<Rider> distinctRiders = AvailableRiders.DistinctBy(x => x.CurrentYearCost).ToList();
+                    List<int> distinctPoints = new List<int>();
+                    foreach (Rider r in distinctRiders.OrderByDescending(y => y.CurrentYearCost).ToList())
+                    {
+                        distinctPoints.Add(r.CurrentYearCost);
+                    }
+
+                    Combinations = new PointCombinations(distinctPoints, CurrentTeam.BudgetAvailable, (25 - CurrentTeam.RiderCount));
                 }
 
-                Combinations = new PointCombinations(distinctPoints, CurrentTeam.BudgetAvailable, (25 - CurrentTeam.RiderCount));
+                
             }
             catch(Exception ex)
             {
