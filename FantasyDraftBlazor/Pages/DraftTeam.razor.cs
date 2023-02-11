@@ -11,6 +11,8 @@ namespace FantasyDraftBlazor.Pages
         string animateClass = "";
         [CascadingParameter] DraftContainer Container { get; set; }
         [Parameter] public DraftTeamViewModel Team { get; set; }
+        
+        [Parameter] public bool IsAdmin   { get; set; }
         protected override async Task OnInitializedAsync()
         {
 

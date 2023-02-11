@@ -29,6 +29,18 @@ namespace FantasyDraftBlazor.Pages
 
                                     
             BuildSnakeDraft();
+
+            #region for testing only - clear all riders 
+
+            //foreach (PDCTeam t in Season.DraftTeams)
+            //{
+            //    t.Riders.Clear();
+            //}
+
+            //Repository.PDCSeasonUpdate(Season);
+
+            #endregion
+
             DraftPick currPick = Draft.DraftOrder[0];
             DraftPick nextPick = Draft.DraftOrder[1];
             CurrentTeam = DraftTeams.Where(x => x.ID == currPick.ID).First();
@@ -37,7 +49,7 @@ namespace FantasyDraftBlazor.Pages
             //note: Must load available riders after draft teams have been made so we filter out
             //any already selected riders
             LoadAvailableRiders();
-
+            Visibility = "visible";
 
         }
 
@@ -78,17 +90,33 @@ namespace FantasyDraftBlazor.Pages
                 }
 
                 team.RiderToDraft = null;
-
+                
                 Draft.DraftOrder.RemoveAt(0); //basically this is pop
-                DraftPick currPick = Draft.DraftOrder[0];
-                DraftPick nextPick = Draft.DraftOrder[1];
-                CurrentTeam = DraftTeams.Where(x => x.ID == currPick.ID).First();
-                NextTeam = DraftTeams.Where(x => x.ID == nextPick.ID).First();
 
-                PickNumber++;
+                if (Draft.DraftOrder.Count() > 1) 
+                { 
+                    
+                    DraftPick currPick = Draft.DraftOrder[0];
+                    DraftPick nextPick = Draft.DraftOrder[1];
+                    CurrentTeam = DraftTeams.Where(x => x.ID == currPick.ID).First();
+                    NextTeam = DraftTeams.Where(x => x.ID == nextPick.ID).First();
 
-                if (((PickNumber - 1) % 6) == 0)
-                    DraftRound++;
+                    PickNumber++;
+
+                    if (((PickNumber - 1) % 6) == 0)
+                        DraftRound++;
+                }
+                else if (Draft.DraftOrder.Count() == 1)
+                {
+                    DraftPick currPick = Draft.DraftOrder[0];
+                    
+                    CurrentTeam = DraftTeams.Where(x => x.ID == currPick.ID).First();
+                    NextTeam = null;
+                }
+                else
+                {
+                    Visibility = "hidden";
+                }
 
             }
             catch(Exception ex)
@@ -215,5 +243,7 @@ namespace FantasyDraftBlazor.Pages
 
         public int DraftRound { get; set; }
         public int PickNumber { get; set; }
+
+        public string Visibility { get; set; }
     }
 }

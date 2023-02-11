@@ -25,12 +25,21 @@
 <!--<img class="animate__animated animate__backOutLeft animate__delay-2s" src="data:image;base64,@System.Convert.ToBase64String(photo.Image)" /> -->
 
 
-<div class="mat-layout-grid">
+<div class="mat-layout-grid" style="visibility: @Visibility">
     <div class="mat-layout-grid-inner">
         
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12" >
         <h4>
-                Round: @DraftRound | Pick Number: @PickNumber | <span style="float:right; color: #6200ee"> On Deck: @NextTeam.TeamName </span>
+                Round: @DraftRound | Pick Number: @PickNumber | <span style="float:right; color: #6200ee"> 
+                    @if(@NextTeam != null)
+                    {
+                        <strong>On Deck: </strong> @NextTeam.TeamName
+                    }
+                    else
+                    {
+                        <strong>On Deck: None, we are finished!</strong>
+                    }
+                </span>
             
         </h4>
         <hr />
@@ -47,7 +56,7 @@
                 </div>
 
                 <div class="mat-layout-grid-cell mat-layout-grid-cell">
-                    <DraftTeam  Team="CurrentTeam"></DraftTeam>
+                    <DraftTeam Team="CurrentTeam" IsAdmin="false"></DraftTeam>
                     </div>
               
                 
@@ -58,6 +67,9 @@
     </div>
 
 
+    <div >
+    <img src="~/tommyb.webp" />
+    </div>
 @code {
 
     private HubConnection? hubConnection;

@@ -117,7 +117,7 @@ namespace FantasyCyclingParser
             //foreach (RiderPhoto p in photoList)
             //{
             //    Repository.RiderPhotoInsert(p);
-            //}
+            //} 
 
             //List<RiderPhoto> photos = Repository.RiderPhotoGetAll();
 

@@ -74,7 +74,7 @@
             <hr />
             <h3>
                 <MatButton Unelevated="true" @onclick="SaveChanges">Save Changes</MatButton>
-                @if (Team.CanUseOverride)
+                @if (Team.CanUseOverride  && !IsAdmin)
                 {
                     <span>|</span> <MatButton Unelevated="true" @onclick="OverrideTeam"> Override<i class="oi oi-bolt " /> </MatButton>
                 }
@@ -133,7 +133,7 @@
                                 <tr>
                                     <td>@r.Name </td>
                                     <td>@r.CurrentYearCost</td>
-                                    @if (Team.IsUsingOverride)
+                                    @if (Team.IsUsingOverride || IsAdmin)
                                     {
                                         <td><MatButton Unelevated="true" @onclick="() => RemoveExistingRider(r.PDC_RiderID)"><i class="oi oi-action-undo " /> </MatButton> </td>
                                     }

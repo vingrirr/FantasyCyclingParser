@@ -3,7 +3,7 @@
 
 * Make Admin page to add/remove riders and reset the override functionality for each team
 
-* Prevent others from drafting for you via login?
+
 * Handle Save in a try catch and create an error log and display error to page?
 
 * Fix Rider Names

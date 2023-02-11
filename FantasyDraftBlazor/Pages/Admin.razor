@@ -1,0 +1,46 @@
+﻿@page "/Admin"
+
+<PageTitle>Admin</PageTitle>
+
+<h1>Admin</h1>
+
+<hr/>
+<MatButton Unelevated="true" @onclick="ClearAll" >Clear All Riders From Teams</MatButton>
+
+<hr />
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+            <DraftContainer RiderList="AvailableRiders" >
+
+                <div class="mat-layout-grid-cell mat-layout-grid-cell">
+                    <DraftRiderList ></DraftRiderList>
+                </div>
+
+             <div class="mat-layout-grid-cell mat-layout-grid-cell">   
+        <MatTabGroup>
+            <MatTab Label="Dana">                
+                    <DraftTeam Team="Dana" IsAdmin="true"></DraftTeam>
+                </MatTab>
+            <MatTab Label="Ryan">
+                    <DraftTeam Team="Ryan" IsAdmin="true"></DraftTeam>
+            </MatTab>
+                <MatTab Label="Tim">
+                    <DraftTeam Team="Tim" IsAdmin="true"></DraftTeam>
+                </MatTab>
+                <MatTab Label="Alex">
+                    <DraftTeam Team="Alex" IsAdmin="true"></DraftTeam>
+                </MatTab>
+                <MatTab Label="Allen">
+                    <DraftTeam Team="Allen" IsAdmin="true"></DraftTeam>
+                </MatTab>
+                <MatTab Label="Bill">
+                    <DraftTeam Team="Bill" IsAdmin="true"></DraftTeam>
+                </MatTab>
+            
+ 
+        </MatTabGroup>
+        </div>
+                
+        
+
+            </DraftContainer>
+        </div>
