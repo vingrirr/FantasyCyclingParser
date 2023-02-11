@@ -9,6 +9,8 @@ namespace FantasyDraftBlazor.Pages
     public partial class DraftRiderList : ComponentBase
     {
         string dropClass = "";
+
+        int previousYear = DateTime.Now.Year - 2001;
         public List<Rider> RiderList { get; set; }
         [CascadingParameter] DraftContainer Container { get; set; }
 
