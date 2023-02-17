@@ -1,0 +1,53 @@
+﻿@page "/TeamView/{Name}"
+
+@using FantasyCyclingParser;
+@inject NavigationManager NavigationManager
+
+<div>
+ <h3>@TheView.TeamName</h3>
+
+ <h4>
+        <strong>Budget: </strong> @TheView.TeamBudget
+        &nbsp; &nbsp; <strong> Rider Count:</strong> @TheView.RiderCount
+        &nbsp;&nbsp; <strong> 24pt Count: </strong> @TheView.Rider24ptCount
+        &nbsp;&nbsp; <strong>18pt Count: </strong> @TheView.Rider18ptCount
+    </h4>
+
+
+         <DraftContainer RiderList="AvailableRiders">
+        <div class="mat-layout-grid-cell mat-layout-grid-cell">
+            <DraftRiderList></DraftRiderList>
+        </div>
+    
+    <div class="mat-layout-grid-cell mat-layout-grid-cell">
+    <h3>Current Riders </h3>
+
+                <table id="currentTable" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+            @foreach (Rider r in TheView.Model.Riders.OrderByDescending(x => x.CurrentYearCost).ToList())
+                        {
+                            if (r != null)
+                            {
+                                <tr>
+                                    <td>@r.Name </td>
+                                    <td>@r.CurrentYearCost</td>
+                                  
+
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+
+            </DraftContainer>
+</div>
