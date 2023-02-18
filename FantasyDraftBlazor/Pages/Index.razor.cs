@@ -202,31 +202,31 @@ namespace FantasyDraftBlazor.Pages
             //Bill - 1ebb9ae7-0467-4522-b4dc-fe7fc7803806
 
             PDCTeam dana = Season.DraftTeams.Where(x => x.ID == "fc2e7a01-3a31-4aa2-bdcc-1203933932bc").First();
-            PDCTeam allen = Season.DraftTeams.Where(x => x.ID == "3ab287a5-5a34-4dda-9203-a6bc2404ee15").First();
-            PDCTeam alex = Season.DraftTeams.Where(x => x.ID == "7b8e450c-1079-4cc6-bc7a-42479657799d").First();
+        //    PDCTeam allen = Season.DraftTeams.Where(x => x.ID == "3ab287a5-5a34-4dda-9203-a6bc2404ee15").First();
+          //  PDCTeam alex = Season.DraftTeams.Where(x => x.ID == "7b8e450c-1079-4cc6-bc7a-42479657799d").First();
             PDCTeam tim = Season.DraftTeams.Where(x => x.ID == "0b90f656-e1f0-4a9b-af34-5724f126a13b").First();
             PDCTeam ryan = Season.DraftTeams.Where(x => x.ID == "c9c8d30e-6264-4455-b60a-d50b7bac983c").First();
-            PDCTeam bill = Season.DraftTeams.Where(x => x.ID == "1ebb9ae7-0467-4522-b4dc-fe7fc7803806").First();
+            //PDCTeam bill = Season.DraftTeams.Where(x => x.ID == "1ebb9ae7-0467-4522-b4dc-fe7fc7803806").First();
 
 
             List<PDCTeam> initialDraftOrder = new List<PDCTeam>();
             initialDraftOrder.Add(dana);
-            initialDraftOrder.Add(allen);
-            initialDraftOrder.Add(alex);
+            //initialDraftOrder.Add(allen);
+            //initialDraftOrder.Add(alex);
             initialDraftOrder.Add(tim);
             initialDraftOrder.Add(ryan);
-            initialDraftOrder.Add(bill);
+            //initialDraftOrder.Add(bill);
 
             Draft = new SnakeDraft(initialDraftOrder, 25);
 
             DraftTeamViewModel d = new DraftTeamViewModel(dana);
             DraftTeams.Add(d);
 
-            DraftTeamViewModel al = new DraftTeamViewModel(allen);
-            DraftTeams.Add(al);
+            //DraftTeamViewModel al = new DraftTeamViewModel(allen);
+            //DraftTeams.Add(al);
 
-            DraftTeamViewModel ax = new DraftTeamViewModel(alex);
-            DraftTeams.Add(ax);
+            //DraftTeamViewModel ax = new DraftTeamViewModel(alex);
+            //DraftTeams.Add(ax);
 
             DraftTeamViewModel t = new DraftTeamViewModel(tim);
             DraftTeams.Add(t);
@@ -234,8 +234,8 @@ namespace FantasyDraftBlazor.Pages
             DraftTeamViewModel r = new DraftTeamViewModel(ryan);
             DraftTeams.Add(r);
 
-            DraftTeamViewModel b = new DraftTeamViewModel(bill);
-            DraftTeams.Add(b);
+            //DraftTeamViewModel b = new DraftTeamViewModel(bill);
+            //DraftTeams.Add(b);
 
         }
 
