@@ -1,5 +1,20 @@
 
 
-Dana - add Simon Carr
+----From Draft---- 
 
+Dana - add Simon Carr
 Tim - remove Carr, add Mathius Vacek
+
+---UI Stuff----
+
+- Get rid of Drag and drop
+- Snake or linear draft?
+- Show select rider list on far right
+- Make mobile friendly
+- Admin - add and delete does not seem to work
+- Admin - be able to set someone's turn 
+- The summary/recacluate seems to be wrong or confusing
+- Need to fix rider names
+- Rounds were showing wrong...but may be b/c of 3 people and not 6
+- TeamView page needs to show picks left, points left, and the "calculate combinations" page
+
