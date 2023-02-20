@@ -114,7 +114,7 @@ namespace FantasyDraftBlazor.Pages
 
                     PickNumber++;
 
-                    if (((PickNumber - 1) % 6) == 0)
+                    if (((PickNumber - 1) % DraftTeams.Count()) == 0)
                         DraftRound++;
                 }
                 else if (Draft.DraftOrder.Count() == 1)
