@@ -37,7 +37,7 @@ namespace FantasyDraftBlazor.Pages
             }
             
             DraftTeams = new List<DraftTeamViewModel>();
-
+            SelectedRiders = new List<Rider>();
                                     
             BuildSnakeDraft();
 
@@ -63,16 +63,15 @@ namespace FantasyDraftBlazor.Pages
             Visibility = "visible";
 
         }
-
-
-
         void HandleStatusUpdated(Rider updatedRider)
         {
             AvailableRiders.Remove(updatedRider);
+            SelectedRiders.Add(updatedRider);
         }
         void HandleRiderUndo(Rider addRider)
         {
             AvailableRiders.Add(addRider);
+            SelectedRiders.Remove(addRider);
         }
         void HandleSaveChanges(DraftTeamViewModel team)
         {
@@ -170,10 +169,10 @@ namespace FantasyDraftBlazor.Pages
                 Repository.PDCSeasonUpdate(Season);
 
                 AvailableRiders.Add(team.RiderToAddBackToDraft);
+                SelectedRiders.Remove(team.RiderToAddBackToDraft);
 
-                
                 //todo: add "action" to the draft log then log the removal of rider
-                
+
                 //DraftLogEntry log = new DraftLogEntry(DraftRound, PickNumber, team.TeamName, team.RiderToDraft.Name, team.RiderToDraft.PDC_RiderID);
                 //Repository.DraftLogInsert(log);
 
@@ -250,6 +249,7 @@ namespace FantasyDraftBlazor.Pages
                 {
                     Rider temp = AvailableRiders.Where(x => x.PDC_RiderID == r.PDC_RiderID).First();
                     AvailableRiders.Remove(temp);
+                    SelectedRiders.Add(temp);
                 }
             }
         }
@@ -259,6 +259,7 @@ namespace FantasyDraftBlazor.Pages
         public PDC_Season Season { get; set; }
 
         public List<Rider> AvailableRiders { get; set; }
+        public List<Rider> SelectedRiders { get; set; }
 
         public List<DraftTeamViewModel> DraftTeams { get; set; }
         public DraftTeamViewModel CurrentTeam { get; set; }
