@@ -54,6 +54,21 @@ namespace FantasyCyclingWeb.Controllers
             return View(vm);
 
         }
+
+
+        public ActionResult Draft()
+        {            
+            FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
+            PDC_Season season = Repository.PDCSeasonGet(config.Year);
+
+            DashboardModel dm = new DashboardModel(config, season);
+            DashboardViewModel vm = new DashboardViewModel(dm);
+            
+            return View("Index", vm);
+
+        }
+
+
         //public ActionResult NewIndex()
         //{
 
@@ -94,8 +109,8 @@ namespace FantasyCyclingWeb.Controllers
         //    }
 
         //    NewDashboardViewModel vm = new NewDashboardViewModel(config, PDCTeamData, points, configTeams);
-            
-            
+
+
         //    return View(vm);
         //}
 
