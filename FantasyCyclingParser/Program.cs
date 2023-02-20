@@ -32,6 +32,33 @@ namespace FantasyCyclingParser
         static void Main(string[] args)
         {
 
+
+            PDC_Season s = Repository.PDCSeasonGet(2023);
+            PDCTeam dana = s.DraftTeams.Where(d => d.ID == "fc2e7a01-3a31-4aa2-bdcc-1203933932bc").First();
+            PDCTeam tim = s.DraftTeams.Where(d => d.ID == "0b90f656-e1f0-4a9b-af34-5724f126a13b").First();
+            PDCTeam ryan = s.DraftTeams.Where(d => d.ID == "c9c8d30e-6264-4455-b60a-d50b7bac983c").First();
+
+            int dSum = dana.Riders.Sum(k => k.CurrentYearCost);
+            int tSum = tim.Riders.Sum(k => k.CurrentYearCost);
+            int rSum = ryan.Riders.Sum(k => k.CurrentYearCost);
+
+            int z = 0;
+
+            #region remove a rider from a draft team
+            //PDC_Season s = Repository.PDCSeasonGet(2023);
+
+            //PDCTeam t = s.DraftTeams.Where(d => d.ID == "fc2e7a01-3a31-4aa2-bdcc-1203933932bc").First();
+
+            //Rider temp = t.Riders.Where(r => r.PDC_RiderID == "3975").First();
+
+            //t.Riders.Remove(temp);
+
+            //Repository.PDCSeasonUpdate(s);
+
+            //int v = 0;
+            #endregion;
+
+            //3975
             #region copy draft teams from pre-season to season
             //PDC_Season draft = Repository.PDCSeasonGetById("63dc076c479bd474f069fa63");
             //PDC_Season curr = Repository.PDCSeasonGetById("63f37daf479bd479dcaa6837");

@@ -218,7 +218,7 @@ namespace FantasyDraftBlazor.Pages
             initialDraftOrder.Add(bill);
 
             Draft = new SnakeDraft(initialDraftOrder, 25);
-
+            
             DraftTeamViewModel d = new DraftTeamViewModel(dana);
             DraftTeams.Add(d);
 

@@ -80,6 +80,33 @@ namespace FantasyCyclingWeb.Models
 
         }
 
+        public DashboardModel(FantasyYearConfig config, PDC_Season season, bool isDraft)
+        {
+            PDCTeams = new List<PDCTeam>();
+            PDCTeamData = new List<PDCTeamPoints>();
+            CurrentConfig = config;
+            List<PDC_Result> results = season.RaceResults;
+
+            foreach (PDCTeam team in season.DraftTeams)
+            {
+                
+                if (team != null && team.Riders.Count() > 0)
+                {
+                    team.Is35Team = false;
+                    team.CalculatePoints(results);
+                    PDCTeams.Add(team);
+                }
+            }
+
+            foreach (PDCTeam t in PDCTeams)
+            {
+
+                PDCTeamPoints ptp = new PDCTeamPoints(t.PDCTeamName, t.TotalPointsScored);
+                PDCTeamData.Add(ptp);
+            }
+
+        }
+
         public FantasyYearConfig CurrentConfig { get; set; }
         
         public List<PDCTeamPoints> PDCTeamData { get; set; }

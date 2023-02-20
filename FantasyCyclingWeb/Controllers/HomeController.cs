@@ -58,10 +58,10 @@ namespace FantasyCyclingWeb.Controllers
 
         public ActionResult Draft()
         {            
-            FantasyYearConfig config = Repository.FantasyYearConfigGetDefault();
+            FantasyYearConfig config = Repository.FantasyYearConfigGetDefaultDraft();
             PDC_Season season = Repository.PDCSeasonGet(config.Year);
 
-            DashboardModel dm = new DashboardModel(config, season);
+            DashboardModel dm = new DashboardModel(config, season, true);
             DashboardViewModel vm = new DashboardViewModel(dm);
             
             return View("Index", vm);
