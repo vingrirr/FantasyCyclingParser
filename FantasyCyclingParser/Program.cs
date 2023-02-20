@@ -31,7 +31,40 @@ namespace FantasyCyclingParser
 
         static void Main(string[] args)
         {
-            
+
+            #region copy draft teams from pre-season to season
+            //PDC_Season draft = Repository.PDCSeasonGetById("63dc076c479bd474f069fa63");
+            //PDC_Season curr = Repository.PDCSeasonGetById("63f37daf479bd479dcaa6837");
+
+            //curr.DraftTeams = draft.DraftTeams;
+
+            //Repository.PDCSeasonUpdate(curr);
+
+            //int g = 0;
+
+            #endregion
+
+            #region create new Fantasy Config by Cloning existing one
+
+            //FantasyYearConfig prev = Repository.FantasyYearConfigGet("621273f698d7278314b8dda7").First();
+            //prev.IsDefault = false; 
+
+
+
+            //FantasyYearConfig curr = new FantasyYearConfig(2023);
+            //curr.ConfigName = "The Rise of ChatGPT_PDC";
+            //curr.TeamUIDS = prev.TeamUIDS;
+            //curr.IsDefault = true;
+            //curr.IsDraft = false;
+            //curr.URLToAddPDCTeam = "";
+
+
+            //Repository.FantasyYearConfigInsert(curr);
+            //Repository.FantasyYearConfigUpdate(prev);
+
+            //int c = 0; 
+
+            #endregion
 
             //FantasyYearConfig config = Repository.FantasyYearConfigGetDefaultDraft();
 
@@ -96,13 +129,13 @@ namespace FantasyCyclingParser
 
 
             #region snake draft
-            List<string> teams = new List<string>();
-            teams.Add("Ryan");
-            teams.Add("Dana");
-            teams.Add("Tim");
-            teams.Add("Alex");
-            teams.Add("Allen");
-            teams.Add("Bill");
+            //List<string> teams = new List<string>();
+            //teams.Add("Ryan");
+            //teams.Add("Dana");
+            //teams.Add("Tim");
+            //teams.Add("Alex");
+            //teams.Add("Allen");
+            //teams.Add("Bill");
 
             // SnakeDraft draft = new SnakeDraft(teams, 25);
 
@@ -181,6 +214,8 @@ namespace FantasyCyclingParser
             //BuildSeason(2020);
 
             //BuildPreSeason(2023);
+            //BuildSeason(2023);
+
 
             // Utilities.NationalityList["FRA"] = new Nationality({ Name="France", PDC_URL=})
             //int year = 2022;

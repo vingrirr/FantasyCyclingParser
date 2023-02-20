@@ -1,10 +1,5 @@
 
 
-----From Draft---- 
-
-Dana - add Simon Carr
-Tim - remove Carr, add Mathius Vacek
-
 ---UI Stuff----
 
 - Get rid of Drag and drop
@@ -17,4 +12,8 @@ Tim - remove Carr, add Mathius Vacek
 - Need to fix rider names
 - Rounds were showing wrong...but may be b/c of 3 people and not 6
 - TeamView page needs to show picks left, points left, and the "calculate combinations" page
+- make a combinations calculator page
+- how to alert when windows service stops?
+- how to alert when website is offline/IP has changed?
+- once draft is complete, how to lock it down?
 

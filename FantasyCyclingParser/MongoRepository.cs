@@ -56,7 +56,10 @@ namespace FantasyCyclingParser
             return items;
         }
 
-
+        public static void FantasyYearConfigUpdate(FantasyYearConfig config)
+        {
+            (new MongoRepository<FantasyYearConfig>()).Update(config);
+        }
 
         //race results now stored and updated as part of the season
         //public static List<PDC_Result> RaceResultsAll()
@@ -70,6 +73,13 @@ namespace FantasyCyclingParser
         {
             MongoRepository<PDC_Season> season = new MongoRepository<PDC_Season>();
             PDC_Season item = season.Where(x => x.Year == year).FirstOrDefault();
+
+            return item;
+        }
+        public static PDC_Season PDCSeasonGetById(string id)
+        {
+            MongoRepository<PDC_Season> season = new MongoRepository<PDC_Season>();
+            PDC_Season item = season.Where(x => x.Id == id).FirstOrDefault();
 
             return item;
         }
