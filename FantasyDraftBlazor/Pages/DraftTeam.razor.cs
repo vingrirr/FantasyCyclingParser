@@ -11,7 +11,7 @@ namespace FantasyDraftBlazor.Pages
         string animateClass = "";
         [CascadingParameter] DraftContainer Container { get; set; }
         [Parameter] public DraftTeamViewModel Team { get; set; }
-        
+        [Parameter] public Rider RiderToDraft { get; set; }
         [Parameter] public bool IsAdmin   { get; set; }
         protected override async Task OnInitializedAsync()
         {
@@ -42,7 +42,7 @@ namespace FantasyDraftBlazor.Pages
 
             Team.RiderToDraft = Container.Payload;
             Team.Calculate();
-            await Container.UpdateRiderAsync();
+            await Container.DraftRiderAsync();
         }
         private async Task RemoveRider()
         {
@@ -75,7 +75,7 @@ namespace FantasyDraftBlazor.Pages
                 //animateClass = "animate__animated animate__backOutLeft animate__delay-2s";
                 Team.Model.Riders.Add(Team.RiderToDraft);
                 //Team.RiderToDraft = null;
-                Team.Calculate();
+                //Team.Calculate();
                 
                 await Container.SaveChangesAsync(Team);
                 

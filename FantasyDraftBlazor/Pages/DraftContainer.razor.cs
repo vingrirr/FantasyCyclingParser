@@ -7,8 +7,10 @@ namespace FantasyDraftBlazor.Pages
     public partial class DraftContainer : ComponentBase
     {
         [Parameter] public List<Rider> RiderList { get; set; }
+        [Parameter] public DraftTeamViewModel CurrentDraftTeam { get; set; }
         [Parameter] public RenderFragment ChildContent { get; set; }
         [Parameter] public EventCallback<Rider> OnStatusUpdated { get; set; }
+        [Parameter] public EventCallback<Rider> OnRiderDrafted { get; set; }
 
         [Parameter] public EventCallback<Rider> OnRiderUndo { get; set; }
         
@@ -19,10 +21,11 @@ namespace FantasyDraftBlazor.Pages
         [Parameter] public EventCallback<DraftTeamViewModel> OnExistingRiderUndo { get; set; }
         public Rider Payload { get; set; }
 
-        public async Task UpdateRiderAsync()
+        public async Task DraftRiderAsync()
         {
             RiderList.Remove(Payload);
-            await OnStatusUpdated.InvokeAsync(Payload);
+            CurrentDraftTeam.RiderToDraft = Payload;  
+            await OnRiderDrafted.InvokeAsync(Payload);
         }
 
         public async Task UndoRiderAsync()

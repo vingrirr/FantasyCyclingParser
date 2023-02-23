@@ -14,17 +14,6 @@ namespace FantasyDraftBlazor.Pages
             DraftRound = 1;
             PickNumber = 1;
 
-
-            List<int> distinctPoints = new List<int>();
-            distinctPoints.Add(1);
-            distinctPoints.Add(2);
-            distinctPoints.Add(4);
-            distinctPoints.Add(6);
-
-            //for testing only...
-            //Combinations = new PointCombinations(distinctPoints, 14, 4);
-
-
             if (Season.DraftTeams.Count() == 0)
             {
                 //build initial draft teams
@@ -38,7 +27,9 @@ namespace FantasyDraftBlazor.Pages
             
             DraftTeams = new List<DraftTeamViewModel>();
             SelectedRiders = new List<Rider>();
-                                    
+            RiderToDraft = new Rider(); 
+            LastPickedRider = new Rider();  
+
             BuildSnakeDraft();
 
             #region for testing only - clear all riders 
@@ -63,10 +54,16 @@ namespace FantasyDraftBlazor.Pages
             Visibility = "visible";
 
         }
-        void HandleStatusUpdated(Rider updatedRider)
+        //void HandleStatusUpdated(Rider updatedRider)
+        //{
+        //    AvailableRiders.Remove(updatedRider);
+        //    SelectedRiders.Add(updatedRider);
+        //}
+        void HandleRiderDrafted(Rider updatedRider)
         {
             AvailableRiders.Remove(updatedRider);
-            SelectedRiders.Add(updatedRider);
+            // SelectedRiders.Add(updatedRider);
+            RiderToDraft = updatedRider;
         }
         void HandleRiderUndo(Rider addRider)
         {
@@ -77,7 +74,7 @@ namespace FantasyDraftBlazor.Pages
         {
 
             try
-            {
+            {                
                 // everytime we add a rider, we save the entire updated draft team to the season
                 if (Season.DraftTeams.Where(x => x.ID == team.ID).Count() > 0)
                 {
@@ -99,7 +96,9 @@ namespace FantasyDraftBlazor.Pages
                     Repository.DraftLogInsert(log);
                 }
 
+                LastPickedRider = team.RiderToDraft;
                 team.RiderToDraft = null;
+                RiderToDraft = null; 
                 
                 Draft.DraftOrder.RemoveAt(0); //basically this is pop
 
@@ -260,6 +259,9 @@ namespace FantasyDraftBlazor.Pages
 
         public List<Rider> AvailableRiders { get; set; }
         public List<Rider> SelectedRiders { get; set; }
+
+        public Rider RiderToDraft { get; set; }
+        public Rider LastPickedRider { get; set; }
 
         public List<DraftTeamViewModel> DraftTeams { get; set; }
         public DraftTeamViewModel CurrentTeam { get; set; }

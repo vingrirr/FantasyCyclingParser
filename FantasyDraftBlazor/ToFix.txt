@@ -3,24 +3,29 @@
 ---UI Stuff----
 
 
-- Show select rider list on far right
---- Just show last selected Rider on the right
---- Have a separate page that lists all selected riders which updates based on selection
 
-- Get rid of Drag and drop
+- Line chart is failing
+- Easy way to get prod data into Dev?
+
+- TeamView page needs to show picks left, points left, and the "calculate combinations" page
+- Have a separate page that lists all selected riders which updates based on selection
+
 - Snake or linear draft?
-
 - Make mobile friendly
 - Admin - add and delete does not seem to work
 - Admin - be able to set someone's turn 
 - The summary/recacluate seems to be wrong or confusing
 - Need to fix rider names
-- Rounds were showing wrong...but may be b/c of 3 people and not 6
-- TeamView page needs to show picks left, points left, and the "calculate combinations" page
 - make a combinations calculator page
 - how to alert when windows service stops?
 - how to alert when website is offline/IP has changed?
 - once draft is complete, how to lock it down?
-
 - Move Combinations table out of Index.  Needs to be own page and on teamview page
+- Make it so it can be done remotely using signalR
+- Add Rider pictures
 
+--Done, test more---
+
+- Get rid of Drag and drop 
+- Just show last selected Rider on the right
+- Rounds were showing wrong...but may be b/c of 3 people and not 6

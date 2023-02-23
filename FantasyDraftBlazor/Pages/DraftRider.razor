@@ -1,6 +1,7 @@
 ﻿
-<tr class="draggable" draggable="true" title="@Rider.Name" @ondragstart="@(() => HandleDragStart(Rider))">
+<tr  title="@Rider.Name">
     <td>@Rider.Name</td>
     <td>@Rider.CurrentYearCost</td>
     <td>@Rider.PreviousPoints</td>
+    <td> <MatButton Unelevated="true" @onclick="HandleDraftRider"><i class="oi oi-check " /> </MatButton></td>
 </tr>

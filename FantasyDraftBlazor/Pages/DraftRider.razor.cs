@@ -13,10 +13,11 @@ namespace FantasyDraftBlazor.Pages
 
        
         
-        private void HandleDragStart(Rider selectedRider)
+        private async Task HandleDraftRider()
         {
-            int x = 0; 
-            Container.Payload = selectedRider;
+            
+            Container.Payload = Rider;
+            await Container.DraftRiderAsync();
         }
 
         [Parameter] public Rider Rider { get; set; }

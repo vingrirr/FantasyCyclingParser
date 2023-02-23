@@ -83,22 +83,25 @@ namespace FantasyCyclingWeb.Models
             {
 
                 PDCTeam team = season.PDCTeams.FirstOrDefault(m => m.PDC_ID == ty.TeamUID);
-                _teams.Add(team);
+                
+                if (team != null) //wtf, why are some teams null?
+                    _teams.Add(team);
             }
             List<int> points = new List<int>();
 
             foreach (PDCTeam t in _teams)
             {
+               
+                    foreach (Rider r in t.Riders)
+                    {
 
-                foreach (Rider r in t.Riders)
-                {
-
-                    int raceResults = season.RaceResults.SelectMany(q => q.RaceResults.Where(p => p.Rider_PDCID == r.PDC_RiderID)).Sum(g => g.Points);
-                    points.Add(raceResults);
-                }
-                PDCTeamPoints ptp = new PDCTeamPoints(t.PDCTeamName, points.Sum());
-                _PDCTeamData.Add(ptp);
-                points.Clear();
+                        int raceResults = season.RaceResults.SelectMany(q => q.RaceResults.Where(p => p.Rider_PDCID == r.PDC_RiderID)).Sum(g => g.Points);
+                        points.Add(raceResults);
+                    }
+                    PDCTeamPoints ptp = new PDCTeamPoints(t.PDCTeamName, points.Sum());
+                    _PDCTeamData.Add(ptp);
+                    points.Clear();
+               
 
             }
         }

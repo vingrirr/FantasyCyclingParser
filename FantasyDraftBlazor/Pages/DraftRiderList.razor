@@ -9,14 +9,10 @@
                 <th>Name</th>
                 <th>Price</th>
                 <th> '@previousYear Points</th>
+                <th>Draft</th>
             </tr>
         </thead>
-        <tbody class="dropzone @dropClass"
-               ondragover="event.preventDefault();"
-               ondragstart="event.dataTransfer.setData('', event.target.id);"
-               @ondrop="HandleDrop"
-               @ondragenter="HandleDragEnter"
-               @ondragleave="HandleDragLeave">
+        <tbody>
             <GetFilterData 
                 Items=@RiderList GetFilterableText=@(item => $"{item.Name} {item.CurrentYearCost} " )>
                 <DraftRider Rider="@context" />
