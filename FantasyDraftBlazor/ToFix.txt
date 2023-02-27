@@ -3,18 +3,16 @@
 ---UI Stuff----
 
 
+- Admin - add and delete does not seem to work
+- Admin - be able to set someone's turn 
 
-- Line chart is failing
-- Easy way to get prod data into Dev?
-
+- The summary/recacluate seems to be wrong or confusing
 - TeamView page needs to show picks left, points left, and the "calculate combinations" page
 - Have a separate page that lists all selected riders which updates based on selection
 
 - Snake or linear draft?
 - Make mobile friendly
-- Admin - add and delete does not seem to work
-- Admin - be able to set someone's turn 
-- The summary/recacluate seems to be wrong or confusing
+
 - Need to fix rider names
 - make a combinations calculator page
 - how to alert when windows service stops?
@@ -23,9 +21,13 @@
 - Move Combinations table out of Index.  Needs to be own page and on teamview page
 - Make it so it can be done remotely using signalR
 - Add Rider pictures
+- Find undervalued riders by finding average of all riders cost/points scored and previous year and who is better than that average.
+
 
 --Done, test more---
 
+- Easy way to get prod data into Dev?
+- Line chart is failing
 - Get rid of Drag and drop 
 - Just show last selected Rider on the right
 - Rounds were showing wrong...but may be b/c of 3 people and not 6

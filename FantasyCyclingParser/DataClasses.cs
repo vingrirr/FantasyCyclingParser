@@ -725,6 +725,7 @@ namespace FantasyCyclingParser
         {
             Year = DateTime.Now.Year;
             DraftTeams = new List<PDCTeam>();
+            IsDev = false;
         }
         
         public void Create(int year)
@@ -819,6 +820,7 @@ namespace FantasyCyclingParser
         public List<PDC_Event> RaceCalendar { get; set; }
 
         public DateTime LastUpdated { get; set; }
+        public bool IsDev { get; set; }
     }
 
     public class RiderPhoto : Entity

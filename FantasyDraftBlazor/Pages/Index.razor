@@ -49,6 +49,13 @@
                 </div>
        *@
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+            @if (Season.IsDev){
+                <h4 style="color:red">DEV</h4>
+            }
+
+        </div>
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+
             <DraftContainer RiderList="AvailableRiders" CurrentDraftTeam="CurrentTeam" OnExistingRiderUndo="HandleRemoveExistingRider" OnRiderDrafted="HandleRiderDrafted" OnTeamSave="HandleSaveChanges" OnTimerUpdated="HandleTimerUpdated" OnRiderUndo="HandleRiderUndo">
               
                 <div class="mat-layout-grid-cell mat-layout-grid-cell">

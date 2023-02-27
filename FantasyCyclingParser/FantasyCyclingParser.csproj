@@ -134,6 +134,7 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="dbBackup.bat" />
     <None Include="libmongocrypt.dylib" />
     <None Include="libmongocrypt.so" />
     <None Include="NLog.config" />
