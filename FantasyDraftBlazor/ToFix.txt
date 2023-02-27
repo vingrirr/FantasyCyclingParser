@@ -5,7 +5,7 @@
 
 - Admin - add and delete does not seem to work
 - Admin - be able to set someone's turn 
-
+- Get teams/draft teams by name instead of uisng GUIDs?
 - The summary/recacluate seems to be wrong or confusing
 - TeamView page needs to show picks left, points left, and the "calculate combinations" page
 - Have a separate page that lists all selected riders which updates based on selection

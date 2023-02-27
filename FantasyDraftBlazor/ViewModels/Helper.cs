@@ -23,27 +23,29 @@ namespace FantasyDraftBlazor.ViewModels
                 Repository.PDCSeasonUpdate(Season);
             }
 
+            DraftTeams = new List<DraftTeamViewModel>();
+            SelectedRiders = new List<Rider>();
+            RiderToDraft = new Rider();
+            LastPickedRider = new Rider();
 
+            BuildSnakeDraft();
+            //PDCTeam dana = Season.DraftTeams.Where(x => x.ID == "fc2e7a01-3a31-4aa2-bdcc-1203933932bc").First();
+            //PDCTeam allen = Season.DraftTeams.Where(x => x.ID == "3ab287a5-5a34-4dda-9203-a6bc2404ee15").First();
+            //PDCTeam alex = Season.DraftTeams.Where(x => x.ID == "7b8e450c-1079-4cc6-bc7a-42479657799d").First();
+            //PDCTeam tim = Season.DraftTeams.Where(x => x.ID == "0b90f656-e1f0-4a9b-af34-5724f126a13b").First();
+            //PDCTeam ryan = Season.DraftTeams.Where(x => x.ID == "c9c8d30e-6264-4455-b60a-d50b7bac983c").First();
+            //PDCTeam bill = Season.DraftTeams.Where(x => x.ID == "1ebb9ae7-0467-4522-b4dc-fe7fc7803806").First();
 
-
+            //Dana = new DraftTeamViewModel(dana);
+            //Allen = new DraftTeamViewModel(allen);
+            //Alex = new DraftTeamViewModel(alex);
+            //Tim = new DraftTeamViewModel(tim);
+            //Ryan = new DraftTeamViewModel(ryan);
+            //Bill = new DraftTeamViewModel(bill);
 
             //note: Must load available riders after draft teams have been made so we filter out
             //any already selected riders
             LoadAvailableRiders();
-
-            PDCTeam dana = Season.DraftTeams.Where(x => x.ID == "fc2e7a01-3a31-4aa2-bdcc-1203933932bc").First();
-            PDCTeam allen = Season.DraftTeams.Where(x => x.ID == "3ab287a5-5a34-4dda-9203-a6bc2404ee15").First();
-            PDCTeam alex = Season.DraftTeams.Where(x => x.ID == "7b8e450c-1079-4cc6-bc7a-42479657799d").First();
-            PDCTeam tim = Season.DraftTeams.Where(x => x.ID == "0b90f656-e1f0-4a9b-af34-5724f126a13b").First();
-            PDCTeam ryan = Season.DraftTeams.Where(x => x.ID == "c9c8d30e-6264-4455-b60a-d50b7bac983c").First();
-            PDCTeam bill = Season.DraftTeams.Where(x => x.ID == "1ebb9ae7-0467-4522-b4dc-fe7fc7803806").First();
-
-            Dana = new DraftTeamViewModel(dana);
-            Allen = new DraftTeamViewModel(allen);
-            Alex = new DraftTeamViewModel(alex);
-            Tim = new DraftTeamViewModel(tim);
-            Ryan = new DraftTeamViewModel(ryan);
-            Bill = new DraftTeamViewModel(bill);
         }
 
         public void HandleRemoveExistingRider(DraftTeamViewModel team)
@@ -66,6 +68,8 @@ namespace FantasyDraftBlazor.ViewModels
 
                 AvailableRiders.Add(team.RiderToAddBackToDraft);
                 SelectedRiders.Remove(team.RiderToAddBackToDraft);
+
+
 
                 //todo: add "action" to the draft log then log the removal of rider
 
@@ -198,23 +202,23 @@ namespace FantasyDraftBlazor.ViewModels
 
             Draft = new SnakeDraft(initialDraftOrder, 25);
 
-            DraftTeamViewModel d = new DraftTeamViewModel(dana);
-            DraftTeams.Add(d);
+            Dana = new DraftTeamViewModel(dana);
+            DraftTeams.Add(Dana);
 
-            DraftTeamViewModel al = new DraftTeamViewModel(allen);
-            DraftTeams.Add(al);
+            Allen = new DraftTeamViewModel(allen);
+            DraftTeams.Add(Allen);
 
-            DraftTeamViewModel ax = new DraftTeamViewModel(alex);
-            DraftTeams.Add(ax);
+            Alex = new DraftTeamViewModel(alex);
+            DraftTeams.Add(Alex);
 
-            DraftTeamViewModel t = new DraftTeamViewModel(tim);
-            DraftTeams.Add(t);
+            Tim = new DraftTeamViewModel(tim);
+            DraftTeams.Add(Tim);
 
-            DraftTeamViewModel r = new DraftTeamViewModel(ryan);
-            DraftTeams.Add(r);
+            Ryan = new DraftTeamViewModel(ryan);
+            DraftTeams.Add(Ryan);
 
-            DraftTeamViewModel b = new DraftTeamViewModel(bill);
-            DraftTeams.Add(b);
+            Bill = new DraftTeamViewModel(bill);
+            DraftTeams.Add(Bill);
 
         }
 

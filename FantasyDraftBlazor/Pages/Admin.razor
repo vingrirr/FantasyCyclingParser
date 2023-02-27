@@ -9,7 +9,7 @@
 
 <hr />
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-            <DraftContainer RiderList="AvailableRiders" OnExistingRiderUndo="Helper.HandleRemoveExistingRider" OnRiderDrafted="Helper.HandleRiderDrafted" OnTeamSave="Helper.HandleSaveChanges" OnRiderUndo="Helper.HandleRiderUndo">
+            <DraftContainer RiderList="Helper.AvailableRiders" OnExistingRiderUndo="Helper.HandleRemoveExistingRider" OnRiderDrafted="Helper.HandleRiderDrafted" OnTeamSave="Helper.HandleSaveChanges" OnRiderUndo="Helper.HandleRiderUndo">
 
                 <div class="mat-layout-grid-cell mat-layout-grid-cell">
                     <DraftRiderList ></DraftRiderList>
@@ -18,22 +18,22 @@
              <div class="mat-layout-grid-cell mat-layout-grid-cell">   
         <MatTabGroup>
             <MatTab Label="Dana">                
-                    <DraftTeam Team="Dana" IsAdmin="true"></DraftTeam>
+                    <DraftTeam Team="Helper.Dana" IsAdmin="true"></DraftTeam>
                 </MatTab>
             <MatTab Label="Ryan">
-                    <DraftTeam Team="Ryan" IsAdmin="true"></DraftTeam>
+                    <DraftTeam Team="Helper.Ryan" IsAdmin="true"></DraftTeam>
             </MatTab>
                 <MatTab Label="Tim">
-                    <DraftTeam Team="Tim" IsAdmin="true"></DraftTeam>
+                    <DraftTeam Team="Helper.Tim" IsAdmin="true"></DraftTeam>
                 </MatTab>
                 <MatTab Label="Alex">
-                    <DraftTeam Team="Alex" IsAdmin="true"></DraftTeam>
+                    <DraftTeam Team="Helper.Alex" IsAdmin="true"></DraftTeam>
                 </MatTab>
                 <MatTab Label="Allen">
-                    <DraftTeam Team="Allen" IsAdmin="true"></DraftTeam>
+                    <DraftTeam Team="Helper.Allen" IsAdmin="true"></DraftTeam>
                 </MatTab>
                 <MatTab Label="Bill">
-                    <DraftTeam Team="Bill" IsAdmin="true"></DraftTeam>
+                    <DraftTeam Team="Helper.Bill" IsAdmin="true"></DraftTeam>
                 </MatTab>
             
  
