@@ -9,15 +9,15 @@
 
 <hr />
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-            <DraftContainer RiderList="Helper.AvailableRiders" OnExistingRiderUndo="Helper.HandleRemoveExistingRider" OnRiderDrafted="Helper.HandleRiderDrafted" OnTeamSave="Helper.HandleSaveChanges" OnRiderUndo="Helper.HandleRiderUndo">
+            <DraftContainer @ref="draftContainer" RiderList="Helper.AvailableRiders" OnExistingRiderUndo="Helper.HandleRemoveExistingRider" OnRiderDrafted="Helper.HandleRiderDrafted" OnTeamSave="Helper.HandleSaveChanges" OnRiderUndo="Helper.HandleRiderUndo">
 
                 <div class="mat-layout-grid-cell mat-layout-grid-cell">
                     <DraftRiderList ></DraftRiderList>
                 </div>
 
-             <div class="mat-layout-grid-cell mat-layout-grid-cell">   
-        <MatTabGroup>
-            <MatTab Label="Dana">                
+             <div class="mat-layout-grid-cell mat-layout-grid-cell">
+            <MatTabGroup Id="tabGroup" ActiveIndexChanged="TabClick">
+                <MatTab Label="Dana">
                     <DraftTeam Team="Helper.Dana" IsAdmin="true"></DraftTeam>
                 </MatTab>
             <MatTab Label="Ryan">

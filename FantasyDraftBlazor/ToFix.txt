@@ -2,8 +2,6 @@
 
 ---UI Stuff----
 
-
-- Admin - add and delete does not seem to work
 - Admin - be able to set someone's turn 
 - Get teams/draft teams by name instead of uisng GUIDs?
 - The summary/recacluate seems to be wrong or confusing
@@ -31,3 +29,4 @@
 - Get rid of Drag and drop 
 - Just show last selected Rider on the right
 - Rounds were showing wrong...but may be b/c of 3 people and not 6
+- Admin - add and delete 
