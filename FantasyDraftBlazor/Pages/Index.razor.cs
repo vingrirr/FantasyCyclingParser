@@ -1,13 +1,12 @@
 ﻿using FantasyCyclingParser;
 using FantasyDraftBlazor.ViewModels;
-using Microsoft.AspNetCore.Http;
 
 namespace FantasyDraftBlazor.Pages
 {
     public partial class Index
     {
         protected override void OnInitialized()
-        {             
+        {
             Config = Repository.FantasyYearConfigGetDefaultDraft();
             Season = Repository.PDCSeasonGet(Config.Year);
 
@@ -21,17 +20,17 @@ namespace FantasyDraftBlazor.Pages
                 foreach (PDCTeamYear t in Config.TeamUIDS)
                 {
                     PDCTeam temp = new PDCTeam(t, true);
-                    Season.DraftTeams.Add(temp);                    
+                    Season.DraftTeams.Add(temp);
                 }
                 Repository.PDCSeasonUpdate(Season);
             }
-            
+
             DraftTeams = new List<DraftTeamViewModel>();
             SelectedRiders = new List<Rider>();
-            RiderToDraft = new Rider(); 
-            LastPickedRider = new Rider();  
+            RiderToDraft = new Rider();
+            LastPickedRider = new Rider();
 
-            BuildSnakeDraft();
+            BuildDraft();
 
             #region for testing only - clear all riders 
 
@@ -75,7 +74,7 @@ namespace FantasyDraftBlazor.Pages
         {
 
             try
-            {                
+            {
                 // everytime we add a rider, we save the entire updated draft team to the season
                 if (Season.DraftTeams.Where(x => x.ID == team.ID).Count() > 0)
                 {
@@ -99,13 +98,13 @@ namespace FantasyDraftBlazor.Pages
 
                 LastPickedRider = team.RiderToDraft;
                 team.RiderToDraft = null;
-                RiderToDraft = null; 
-                
+                RiderToDraft = null;
+
                 Draft.DraftOrder.RemoveAt(0); //basically this is pop
 
-                if (Draft.DraftOrder.Count() > 1) 
-                { 
-                    
+                if (Draft.DraftOrder.Count() > 1)
+                {
+
                     DraftPick currPick = Draft.DraftOrder[0];
                     DraftPick nextPick = Draft.DraftOrder[1];
                     CurrentTeam = DraftTeams.Where(x => x.ID == currPick.ID).First();
@@ -119,7 +118,7 @@ namespace FantasyDraftBlazor.Pages
                 else if (Draft.DraftOrder.Count() == 1)
                 {
                     DraftPick currPick = Draft.DraftOrder[0];
-                    
+
                     CurrentTeam = DraftTeams.Where(x => x.ID == currPick.ID).First();
                     NextTeam = null;
                 }
@@ -128,23 +127,23 @@ namespace FantasyDraftBlazor.Pages
                     Visibility = "hidden";
                 }
 
-                if (DraftRound >= 20)
-                {
-                    List<Rider> distinctRiders = AvailableRiders.DistinctBy(x => x.CurrentYearCost).ToList();
-                    List<int> distinctPoints = new List<int>();
-                    foreach (Rider r in distinctRiders.OrderByDescending(y => y.CurrentYearCost).ToList())
-                    {
-                        distinctPoints.Add(r.CurrentYearCost);
-                    }
+                //if (DraftRound >= 20)
+                //{
+                //    List<Rider> distinctRiders = AvailableRiders.DistinctBy(x => x.CurrentYearCost).ToList();
+                //    List<int> distinctPoints = new List<int>();
+                //    foreach (Rider r in distinctRiders.OrderByDescending(y => y.CurrentYearCost).ToList())
+                //    {
+                //        distinctPoints.Add(r.CurrentYearCost);
+                //    }
 
-                    Combinations = new PointCombinations(distinctPoints, CurrentTeam.BudgetAvailable, (25 - CurrentTeam.RiderCount));
-                }
+                //    Combinations = new PointCombinations(distinctPoints, CurrentTeam.BudgetAvailable, (25 - CurrentTeam.RiderCount));
+                //}
 
-                
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                DraftLogEntry err = new DraftLogEntry(0,0,"", ex.Message, ex.StackTrace);
+                DraftLogEntry err = new DraftLogEntry(0, 0, "", ex.Message, ex.StackTrace);
                 Repository.DraftLogInsert(err);
 
             }
@@ -187,11 +186,11 @@ namespace FantasyDraftBlazor.Pages
 
         void HandleTimerUpdated(int timer)
         {
-           // CurrentTeam = DanasTeam;
-            
+            // CurrentTeam = DanasTeam;
+
         }
 
-        private void BuildSnakeDraft()
+        private void BuildDraft()
         {
             //Dana - fc2e7a01-3a31-4aa2-bdcc-1203933932bc
             //Allen - 3ab287a5-5a34-4dda-9203-a6bc2404ee15
@@ -216,8 +215,11 @@ namespace FantasyDraftBlazor.Pages
             initialDraftOrder.Add(ryan);
             initialDraftOrder.Add(bill);
 
-            Draft = new SnakeDraft(initialDraftOrder, 25);
-            
+            //Draft = new SnakeDraft(initialDraftOrder, 25);
+
+            Draft = new StandardDraft(initialDraftOrder, 25);
+
+
             DraftTeamViewModel d = new DraftTeamViewModel(dana);
             DraftTeams.Add(d);
 
@@ -267,7 +269,7 @@ namespace FantasyDraftBlazor.Pages
         public List<DraftTeamViewModel> DraftTeams { get; set; }
         public DraftTeamViewModel CurrentTeam { get; set; }
         public DraftTeamViewModel NextTeam { get; set; }
-        public SnakeDraft Draft { get; set; }
+        public StandardDraft Draft { get; set; }
 
         public PointCombinations Combinations { get; set; }
         public int DraftRound { get; set; }

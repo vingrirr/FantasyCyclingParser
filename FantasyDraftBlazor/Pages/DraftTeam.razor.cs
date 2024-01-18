@@ -1,7 +1,6 @@
 ﻿using FantasyCyclingParser;
 using FantasyDraftBlazor.ViewModels;
 using Microsoft.AspNetCore.Components;
-using System.ComponentModel;
 
 namespace FantasyDraftBlazor.Pages
 {
@@ -12,7 +11,7 @@ namespace FantasyDraftBlazor.Pages
         [CascadingParameter] DraftContainer Container { get; set; }
         [Parameter] public DraftTeamViewModel Team { get; set; }
         [Parameter] public Rider RiderToDraft { get; set; }
-        [Parameter] public bool IsAdmin   { get; set; }
+        [Parameter] public bool IsAdmin { get; set; }
         protected override async Task OnInitializedAsync()
         {
 
@@ -21,7 +20,9 @@ namespace FantasyDraftBlazor.Pages
 
         protected override void OnParametersSet()
         {
-            int x = 0; 
+
+            Team.RiderToDraft = Container.Payload;
+            Team.Calculate();
         }
 
         private void HandleDragEnter()
@@ -50,18 +51,18 @@ namespace FantasyDraftBlazor.Pages
             Team.RiderToDraft = null;
             Team.Calculate();
             await Container.UndoRiderAsync();
-            
+
         }
         private async Task OverrideTeam()
-        {            
-            Team.IsUsingOverride = true;            
+        {
+            Team.IsUsingOverride = true;
         }
         private async Task RemoveExistingRider(string riderId)
         {
-            
+
             Rider r = Team.Model.Riders.Where(x => x.PDC_RiderID == riderId).First();
             Team.RiderToAddBackToDraft = r;
-            Team.Model.Riders.Remove(r);            
+            Team.Model.Riders.Remove(r);
             await Container.RemoveExistingRider(Team);
             Team.IsUsingOverride = false;
             Team.CanUseOverride = false;
@@ -76,13 +77,13 @@ namespace FantasyDraftBlazor.Pages
                 Team.Model.Riders.Add(Team.RiderToDraft);
                 //Team.RiderToDraft = null;
                 //Team.Calculate();
-                
+
                 await Container.SaveChangesAsync(Team);
-                
+
             }
         }
 
     }
 
-    
+
 }

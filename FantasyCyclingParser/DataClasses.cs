@@ -131,6 +131,7 @@ namespace FantasyCyclingParser
         public void CalculatePoints(List<PDC_Result> results)
         {
             CurrentYearPoints = results.SelectMany(q => q.RaceResults.Where(p => p.Rider_PDCID == PDC_RiderID)).Sum(g => g.Points);
+            //CurrentYearPoints = results.SelectMany(q => q.RaceResults.Where(p => p.Name == Name)).Sum(g => g.Points);
         }
 
         #region old stuff
@@ -576,7 +577,8 @@ namespace FantasyCyclingParser
             foreach (PDC_RaceResult r in RaceResults)
             {
                 //if a rider in the result exists in the PDCTeam, add up the points. 
-                if (t.Riders.Exists(x => x.Name == r.Name))
+                if (t.Riders.Exists(x => x.PDC_RiderID == r.Rider_PDCID))  //BETTER WAY TO COMPARE 
+                //if (t.Riders.Exists(x => x.Name == r.Name))  ......OLD, BAD WAY OF CALCULATING!
                 {
                     tp.Points += r.Points;
                 }

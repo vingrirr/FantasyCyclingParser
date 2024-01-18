@@ -1,24 +1,13 @@
-﻿using AngleSharp.Dom;
-using AngleSharp.Parser.Html;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GeneticSharp.Domain;
 using GeneticSharp.Domain.Chromosomes;
-using GeneticSharp.Domain.Fitnesses;
-using GeneticSharp.Domain.Terminations;
-using GeneticSharp.Domain.Selections;
 using GeneticSharp.Domain.Crossovers;
 using GeneticSharp.Domain.Mutations;
 using GeneticSharp.Domain.Populations;
-using GeneticSharp.Domain;
-using System.Threading;
-using GeneticSharp.Infrastructure.Threading;
-using System.Diagnostics;
-using System.Net;
-using MongoRepository;
+using GeneticSharp.Domain.Selections;
+using GeneticSharp.Domain.Terminations;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace FantasyCyclingParser
 {
@@ -32,17 +21,18 @@ namespace FantasyCyclingParser
         static void Main(string[] args)
         {
 
+            TestRegularDraft();
 
-            PDC_Season s = Repository.PDCSeasonGet(2023);
-            PDCTeam dana = s.DraftTeams.Where(d => d.ID == "fc2e7a01-3a31-4aa2-bdcc-1203933932bc").First();
-            PDCTeam tim = s.DraftTeams.Where(d => d.ID == "0b90f656-e1f0-4a9b-af34-5724f126a13b").First();
-            PDCTeam ryan = s.DraftTeams.Where(d => d.ID == "c9c8d30e-6264-4455-b60a-d50b7bac983c").First();
+            //    PDC_Season s = Repository.PDCSeasonGet(2023);
+            //PDCTeam dana = s.DraftTeams.Where(d => d.ID == "fc2e7a01-3a31-4aa2-bdcc-1203933932bc").First();
+            //PDCTeam tim = s.DraftTeams.Where(d => d.ID == "0b90f656-e1f0-4a9b-af34-5724f126a13b").First();
+            //PDCTeam ryan = s.DraftTeams.Where(d => d.ID == "c9c8d30e-6264-4455-b60a-d50b7bac983c").First();
 
-            int dSum = dana.Riders.Sum(k => k.CurrentYearCost);
-            int tSum = tim.Riders.Sum(k => k.CurrentYearCost);
-            int rSum = ryan.Riders.Sum(k => k.CurrentYearCost);
+            //int dSum = dana.Riders.Sum(k => k.CurrentYearCost);
+            //int tSum = tim.Riders.Sum(k => k.CurrentYearCost);
+            //int rSum = ryan.Riders.Sum(k => k.CurrentYearCost);
 
-            int z = 0;
+            //int z = 0;
 
             #region remove a rider from a draft team
             //PDC_Season s = Repository.PDCSeasonGet(2023);
@@ -164,7 +154,7 @@ namespace FantasyCyclingParser
             //teams.Add("Allen");
             //teams.Add("Bill");
 
-            // SnakeDraft draft = new SnakeDraft(teams, 25);
+            //SnakeDraft draft = new SnakeDraft(teams, 25);
 
             #endregion
 
@@ -254,9 +244,40 @@ namespace FantasyCyclingParser
 
             //IterateSeason(year);
 
-            int x = 0; 
-            
+            int x = 0;
+
         }
+
+
+        static void TestRegularDraft()
+        {
+
+            FantasyYearConfig Config = Repository.FantasyYearConfigGetDefaultDraft();
+            PDC_Season Season = Repository.PDCSeasonGet(Config.Year);
+
+            PDCTeam dana = Season.DraftTeams.Where(x => x.ID == "fc2e7a01-3a31-4aa2-bdcc-1203933932bc").First();
+            PDCTeam allen = Season.DraftTeams.Where(x => x.ID == "3ab287a5-5a34-4dda-9203-a6bc2404ee15").First();
+            PDCTeam alex = Season.DraftTeams.Where(x => x.ID == "7b8e450c-1079-4cc6-bc7a-42479657799d").First();
+            PDCTeam tim = Season.DraftTeams.Where(x => x.ID == "0b90f656-e1f0-4a9b-af34-5724f126a13b").First();
+            PDCTeam ryan = Season.DraftTeams.Where(x => x.ID == "c9c8d30e-6264-4455-b60a-d50b7bac983c").First();
+            PDCTeam bill = Season.DraftTeams.Where(x => x.ID == "1ebb9ae7-0467-4522-b4dc-fe7fc7803806").First();
+
+            List<PDCTeam> initialDraftOrder = new List<PDCTeam>();
+            initialDraftOrder.Add(dana);
+            initialDraftOrder.Add(allen);
+            initialDraftOrder.Add(alex);
+            initialDraftOrder.Add(tim);
+            initialDraftOrder.Add(ryan);
+            initialDraftOrder.Add(bill);
+
+            //Draft = new SnakeDraft(initialDraftOrder, 25);
+
+            var myDraft = new StandardDraft(initialDraftOrder, 25);
+            int t = 0;
+        }
+
+
+
 
         static void IterateSeason(int year)
         {
@@ -295,14 +316,14 @@ namespace FantasyCyclingParser
 
             int x = 0;
         }
-    
+
         static void BuildSeason(int year)
         {
             PDC_Season season = new PDC_Season();
             season.Create(year);
             season.UpdateResults();
             season.LastUpdated = DateTime.Now;
-            Repository.PDCSeasonInsert(season); 
+            Repository.PDCSeasonInsert(season);
 
         }
 
@@ -313,7 +334,7 @@ namespace FantasyCyclingParser
         static void BuildPreSeason(int year)
         {
             PDC_Season season = new PDC_Season();
-            season.CreatePreSeason(year);            
+            season.CreatePreSeason(year);
             season.LastUpdated = DateTime.Now;
             Repository.PDCSeasonInsert(season);
 
@@ -329,9 +350,9 @@ namespace FantasyCyclingParser
 
                 Repository.PDCSeasonUpdate(season);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                int x = 0; 
+                int x = 0;
             }
         }
         static void FindOptimalPDCTeam(List<Rider> riderList)
@@ -429,7 +450,7 @@ namespace FantasyCyclingParser
                 ga.Start();
             }
             catch (Exception)
-            {                
+            {
             }
 
             Console.ReadLine();

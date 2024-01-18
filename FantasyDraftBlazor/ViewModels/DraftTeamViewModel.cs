@@ -6,7 +6,7 @@ namespace FantasyDraftBlazor.ViewModels
     {
         public DraftTeamViewModel()
         {
-           // Riders = new List<DraftRiderViewModel>();
+            // Riders = new List<DraftRiderViewModel>();
         }
         public DraftTeamViewModel(PDCTeam team)
         {
@@ -22,16 +22,27 @@ namespace FantasyDraftBlazor.ViewModels
 
         public void Calculate()
         {
-            RiderCount = Model.Riders.Count();
+
 
             if (RiderToDraft != null)
+            {
                 TeamBudget = Model.Riders.Sum(x => x.CurrentYearCost) + RiderToDraft.CurrentYearCost;
+                RiderCount = Model.Riders.Count() + 1;
+                BudgetAvailable = 150 - TeamBudget;
+                Rider24ptCount = RiderToDraft.CurrentYearCost >= 24 ? Model.Riders.Count(x => x.CurrentYearCost >= 24) + 1 : Model.Riders.Count(x => x.CurrentYearCost >= 24);
+                Rider18ptCount = RiderToDraft.CurrentYearCost >= 18 ? Model.Riders.Count(x => x.CurrentYearCost >= 18) + 1 : Model.Riders.Count(x => x.CurrentYearCost >= 18);
+            }
             else
+            {
                 TeamBudget = Model.Riders.Sum(x => x.CurrentYearCost);
+                RiderCount = Model.Riders.Count();
+                BudgetAvailable = 150 - TeamBudget;
+                Rider24ptCount = Model.Riders.Count(x => x.CurrentYearCost >= 24);
+                Rider18ptCount = Model.Riders.Count(x => x.CurrentYearCost >= 18);
+            }
 
-            BudgetAvailable = 150 - TeamBudget;
-            Rider24ptCount = Model.Riders.Count(x => x.CurrentYearCost >= 24);
-            Rider18ptCount = Model.Riders.Count(x => x.CurrentYearCost >= 18);
+
+
         }
 
         public bool Validate()
