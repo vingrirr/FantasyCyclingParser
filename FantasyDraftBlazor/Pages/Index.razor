@@ -24,7 +24,10 @@
 
 <!--<img class="animate__animated animate__backOutLeft animate__delay-2s" src="data:image;base64,@System.Convert.ToBase64String(photo.Image)" /> -->
 
-
+<hr />
+   @if (Season.IsDev){
+    <MatButton Unelevated="true" @onclick="ClearAll">Clear All Riders From Teams</MatButton>
+   }
 <div class="mat-layout-grid" style="visibility: @Visibility">
     <div class="mat-layout-grid-inner">
         

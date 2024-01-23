@@ -26,7 +26,7 @@ namespace FantasyCyclingParser
             int pointer = 1;
             int draftRound = 1;
 
-            for (int m = 1; m < total; m++)
+            for (int m = 1; m <= total; m++)
             {
                 DraftPick dp = new DraftPick();
                 dp.TeamName = Teams[pointer - 1].PDCTeamName;

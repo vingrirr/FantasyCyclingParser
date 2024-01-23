@@ -1,5 +1,4 @@
 ﻿using FantasyCyclingParser;
-using FantasyDraftBlazor.Pages;
 
 namespace FantasyDraftBlazor.ViewModels
 {
@@ -11,6 +10,8 @@ namespace FantasyDraftBlazor.ViewModels
             Season = Repository.PDCSeasonGet(Config.Year);
 
 
+            DraftRound = 1;
+            PickNumber = 1;
 
             if (Season.DraftTeams.Count() == 0)
             {
@@ -28,24 +29,28 @@ namespace FantasyDraftBlazor.ViewModels
             RiderToDraft = new Rider();
             LastPickedRider = new Rider();
 
-            BuildSnakeDraft();
-            //PDCTeam dana = Season.DraftTeams.Where(x => x.ID == "fc2e7a01-3a31-4aa2-bdcc-1203933932bc").First();
-            //PDCTeam allen = Season.DraftTeams.Where(x => x.ID == "3ab287a5-5a34-4dda-9203-a6bc2404ee15").First();
-            //PDCTeam alex = Season.DraftTeams.Where(x => x.ID == "7b8e450c-1079-4cc6-bc7a-42479657799d").First();
-            //PDCTeam tim = Season.DraftTeams.Where(x => x.ID == "0b90f656-e1f0-4a9b-af34-5724f126a13b").First();
-            //PDCTeam ryan = Season.DraftTeams.Where(x => x.ID == "c9c8d30e-6264-4455-b60a-d50b7bac983c").First();
-            //PDCTeam bill = Season.DraftTeams.Where(x => x.ID == "1ebb9ae7-0467-4522-b4dc-fe7fc7803806").First();
+            BuildDraft();
 
-            //Dana = new DraftTeamViewModel(dana);
-            //Allen = new DraftTeamViewModel(allen);
-            //Alex = new DraftTeamViewModel(alex);
-            //Tim = new DraftTeamViewModel(tim);
-            //Ryan = new DraftTeamViewModel(ryan);
-            //Bill = new DraftTeamViewModel(bill);
+            #region for testing only - clear all riders 
+
+            //foreach (PDCTeam t in Season.DraftTeams)
+            //{
+            //    t.Riders.Clear();
+            //}
+
+            //Repository.PDCSeasonUpdate(Season);
+
+            #endregion
+
+            DraftPick currPick = Draft.DraftOrder[0];
+            DraftPick nextPick = Draft.DraftOrder[1];
+            CurrentTeam = DraftTeams.Where(x => x.ID == currPick.ID).First();
+            NextTeam = DraftTeams.Where(x => x.ID == nextPick.ID).First();
 
             //note: Must load available riders after draft teams have been made so we filter out
             //any already selected riders
             LoadAvailableRiders();
+            Visibility = "visible";
         }
 
         public void HandleRemoveExistingRider(DraftTeamViewModel team)
@@ -173,7 +178,54 @@ namespace FantasyDraftBlazor.ViewModels
 
             }
         }
+        private void BuildDraft()
+        {
+            //Dana - fc2e7a01-3a31-4aa2-bdcc-1203933932bc
+            //Allen - 3ab287a5-5a34-4dda-9203-a6bc2404ee15
+            //Alex - 7b8e450c-1079-4cc6-bc7a-42479657799d
+            //Tim - 0b90f656-e1f0-4a9b-af34-5724f126a13b
+            //Ryan - c9c8d30e-6264-4455-b60a-d50b7bac983c
+            //Bill - 1ebb9ae7-0467-4522-b4dc-fe7fc7803806
 
+            PDCTeam dana = Season.DraftTeams.Where(x => x.ID == "fc2e7a01-3a31-4aa2-bdcc-1203933932bc").First();
+            PDCTeam allen = Season.DraftTeams.Where(x => x.ID == "3ab287a5-5a34-4dda-9203-a6bc2404ee15").First();
+            PDCTeam alex = Season.DraftTeams.Where(x => x.ID == "7b8e450c-1079-4cc6-bc7a-42479657799d").First();
+            PDCTeam tim = Season.DraftTeams.Where(x => x.ID == "0b90f656-e1f0-4a9b-af34-5724f126a13b").First();
+            PDCTeam ryan = Season.DraftTeams.Where(x => x.ID == "c9c8d30e-6264-4455-b60a-d50b7bac983c").First();
+            PDCTeam bill = Season.DraftTeams.Where(x => x.ID == "1ebb9ae7-0467-4522-b4dc-fe7fc7803806").First();
+
+
+            List<PDCTeam> initialDraftOrder = new List<PDCTeam>();
+            initialDraftOrder.Add(dana);
+            initialDraftOrder.Add(allen);
+            initialDraftOrder.Add(alex);
+            initialDraftOrder.Add(tim);
+            initialDraftOrder.Add(ryan);
+            initialDraftOrder.Add(bill);
+
+            //Draft = new SnakeDraft(initialDraftOrder, 25);
+
+            Draft = new StandardDraft(initialDraftOrder, 25);
+
+            Dana = new DraftTeamViewModel(dana);
+            DraftTeams.Add(Dana);
+
+            Allen = new DraftTeamViewModel(allen);
+            DraftTeams.Add(Allen);
+
+            Alex = new DraftTeamViewModel(alex);
+            DraftTeams.Add(Alex);
+
+            Tim = new DraftTeamViewModel(tim);
+            DraftTeams.Add(Tim);
+
+            Ryan = new DraftTeamViewModel(ryan);
+            DraftTeams.Add(Ryan);
+
+            Bill = new DraftTeamViewModel(bill);
+            DraftTeams.Add(Bill);
+
+        }
 
         private void BuildSnakeDraft()
         {
@@ -200,7 +252,8 @@ namespace FantasyDraftBlazor.ViewModels
             initialDraftOrder.Add(ryan);
             initialDraftOrder.Add(bill);
 
-            Draft = new SnakeDraft(initialDraftOrder, 25);
+            //this needs to be snackdraft or better is IDraft interface
+            //Draft = new StandardDraft(initialDraftOrder, 25);
 
             Dana = new DraftTeamViewModel(dana);
             DraftTeams.Add(Dana);
@@ -247,7 +300,7 @@ namespace FantasyDraftBlazor.ViewModels
         public List<DraftTeamViewModel> DraftTeams { get; set; }
         public DraftTeamViewModel CurrentTeam { get; set; }
         public DraftTeamViewModel NextTeam { get; set; }
-        public SnakeDraft Draft { get; set; }
+        public StandardDraft Draft { get; set; }
 
         public PointCombinations Combinations { get; set; }
         public List<Rider> AvailableRiders { get; set; }

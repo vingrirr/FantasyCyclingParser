@@ -256,6 +256,16 @@ namespace FantasyDraftBlazor.Pages
             }
         }
 
+
+        public async Task ClearAll()
+        {
+            foreach (DraftTeamViewModel t in DraftTeams)
+            {
+                t.Model.Riders.Clear();
+            }
+
+            Repository.PDCSeasonUpdate(Season);
+        }
         public FantasyYearConfig Config { get; set; }
 
         public PDC_Season Season { get; set; }
