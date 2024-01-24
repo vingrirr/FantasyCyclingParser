@@ -13,6 +13,7 @@ namespace FantasyDraftBlazor.Pages
 
             DraftRound = 1;
             PickNumber = 1;
+            DraftPointer = 0;
 
             if (Season.DraftTeams.Count() == 0)
             {
@@ -43,8 +44,8 @@ namespace FantasyDraftBlazor.Pages
 
             #endregion
 
-            DraftPick currPick = Draft.DraftOrder[0];
-            DraftPick nextPick = Draft.DraftOrder[1];
+            DraftPick currPick = Draft.DraftOrder[DraftPointer];
+            DraftPick nextPick = Draft.DraftOrder[DraftPointer + 1];
             CurrentTeam = DraftTeams.Where(x => x.ID == currPick.ID).First();
             NextTeam = DraftTeams.Where(x => x.ID == nextPick.ID).First();
             PreviousTeam = null;
@@ -100,13 +101,17 @@ namespace FantasyDraftBlazor.Pages
                 team.RiderToDraft = null;
                 RiderToDraft = null;
 
-                Draft.DraftOrder.RemoveAt(0); //basically this is pop
-
+                // Draft.DraftOrder.RemoveAt(0); //basically this is pop
+                DraftPointer++;
                 PreviousTeam = team;
-                if (Draft.DraftOrder.Count() > 1)
+
+
+                //TODO: make this a variable and stuff!!!!
+                //if (Draft.DraftOrder.Count() > 1)
+                if (DraftPointer < 149)
                 {
-                    DraftPick currPick = Draft.DraftOrder[0];
-                    DraftPick nextPick = Draft.DraftOrder[1];
+                    DraftPick currPick = Draft.DraftOrder[DraftPointer];
+                    DraftPick nextPick = Draft.DraftOrder[DraftPointer + 1];
                     CurrentTeam = DraftTeams.Where(x => x.ID == currPick.ID).First();
                     NextTeam = DraftTeams.Where(x => x.ID == nextPick.ID).First();
 
@@ -115,9 +120,12 @@ namespace FantasyDraftBlazor.Pages
                     if (((PickNumber - 1) % DraftTeams.Count()) == 0)
                         DraftRound++;
                 }
-                else if (Draft.DraftOrder.Count() == 1)
+
+                //TODO: make this a variable and stuff, not 149
+                //else if (Draft.DraftOrder.Count() == 1)
+                else if (DraftPointer == 149)
                 {
-                    DraftPick currPick = Draft.DraftOrder[0];
+                    DraftPick currPick = Draft.DraftOrder[DraftPointer];
 
                     CurrentTeam = DraftTeams.Where(x => x.ID == currPick.ID).First();
                     NextTeam = null;
@@ -258,6 +266,22 @@ namespace FantasyDraftBlazor.Pages
 
         public async Task UndoLastPick()
         {
+
+            if (DraftPointer == 0) //don't go our of bounds
+                return;
+
+
+            DraftPointer--;
+            DraftPick currPick = Draft.DraftOrder[DraftPointer];
+            DraftPick nextPick = Draft.DraftOrder[DraftPointer + 1];
+            CurrentTeam = DraftTeams.Where(x => x.ID == currPick.ID).First();
+            NextTeam = DraftTeams.Where(x => x.ID == nextPick.ID).First();
+
+            PickNumber--;
+
+            //TODO: CHECK THIS, if we undo at the end or begining of a round wtf happens...
+            if (((PickNumber - 1) % DraftTeams.Count()) == 0)
+                DraftRound--;
             //try
             //{
             //    // everytime we add a rider, we save the entire updated draft team to the season
@@ -303,6 +327,8 @@ namespace FantasyDraftBlazor.Pages
 
             Repository.PDCSeasonUpdate(Season);
         }
+
+        private int DraftPointer { get; set; }
         public FantasyYearConfig Config { get; set; }
 
         public PDC_Season Season { get; set; }
