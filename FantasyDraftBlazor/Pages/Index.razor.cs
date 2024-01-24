@@ -47,7 +47,7 @@ namespace FantasyDraftBlazor.Pages
             DraftPick nextPick = Draft.DraftOrder[1];
             CurrentTeam = DraftTeams.Where(x => x.ID == currPick.ID).First();
             NextTeam = DraftTeams.Where(x => x.ID == nextPick.ID).First();
-
+            PreviousTeam = null;
             //note: Must load available riders after draft teams have been made so we filter out
             //any already selected riders
             LoadAvailableRiders();
@@ -72,7 +72,6 @@ namespace FantasyDraftBlazor.Pages
         }
         void HandleSaveChanges(DraftTeamViewModel team)
         {
-
             try
             {
                 // everytime we add a rider, we save the entire updated draft team to the season
@@ -96,15 +95,16 @@ namespace FantasyDraftBlazor.Pages
                     Repository.DraftLogInsert(log);
                 }
 
+
                 LastPickedRider = team.RiderToDraft;
                 team.RiderToDraft = null;
                 RiderToDraft = null;
 
                 Draft.DraftOrder.RemoveAt(0); //basically this is pop
 
+                PreviousTeam = team;
                 if (Draft.DraftOrder.Count() > 1)
                 {
-
                     DraftPick currPick = Draft.DraftOrder[0];
                     DraftPick nextPick = Draft.DraftOrder[1];
                     CurrentTeam = DraftTeams.Where(x => x.ID == currPick.ID).First();
@@ -256,6 +256,43 @@ namespace FantasyDraftBlazor.Pages
             }
         }
 
+        public async Task UndoLastPick()
+        {
+            //try
+            //{
+            //    // everytime we add a rider, we save the entire updated draft team to the season
+            //    if (Season.DraftTeams.Where(x => x.ID == team.ID).Count() > 0)
+            //    {
+            //        PDCTeam temp = Season.DraftTeams.First(x => x.ID == team.ID);
+            //        Season.DraftTeams.Remove(temp);
+
+            //        Season.DraftTeams.Add(team.Model);
+            //    }
+            //    else
+            //    {
+            //        Season.DraftTeams.Add(team.Model);
+            //    }
+            //    Repository.PDCSeasonUpdate(Season);
+
+            //    AvailableRiders.Add(team.RiderToAddBackToDraft);
+            //    SelectedRiders.Remove(team.RiderToAddBackToDraft);
+
+
+
+            //    //todo: add "action" to the draft log then log the removal of rider
+
+            //    //DraftLogEntry log = new DraftLogEntry(DraftRound, PickNumber, team.TeamName, team.RiderToDraft.Name, team.RiderToDraft.PDC_RiderID);
+            //    //Repository.DraftLogInsert(log);
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    DraftLogEntry err = new DraftLogEntry(0, 0, "", ex.Message, ex.StackTrace);
+            //    Repository.DraftLogInsert(err);
+
+            //}
+
+        }
 
         public async Task ClearAll()
         {
@@ -279,6 +316,8 @@ namespace FantasyDraftBlazor.Pages
         public List<DraftTeamViewModel> DraftTeams { get; set; }
         public DraftTeamViewModel CurrentTeam { get; set; }
         public DraftTeamViewModel NextTeam { get; set; }
+
+        public DraftTeamViewModel PreviousTeam { get; set; }
         public StandardDraft Draft { get; set; }
 
         public PointCombinations Combinations { get; set; }
