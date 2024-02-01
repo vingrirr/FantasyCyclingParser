@@ -27,6 +27,8 @@
 <hr />
    @if (Season.IsDev){
     <MatButton Unelevated="true" @onclick="ClearAll">Clear All Riders From Teams</MatButton>
+    <br />
+    
    }
 <div class="mat-layout-grid" style="visibility: @Visibility">
     <div class="mat-layout-grid-inner">
@@ -59,7 +61,7 @@
         </div>
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
 
-            <DraftContainer RiderList="AvailableRiders" CurrentDraftTeam="CurrentTeam" OnExistingRiderUndo="HandleRemoveExistingRider" OnRiderDrafted="HandleRiderDrafted" OnTeamSave="HandleSaveChanges" OnTimerUpdated="HandleTimerUpdated" OnRiderUndo="HandleRiderUndo">
+            <DraftContainer RiderList="AvailableRiders" CurrentDraftTeam="CurrentTeam" OnExistingRiderUndo="HandleRemoveExistingRider" OnRiderDrafted="HandleRiderDrafted" OnTeamSave="HandleSaveChanges" OnTimerUpdated="HandleTimerUpdated" OnRiderUndo="HandleRiderUndo" OnUndoLastPick="HandleUndoLastPick">
               
                 <div class="mat-layout-grid-cell mat-layout-grid-cell">
                     <DraftRiderList ></DraftRiderList>
@@ -70,7 +72,8 @@
                     </div>
 
                     <div class="mat-layout-grid-cell mat-layout-grid-cell">
-                    <h3>Last Draft Pick: @LastPickedRider.Name </h3><MatButton Unelevated="true" @onclick="UndoLastPick">Undo</MatButton>
+                    <h3>Last Draft Pick: @LastPickedRider.Name </h3>
+                    <UndoLastRiderPicked></UndoLastRiderPicked>
                     </div>
 
                 @if (Combinations != null)

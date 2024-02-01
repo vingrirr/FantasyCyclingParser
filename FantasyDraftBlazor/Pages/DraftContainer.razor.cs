@@ -13,30 +13,32 @@ namespace FantasyDraftBlazor.Pages
         [Parameter] public EventCallback<Rider> OnRiderDrafted { get; set; }
 
         [Parameter] public EventCallback<Rider> OnRiderUndo { get; set; }
-        
+
 
         [Parameter] public EventCallback<int> OnTimerUpdated { get; set; }
 
         [Parameter] public EventCallback<DraftTeamViewModel> OnTeamSave { get; set; }
         [Parameter] public EventCallback<DraftTeamViewModel> OnExistingRiderUndo { get; set; }
+
+        [Parameter] public EventCallback<DraftTeamViewModel> OnUndoLastPick { get; set; }
         public Rider Payload { get; set; }
 
         public async Task DraftRiderAsync()
         {
             RiderList.Remove(Payload);
-            CurrentDraftTeam.RiderToDraft = Payload;  
+            CurrentDraftTeam.RiderToDraft = Payload;
             await OnRiderDrafted.InvokeAsync(Payload);
         }
 
         public async Task UndoRiderAsync()
         {
-           // RiderList.Add(Payload);
+            // RiderList.Add(Payload);
             await OnRiderUndo.InvokeAsync(Payload);
         }
-        public async Task AddRiderAsync(Rider rider)
+        public async Task UndoLastPickAsync()
         {
-            // RiderList.Add(Payload);
-            await OnRiderUndo.InvokeAsync(rider);
+
+            await OnUndoLastPick.InvokeAsync();
         }
 
         public async Task RemoveExistingRider(DraftTeamViewModel team)
@@ -46,7 +48,7 @@ namespace FantasyDraftBlazor.Pages
         }
 
         public async Task UpdateTimer()
-        {            
+        {
             await OnTimerUpdated.InvokeAsync(0);
         }
 

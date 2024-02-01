@@ -98,13 +98,15 @@ namespace FantasyDraftBlazor.Pages
 
 
                 LastPickedRider = team.RiderToDraft;
-                team.RiderToDraft = null;
-                RiderToDraft = null;
+
 
                 // Draft.DraftOrder.RemoveAt(0); //basically this is pop
                 DraftPointer++;
                 PreviousTeam = team;
+                PreviousTeam.RiderToAddBackToDraft = team.RiderToDraft; //set this if we have to undo
 
+                team.RiderToDraft = null;
+                RiderToDraft = null;
 
                 //TODO: make this a variable and stuff!!!!
                 //if (Draft.DraftOrder.Count() > 1)
@@ -165,6 +167,8 @@ namespace FantasyDraftBlazor.Pages
                 if (Season.DraftTeams.Where(x => x.ID == team.ID).Count() > 0)
                 {
                     PDCTeam temp = Season.DraftTeams.First(x => x.ID == team.ID);
+
+                    temp.Riders.Remove(team.RiderToAddBackToDraft);
                     Season.DraftTeams.Remove(temp);
 
                     Season.DraftTeams.Add(team.Model);
@@ -264,12 +268,46 @@ namespace FantasyDraftBlazor.Pages
             }
         }
 
-        public async Task UndoLastPick()
+        void HandleUndoLastPick()
         {
 
             if (DraftPointer == 0) //don't go our of bounds
                 return;
 
+
+            try
+            {
+                // everytime we add a rider, we save the entire updated draft team to the season
+                if (Season.DraftTeams.Where(x => x.ID == PreviousTeam.ID).Count() > 0)
+                {
+                    PDCTeam temp = Season.DraftTeams.First(x => x.ID == PreviousTeam.ID);
+                    temp.Riders.Remove(PreviousTeam.RiderToAddBackToDraft);
+                    Season.DraftTeams.Remove(temp);
+
+                    Season.DraftTeams.Add(PreviousTeam.Model);
+                }
+                else
+                {
+                    Season.DraftTeams.Add(PreviousTeam.Model);
+                }
+                Repository.PDCSeasonUpdate(Season);
+
+                AvailableRiders.Add(PreviousTeam.RiderToAddBackToDraft);
+                SelectedRiders.Remove(PreviousTeam.RiderToAddBackToDraft);
+                // SelectedRiders.Remove(PreviousTeam.RiderToAddBackToDraft);
+
+                //todo: add "action" to the draft log then log the removal of rider
+
+                //DraftLogEntry log = new DraftLogEntry(DraftRound, PickNumber, team.TeamName, team.RiderToDraft.Name, team.RiderToDraft.PDC_RiderID);
+                //Repository.DraftLogInsert(log);
+
+            }
+            catch (Exception ex)
+            {
+                DraftLogEntry err = new DraftLogEntry(0, 0, "", ex.Message, ex.StackTrace);
+                Repository.DraftLogInsert(err);
+
+            }
 
             DraftPointer--;
             DraftPick currPick = Draft.DraftOrder[DraftPointer];
@@ -280,7 +318,7 @@ namespace FantasyDraftBlazor.Pages
             PickNumber--;
 
             //TODO: CHECK THIS, if we undo at the end or begining of a round wtf happens...
-            if (((PickNumber - 1) % DraftTeams.Count()) == 0)
+            if ((((PickNumber - 1) % DraftTeams.Count()) == 0) && DraftRound != 1)
                 DraftRound--;
             //try
             //{
